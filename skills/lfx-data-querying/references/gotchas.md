@@ -131,12 +131,15 @@ headings in those documents.
 
 - **Symptom.** A Joint Development Foundation series shows few or no
   memberships under its own slug.
-- **Cause.** The series' memberships attach to its `-fund` counterpart
-  slug, not the series slug.
-- **Check.** Ask for both slugs, in one call or two as the lane allows, and
-  say which the figure covers.
-- **Documented.** The `query_lfx_lens` tool description (a JDF series plus
-  its `-fund` parent is one call).
+- **Cause.** Memberships attach at foundation level, and a JDF series'
+  memberships sit on its `-fund` parent slug, not the series slug.
+- **Check.** A series and its `-fund` parent are two slugs; ask for both,
+  in one call or two as the lane allows, and say which the figure covers.
+  Re-verify against the live tools before relying on it.
+- **Documented.** SM "Inventory" (the memberships row: memberships attach
+  at foundation level); the `query_lfx_lens` tool description (a JDF series
+  plus its `-fund` parent is one call). Neither names the `-fund` slug
+  pattern itself; the pairing is practice.
 
 ## 11. Governance rosters
 

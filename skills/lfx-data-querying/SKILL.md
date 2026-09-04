@@ -165,8 +165,8 @@ Symptom, cause, check and guidance section for each:
    catch-all bucket; scope a foundation with the foundation dimension.
 9. The unattributed row is never an organisation, never folded into a
    parent; a descending sort puts it first — re-sort before a top-N.
-10. Memberships of a JDF series sit on its `-fund` counterpart slug; ask
-    for both.
+10. Memberships of a JDF series sit on its `-fund` parent slug; ask for
+    both.
 11. Governance rosters come from the committee tools, never inferred.
 12. Meeting figures come from the meeting tools and are "visible to you";
     aggregate meeting metrics are an interim layer recipe, labelled.
