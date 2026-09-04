@@ -197,8 +197,8 @@ headings in those documents.
   a breakdown by slug. SL "Scope".
 - **Churn dates fall the day after the term ends**, so a year-end churn
   lands in the following year. SM "Inventory" (the membership-churn row).
-- **Speakers over-read**: the source counts proposal submitters, accepted
-  or not. SM "Inventory" (speakers).
+- **Speakers are accepted speakers only**, distinct people, and carry no
+  organisation scope. SM "Inventory" (the speakers row).
 - **Training and certification are platform data**: lifetime totals read
   below the official trained figure, and one branch carries no account.
   SM "Inventory" (the training-enrollments and certifications rows).

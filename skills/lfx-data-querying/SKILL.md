@@ -153,8 +153,8 @@ Symptom, cause, check and guidance section for each:
    assemble.
 3. Two organisation vocabularies (CRM legal name; enrichment spelling)
    never mix in one answer.
-4. Bots are excluded by default in contributor and activity figures (the
-   LFX Insights convention); say so once.
+4. Bots are excluded by convention in contributor and activity figures;
+   say so once.
 5. Organisation shares are computed on the org-attributed base; the
    unattributed share is stated once, separately.
 6. Headcount for "how many people", volume for "share of work"; distinct

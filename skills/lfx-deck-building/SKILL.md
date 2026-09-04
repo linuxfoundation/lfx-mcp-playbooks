@@ -33,10 +33,9 @@ They are written on the data-notes slide (section 3).
    parent grain. Choose once; say which; and when a slide names a company,
    say what the name covered (the account alone, or it and everything
    under it).
-3. **Population.** Bots excluded in contributor and activity figures (the
-   LFX Insights convention); shares computed on the org-attributed base,
-   with the unattributed share stated once on the data-notes slide, not
-   hidden.
+3. **Population.** Bots excluded by convention in contributor and
+   activity figures; shares computed on the org-attributed base, with the
+   unattributed share stated once on the data-notes slide, not hidden.
 4. **Headcount versus volume.** People for "how many"; work for "share".
    Never one presented as the other; distinct counts never summed across
    rows; the two organisation vocabularies never mixed across slides.

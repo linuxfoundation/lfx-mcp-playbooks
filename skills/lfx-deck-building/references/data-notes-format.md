@@ -16,7 +16,7 @@ Before the table, state once:
 Conventions
   Window:          <trailing twelve months to yyyy-mm-dd | calendar yyyy | ...>
   Org grain:       <legal entity | parent company, subsidiaries folded>
-  Population:      bots excluded (LFX Insights convention); shares on the
+  Population:      bots excluded by convention; shares on the
                    org-attributed base; unattributed share stated below
   Headcount/volume: people for "how many"; work for "share"
   Source lanes:    headline figures = standard metrics; <exceptions listed>
