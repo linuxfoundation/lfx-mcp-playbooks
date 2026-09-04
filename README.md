@@ -68,8 +68,8 @@ them to those rules:
   measured ratio. Where an order of magnitude helps ("several times",
   "an order of magnitude"), it is qualitative; anything measured carries
   the date it was measured and an instruction to re-run.
-- **Only deployed tools.** Every tool named exists on the production LFX
-  MCP server. Nothing is described as coming.
+- **Only deployed tools.** Every tool named exists on the deployed LFX MCP
+  server. Nothing is described as coming.
 - **Parameters live in the guidance.** A playbook names a lane and a job;
   the guidance document names the parameter.
 - **Answers in the reader's words.** Prose for the person who asked; field

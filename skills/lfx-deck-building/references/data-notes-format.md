@@ -21,7 +21,7 @@ Conventions
   Headcount/volume: people for "how many"; work for "share"
   Source lanes:    headline figures = standard metrics; <exceptions listed>
   Scope per slide: stated on each figure slide; sections: <section → scope>
-  Regions:         LF region grouping is provisional pending stakeholder sign-off
+Note: LF region grouping is provisional pending stakeholder sign-off
 
 Run date:          <yyyy-mm-dd> (figures pulled <yyyy-mm-dd> to <yyyy-mm-dd>)
 Snapshot:          <table refresh times from the SQL assistant's snapshot
@@ -43,7 +43,7 @@ here is a real value):
 
 | Slide | Figure | Source (lane; family or metric; scope as applied; window; population) | Coverage and caveats |
 |---|---|---|---|
-| `<slide id>` | "`<n>` companies are members of CNCF" | Standard metric; memberships, one figure; CNCF and its subprojects, folded; as of `<yyyy-mm-dd>` (today at run: status-based); distinct project–account pairs with an active term | Governed. Memberships attach at foundation level. Count, not revenue: the list-price value is a separate figure. |
+| `<slide id>` | "`<n>` companies are members of CNCF" | Standard metric; memberships, one figure; CNCF and its subprojects as one figure; as of `<yyyy-mm-dd>`; `<the definition sentence the tool returned>` | Governed. Memberships attach at foundation level. Count, not revenue: the list-price value is a separate figure. |
 
 The *Source* cell is the provenance block of the querying playbook,
 compressed: lane first, then the family or the metric as named by the tool,

@@ -44,25 +44,25 @@ social listening or people rankings — those are standard metrics. Guidance:
 
 **Service tools** — names, records, governance, meetings. `search_projects`
 resolves project slugs, `search_b2b_orgs` organisation legal names.
-Governance rosters: `search_committees`, `search_committee_members`,
-`get_committee`, `get_committee_member`. Meetings: `search_meetings`,
-`search_past_meetings`, `search_past_meeting_participants`,
-`search_meeting_registrants`, `search_past_meeting_summaries`,
-`get_meeting`, `get_past_meeting`, `get_past_meeting_participant`.
-Membership records: `search_members`, `get_member_membership`. Figures
-counted from these are "what is visible to you": say so.
+Rosters: `search_committees`, `search_committee_members`, `get_committee`,
+`get_committee_member`. Meetings: `search_meetings`, `search_past_meetings`,
+`search_past_meeting_participants`, `search_meeting_registrants`,
+`search_past_meeting_summaries`, `get_meeting`, `get_past_meeting`,
+`get_past_meeting_participant`. Membership records: `search_members`,
+`get_member_membership`. Figures counted from these are "what is visible to
+you": say so.
 
 ## 2. Routing
 
-Decide in this order, and stop at the first lane that fits:
+Decide in this order; stop at the first lane that fits.
 
 1. **Read the guidance** for the lane, once per session.
 2. **Governance or meetings?** Rosters, seats, chairs, voting status:
    committee tools. Meeting lists, one meeting's details, participants:
    meeting tools. Neither goes to the layer or the assistant. One interim
    exception: aggregate meeting *metrics* (attendances over a period, by
-   company or committee) are for now a semantic-layer recipe ("Worked
-   recipes" in the semantic-layer guidance), labelled interim ad hoc.
+   company or committee) are a semantic-layer recipe ("Worked recipes" in
+   the semantic-layer guidance), labelled interim ad hoc.
 3. **Does a family match?** Read "Inventory" in the standard-metrics
    guidance and match by what the family answers. Past-date and year-end
    membership counts, series by period, "top contributors", "top
@@ -79,19 +79,19 @@ Decide in this order, and stop at the first lane that fits:
 
 ## 3. Discovery
 
-- **Resolve names first.** Project slugs from `search_projects`;
-  organisation legal names from `search_b2b_orgs`. Stored spellings are not
-  everyday ones. A name either tool returned this session may be reused; a
-  name that has not come back from them is never passed.
-- **Zero rows means a wrong literal until proven otherwise.** The semantic
-  layer returns zero rows, not an error, for a real dimension with a
-  nonexistent value. Check spelling and scope before reporting absence —
-  "Value discovery" in the semantic-layer guidance.
+- **Resolve names first.** Project slugs from `search_projects`,
+  organisation legal names from `search_b2b_orgs`; stored spellings are
+  not everyday ones. A name either tool returned this session may be
+  reused; one that has not come back from them is never passed.
+- **Zero rows means a wrong literal until proven otherwise.** The layer
+  returns zero rows, not an error, for a real dimension with a nonexistent
+  value. Check spelling and scope before reporting absence — "Value
+  discovery" in the semantic-layer guidance.
 - **Copy dimension names from explore output.** Qualified names carry an
-  entity prefix that differs per metric. Never assemble one; never reuse
+  entity prefix that differs per metric; never assemble one, never reuse
   one remembered from another session.
-- **Look up a literal you have not seen** before filtering on it. Tier
-  names differ per foundation; country and region spellings are the stored
+- **Look up a literal you have not seen** before filtering on it; tier
+  names differ per foundation, country and region spellings are the stored
   form.
 
 ## 4. Answering
@@ -112,8 +112,8 @@ subsidiaries", "LF-wide"), **window** ("the last twelve months to
 yesterday", "as of the end of last year"), **population** ("people with a
 code contribution, bots excluded"; "accepted registrations"; "list-price
 membership value, not dues billed"). A default that was applied is stated
-as if chosen. Where a region grouping is used, say the LF region grouping
-is provisional pending stakeholder sign-off.
+as if chosen. A region grouping is said to be provisional pending
+stakeholder sign-off.
 
 ### 4.3 The provenance block
 
@@ -130,10 +130,11 @@ interim.
 ### 4.4 When the tool pushes back
 
 - **`truncated` is true**: the answer is "the top N", never "all". Say so
-  or re-run with a larger row cap.
-- **An unknown slug is rejected** (with candidates): pick one or go back to
-  `search_projects`. Never present a candidate as the asker's choice; never
-  retry the everyday name.
+  or re-run for the full set.
+- **An unknown slug is rejected** (with candidates — "Errors" in the
+  standard-metrics guidance): pick one or go back to `search_projects`.
+  Never present a candidate as the asker's choice; never retry the everyday
+  name.
 - **An organisation is rejected** (no data-bearing account matches): pick
   the parent legal name among the candidates or go back to
   `search_b2b_orgs`. Never sum stray same-company accounts into a parent.
@@ -144,7 +145,7 @@ interim.
 
 ## 5. The gotchas that survive
 
-One line each; symptom, cause, check and the guidance section in
+Symptom, cause, check and guidance section for each:
 [references/gotchas.md](references/gotchas.md).
 
 1. Unresolved names return zero rows or a rejection; resolve first.
@@ -164,8 +165,8 @@ One line each; symptom, cause, check and the guidance section in
    catch-all bucket; scope a foundation with the foundation dimension.
 9. The unattributed row is never an organisation, never folded into a
    parent; a descending sort puts it first — re-sort before a top-N.
-10. Memberships of a JDF series sit on its `-fund` sibling slug; ask for
-    both.
+10. Memberships of a JDF series sit on its `-fund` counterpart slug; ask
+    for both.
 11. Governance rosters come from the committee tools, never inferred.
 12. Meeting figures come from the meeting tools and are "visible to you";
     aggregate meeting metrics are an interim layer recipe, labelled.
@@ -175,11 +176,11 @@ One line each; symptom, cause, check and the guidance section in
 
 ## 6. Before reporting any number
 
-- Every literal came from this session's output.
-- Zero rows: spelling and scope checked before "none".
+- Every literal came from this session's output; zero rows had spelling
+  and scope checked before "none".
 - Magnitude cross-framed against a second reading (one scope level up, a
-  related figure it must sit inside).
-- The unattributed row is not an organisation.
+  related figure it must sit inside); the unattributed row is not an
+  organisation.
 - Lane, scope, window, population in the reader's words; provenance block
   present; `truncated`, defaults and coverage read from the `applied`
   block, not from the request you think you sent.

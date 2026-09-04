@@ -94,7 +94,7 @@ not cover.
 
 Once per deck, at the top of the appendix:
 
-- the six conventions of section 1, as chosen;
+- the six conventions of section 1, as chosen, and the region note;
 - the run date (or the date range over which figures were pulled);
 - the snapshot: the table refresh times the SQL assistant reports, when
   that lane was used; otherwise the run date stands for freshness;
@@ -143,8 +143,8 @@ platform query as if it reproduced a published headline.
   own history; a lifetime headline is a published figure and is cited as
   one.
 - **Committee members' countries.** Roster records carry organisation and
-  role, not country; a "from N countries" claim about a committee is not
-  reproducible.
+  role; country is not a roster field, so a "from N countries" claim about
+  a committee is not reproducible.
 - **Mentorship and crowdfunding.** Out of scope of the tools; published
   figures, cited as such.
 - **Any figure whose population the tools cannot state.** If no lane can

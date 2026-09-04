@@ -30,9 +30,9 @@ headings in those documents.
 
 ## 2. Hand-assembled dimension names
 
-- **Symptom.** "Unknown dimension", or a "did you mean" list that omits the
-  name you need, or a query that runs against a dimension from the wrong
-  entity and returns a different population.
+- **Symptom.** An error on the dimension name, or a "did you mean" list
+  that omits the name you need, or a query that runs against a dimension
+  from the wrong entity and returns a different population.
 - **Cause.** Qualified dimension names are entity-prefixed and the prefix
   differs per metric; the fuzzy match on an unknown name is not
   authoritative.
@@ -73,8 +73,8 @@ headings in those documents.
 - **Check.** Share of work is volume over the org-attributed base of the
   same metric, scope and window; the unattributed share is stated once,
   separately.
-- **Documented.** SL "Worked recipes" 2 and 3; SM "Inventory"
-  (contributions, maintainer_contributions).
+- **Documented.** SL "Worked recipes" 2 and 3; SM "Inventory" (the
+  contributions and maintainer-contributions rows).
 
 ## 6. Headcount versus volume; distinct counts
 
@@ -95,22 +95,22 @@ headings in those documents.
 - **Symptom.** A project count or a software value several times too large.
 - **Cause.** Health and software value are one row per project per day;
   aggregating across days counts each project once per day.
-- **Check.** Health and value figures come from their families, which read
-  the latest snapshot on or before the end date; an ad hoc reading filters
-  to one health-bearing date before aggregating.
-- **Documented.** SM "The two kinds, with examples", "Inventory"
-  (project_health, software_value); SL "Worked recipes" 8 and 9.
+- **Check.** Health and value figures come from their families, which pin
+  the snapshot; an ad hoc reading filters to one health-bearing date before
+  aggregating.
+- **Documented.** SM "The two kinds, with examples", "Inventory" (the
+  project-health and software-value rows); SL "Worked recipes" 8 and 9.
 
 ## 8. Foundation slug on the plain project column
 
 - **Symptom.** A foundation's activity figure an order of magnitude too
   small, with no error.
 - **Cause.** The plain project slug of a foundation matches only the
-  foundation's own catch-all bucket, not its projects. In the standard
-  metrics the project scope covers the whole tree by default, so this trap
-  is specific to ad hoc queries.
-- **Check.** A foundation is scoped with the foundation dimension or the
-  spine; the answer says "and its projects".
+  foundation's own catch-all bucket, not its projects. The standard
+  metrics' scope handling is different and documented; this trap is
+  specific to ad hoc queries.
+- **Check.** A foundation is scoped with the foundation dimension; the
+  answer says "and its projects".
 - **Documented.** SL "Scope"; SM "Projects and subprojects".
 
 ## 9. The unattributed row
@@ -131,20 +131,19 @@ headings in those documents.
 
 - **Symptom.** A Joint Development Foundation series shows few or no
   memberships under its own slug.
-- **Cause.** The series' memberships attach to its `-fund` sibling slug,
-  not the series slug.
-- **Check.** Ask for both slugs (the SQL assistant takes several slugs in
-  one call; the standard metrics take one per call — two calls), and say
-  which the figure covers.
-- **Documented.** The `query_lfx_lens` tool description (a series plus its
-  `-fund` parent is one call). Re-verify on the live tool.
+- **Cause.** The series' memberships attach to its `-fund` counterpart
+  slug, not the series slug.
+- **Check.** Ask for both slugs, in one call or two as the lane allows, and
+  say which the figure covers.
+- **Documented.** The `query_lfx_lens` tool description (a JDF series plus
+  its `-fund` parent is one call).
 
 ## 11. Governance rosters
 
 - **Symptom.** A board or committee membership stated from tier, event or
   activity data.
 - **Cause.** Rosters live only in the committee tools; every other source
-  is inference and has put fabricated seats on slides.
+  is inference.
 - **Check.** Any seat, chair or voting status came from
   `search_committee_members`, paginated to the end.
 - **Documented.** SL "Routing", "Worked recipes" 12.
@@ -155,7 +154,7 @@ headings in those documents.
   or a meeting metric fetched from a lane that does not hold it.
 - **Cause.** The meeting tools return the meetings visible to the caller;
   aggregate meeting metrics (attendances over a period, by company or
-  committee) are for now a semantic-layer recipe, where a row is one
+  committee) are an interim semantic-layer recipe, where a row is one
   invitee at one occurrence, so the figure is attendances, not people.
 - **Check.** Lists and details from the meeting tools, labelled "visible to
   you"; aggregates from the layer recipe, labelled interim and worded
@@ -194,12 +193,12 @@ headings in those documents.
 - **Twin slugs exist** for some project families; a low total sends you to
   a breakdown by slug. SL "Scope".
 - **Churn dates fall the day after the term ends**, so a year-end churn
-  lands in the following year. SM "Inventory" (membership_churn).
+  lands in the following year. SM "Inventory" (the membership-churn row).
 - **Speakers over-read**: the source counts proposal submitters, accepted
   or not. SM "Inventory" (speakers).
 - **Training and certification are platform data**: lifetime totals read
   below the official trained figure, and one branch carries no account.
-  SM "Inventory" (training_enrollments, certifications).
+  SM "Inventory" (the training-enrollments and certifications rows).
 - **Region groupings**: contributor country and region follow the person
   and are known for a minority of contributors; organisation region follows
   the employer's headquarters. The LF region grouping is provisional
