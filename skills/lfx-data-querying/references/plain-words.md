@@ -199,7 +199,11 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
 - **Other readings:** the wider index population (by population); any
   home-made threshold on the raw score over every project in the index —
   an order of magnitude away from the family's Healthy band; an average
-  across days (a snapshot error).
+  across days (a snapshot error). An ad hoc reading on the daily health
+  fact is bounded to the rows carrying a v2 score — the layer exposes
+  that population as a dimension on the daily health metrics — because
+  the unscored rows are a population of their own, roughly as large, and
+  carry no score; the current-state metrics are already anchored on it.
 - **Offer it as:** "N LF-hosted projects scored, M in the Healthy band as
   the score defines it; the wider index is a separate population."
 

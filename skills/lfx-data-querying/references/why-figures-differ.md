@@ -250,6 +250,15 @@ row, not one day. *SM* "Inventory" (project_health, software_value).
 LF-hosted projects from the wider index; a headline is LF-hosted unless
 it says otherwise. *SM* "Inventory" (project_health).
 
+**Scored vs unscored rows.** The daily health fact holds rows with a v2
+score and rows without one, in comparable numbers; the family reads the
+scored ones. An ad hoc count over the fact without bounding to the
+scored population reads far higher, and an ad hoc average over it is
+defined only on the scored rows. The layer exposes the scored population
+as a dimension on the daily health metrics; the current-state metrics
+carry no such switch because they are already anchored on a score. *SL*
+"Worked recipes" 8.
+
 ## Meetings and rosters
 
 **Attendances vs attendees vs invitees vs occurrences.** The interim
