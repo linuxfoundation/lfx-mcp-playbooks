@@ -135,9 +135,11 @@ subprojects".
 **Whole tree vs one level vs one hop.** The standard metrics walk a
 project's tree and a company's subsidiaries to any depth; the semantic
 layer's project dimensions reach a foundation completely but a node below
-it only one level down, and its account roll-up reaches one hop. A
-subtree or company figure read ad hoc is smaller than the governed one by
-the deeper levels. *SL* "Scope" (REACH).
+it only one level down, and its account roll-up reaches one hop — except
+where the top-parent and path dimensions are declared (activity and
+maintainer models today; not memberships), which reach any depth ad hoc.
+A subtree or company figure read on a one-hop dimension is smaller than
+the governed one by the deeper levels. *SL* "Scope" (REACH).
 
 **Spine subtree vs segment bucket.** On activity data, one dimension walks
 the project spine (every node under a project), another holds a project's
@@ -193,12 +195,13 @@ certifications).
 people never sums to the folded figure; the folded figure comes from its
 own call. Volumes add; people do not. *SM* "The switches, row by row".
 
-**Maintainers: LF projects vs the whole index; roster vs account entity.**
+**Maintainers: LF projects vs the whole index; account alone vs group.**
 The family counts maintainers of LF projects as of today; an ad hoc count
-over the whole index reads higher. A company's maintainers through the
-account entity at any depth `[not yet in production: DBT-2 account entity
-on maintainers]` — until then the ad hoc reading reaches one hop.
-*SM* "Inventory" (maintainers); *SL* "Worked recipes" 11.
+over the whole index reads higher. A company's maintainers including
+subsidiaries at any depth: the family's subsidiaries switch, or ad hoc
+through the layer's top-parent dimension on maintainers (two roots can
+share a name; the identifier is the exact key). *SM* "Inventory"
+(maintainers); *SL* "Worked recipes" 11.
 
 **Maintainer contributions: roster as of the build, activity in the
 window.** People on today's roster, their contributions over the window;

@@ -108,10 +108,9 @@ governed.
 
 **Maintainers from the company, by project.** Standard metrics,
 maintainers by project with the company as the organisation; LF projects
-only, as of today, roster-based. The company's subsidiaries' maintainers
-fold in only through the account hierarchy `[not yet in production: DBT-2
-account entity on maintainers at any depth — until then: the account
-alone, or one hop ad hoc, said so]`. Label: governed.
+only, as of today, roster-based. The group view (subsidiaries at any
+depth) is the family's subsidiaries switch, or ad hoc through the layer's
+top-parent dimension on maintainers, said so. Label: governed / ad hoc.
 
 **Share of a project's work.** Volume over the org-attributed base of the
 same metric, scope and window; the unattributed share stated once on the

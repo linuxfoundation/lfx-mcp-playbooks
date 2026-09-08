@@ -80,14 +80,23 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   on the activity families it covers "<slug> and every project under it
   on the project spine, folded"; on memberships it is that programme
   plus what the spine maps under it (next to nothing for the umbrella).
+- **"How many projects does X have":** the semantic layer's directory
+  project count (the warehouse's project tree, filtered or grouped by
+  foundation) is the governed reading. The project search tool and any
+  count built on it cover only the projects onboarded into the platform
+  index — a subset, so a service-tool project count is never "all
+  projects of X" and is never reconciled against the directory count;
+  the search resolves names and slugs, nothing more. A second layer
+  count counts activity segments, a different population again.
 - **Other readings:** the project records' own tree (parents and
   children as the project service stores them — hosted foundations are
   the umbrella's children there but their own roots on the spine);
   "project communities" in the annual reports (published, definition has
   changed); health-scored projects (LF-hosted vs the wider index);
   repositories.
-- **Offer it as:** "CNCF and every project under it on the project spine"
-  / "the umbrella's own programme" / "the annual report's count, cited".
+- **Offer it as:** "N projects in the directory under CNCF" / "CNCF and
+  every project under it on the project spine" / "the umbrella's own
+  programme" / "the annual report's count, cited".
 
 ## New members
 
@@ -166,9 +175,12 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   date) on LF projects", distinct people.
 - **Other readings:** the whole maintainers index (includes non-LF
   projects; higher); maintainers as of a past period (the family's period
-  reading); maintainer contributions — "code contributions by people on
-  today's maintainer roster of the segment", with a distinct
-  contributing-maintainers count beside the volume.
+  reading); maintainers by company including subsidiaries at any depth —
+  the family's subsidiaries switch, or ad hoc through the layer's
+  top-parent dimension on maintainers (two roots can share a name, so the
+  identifier is the exact key); maintainer contributions — "code
+  contributions by people on today's maintainer roster of the segment",
+  with a distinct contributing-maintainers count beside the volume.
 - **Offer it as:** "N maintainers on LF projects as of today."
 
 ## Health, healthy projects

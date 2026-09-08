@@ -104,7 +104,9 @@ goes on the slide. The unattributed share is stated once. Label: interim
 vocabulary note]`.
 
 **Projects and working groups that met.** A distinct count of projects on
-the same data, floor by onboarding. Label: interim.
+the same data, floor by onboarding. Label: interim. (A foundation's
+project *population* is the layer's directory count, never the project
+search tool's index.)
 
 ## Section 3 — The developer community
 
@@ -151,9 +153,9 @@ several stored rows together. Label: governed, region provisional.
 
 **Maintainers, active maintainers.** Standard metrics, maintainers family:
 LF projects only, as of today, roster-based. An ad hoc count over the
-whole index reads higher. By company: the account vocabulary one hop
-today `[not yet in production: DBT-2 account entity on maintainers at
-any depth]`. Label: governed.
+whole index reads higher. By company: the family by organisation
+(subsidiaries folded with the switch), or ad hoc by the layer's
+top-parent dimension. Label: governed.
 
 ## Section 5 — Project health and software value
 

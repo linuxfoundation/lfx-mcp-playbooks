@@ -41,7 +41,10 @@ them; it never embellishes them. No parameters here, no counts.
 - **Does not select:** the project's own bucket alone (that is the
   "excluded" reading), nor a subtree read through the plain project column
   (which matches only the node's own bucket on ad hoc queries). Sum
-  metrics read ad hoc outside the spine inflate; counts do not.
+  metrics read ad hoc outside the spine inflate; counts do not. A count
+  of projects from the project search tool is the platform index (the
+  projects onboarded so far), never the project population: "how many
+  projects" is the layer's directory count.
 - **Forbidden:** "contributions to CNCF itself, not its projects" for a
   default reading; "CNCF and its projects" for a bucket-only reading; a
   foundation activity figure read on the plain project column presented as

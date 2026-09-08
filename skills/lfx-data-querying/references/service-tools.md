@@ -53,6 +53,12 @@ and the discipline that keeps a count of records honest.
   (the `-fund` sibling) holds the consortium's memberships.
 - **The umbrella is not a scope.** The Linux Foundation's own record is
   one bucket; LF-wide work leaves the project unset everywhere.
+- **The search is not a census.** Project records exist only for
+  projects onboarded into the platform; a foundation can have more
+  projects in the directory than the search returns. "How many projects
+  does X have" is the semantic layer's directory count; the search
+  resolves names and slugs, and a count made from it says "in the
+  platform index" and is never reconciled against the directory.
 - **Children of a foundation** come from the search's parent filter
   `[not yet in production: TOOLS-1 parent and legal-parent filters — until
   then: the semantic layer's foundation dimension grouped by project]`.
