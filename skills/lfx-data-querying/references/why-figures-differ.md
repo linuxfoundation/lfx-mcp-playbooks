@@ -133,13 +133,17 @@ apart on activity, with no error. *SL* "Scope"; *SM* "Projects and
 subprojects".
 
 **Whole tree vs one level vs one hop.** The standard metrics walk a
-project's tree and a company's subsidiaries to any depth; the semantic
-layer's project dimensions reach a foundation completely but a node below
-it only one level down, and its account roll-up reaches one hop — except
-where the top-parent and path dimensions are declared (activity and
-maintainer models today; not memberships), which reach any depth ad hoc.
-A subtree or company figure read on a one-hop dimension is smaller than
-the governed one by the deeper levels. *SL* "Scope" (REACH).
+project's tree and a company's subsidiaries to any depth. The semantic
+layer offers both reaches side by side, and the dimension chosen decides
+the figure: on the account entity the roll-up name folds one hop (the
+direct parent) while the top-parent name and the account path fold the
+whole group; on projects the foundation dimension reaches a foundation
+completely, the plain slug one node, the project path the subtree. A
+company figure read on the one-hop roll-up is smaller than the same
+figure on the top parent by every deeper subsidiary, and a top-parent
+figure matches the family's "including subsidiaries" reading only when
+the same root was resolved (two roots can share a display name; the
+identifier is the exact key). *SL* "Scope" (REACH).
 
 **Spine subtree vs segment bucket.** On activity data, one dimension walks
 the project spine (every node under a project), another holds a project's

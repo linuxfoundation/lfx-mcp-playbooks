@@ -35,9 +35,12 @@ compiled SQL for anyone who asks how a figure was made. Guidance:
 warehouse, for a grouping, filter or slice the families do not offer (a
 consortium, a meeting type, a direct-children list, a dimension a family
 has no switch for). Explore discovers names and stored values; query runs
-them. Reaches one hop on organisations and one level below a foundation on
-projects; a whole tree is a standard-metrics question. Answers are labelled
-ad hoc. Guidance: "Protocol", "Scope".
+them. On organisations the account entity carries both a one-hop roll-up
+(the direct parent) and the top-parent and path dimensions (the whole
+group, any depth); on projects a foundation dimension reaches the
+foundation completely, a node below it one level down, and the project
+path dimensions the subtree. Answers are labelled ad hoc. Guidance:
+"Protocol", "Scope".
 
 **SQL assistant** — `query_lfx_lens`. Generated SQL over the warehouse, for
 cross-domain joins and hierarchy shapes no standard metric expresses.

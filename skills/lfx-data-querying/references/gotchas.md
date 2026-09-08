@@ -221,6 +221,15 @@ tools is in [service-tools.md](service-tools.md).
 - **Day boundaries differ between lanes** (UTC on the standard metrics,
   US-Pacific on the layer's time filters); state the window, never claim
   an exact calendar day across lanes. SM "Reading results"; SL "Windows".
+- **The explore listing can lag the layer.** The dimensions that explore
+  lists for a metric come from a cached view that refreshes on its own
+  schedule, so on the day a definition ships a dimension can run at query
+  time while explore still omits it (measured 2026-09-08 on the account
+  path dimensions of the membership metrics). A rejection at query time
+  is authoritative; an omission in explore is not. That is no licence to
+  assemble names: copy the qualified name from explore's output for a
+  sibling metric on the same entity, run it, and treat the compiled SQL
+  as the proof of what was joined. SL "Value discovery".
 - **No refresh stamp exists yet.** No lane reports when its tables were
   last loaded; the same window re-run a day apart can move slightly. Record
   the run date with every figure and re-run rather than reconcile.
