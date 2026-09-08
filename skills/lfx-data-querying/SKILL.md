@@ -228,6 +228,20 @@ is a discovery failure, not a disagreement between sources; "sources
 differ" never goes in an answer. Where the applied block and a guidance
 sentence disagree on a definition, the applied block ran.
 
+### 4.6 The everyday word and its default reading
+
+"Organisations", "members", "developers", "projects", "revenue",
+"attendees", "last year" each have two or more readings on these tools.
+Answer with the default reading, name it in a clause, and offer the
+alternative in one sentence that says what the difference is — never the
+larger number by preference, never two readings as a contradiction.
+Organisations are legal organisations known to the CRM unless the reader
+asks for the broader inferred-employer view; members are memberships
+unless the reader asks for distinct organisations; developers who "took
+part" are participants, contributors the narrower reading. The list, with
+the offer sentence for each word:
+[references/plain-words.md](references/plain-words.md).
+
 ## 5. The gotchas that survive
 
 Symptom, cause, check and guidance section for each:

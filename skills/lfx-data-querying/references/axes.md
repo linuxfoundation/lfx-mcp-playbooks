@@ -15,11 +15,16 @@ them; it never embellishes them. No parameters here, no counts.
 
 ## 1. Project on memberships (and registrations, sponsorships)
 
-- **Selects:** that foundation's own membership programme — one slug,
-  the memberships attached to it.
-- **Does not select:** the memberships of foundations or projects beneath
-  it on the tree; they carry their own slugs. There is no subtree scope on
-  memberships. LF-wide is no project filter.
+- **Selects:** with the default fold, the memberships attached to that
+  slug plus whatever the warehouse's project spine places under it — and
+  hosted foundations are their own spine roots, so for the umbrella that
+  is its own programme and next to nothing else; with the "excluded"
+  switch, the programme alone. The applied sentence names which ran.
+- **Does not select:** the memberships of the hosted foundations (CNCF,
+  PyTorch and the rest carry their own slugs and their own spine roots);
+  the children the project records show under the umbrella (that is the
+  record tree, not the spine — two different trees). LF-wide is no project
+  filter.
 - **Forbidden:** "memberships in projects hosted under the LF", "the tlf
   bucket of N projects", "excluding CNCF and PyTorch" (they were never in
   scope), any child-project count glued to a membership figure.
@@ -29,8 +34,10 @@ them; it never embellishes them. No parameters here, no counts.
 
 ## 2. Project on the activity families (contributors, contributions, participants, maintainers)
 
-- **Selects:** the project and everything beneath it on the project spine,
-  folded, by default — the whole tree at any depth.
+- **Selects:** by default, the slug and every project under it on the
+  project spine, folded, at any depth; with "separate", one row per
+  project, and distinct counts do not add up across rows; with
+  "excluded", the slug's own bucket only, nothing under it.
 - **Does not select:** the project's own bucket alone (that is the
   "excluded" reading), nor a subtree read through the plain project column
   (which matches only the node's own bucket on ad hoc queries). Sum
@@ -39,9 +46,10 @@ them; it never embellishes them. No parameters here, no counts.
   default reading; "CNCF and its projects" for a bucket-only reading; a
   foundation activity figure read on the plain project column presented as
   the foundation's.
-- **Say instead:** "people with a code contribution to CNCF and its
-  projects" / "to the CNCF umbrella bucket only", whichever ran — the
-  applied block says which.
+- **Say instead:** "CNCF and every project under it on the project spine,
+  folded" / "one row per project; distinct counts do not add up across
+  rows" / "CNCF's own bucket only, nothing under it" — whichever the
+  applied sentence names.
 
 ## 3. The subprojects and subsidiaries switches
 
@@ -62,13 +70,17 @@ them; it never embellishes them. No parameters here, no counts.
 
 ## 4. Organisation: name, parent, vocabulary
 
-- **Selects:** the stored legal account name; every organisation row
-  carries the account and its parent; a company's figure is the account
-  unless a switch says otherwise.
+- **Selects:** the stored legal account name, on every family — the
+  organisation scope and the account and parent columns are CRM accounts
+  on the activity families too; the parent is the direct parent, except on
+  a parent leaderboard (no organisation named, subsidiaries folded or
+  separate) where it is the top of the chain. A company's figure is the
+  account unless a switch says otherwise.
 - **Does not select:** the everyday name (a stray or shell account with
-  little or nothing on it); the enrichment spelling used on activity
-  attribution and contributing-organisation counts; the free-text
-  organisation on meeting and participant records.
+  little or nothing on it); the enrichment vocabulary, which appears in
+  exactly two places — the contributing-organisations count and the
+  employer-region grouping; the free-text organisation on meeting and
+  participant records; the roster's organisation on committee seats.
 - **Forbidden:** "IBM" as a scope when the legal name ran; "Red Hat" (an
   enrichment spelling) and "Red Hat LLC" (an account) as the same row; a
   membership figure and a contributing-organisation figure compared as if
@@ -80,12 +92,15 @@ them; it never embellishes them. No parameters here, no counts.
 
 ## 5. Time: windows, as-of dates, periods, days
 
-- **Selects:** window families read the trailing twelve months to today
-  by default, as dates; as-of families read the state on the end date
-  (today by default); a period series returns one bucket per period for
-  window families and one point-in-time row per period end for as-of
-  families; days are UTC calendar days; the last row of a to-date series is
-  partial and flagged.
+- **Selects:** window families read a window of UTC calendar days — by
+  default the trailing twelve months to today on the activity, event,
+  training and social families, and all history on the membership
+  movement families (new, churned, lost, new organisations); as-of
+  families read the state on the end date (today by default, status-based
+  today and date-based on any other day); a period series returns one
+  bucket per period for window families and the state at each period end
+  for as-of families; the last row of a to-date series is partial and
+  flagged.
 - **Does not select:** a calendar year unless asked as dates; "this year"
   bounded at today unless the tool bounded it; the semantic layer's
   session-clock day boundary; a window computed by hand.
@@ -134,9 +149,13 @@ them; it never embellishes them. No parameters here, no counts.
 
 ## 8. Ranking, limits, identities
 
-- **Selects:** the rows the limit allowed, in the order asked; a
-  descending sort puts the unattributed row first; a people ranking is by
-  identity (handle), and two identities can share a display name.
+- **Selects:** the rows the limit allowed, in the order asked; the
+  unattributed row sorts first on a descending ranking today, so it is
+  dropped and the list re-sorted before a top-N is read
+  `[not yet in production: SM-3 — the unattributed row sorts last on both
+  engines, and a top-N never contains it unless the list is longer than
+  the attributed rows]`; a people ranking is by identity (handle), and two
+  identities can share a display name.
 - **Does not select:** "all" when truncated is true; an organisation in the
   unattributed row; one person per display name.
 - **Forbidden:** "the top five organisations" with the unattributed row

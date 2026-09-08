@@ -126,9 +126,11 @@ carries it. Corporate e-mail domain matching is not a route the tools
 offer and a figure built that way is not reproducible. Label: governed.
 
 **Speakers from the company.** The speakers family carries no
-organisation scope; a company reading is the SQL assistant over accepted
-speakers by account name, labelled generated SQL, cross-framed against
-the family's total for the same events. Label: generated SQL.
+organisation scope today; a company reading is the SQL assistant over
+accepted speakers by account name, labelled generated SQL, cross-framed
+against the family's total for the same events `[not yet in production:
+SM-3 speakers by organisation — until then: the SQL assistant reading]`.
+Label: generated SQL.
 
 **Sponsorships: which events, which tier, how much.** Standard metrics,
 sponsorships by organisation for the company and by event; one event can
