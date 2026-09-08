@@ -77,8 +77,8 @@ them; it never embellishes them. No parameters here, no counts.
   separate) where it is the top of the chain. A company's figure is the
   account unless a switch says otherwise.
 - **Does not select:** the everyday name (a stray or shell account with
-  little or nothing on it); the enrichment vocabulary, which appears in
-  exactly two places — the contributing-organisations count and the
+  little or nothing on it); the enrichment vocabulary (the employer the
+  contribution data names), which appears in exactly two places — the contributing-organisations count and the
   employer-region grouping; the free-text organisation on meeting and
   participant records; the roster's organisation on committee seats.
 - **Forbidden:** "IBM" as a scope when the legal name ran; "Red Hat" (an

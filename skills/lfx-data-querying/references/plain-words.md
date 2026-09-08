@@ -22,19 +22,21 @@ how the offer is phrased. Mechanisms behind each difference:
   return them on every family (the account and its parent alongside), and
   as the membership records and `search_b2b_orgs` name them. "Top
   contributing companies" is contributions by organisation on these.
-- **Also means:** the *enrichment* vocabulary — employers inferred for
-  each contributor from public signals, far more granular, with variants
-  and small employers the CRM never consolidated. It appears in exactly
-  two places: the contributing-organisations count (a count only; the
-  names are not listed) and the employer-region grouping. On meeting and
+- **Also means:** the *enrichment* vocabulary — the employer the
+  contribution data names for each contributor, inferred from public
+  signals, far more granular, with variants and small employers the CRM
+  never consolidated. It appears in exactly two places: the
+  contributing-organisations count (a count only; the names are not
+  listed; the organisation scope on that family is still by CRM account)
+  and the employer-region grouping. On meeting and
   participant records the organisation is free text typed by people; on
   committee seats it is the roster's own field.
 - **Offer it as:** "Counted as legal organisations known to the CRM,
-  N contributed code. A broader reading — organisations as the
-  contribution data infers them from public profiles, which includes
-  small employers and name variants — gives a larger count; say if you
-  want that view." Never the two counts as one figure, never the
-  enrichment count as "companies".
+  N contributed code. A broader reading — the employer the contribution
+  data names for each contributor, which includes small employers and
+  name variants — gives a larger count; say if you want that view." Never
+  the two counts as one figure, never the enrichment count as
+  "companies".
 
 ## Members, membership
 
