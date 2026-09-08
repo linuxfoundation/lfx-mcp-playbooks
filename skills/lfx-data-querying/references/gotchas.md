@@ -57,8 +57,7 @@ headings in those documents.
 - **Symptom.** A contribution or contributor figure noticeably higher than
   the same figure from a governed lane.
 - **Cause.** Bot exclusion is built into the governed contributor and
-  activity metrics (the LFX Insights convention); a figure produced outside
-  them may include bots.
+  activity metrics; a figure produced outside them may include bots.
 - **Check.** The population sentence says "bots excluded" once; a figure
   from the SQL assistant is cross-framed against the governed reading.
 - **Documented.** SM "Inventory" (contributors, contributions); SL "Worked
@@ -133,13 +132,15 @@ headings in those documents.
   memberships under its own slug.
 - **Cause.** Memberships attach at foundation level, and a JDF series'
   memberships sit on its `-fund` parent slug, not the series slug.
-- **Check.** A series and its `-fund` parent are two slugs; ask for both,
-  in one call or two as the lane allows, and say which the figure covers.
-  Re-verify against the live tools before relying on it.
-- **Documented.** SM "Inventory" (the memberships row: memberships attach
-  at foundation level); the `query_lfx_lens` tool description (a JDF series
-  plus its `-fund` parent is one call). Neither names the `-fund` slug
-  pattern itself; the pairing is practice.
+- **Check.** A series and its `-fund` parent are two slugs; when
+  `search_projects` shows the `-fund` sibling, ask for both, in one call or
+  two as the lane allows, and say which the figure covers and that they
+  were combined.
+- **Documented.** SM "Resolve names first — ALWAYS" and "Projects and
+  subprojects" (the `-fund` sibling, query both); SM "Inventory" (the
+  memberships row: memberships attach at foundation level); the
+  `query_lfx_lens` tool description (a JDF series plus its `-fund` parent is
+  one call).
 
 ## 11. Governance rosters
 
@@ -169,9 +170,15 @@ headings in those documents.
 - **Symptom.** "Average dues per member" or a revenue-per-membership ratio.
 - **Cause.** The count is distinct project-account pairs with an active
   term; the revenue is the list price of the active membership assets, not
-  dues billed. Different grains.
+  dues billed. Different grains. And an organisation holding memberships on
+  several projects counts once per project, so "how many members" in the
+  everyday sense (distinct organisations) is a third reading, one the
+  family says it does not give yet.
 - **Check.** Presented side by side, never divided; "list-price value"
-  said in the population sentence.
+  said in the population sentence; the organisation reading reported as
+  not available, never obtained by pulling every organisation row and
+  counting them — counts come from the one-figure grouping, breakdowns are
+  listed with a limit.
 - **Documented.** SM "Inventory" (memberships), "Reading results".
 
 ## 14. Year-to-date and future-dated installs
@@ -211,3 +218,6 @@ headings in those documents.
 - **Day boundaries differ between lanes** (UTC on the standard metrics,
   US-Pacific on the layer's time filters); state the window, never claim
   an exact calendar day across lanes. SM "Reading results"; SL "Windows".
+- **No refresh stamp exists yet.** No lane reports when its tables were
+  last loaded; the same window re-run a day apart can move slightly. Record
+  the run date with every figure and re-run rather than reconcile.

@@ -94,9 +94,8 @@ not cover.
 Once per deck, at the top of the appendix:
 
 - the six conventions of section 1, as chosen, and the region note;
-- the run date (or the date range over which figures were pulled);
-- the snapshot: the table refresh times the SQL assistant reports, when
-  that lane was used; otherwise the run date stands for freshness;
+- the run date (or the date range over which figures were pulled), which
+  stands for freshness: no lane reports a data refresh time;
 - the unattributed share, stated once.
 
 ## 4. Final consistency pass

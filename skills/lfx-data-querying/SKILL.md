@@ -21,9 +21,10 @@ a fixed definition; the caller chooses only grouping, scope and dates, so a
 re-run gives the same figure. First choice for any count, revenue, share or
 series in a family the guidance lists: memberships and their movements,
 contributors and contributions, maintainers, health and software value,
-events, training, social listening. The only lane that reaches a project's
-whole tree and a company's subsidiaries at any depth. Every answer carries
-an `applied` block saying what ran, and a `truncated` flag. Guidance:
+events, training, social listening. The governed lane that reaches a
+project's whole tree and a company's subsidiaries at any depth. Every answer
+carries an `applied` block saying what ran, with a `truncated` flag, and the
+compiled SQL for anyone who asks how a figure was made. Guidance:
 "Inventory", "The contract".
 
 **Semantic layer** — `explore_lfx_semantic_layer`, then
@@ -37,10 +38,10 @@ is a standard-metrics question. Answers are labelled ad hoc. Guidance:
 **SQL assistant** — `query_lfx_lens`. Generated SQL over the warehouse, for
 cross-domain joins and hierarchy shapes no standard metric expresses.
 Answers are labelled as generated SQL. Every answer opens with a **scope**
-line (LF-wide when no project scope was set) and, when SQL ran, closes with
-a **snapshot** block: tables read, refresh times, pipeline run. Never for
-social listening or people rankings — those are standard metrics. Guidance:
-"Routing".
+line (LF-wide when no project scope was set) and carries the SQL it ran.
+Unknown slugs are rejected before any query runs. Never for social
+listening, people rankings or membership counts on any date — those are
+standard metrics. Guidance: "Routing".
 
 **Service tools** — names, records, governance, meetings. `search_projects`
 resolves project slugs, `search_b2b_orgs` organisation legal names.
@@ -74,8 +75,10 @@ Decide in this order; stop at the first lane that fits.
 5. **The layer cannot express it?** The SQL assistant: concrete dates
    written into the question, the project scope list set explicitly (or
    deliberately omitted for LF-wide, and said so), the answer labelled as
-   generated SQL. Zero rows or an unknown name from the layer is a
-   discovery failure, not a reason to switch lanes.
+   generated SQL. A question with no period is asked as all time, never
+   with a window of your own; the answer opens with the scope line the tool
+   returned. Zero rows or an unknown name from the layer is a discovery
+   failure, not a reason to switch lanes.
 
 ## 3. Discovery
 
@@ -83,6 +86,12 @@ Decide in this order; stop at the first lane that fits.
   organisation legal names from `search_b2b_orgs`; stored spellings are
   not everyday ones. A name either tool returned this session may be
   reused; one that has not come back from them is never passed.
+- **The Linux Foundation as a whole is no project at all.** `search_projects`
+  returns a slug for the foundation's own name, and that slug is one bucket
+  of hosted projects, never the umbrella; an LF-wide question leaves the
+  project unset on every lane. Passing the bucket understates LF-wide
+  figures several times over with no error — "The contract" in the
+  standard-metrics guidance, "Scope" in the semantic-layer guidance.
 - **Zero rows means a wrong literal until proven otherwise.** The layer
   returns zero rows, not an error, for a real dimension with a nonexistent
   value. Check spelling and scope before reporting absence — "Value
@@ -108,8 +117,8 @@ in the block below.
 
 Every figure states, in the reader's words, the three things that define
 it: **scope** ("CNCF and its subprojects", "IBM as one company including
-subsidiaries", "LF-wide"), **window** ("the last twelve months to
-yesterday", "as of the end of last year"), **population** ("people with a
+subsidiaries", "LF-wide"), **window** ("the twelve months to today", "as
+of the end of last year"), **population** ("people with a
 code contribution, bots excluded"; "accepted registrations"; "list-price
 membership value, not dues billed"). A default that was applied is stated
 as if chosen. A region grouping is said to be provisional pending
@@ -122,10 +131,10 @@ After the answer, one block per figure: **lane** and family or metric;
 subsidiaries); **window** as concrete dates or an as-of date;
 **population** (the definition sentence the tool returned); **defaults and
 coverage** (what the tool chose for you; unattributed rows, distinct counts,
-partial last period, future-dated end); **snapshot** when the lane provides
-one (the SQL assistant's block; the semantic layer's compiled SQL on request
-only); **label** — governed, ad hoc, generated SQL, visible to you, or
-interim.
+partial last period, future-dated end); **SQL** kept with the working files
+and produced on request only (every query lane returns it); **label** —
+governed, ad hoc, generated SQL, visible to you, or interim. No lane stamps
+a data refresh time today: the run date stands for freshness.
 
 ### 4.4 When the tool pushes back
 
@@ -171,7 +180,9 @@ Symptom, cause, check and guidance section for each:
 12. Meeting figures come from the meeting tools and are "visible to you";
     aggregate meeting metrics are an interim layer recipe, labelled.
 13. Membership count and revenue are different grains: side by side, never
-    a ratio.
+    a ratio; and a membership count is not an organisation count — a reading
+    the family says it does not give is reported as unavailable, never
+    derived by pulling and counting rows.
 14. Year-to-date counts bound at today; installs can be future-dated.
 
 ## 6. Before reporting any number

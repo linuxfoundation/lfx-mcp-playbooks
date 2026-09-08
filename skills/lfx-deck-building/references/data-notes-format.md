@@ -23,9 +23,9 @@ Conventions
   Scope per slide: stated on each figure slide; sections: <section → scope>
 Note: LF region grouping is provisional pending stakeholder sign-off
 
-Run date:          <yyyy-mm-dd> (figures pulled <yyyy-mm-dd> to <yyyy-mm-dd>)
-Snapshot:          <table refresh times from the SQL assistant's snapshot
-                   block, when that lane was used; else "run date">
+Run date:          <yyyy-mm-dd> (figures pulled <yyyy-mm-dd> to <yyyy-mm-dd>);
+                   the run date stands for freshness — no lane reports a
+                   data refresh time
 Unattributed:      <n>% of <metric> in <scope>, <window>, has no resolved
                    organisation; org shares are computed on the rest
 ```
