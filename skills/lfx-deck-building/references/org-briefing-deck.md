@@ -97,9 +97,9 @@ an organisation and is dropped before the position is read; the rank is
 **Contributors and participants from the company.** Standard metrics,
 contributors (code) and participants (code or collaboration) for the
 company, distinct people, never summed across projects; per project as a
-breakdown. Participants widen to any activity later `[not yet in
-production: SM-3 participants = any activity — until then: code or
-collaboration, said so]`. Label: governed.
+breakdown. Participants widen to any activity later
+`[not yet in production: SM-3 participants = any activity — until then:
+code or collaboration, said so]`. Label: governed.
 
 **Top contributors from the company.** Contributions by contributor for
 the company: a people ranking by identity, presented only where naming
