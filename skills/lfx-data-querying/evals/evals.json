@@ -79,6 +79,102 @@
         "Carries a provenance block with lane, scope as applied, as-of date and the population sentence",
         "States explicitly that the project tree and the membership programme are different axes, so that 'CNCF is a child of the LF' and 'CNCF memberships are not in the LF's own programme' are both true and neither contradicts the other"
       ]
+    },
+    {
+      "id": 5,
+      "name": "axis2-activity-scope-tree-vs-bucket",
+      "prompt": "How many people contributed code to CNCF over the last 12 months, and how many of those were on Kubernetes specifically? Also: does the CNCF figure include Kubernetes and the other CNCF projects, or is it CNCF on its own? Use the LFX MCP tools.",
+      "expected_output": "Contributors for cncf (default = whole tree, folded) and for k8s; explains that the default reading is CNCF and everything beneath it on the project spine, that Kubernetes is inside it, and that a distinct count for the tree is not the sum of project rows; the CNCF-alone bucket is a different reading it names as such.",
+      "assertions": [
+        "States that the CNCF contributors figure covers CNCF and all its projects at any depth (the default folded reading), not CNCF's own bucket alone, and that Kubernetes' contributors are inside it",
+        "Does not present the CNCF figure as 'CNCF itself, excluding its projects', and does not sum project rows into a tree headcount",
+        "Both figures come from the contributors family with the window stated as dates and bots excluded, and the two slugs come from search_projects",
+        "Carries a provenance block with lane, scope as applied (tree vs bucket named), window and population"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "axis3-switches-separate-vs-combined",
+      "prompt": "Break down Amazon's code contributions to Linux Foundation projects over the last 12 months by subsidiary (AWS and the rest), and tell me the total for Amazon as a group. Use the LFX MCP tools.",
+      "expected_output": "Resolves the legal name; the group total is the combined reading in its own call; the breakdown is the separate reading by organisation; the answer says the account-alone default was not what ran; contributions are additive so the rows reconcile to the combined figure, and the answer still takes the total from the combined call rather than summing rows.",
+      "assertions": [
+        "The group total comes from a combined reading (its own call), and the per-subsidiary rows from a separate reading; the total is not produced by adding the separate rows",
+        "The answer names the scope choice: the account alone is the default and was not what was reported; the group figure is Amazon including its subsidiaries at any depth",
+        "The legal account name is resolved before querying, and the breakdown reconciles to the combined total (stated as a check, since contributions are additive)",
+        "Window stated as dates, bots excluded, provenance block present"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "axis4-org-vocabularies-never-mixed",
+      "prompt": "Compare Red Hat's Linux Foundation memberships with the number of organisations credited with code contributions to OpenShift-related LF projects \u2014 actually, simpler: how many memberships does Red Hat hold, and how many distinct organisations contributed code to CNCF in the last 12 months? Is Red Hat one of them? Use the LFX MCP tools.",
+      "expected_output": "Memberships for the Red Hat LLC account (CRM legal name); contributing organisations for cncf from the contributing-organisations family, which uses the enrichment vocabulary; says the two vocabularies differ and that 'Red Hat' in the enrichment data and 'Red Hat LLC' in the CRM are not the same row; answers whether Red Hat appears in the contributing organisations via the enrichment spelling, without mixing the counts.",
+      "assertions": [
+        "Memberships are scoped to the stored legal name (Red Hat LLC) resolved this session, and its parent (International Business Machines Corporation) is mentioned as the parent, not folded in",
+        "The contributing-organisations figure is taken from that family (or the equivalent) and described as organisations as the contribution data names them, a different vocabulary from the CRM account names",
+        "The answer says explicitly that the two vocabularies are not mixed and does not present 'Red Hat' (enrichment) and 'Red Hat LLC' (account) as one row or compare the two counts as like for like",
+        "Provenance block present for each figure with lane, scope, window and population"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "axis5-time-windows-vs-as-of",
+      "prompt": "How many memberships did the LF have at the end of 2024, how many new memberships were sold in 2025, and how many does it have right now? Use the LFX MCP tools.",
+      "expected_output": "Three readings: an as-of reading on 2024-12-31 (date-based, said so), a window reading for calendar 2025 as dates, and today's status-based reading; the answer never applies the trailing-twelve-months default to the 2025 question, never calls the year-end figure 'today', and states each window or date in words.",
+      "assertions": [
+        "The end-of-2024 figure is an as-of reading on 2024-12-31 from the memberships family and is described as date-based as of that date, not as 'today'",
+        "The 2025 new-memberships figure is a window reading with the calendar year as concrete dates (not the trailing-twelve-months default) and is described as new project memberships by install date",
+        "Today's figure is the status-based current reading and is described as of today; the answer explains that the as-of and today readings are two kinds",
+        "No window is computed by hand into a series and no partial period is quoted as full; provenance block present"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "axis6-population-registrations-vs-people",
+      "prompt": "For LF events in the last 12 months: how many registrations were there, how many different people registered, and how many actually showed up? And how many people took part in LF projects overall in that period \u2014 not just coders? Use the LFX MCP tools.",
+      "expected_output": "Registrations family: records, distinct registrants by e-mail, checked-in attendees only where the source carries check-in (a zero can mean no check-in data); participants family for 'took part'; each population sentence from the applied block in the reader's words; distinct counts never summed.",
+      "assertions": [
+        "Registrations, distinct registrants and checked-in attendees are presented as three populations from the registrations family, with the caveat that check-in exists only for some registration sources (zero attendees is not zero attendance)",
+        "'Took part, not just coders' is answered with the participants family (code or collaboration activity) and described in those words, with contributors named as the narrower alternative",
+        "The window is stated as dates and described as by event start date for the events figures",
+        "No population is renamed (no 'attendees' for registrations, no 'developers' for contributors without qualification); provenance block present"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "axis7-geography-whose-country",
+      "prompt": "How many countries do LF member organisations come from, and how many countries do our code contributors come from? Which is the bigger footprint? Use the LFX MCP tools.",
+      "expected_output": "Memberships by country: the account's billing country, conformed, with an unresolved row that is not a country; contributors by country: the person's country, known for a minority, with a NULL row; the answer says the two follow different subjects (account vs person), does not count the unresolved rows as countries, and says the region grouping is provisional if regions are mentioned.",
+      "assertions": [
+        "The membership country count is described as the billing country of the member account (conformed), and the unresolved/NULL row is excluded from the count and reported as unresolved",
+        "The contributor country count is described as the person's own country, known for a minority of contributors, with the NULL row excluded from the count and reported",
+        "The answer states that the two figures follow different subjects (account vs person) and does not present them as the same kind of footprint without that caveat",
+        "Provenance block present; any region mention carries the provisional note"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "axis8-ranking-limits-identities",
+      "prompt": "Who are the top ten contributors to the Linux kernel over the last 12 months, and which organisations are the top five? Use the LFX MCP tools.",
+      "expected_output": "Contributions by contributor for the kernel slug (identities by handle, display names can be shared) presented only as appropriate; contributions by organisation with the unattributed row dropped and the ranking re-sorted; the answer says the lists are the top N shown, never 'all', and names the unattributed share once.",
+      "assertions": [
+        "The kernel slug is resolved via search_projects and both rankings come from the contributions family with the window stated as dates and bots excluded",
+        "The organisation ranking excludes the unattributed/NULL row (re-sorted before the top five is read) and the unattributed share is stated once",
+        "The people ranking is described as by identity (handle), presented in a way appropriate to naming individuals, and two identities are not merged into one person",
+        "The answer says 'the top N shown' rather than 'all', and provenance block present"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "axis9-lens-scope-line",
+      "prompt": "Using the SQL assistant: how many distinct accepted speakers were there at events belonging to CNCF in the last 12 months, and how many across all LF events? Use the LFX MCP tools.",
+      "expected_output": "Two lens questions with concrete dates: one with the cncf slug in the scope list, one with no scope (LF-wide, said so); each answer opens with the scope line the tool returned; the CNCF figure is not narrated as 'CNCF and its projects' unless the scope line shows those slugs; both labelled generated SQL and cross-framed against the speakers family where it applies.",
+      "assertions": [
+        "Both readings are labelled generated SQL and each answer repeats the scope line the tool returned (the slug for CNCF; LF-wide for the second) before the figure",
+        "The CNCF reading is not narrated as covering CNCF's projects beyond what the scope line shows, and the LF-wide reading is described as no project filter, not as the umbrella's slug",
+        "Concrete dates are written into the assistant's question, the speakers population is accepted speakers, distinct people, and the LF-wide figure is cross-framed against the speakers family",
+        "Provenance block present with the SQL kept only if it was kept"
+      ]
     }
   ]
 }

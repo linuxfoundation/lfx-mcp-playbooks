@@ -133,7 +133,10 @@ Decide in this order; stop at the first row that fits:
   of the LF" (wrong on the tree) and never says "memberships in projects
   under the LF" or attaches a child-project count to a membership figure
   (wrong on the membership axis). Which axis a figure sits on is said in
-  the reader's words.
+  the reader's words. Every scope axis — project, switches, organisation,
+  time, population, geography, ranking, the assistant's scope line — has a
+  row in [references/axes.md](references/axes.md): what it selects, what
+  it does not, and the sentence never to write.
 - **Zero for a company that plainly has data is a wrong name.** An
   everyday name can match a shell account that carries almost nothing and
   passes the guard; the family then returns zero without complaint. Back
