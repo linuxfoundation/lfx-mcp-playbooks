@@ -31,6 +31,16 @@ them; it never embellishes them. No parameters here, no counts.
 - **Say instead:** "organisations holding a membership in the Linux
   Foundation's own programme, as of today; CNCF and the other hosted
   foundations run their own programmes and are reported separately."
+  When the tool carries its own scope sentence, quote it
+  `[not yet in production: SM-3 applied.scope — until then: the words above, from the applied block's project and subprojects fields]`:
+  the umbrella with the default fold reads "tlf is the umbrella root of
+  the project tree and the Linux Foundation's own membership programme,
+  not the LF-wide scope; the foundations hosted under the LF are their
+  own roots with their own programmes and slugs and are not included";
+  excluded reads "the Linux Foundation's own membership programme only;
+  hosted foundations carry their own slugs; omit project for LF-wide";
+  any other root reads "memberships of the <name> programme, and of the
+  programmes the spine places under it".
 
 ## 2. Project on the activity families (contributors, contributions, participants, maintainers)
 
@@ -71,6 +81,12 @@ them; it never embellishes them. No parameters here, no counts.
 - **Say instead:** "the IBM account alone" / "IBM as one company including
   its subsidiaries at any depth" / "broken down by subsidiary; the rows do
   not add up to the company figure because a person counts once".
+  The tool's own organisation clause, when it lands
+  `[not yet in production: SM-3 applied.scope — until then: the words above, from the applied block's org and subsidiaries fields]`:
+  "the account '<name>' alone" / "with its subsidiaries at any depth,
+  folded" / "and its subsidiaries at any depth, one row each; rows do not
+  add up"; a stored name that resolves to several accounts says so and
+  takes each.
 
 ## 4. Organisation: name, parent, vocabulary
 
