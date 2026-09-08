@@ -12,7 +12,10 @@ and an instruction to re-run.
 
 Guidance readers: `read_lfx_standard_metrics_guidance` (below: *SM*) and
 `read_lfx_semantic_layer_guidance` (below: *SL*). Section names are the
-headings in those documents.
+headings in those documents. Two companions: a difference between two
+tools' figures is explained by mechanism in
+[why-figures-differ.md](why-figures-differ.md); the craft of the record
+tools is in [service-tools.md](service-tools.md).
 
 ## 1. Unresolved names
 

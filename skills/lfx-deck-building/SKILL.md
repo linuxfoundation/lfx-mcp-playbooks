@@ -42,8 +42,10 @@ They are written on the data-notes slide (section 3).
 5. **Source lane per slide type.** Headline counts, revenue, shares and
    series: standard metrics. A grouping the families lack: the semantic
    layer, labelled ad hoc. Cross-domain shapes only: the SQL assistant,
-   labelled as generated SQL, never alone under a headline. Rosters and
-   meeting lists: the service tools, labelled "visible to you".
+   labelled as generated SQL, never alone under a headline. Rosters,
+   membership records and meeting lists: the service tools, labelled
+   "visible to you", paginated to the end (the querying playbook's
+   "service tools" reference).
 6. **Scope statement per slide.** LF-wide, one foundation and its projects,
    one project, one company — stated on every slide that carries a figure,
    in the reader's words, and held consistent within a section. A scope
@@ -75,7 +77,8 @@ several times, not as noise. Use whichever applies:
 - **A second lane where two cover the ground.** A figure from the semantic
   layer or the SQL assistant that a standard metric also covers is read
   from the standard metric too; the governed figure wins, and the
-  difference is explained or the figure is dropped.
+  difference is explained by its mechanism (the querying playbook's
+  "why figures differ" reference) or the figure is dropped.
 
 A figure checked only against itself does not go on a slide.
 
