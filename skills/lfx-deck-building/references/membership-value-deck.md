@@ -48,7 +48,10 @@ current year marked to-date, and the table saying which years it shows.
 Trap D10 / M13: this is account-project grain — a company joining a second
 project counts again — and the deck once read it as "new members" at
 organisation grain and had to be relabelled. Say "new project
-memberships". Check: the slide caption names the grain. Label: governed.
+memberships". Check: the slide caption names the grain; the yearly rows
+sum to the family read as one figure over the same span (install dates
+are additive), and the to-date row matches a second reading bounded at
+today. Label: governed.
 
 **First-time member organisations.** The organisation-grain reading (an
 account's first LF membership ever, by install date). Today an ad hoc

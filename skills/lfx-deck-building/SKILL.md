@@ -80,6 +80,14 @@ several times, not as noise. Use whichever applies:
 - **One scope level up.** A project's figure sits inside its foundation's;
   a foundation's inside the LF-wide figure. If it does not, one of the two
   scopes is wrong.
+- **A series against its own total.** A per-period series is a set of
+  figures, and each one needs the check as much as a headline does. An
+  additive series (new memberships by install date, contributions) sums
+  across the periods to the same family read as one figure over the same
+  span; a headcount series does not sum, and the folded figure is read
+  separately. The latest period is read again bounded at today and
+  compared with the series' own to-date row. A series slide with no check
+  line in the notes is the commonest miss.
 - **A second lane where two cover the ground.** A figure from the semantic
   layer or the SQL assistant that a standard metric also covers is read
   from the standard metric too; the governed figure wins, and the
