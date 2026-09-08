@@ -41,8 +41,11 @@ them; it never embellishes them. No parameters here, no counts.
   hosted foundations carry their own slugs; omit project for LF-wide";
   any other root reads "memberships of the <name> programme, and of the
   programmes the spine places under it", and the separate switch appends
-  "one row per programme" (on an activity family, "and of the projects
-  under it on the project spine, one row per project").
+  "one row per programme"; on the conformed event, training and roster
+  families it reads "and of the projects under it on the project spine,
+  one row per project", and on an activity family "<slug> and every
+  project under it on the project spine, one row per project; distinct
+  counts do not add up across rows" — the trailing clause is part of it.
 
 ## 2. Project on the activity families (contributors, contributions, participants, maintainers)
 
