@@ -83,10 +83,11 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
 - **"How many projects does X have":** the semantic layer's directory
   project count (the warehouse's project tree, filtered or grouped by
   foundation) is the governed reading. The project search tool and any
-  count built on it cover only the projects onboarded into the platform
-  index — a subset, so a service-tool project count is never "all
-  projects of X" and is never reconciled against the directory count;
-  the search resolves names and slugs, nothing more. A second layer
+  count built on it cover only the projects onboarded into LFX v2 and
+  visible to the caller — they can be lower, so a service-tool project
+  count is never "all projects of X" and is never reconciled against the
+  directory count; the tools resolve names and slugs, the layer gives the
+  number. A second layer
   count counts activity segments, a different population again.
 - **Other readings:** the project records' own tree (parents and
   children as the project service stores them — hosted foundations are

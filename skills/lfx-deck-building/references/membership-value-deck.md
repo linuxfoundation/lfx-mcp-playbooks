@@ -108,8 +108,9 @@ vocabulary note]`.
 
 **Projects and working groups that met.** A distinct count of projects on
 the same data, floor by onboarding. Label: interim. (A foundation's
-project *population* is the layer's directory count, never the project
-search tool's index.)
+project *population* is the layer's project metrics over the
+authoritative project directory, never a count of the projects indexed in
+LFX v2.)
 
 ## Section 3 — The developer community
 

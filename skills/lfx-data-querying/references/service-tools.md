@@ -54,11 +54,17 @@ and the discipline that keeps a count of records honest.
 - **The umbrella is not a scope.** The Linux Foundation's own record is
   one bucket; LF-wide work leaves the project unset everywhere.
 - **The search is not a census.** Project records exist only for
-  projects onboarded into the platform; a foundation can have more
-  projects in the directory than the search returns. "How many projects
-  does X have" is the semantic layer's directory count; the search
-  resolves names and slugs, and a count made from it says "in the
-  platform index" and is never reconciled against the directory.
+  projects onboarded into LFX v2; the authoritative project directory is
+  the semantic layer's, and it can hold more projects for a foundation or
+  parent than the search returns. "How many projects does X have" is the
+  layer's project metrics; the search resolves names and slugs, and a
+  count made from it says "projects indexed in LFX v2 and visible to your
+  identity", is a lower bound when the tool says the count stopped early,
+  and is never reconciled against the directory. The record tools stay
+  exact for meetings, participants, committees and members, which are
+  native to LFX v2 `[not yet in production: TOOLS-1 count_lfx_resources
+  with its complete flag and the search's own total — until then: page a
+  search to the end and say the count is what you could see]`.
 - **Children of a foundation** come from the search's parent filter
   `[not yet in production: TOOLS-1 parent and legal-parent filters — until
   then: the semantic layer's foundation dimension grouped by project]`.
