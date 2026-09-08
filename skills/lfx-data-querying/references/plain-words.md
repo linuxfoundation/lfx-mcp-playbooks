@@ -80,15 +80,19 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   on the activity families it covers "<slug> and every project under it
   on the project spine, folded"; on memberships it is that programme
   plus what the spine maps under it (next to nothing for the umbrella).
-- **"How many projects does X have":** the semantic layer's directory
-  project count (the warehouse's project tree, filtered or grouped by
-  foundation) is the governed reading. The project search tool and any
-  count built on it cover only the projects onboarded into LFX v2 and
-  visible to the caller — they can be lower, so a service-tool project
-  count is never "all projects of X" and is never reconciled against the
-  directory count; the tools resolve names and slugs, the layer gives the
-  number. A second layer
-  count counts activity segments, a different population again.
+- **"How many projects does X have":** no family answers it; the
+  semantic layer's `pcc_project_count` does — the project directory, the
+  catalogue people mean by "projects". A foundation's tree is the
+  foundation dimension; direct children are a grouping by the parent
+  project slug; the project depth and path dimensions give level and
+  path. The layer's other count, `project_count`, counts
+  community-analytics segments — a different population, for questions
+  explicitly about tracked segments, and a different number for the same
+  X is population, not error. The project search tool and any count built
+  on it cover only the projects onboarded into LFX v2 and visible to the
+  caller — they can be lower, so a service-tool project count is never
+  "all projects of X" and is never reconciled against the directory; the
+  tools resolve names and slugs, the layer gives the number.
 - **Other readings:** the project records' own tree (parents and
   children as the project service stores them — hosted foundations are
   the umbrella's children there but their own roots on the spine);

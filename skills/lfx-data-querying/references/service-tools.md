@@ -57,7 +57,7 @@ and the discipline that keeps a count of records honest.
   projects onboarded into LFX v2; the authoritative project directory is
   the semantic layer's, and it can hold more projects for a foundation or
   parent than the search returns. "How many projects does X have" is the
-  layer's project metrics; the search resolves names and slugs, and a
+  layer's project-directory count; the search resolves names and slugs, and a
   count made from it says "projects indexed in LFX v2 and visible to your
   identity", is a lower bound when the tool says the count stopped early,
   and is never reconciled against the directory. The record tools stay
