@@ -117,15 +117,23 @@ Decide in this order; stop at the first row that fits:
   project unset on every lane. Passing the bucket understates LF-wide
   figures several times over with no error — "The contract" in the
   standard-metrics guidance, "Scope" in the semantic-layer guidance.
-- **A foundation's slug on memberships is one membership programme, not
-  a subtree.** Memberships scoped to a foundation's own slug are the
-  memberships of that foundation's programme and nothing else; a sibling
-  or hosted foundation's memberships carry their own slug and are not
-  "under" the first. The prose never says "and the projects beneath it",
-  never attaches a child-project count from `search_projects` to a
-  membership figure, and never says "excluding CNCF" as if CNCF's
-  memberships had been filtered out of a tree — there was no tree.
-  LF-wide is no project filter.
+- **Two axes, and they differ: the project tree and the membership
+  programme.** On the tree, the umbrella foundation is the root: the major
+  foundations (CNCF, PyTorch Foundation, OpenSSF, LF Networking, LF AI &
+  Data, LF Decentralized Trust, LF Edge, LF Energy, CDF, OpenInfra, Open
+  Mainframe, ASWF, FINOS, GraphQL Foundation and their peers) are its
+  children, and product projects (Kubernetes, Envoy, Prometheus,
+  Hyperledger Fabric, Besu, ONAP, EdgeX, Zowe and the rest) sit under their
+  foundation — confirmed with `search_projects` and `get_project`, never
+  from memory. On memberships, a foundation's slug is that foundation's
+  own membership programme, one slug: a child foundation's memberships
+  carry the child's slug and are neither included in nor "excluded" from
+  the parent's reading; there is no subtree scope on memberships, and
+  LF-wide is no project filter. So the prose never says "CNCF is not part
+  of the LF" (wrong on the tree) and never says "memberships in projects
+  under the LF" or attaches a child-project count to a membership figure
+  (wrong on the membership axis). Which axis a figure sits on is said in
+  the reader's words.
 - **Zero for a company that plainly has data is a wrong name.** An
   everyday name can match a shell account that carries almost nothing and
   passes the guard; the family then returns zero without complaint. Back
