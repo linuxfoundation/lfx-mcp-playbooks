@@ -67,15 +67,17 @@
     {
       "id": 4,
       "name": "umbrella-slug-memberships-by-country-no-subtree",
-      "prompt": "How many countries have organisations with an active membership in The Linux Foundation itself (as opposed to its sub-foundations), and which are the top five countries by number of memberships? Use the LFX MCP tools.",
+      "prompt": "Two quick questions for a board pre-read. First, is CNCF part of The Linux Foundation's project tree, and where does Kubernetes sit in it? Second, how many countries have organisations with an active membership in The Linux Foundation itself (as opposed to its sub-foundations), and which are the top five countries by number of memberships? Use the LFX MCP tools.",
       "expected_output": "Resolves the umbrella's own slug via search_projects and explains that on memberships that slug is one membership programme (the LF's own), not a subtree; sibling or hosted foundations' memberships carry their own slugs and are neither included nor 'excluded'; no child-project count is attached to the figure; the unresolved-country row is reported as unresolved and not counted as a country; the reading is pairs, as of today; the top five come from the by-country breakdown re-sorted with the NULL row dropped.",
       "files": [],
       "assertions": [
+        "Answers the tree question from the project tools (search_projects / get_project): CNCF is a child of the umbrella foundation and Kubernetes sits under CNCF; never says CNCF is not part of the LF, and never answers the tree from memory",
         "Uses the memberships family grouped by country scoped to the umbrella's own slug (resolved via search_projects) and says in plain words that the scope is the LF's own membership programme, one slug, not a subtree of projects",
         "Never narrates the scope as 'projects directly hosted under the LF', never attaches a child-project count from search_projects to the membership figure, and never says other foundations were 'excluded' from a tree",
         "Reports the NULL / unresolved country row as unresolved (accounts whose country is not known or whose stored spelling the lens does not resolve) and does not count it as a country",
         "States the reading is project-account pairs as of today and gives the top five countries from the breakdown with the NULL row dropped before ranking",
-        "Carries a provenance block with lane, scope as applied, as-of date and the population sentence"
+        "Carries a provenance block with lane, scope as applied, as-of date and the population sentence",
+        "States explicitly that the project tree and the membership programme are different axes, so that 'CNCF is a child of the LF' and 'CNCF memberships are not in the LF's own programme' are both true and neither contradicts the other"
       ]
     }
   ]
