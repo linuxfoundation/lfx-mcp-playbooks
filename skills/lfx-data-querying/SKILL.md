@@ -74,6 +74,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | Who sits on a board or committee, with what vote | committee tools | rosters live nowhere else | visible to you |
 | Which meetings a project or committee held, who was invited, who attended, what was discussed | meeting tools | occurrence records with participants and summaries | visible to you |
 | Attendances over a period, by company or committee | semantic layer, interim recipe | the meeting tools list, they do not aggregate | interim |
+| How many meetings, and how many hours they ran | SQL assistant | distinct occurrences and stored scheduled duration live on the attendance data, which the recipe does not expose | generated SQL |
 | A mailing list and its subscriber count | mailing-list tools | list-service records | visible to you |
 | A role check or assignment, an email | Discord and email tools | actions, on an explicit ask, confirmed first | — |
 

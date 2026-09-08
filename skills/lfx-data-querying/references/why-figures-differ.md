@@ -242,13 +242,18 @@ it says otherwise. *SM* "Inventory" (project_health).
 
 ## Meetings and rosters
 
-**Attendances vs attendees vs invitees.** The interim meeting recipe
-counts records (one invitee at one occurrence); "attendees" as people is
-a distinct count on the same data; invitees are a larger population than
-those who attended. Meeting-type buckets include a literal "None" and a
-blank, which are two rows. Worded "attendances", labelled interim
-`[not yet in production: TOOLS-2 org meeting KPIs]`. *SL* "Worked recipes"
-12.
+**Attendances vs attendees vs invitees vs occurrences.** The interim
+meeting recipe counts records (one invitee at one occurrence);
+"attendees" as people is a distinct count on the same data; invitees are
+a larger population than those who attended; the number of meetings is a
+count of distinct occurrences, which the recipe does not expose — it is a
+SQL-assistant reading over the same attendance data, as is the sum of
+scheduled duration (stored per occurrence; summed over distinct
+occurrences, never over attendance rows). Meeting-type buckets include a
+literal "None" and a blank, which are two rows. Worded "attendances",
+labelled interim; occurrences and hours labelled generated SQL
+`[not yet in production: TOOLS-2 org meeting KPIs]`. *SL* "Worked
+recipes" 12.
 
 **Visible to you vs the warehouse.** Meeting and committee tools return
 what the caller's identity may see; the warehouse holds what was loaded.

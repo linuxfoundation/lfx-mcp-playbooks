@@ -21,7 +21,7 @@ is produced that way. This playbook adds what a deck needs on top.
 
 ## 1. Set the conventions first
 
-Before the first call, fix six choices and hold them for the whole deck.
+Before the first call, fix seven choices and hold them for the whole deck.
 They are written on the data-notes slide (section 3).
 
 1. **Window.** One of: the trailing twelve months to a stated date, or a
@@ -46,7 +46,13 @@ They are written on the data-notes slide (section 3).
    membership records and meeting lists: the service tools, labelled
    "visible to you", paginated to the end (the querying playbook's
    "service tools" reference).
-6. **Scope statement per slide.** LF-wide, one foundation and its projects,
+6. **The caption carries the grain, not only the appendix.** The board
+   reads the slide, not the notes: "memberships" (project-account pairs)
+   is never captioned "organisations", "list-price value" is never
+   captioned "dues", a floor says floor on the slide, and a share on a
+   slide recomputes from the appendix rows. An appendix that is right
+   under a caption that is wrong is a wrong slide.
+7. **Scope statement per slide.** LF-wide, one foundation and its projects,
    one project, one company — stated on every slide that carries a figure,
    in the reader's words, and held consistent within a section. A scope
    that changes between two adjacent slides is the single most common way a
@@ -96,7 +102,7 @@ not cover.
 
 Once per deck, at the top of the appendix:
 
-- the six conventions of section 1, as chosen, and the region note;
+- the seven conventions of section 1, as chosen, and the region note;
 - the run date (or the date range over which figures were pulled), which
   stands for freshness: no lane reports a data refresh time;
 - the unattributed share, stated once.

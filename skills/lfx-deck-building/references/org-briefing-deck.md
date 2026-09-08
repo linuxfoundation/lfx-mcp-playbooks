@@ -158,16 +158,21 @@ visible to you.
 ## Section 5 — In the room (meetings)
 
 **Meetings the company's people attended; attendances by month; hours.**
-Not answerable at deck grain from the tools today: the meeting tools list
-one project's or one meeting's records without an organisation filter or
-a date aggregate, and the interim semantic-layer recipe counts attendances
-on free-text organisation names. The honest slide is either the interim
-recipe's attendances for the company's spellings, labelled interim and
-floor, or a cited internal meetings source
+Two readings, both floors bounded by platform onboarding and both on the
+attendance data's organisation field (loosely resolved, no subsidiary
+roll-up: the company's spellings are listed and said). Attendances by
+period for the company: the interim semantic-layer recipe, labelled
+interim, worded "attendances". Distinct meetings the company's people
+attended and the hours those meetings ran: the SQL assistant over the
+same attendance data (occurrence key and scheduled duration are stored
+per occurrence; hours summed over distinct occurrences, never over
+attendance rows), labelled generated SQL. The meeting tools list one
+project's or one meeting's records without an organisation filter, so
+they give the story of one meeting, not the company figure
 `[not yet in production: TOOLS-1 participant filters and
-count_lfx_resources; TOOLS-2 org meeting KPIs — until then: interim recipe
-attendances with the vocabulary note, hours omitted or estimated and said
-so]`. Label: interim or published.
+count_lfx_resources; TOOLS-2 org meeting KPIs — until then: the interim
+recipe for attendances, the SQL assistant for occurrences and hours, the
+vocabulary note on both]`. Label: interim / generated SQL.
 
 ## Section 6 — Peers and comparisons
 
@@ -180,7 +185,8 @@ so]`. Label: interim or published.
 ## Section 7 — What the briefing cannot say from LFX today
 
 Listed on the data-notes slide, not silently dropped: meeting attendance
-by company at deck grain; speakers by company as a governed figure;
+by company as a governed figure (today interim and generated SQL, floors);
+speakers by company as a governed figure;
 maintainers of subsidiaries at depth; distinct organisation counts for
 "members of N foundations" at organisation grain
 `[not yet in production: SM-3 member_organizations]`; anything matched by

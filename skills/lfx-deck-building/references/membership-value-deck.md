@@ -72,21 +72,27 @@ where the graphic is reused. Label: published or carried.
 
 ## Section 2 — The coordination engine (meetings)
 
-**Meetings hosted, people who attended, attendances, hours.** The
-warehouse's meeting-attendance data is reached today only through the
-interim semantic-layer recipe, which counts attendances (one invitee at
-one occurrence); people are a distinct count on the same data; hours are
-not stored on the attendance rows the deck used (D8) and any hours figure
-built from a sampled average duration is an estimate and says so. Every
-meeting figure is a floor: only meetings run through the LF's meeting
-platform exist here (D9), and the caller's identity bounds the lists (the
-record tools). Label: interim, worded "attendances"; hours labelled
-estimate `[not yet in production: TOOLS-1 count_lfx_resources and
-participant filters; TOOLS-2 org meeting KPIs (counts, hours, by company)
-— until then: the interim recipe, attendances not people, hours as an
-estimate or omitted]`. Trap M3: no metric family covers meetings, so the
-figures were found by exploration; M15: the generated-SQL lane caps rows,
-so long tails are partial.
+**Meetings hosted, hours of meetings.** Distinct meeting occurrences and
+their summed scheduled duration are a SQL-assistant reading over the
+meeting-attendance data (the occurrence key and the scheduled duration
+are stored per occurrence; sum over distinct occurrences, never over
+attendance rows), LF-wide with no project set, labelled generated SQL
+and cross-framed against the interim recipe's attendance count for the
+same window. Every meeting figure is a floor: only meetings run through
+the LF's meeting platform exist here (D9). Trap D8 as registered was
+about the activity table the original deck used, which had no duration
+— an hours figure built from attendances times a sampled average is an
+estimate and says so, and is the worse route. Label: generated SQL,
+floor `[not yet in production: TOOLS-1 count_lfx_resources; TOOLS-2 org
+meeting KPIs (counts, hours, by company) — until then: the SQL assistant
+for occurrences and hours, the interim recipe for attendances]`.
+
+**People who attended, attendances.** The interim semantic-layer recipe
+counts attendances (one invitee at one occurrence); people are a distinct
+count on the same data; the meeting tools list what the caller's identity
+may see. Trap M3: no metric family covers meetings, so the figures were
+found by exploration; M15: the generated-SQL lane caps rows, so a long
+tail is partial. Label: interim, worded "attendances".
 
 **Organisations that show up most; breadth and intensity.** Attendances
 grouped by the participant's organisation on the interim recipe, distinct

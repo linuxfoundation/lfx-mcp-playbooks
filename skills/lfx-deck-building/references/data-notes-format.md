@@ -20,6 +20,7 @@ Conventions
                    org-attributed base; unattributed share stated below
   Headcount/volume: people for "how many"; work for "share"
   Source lanes:    headline figures = standard metrics; <exceptions listed>
+  Captions:        the grain and the label on the slide itself, not only here
   Scope per slide: stated on each figure slide; sections: <section → scope>
 Note: LF region grouping is provisional pending stakeholder sign-off
 
