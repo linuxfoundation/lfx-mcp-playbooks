@@ -107,7 +107,9 @@ them; it never embellishes them. No parameters here, no counts.
   flagged.
 - **Does not select:** a calendar year unless asked as dates; "this year"
   bounded at today unless the tool bounded it; the semantic layer's
-  session-clock day boundary; a window computed by hand.
+  session-clock day boundary (its day-grain time-dimension filter drops
+  the first UTC day, so an ad hoc day window is bounded on the
+  UTC-anchored dimension); a window computed by hand.
 - **Forbidden:** "in 2025" on a trailing-twelve-months reading; "as of
   today" on a series row; "the last five years" from a self-chosen start
   date; a partial year quoted as a full one.
@@ -146,10 +148,14 @@ them; it never embellishes them. No parameters here, no counts.
   country for the unresolved row.
 - **Forbidden:** "N countries" counting the unresolved row; "developers in
   APAC" without naming the stored rows it was built from; a region claim
-  without the provisional note.
+  without the provisional note; "the bigger footprint" across members and
+  contributors without saying they are two subjects.
 - **Say instead:** "countries of the account's billing address, N
   resolved plus an unresolved group" / "the person's own country where
-  known, which is a minority of contributors".
+  known, which is a minority of contributors" — and the comparison
+  sentence names the two subjects before the numbers: a billing-address
+  footprint and a people footprint are two readings, not one bigger and
+  one smaller.
 
 ## 8. Ranking, limits, identities
 

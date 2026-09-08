@@ -74,6 +74,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | A count, value, share, ranking or series in a family the inventory lists (members, dues, new and churned memberships, contributors, contributions, participants, maintainers, health, software value, registrations, sponsorships, speakers, training, certifications, social mentions and reach) | standard metrics | fixed definition, whole tree and all subsidiaries, `applied` block, repeatable | governed |
 | A company's figure "including subsidiaries", or a foundation's "and its projects" | standard metrics | the only lane that walks either hierarchy to any depth | governed |
 | A slice the families have no switch for (consortium, meeting type, direct children, a dimension seen in explore) | semantic layer | named metric and dimension, stored values discoverable | ad hoc |
+| How many organisations were new to the LF, as against new memberships | semantic layer | the organisation-grain first-membership dimension on the new-memberships metric: first-ever membership rows, not organisations, said so `[not yet in production: SM-3 new_member_organizations — until then: this ad hoc reading with that caveat]` | ad hoc |
 | A cross-domain join or a hierarchy shape no metric expresses | SQL assistant | generated SQL, with its scope line and SQL returned | generated SQL |
 | A project's slug, record, parent, legal entity | `search_projects`, `get_project` | the record is the truth about what a slug is | — |
 | A company's legal name and identifier | `search_b2b_orgs` | the stored name every organisation-scoped call takes | — |
@@ -180,7 +181,7 @@ membership value, not dues billed"). A default that was applied is stated
 as if chosen. A region grouping is said to be provisional pending
 stakeholder sign-off.
 
-Three habits the reader never sees but the figure depends on:
+Five habits the reader never sees but the figure depends on:
 
 - **A relative window is the family's default or a bare period series**,
   never a start date computed by hand. "The last five years" is a series
@@ -192,6 +193,15 @@ Three habits the reader never sees but the figure depends on:
 - **"How many developers took part" is participants** (code or
   collaboration); contributors (code only) is the narrower alternative,
   named as such, never the silent default.
+- **A ranking asks for a few more rows than the top-N.** The unattributed
+  row sorts first on a descending metric, so a call for exactly N rows
+  returns N-1 organisations and costs a second call; the extra rows are
+  free.
+- **The view is named, and so is the parent.** When the resolved account
+  has a parent the record shows it, and the answer says so; every company
+  figure says which view it is — the account alone, which is the tool's
+  default, or the group at any depth — and a figure read with the switch
+  set says that the default is not what it reports.
 
 ### 4.3 The provenance block
 
@@ -234,6 +244,11 @@ governed reading wins for a headline. A difference no mechanism explains
 is a discovery failure, not a disagreement between sources; "sources
 differ" never goes in an answer. Where the applied block and a guidance
 sentence disagree on a definition, the applied block ran.
+
+The sentence that compares two figures carries the caveat that qualifies
+the comparison: two subjects (an account's billing country against a
+person's own country), two vocabularies, two grains. A caveat that sits
+only in a coverage note under the table has not been said.
 
 ### 4.6 The everyday word and its default reading
 

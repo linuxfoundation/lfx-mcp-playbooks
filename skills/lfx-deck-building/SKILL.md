@@ -49,9 +49,12 @@ They are written on the data-notes slide (section 3).
 6. **The caption carries the grain, not only the appendix.** The board
    reads the slide, not the notes: "memberships" (project-account pairs)
    is never captioned "organisations", "list-price value" is never
-   captioned "dues", a floor says floor on the slide, and a share on a
-   slide recomputes from the appendix rows. An appendix that is right
-   under a caption that is wrong is a wrong slide.
+   captioned "dues", a floor says floor on the slide, and a share or a
+   rank computed from two figures is an appendix row of its own naming
+   the two figures it came from. On a one-project scope the pairs look
+   like organisations, and the word is still "memberships": the family
+   counts pairs and one company can hold two terms. An appendix that is
+   right under a caption that is wrong is a wrong slide.
 7. **Scope statement per slide.** LF-wide, one foundation and its projects,
    one project, one company — stated on every slide that carries a figure,
    in the reader's words, and held consistent within a section. A scope

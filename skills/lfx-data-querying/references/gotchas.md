@@ -218,9 +218,14 @@ tools is in [service-tools.md](service-tools.md).
   pending stakeholder sign-off — say so whenever a region grouping appears
   in an answer. SM "Inventory" (contributors, contributions); SL "Worked
   recipes" 13.
-- **Day boundaries differ between lanes** (UTC on the standard metrics,
-  US-Pacific on the layer's time filters); state the window, never claim
-  an exact calendar day across lanes. SM "Reading results"; SL "Windows".
+- **Day boundaries differ between lanes.** The standard metrics and the
+  SQL assistant bound windows on UTC days; the semantic layer's day-grain
+  time-dimension filter compiles to a session-timezone comparison on a
+  timestamp column and silently drops the first UTC day of the window.
+  State the window, never claim an exact calendar day across lanes, and
+  bound an ad hoc day-grain window on the activity model with the
+  UTC-anchored dimension, never the day-grain time dimension. SM "Reading
+  results"; SL "Windows".
 - **The explore listing can lag the layer.** The dimensions that explore
   lists for a metric come from a cached view that refreshes on its own
   schedule, so on the day a definition ships a dimension can run at query
