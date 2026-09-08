@@ -54,7 +54,8 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   "member" is a person's contributor identity.
 - **Offer it as:** "N memberships, counting each organisation once per
   programme it belongs to; the number of distinct organisations is a
-  different reading and is not available as a governed figure today."
+  different reading and is not available as a governed figure today
+  `[not yet in production: SM-3 member_organizations — then it is the headline]`."
 
 ## Developers, contributors, participants, people active
 
@@ -110,8 +111,8 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   programme counts again; a returning account counts again); as a
   series, the current year is partial and flagged.
 - **Other readings:** organisations new to the LF altogether — an ad hoc
-  reading on the organisation-grain first-membership dimension, counting
-  first-ever membership rows (a same-day pair counts twice)
+  reading on the layer's organisation-grain first-membership flag, which
+  counts membership rows, not organisations, as the guidance says
   `[not yet in production: SM-3 new_member_organizations]`; churned
   memberships (ended with no subsequent membership, non-zero revenue, by
   the day after the term ended — re-evaluated at every build, so past
@@ -203,7 +204,11 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   fact is bounded to the rows carrying a v2 score — the layer exposes
   that population as a dimension on the daily health metrics — because
   the unscored rows are a population of their own, roughly as large, and
-  carry no score; the current-state metrics are already anchored on it.
+  carry no score; the current-state metrics are already anchored on it
+  and read each project's own latest day over the whole index unless
+  filtered to LF-hosted projects — a different population from the pinned
+  day, never "LF project health" without the filter
+  `[not yet in production: SM-3 — the family points there for "current"; those metrics are allowlisted then]`.
 - **Offer it as:** "N LF-hosted projects scored, M in the Healthy band as
   the score defines it; the wider index is a separate population."
 

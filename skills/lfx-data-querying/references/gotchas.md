@@ -23,8 +23,8 @@ tools is in [service-tools.md](service-tools.md).
   or company that plainly has data; or a rejection listing candidates.
 - **Cause.** Stored slugs and legal names are not the everyday names. The
   semantic layer returns zero rows for a literal that matches nothing; the
-  standard metrics reject an unknown slug or a name matching no data-bearing
-  account and list candidates instead.
+  standard metrics reject an unknown slug or a name matching no account
+  that carries the family's data, and list candidates instead.
 - **Check.** Every slug came from `search_projects` and every organisation
   name from `search_b2b_orgs` in this session. A zero from the layer sends
   you back to discovery, not to "none".
@@ -121,8 +121,9 @@ tools is in [service-tools.md](service-tools.md).
   name at the top of a ranking; a parent total that grew when the
   unattributed row was folded in.
 - **Cause.** Rows with no resolved account or employer are unattributed
-  work, not an organisation; a descending sort on the metric places them
-  first.
+  work, not an organisation; today a descending sort on the metric places
+  them first
+  `[not yet in production: SM-3 — they sort last on both engines, and a top-N holds them only when the list outruns the attributed rows]`.
 - **Check.** The unattributed row is reported as unattributed, dropped from
   every organisation ranking and from every parent fold, and the ranking
   is re-sorted before the top-N is read.
@@ -133,14 +134,15 @@ tools is in [service-tools.md](service-tools.md).
 
 - **Symptom.** A Joint Development Foundation series shows few or no
   memberships under its own slug.
-- **Cause.** Memberships attach at foundation level, and a JDF series'
-  memberships sit on its `-fund` parent slug, not the series slug.
-- **Check.** A series and its `-fund` parent are two slugs; when
-  `search_projects` shows the `-fund` sibling, ask for both, in one call or
-  two as the lane allows, and say which the figure covers and that they
-  were combined.
+- **Cause.** Memberships attach at foundation level, and a JDF series and
+  its `-fund` project are one consortium whose memberships sit on the
+  fund, not on the series slug.
+- **Check.** Today the series and its `-fund` project are two slugs: when
+  `search_projects` shows the sibling, ask for both, in one call or two as
+  the lane allows, and say they were combined
+  `[not yet in production: SM-3 consortia — the membership and organisation families read the whole consortium in one call by default and the applied block lists its members; excluded reads the named project alone]`.
 - **Documented.** SM "Resolve names first — ALWAYS" and "Projects and
-  subprojects" (the `-fund` sibling, query both); SM "Inventory" (the
+  subprojects" today, "Consortia" once it lands; SM "Inventory" (the
   memberships row: memberships attach at foundation level); the
   `query_lfx_lens` tool description (a JDF series plus its `-fund` parent is
   one call).
@@ -176,7 +178,8 @@ tools is in [service-tools.md](service-tools.md).
   dues billed. Different grains. And an organisation holding memberships on
   several projects counts once per project, so "how many members" in the
   everyday sense (distinct organisations) is a third reading, one the
-  family says it does not give yet.
+  family says it does not give yet
+  `[not yet in production: SM-3 member_organizations and paying_member_organizations — "how many members" is that family, never derived from membership rows]`.
 - **Check.** Presented side by side, never divided; "list-price value"
   said in the population sentence; the organisation reading reported as
   not available, never obtained by pulling every organisation row and
@@ -208,7 +211,9 @@ tools is in [service-tools.md](service-tools.md).
 - **Churn dates fall the day after the term ends**, so a year-end churn
   lands in the following year. SM "Inventory" (the membership-churn row).
 - **Speakers are accepted speakers only**, distinct people, and carry no
-  organisation scope. SM "Inventory" (the speakers row).
+  organisation scope today
+  `[not yet in production: SM-3 speakers by organisation — the speaker's account as resolved from the proposal, with a large unresolved row]`.
+  SM "Inventory" (the speakers row).
 - **Training and certification are platform data**: lifetime totals read
   below the official trained figure, and one branch carries no account.
   SM "Inventory" (the training-enrollments and certifications rows).

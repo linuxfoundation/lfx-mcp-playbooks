@@ -31,7 +31,8 @@ is what the deck does today.
 - **Resolve every foundation and company name first**, and confirm the
   `-fund` sibling for any consortium (M8, D11: a series' memberships sit on
   the fund, a headline read on the series slug undercounted several
-  times).
+  times)
+  `[not yet in production: SM-3 consortia — the membership families read the whole consortium in one call and list its members]`.
 - **Run date stands for freshness** (M16: no lane stamps a refresh time).
   Every figure carries the run date in the appendix.
 
@@ -55,10 +56,9 @@ today. Label: governed.
 
 **First-time member organisations.** The organisation-grain reading (an
 account's first LF membership ever, by install date). Today an ad hoc
-reading on the semantic layer's organisation-grain first-membership
-dimension, which counts first-ever membership *rows* (a same-day pair
-counts twice) and is not the CRM's New Business flag; say what it counts
-and label it ad hoc `[not yet in production: SM-3
+reading on the semantic layer's organisation-grain first-membership flag,
+which counts membership *rows*, not organisations, as the guidance says;
+say what it counts and label it ad hoc `[not yet in production: SM-3
 new_member_organizations, distinct organisations — until then: the ad hoc
 first-ever-membership reading with that caveat]`. Check: reconciled to
 the governed year-to-date memberships figure, bounded at today (M12:
@@ -183,8 +183,9 @@ Label: governed.
 **Events, registrations, speakers.** Standard metrics: registrations
 (accepted, by event start date, distinct people separate from records,
 check-in only where the source carries it), speakers (accepted only,
-distinct people, no organisation scope), sponsorships (assets and their
-price, all tiers). Label: governed.
+distinct people, no organisation scope today
+`[not yet in production: SM-3 speakers by organisation — until then: no company split]`),
+sponsorships (assets and their price, all tiers). Label: governed.
 
 **Course enrollments and certifications.** Standard metrics, training and
 certification families: platform data only, so the lifetime headline is a
@@ -215,8 +216,8 @@ Label: governed.
 memberships across consortia, the largest consortia.** Memberships by
 project for the consortium and its fund slug together (M8); the
 consortium reading is an ad hoc query on the consortium dimension today
-`[not yet in production: SM-3 consortium switch — until then: the ad hoc
-consortium reading, labelled, or both slugs summed and said so]`; distinct
+`[not yet in production: SM-3 consortia — the default combined reading on the membership families is the whole consortium in one call, members listed in the applied block; until then: the ad hoc consortium reading, labelled, or both slugs summed and said so]`;
+distinct
 signatory organisations is an organisation-grain reading (D11, M2: a
 grouped distinct count was capped and the headline had to be stated as a
 floor) `[not yet in production: SM-3 member_organizations — until then:

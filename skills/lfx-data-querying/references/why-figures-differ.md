@@ -159,8 +159,9 @@ times apart. *SL* "Scope".
 a sibling `-fund` project; each slug alone is a partial reading and the
 combined figure is the consortium. Today the combined reading is two
 family calls or one ad hoc query on the consortium dimension, labelled ad
-hoc `[not yet in production: SM-3 consortium switch]`. *SM* "Projects and
-subprojects".
+hoc
+`[not yet in production: SM-3 consortia — the default combined reading on the membership and organisation families is the whole consortium in one call, its members listed in the applied block]`.
+*SM* "Projects and subprojects" today, "Consortia" once it lands.
 
 **Twin slugs.** Some project families exist under two slugs; a low total
 is a reason to group by slug before concluding. *SL* "Scope".
@@ -256,7 +257,11 @@ scored ones. An ad hoc count over the fact without bounding to the
 scored population reads far higher, and an ad hoc average over it is
 defined only on the scored rows. The layer exposes the scored population
 as a dimension on the daily health metrics; the current-state metrics
-carry no such switch because they are already anchored on a score. *SL*
+carry no such switch because they are already anchored on a score — and
+they read each project's own latest day over the whole index unless
+filtered to LF-hosted projects, a different population from the family's
+pinned day, never "LF project health" without the filter
+`[not yet in production: SM-3 — the family says it has no unpinned reading and points there; the current-state metrics are allowlisted then]`. *SL*
 "Worked recipes" 8.
 
 ## Meetings and rosters

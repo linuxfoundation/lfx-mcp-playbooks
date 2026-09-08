@@ -74,7 +74,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | A count, value, share, ranking or series in a family the inventory lists (members, dues, new and churned memberships, contributors, contributions, participants, maintainers, health, software value, registrations, sponsorships, speakers, training, certifications, social mentions and reach) | standard metrics | fixed definition, whole tree and all subsidiaries, `applied` block, repeatable | governed |
 | A company's figure "including subsidiaries", or a foundation's "and its projects" | standard metrics | the only lane that walks either hierarchy to any depth | governed |
 | A slice the families have no switch for (consortium, meeting type, direct children, a dimension seen in explore) | semantic layer | named metric and dimension, stored values discoverable | ad hoc |
-| How many organisations were new to the LF, as against new memberships | semantic layer | the organisation-grain first-membership dimension on the new-memberships metric: first-ever membership rows, not organisations, said so `[not yet in production: SM-3 new_member_organizations — until then: this ad hoc reading with that caveat]` | ad hoc |
+| How many organisations were new to the LF, as against new memberships | semantic layer | the layer's first-membership flag on the new-memberships metric, with the caveat the guidance gives (membership rows, not organisations) `[not yet in production: SM-3 new_member_organizations — until then: this ad hoc reading, said so]` | ad hoc |
 | A cross-domain join or a hierarchy shape no metric expresses | SQL assistant | generated SQL, with its scope line and SQL returned | generated SQL |
 | A project's slug, record, parent, legal entity | `search_projects`, `get_project` | the record is the truth about what a slug is | — |
 | A company's legal name and identifier | `search_b2b_orgs` | the stored name every organisation-scoped call takes | — |
@@ -191,12 +191,15 @@ Five habits the reader never sees but the figure depends on:
   account rows: a ranking's cut hides the subsidiaries a hand-sum would
   miss, and distinct counts do not add at all.
 - **"How many developers took part" is participants** (code or
-  collaboration); contributors (code only) is the narrower alternative,
-  named as such, never the silent default.
+  collaboration today
+  `[not yet in production: SM-3 participants = any activity — stars, forks, meetings, training and Hacker News included; the figure jumps]`);
+  contributors (code only) is the narrower alternative, a different
+  population, named as such, never the silent default.
 - **A ranking asks for a few more rows than the top-N.** The unattributed
-  row sorts first on a descending metric, so a call for exactly N rows
-  returns N-1 organisations and costs a second call; the extra rows are
-  free.
+  row sorts first on a descending metric today
+  `[not yet in production: SM-3 — it sorts last; the habit still pays, since a placeholder or a duplicated name can sit in the top rows]`,
+  so a call for exactly N rows returns N-1 organisations and costs a
+  second call; the extra rows are free.
 - **The view is named, and so is the parent.** When the resolved account
   has a parent the record shows it, and the answer says so; every company
   figure says which view it is — the account alone, which is the tool's
@@ -207,7 +210,9 @@ Five habits the reader never sees but the figure depends on:
 
 After the answer, one block per figure: **lane** and family or metric;
 **scope** as applied (the name, and whether it covered the tree or the
-subsidiaries); **window** as concrete dates or an as-of date;
+subsidiaries — the tool's own scope sentence when it returns one
+`[not yet in production: SM-3 applied.scope]`); **window** as concrete
+dates or an as-of date;
 **population** (the definition sentence the tool returned); **defaults and
 coverage** (what the tool chose for you; unattributed rows, distinct counts,
 partial last period, future-dated end); **SQL** produced on request only
@@ -224,7 +229,8 @@ a data refresh time today: the run date stands for freshness.
   standard-metrics guidance): pick one or go back to `search_projects`.
   Never present a candidate as the asker's choice; never retry the everyday
   name.
-- **An organisation is rejected** (no data-bearing account matches): pick
+- **An organisation is rejected** (no account carrying the family's data
+  matches): pick
   the parent legal name among the candidates or go back to
   `search_b2b_orgs`. A candidate that itself carries nothing is not a
   choice. Never sum stray same-company accounts into a parent.
@@ -287,16 +293,18 @@ Symptom, cause, check and guidance section for each:
 8. A foundation's slug on the plain project column matches only its
    catch-all bucket; scope a foundation with the foundation dimension.
 9. The unattributed row is never an organisation, never folded into a
-   parent; a descending sort puts it first — re-sort before a top-N.
+   parent; a descending sort puts it first today — re-sort before a top-N
+   `[not yet in production: SM-3 — it sorts last on both engines]`.
 10. Memberships of a JDF series sit on its `-fund` parent slug; ask for
-    both.
+    both `[not yet in production: SM-3 consortia — one call reads the whole consortium and lists its members]`.
 11. Governance rosters come from the committee tools, never inferred.
 12. Meeting figures come from the meeting tools and are "visible to you";
     aggregate meeting metrics are an interim layer recipe, labelled.
 13. Membership count and revenue are different grains: side by side, never
     a ratio; and a membership count is not an organisation count — a reading
-    the family says it does not give is reported as unavailable, never
-    derived by pulling and counting rows.
+    the family says it does not give is reported as unavailable
+    `[not yet in production: SM-3 member_organizations — the organisation count is its own family]`,
+    never derived by pulling and counting rows.
 14. Year-to-date counts bound at today; installs can be future-dated.
 
 ## 6. Before reporting any number
