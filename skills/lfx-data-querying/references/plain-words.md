@@ -1,294 +1,288 @@
 <!-- Copyright The Linux Foundation and each contributor to LFX. -->
 <!-- SPDX-License-Identifier: MIT -->
 
-# Plain words with two readings — the default, and the alternative to offer
+# Plain words with two readings — what the families count, and the alternative to offer
 
 An executive asks in everyday words: "organisations", "members",
-"developers", "projects", "revenue", "attendees", "last year". On the LFX
-tools most of those words have two or more readings, each a real figure
-from a real tool. The discipline: **answer with the default reading, name
-it in one clause, and offer the alternative in one sentence that says what
-the difference is.** Never pick the reading that gives the bigger number,
-never present two readings as a contradiction, never make the reader
-guess which one they got. This file is the list: for each word, the
-default reading and its tool, what else the word means and where, and
-how the offer is phrased, and — because the SQL assistant interprets
-the words itself — which reading the assistant picked when asked the
-everyday question on the production tools (observed on the day this file
-was written; re-check before relying on it). Mechanisms behind each
-difference: [why-figures-differ.md](why-figures-differ.md); scopes:
+"developers", "projects", "revenue", "attendees", "last year". On the
+standard metrics most of those words have a default family whose
+`applied.definition` sentence says exactly what was counted, and one or
+more other readings — another family, a switch or grouping on the same
+family, or a semantic-layer metric — that a reader may have meant. The
+discipline: **answer with the default family, repeat its definition in
+the reader's words, and offer the alternative in one sentence that says
+what the difference is.** Never the reading with the bigger number by
+preference; never two readings as a contradiction; never a figure whose
+population the reader has to guess. Each entry below was checked against
+the family's own definition sentence on the production tools on the day
+this file was written; the sentence in the applied block is the one to
+repeat, not this file's paraphrase, when they differ. Mechanisms:
+[why-figures-differ.md](why-figures-differ.md); scopes:
 [axes.md](axes.md).
-
-**What the assistant does with plain words.** Asked for a *count* of
-organisations it takes the inferred-employer vocabulary and drops the
-unaffiliated group; asked for a *ranking* of organisations it takes CRM
-accounts — two vocabularies inside one conversation. Asked for
-"developers who took part" it counts every person with any activity row,
-several times the participants reading. Asked for "countries" it counts
-the raw billing field, not the conformed one. Asked for "speakers" it
-counts every proposal status. Asked for "healthy projects" it applies its
-own score threshold over every project in the index. Asked for
-"contributors" it refuses and points at the governed lane. Asked for
-"members", "new members", "membership revenue" or "maintainers" it
-matches the governed reading. So: the assistant is never the first lane
-for an everyday word, and when it is used its population line and its
-SQL are read before the figure is repeated.
 
 ## Organisations, companies
 
-- **Default:** legal organisations — CRM accounts as the standard metrics
-  return them on every family (the account and its parent alongside), and
-  as the membership records and `search_b2b_orgs` name them. "Top
-  contributing companies" is contributions by organisation on these.
-- **Also means:** the *enrichment* vocabulary — the employer the
-  contribution data names for each contributor, inferred from public
-  signals, far more granular, with variants and small employers the CRM
-  never consolidated. It appears in exactly two places: the
-  contributing-organisations count (a count only; the names are not
-  listed; the organisation scope on that family is still by CRM account)
-  and the employer-region grouping. On meeting and
-  participant records the organisation is free text typed by people; on
-  committee seats it is the roster's own field.
-- **Offer it as:** "Counted as legal organisations known to the CRM,
-  N contributed code. A broader reading — the employer the contribution
+- **Default family reading:** legal organisations — CRM accounts. Every
+  family's organisation grouping and organisation scope work on these,
+  activity families included, and each row carries the account and its
+  parent. "Top contributing companies" is contributions by organisation.
+- **Other readings:** the contributing-organisations family counts *the
+  employer the contribution data names* — the enrichment vocabulary,
+  more granular, small employers and name variants included — and gives
+  a count only, never the names; the same vocabulary drives the
+  employer-region grouping. Meeting and participant records carry a
+  free-text organisation; committee seats carry the roster's field.
+- **Offer it as:** "Counted as legal organisations known to the CRM, N
+  contributed code. A broader reading — the employer the contribution
   data names for each contributor, which includes small employers and
-  name variants — gives a larger count; say if you want that view." Never
-  the two counts as one figure, never the enrichment count as
+  name variants — gives a larger count; say if you want that view."
+  Never the two counts as one figure; never the enrichment count as
   "companies".
-- **The assistant today:** a count of organisations comes back in the
-  inferred-employer vocabulary; a ranking comes back in CRM accounts.
-  Name the vocabulary of whichever you repeat.
 
 ## Members, membership
 
-- **Default:** memberships — project-account pairs with an active term,
-  as of today, from the memberships family; "how many members does CNCF
-  have" is answered as memberships in CNCF's programme, with the grain
-  named.
-- **Also means:** distinct member organisations (a company on three
-  programmes counts once) — an organisation-grain reading no governed
-  family gives today `[not yet in production: SM-3 member_organizations]`;
-  the CRM's membership *records* for one company (`search_members`,
-  "visible to you"); committee *members* (people on a roster); mailing-list
-  *members* (subscribers); and in the warehouse's activity data a "member"
-  is a person's contributor identity, not an organisation at all.
+- **Default family reading:** memberships — "distinct project-account
+  pairs with an active term, status-based" as of today. "How many members
+  does CNCF have" is memberships in CNCF's programme, grain named.
+- **Other readings:** distinct member organisations (a company on three
+  programmes counts once) — no governed family today
+  `[not yet in production: SM-3 member_organizations]`; a past-date or
+  series reading is date-based, not status-based, and says "as of
+  <date>"; the CRM's membership *records* for one company
+  (`search_members`, "visible to you"); committee *members* (people);
+  mailing-list *members* (subscribers); and in the activity data a
+  "member" is a person's contributor identity.
 - **Offer it as:** "N memberships, counting each organisation once per
   programme it belongs to; the number of distinct organisations is a
   different reading and is not available as a governed figure today."
-- **The assistant today:** "members" gives memberships (pairs), matching
-  the family; "member organisations, counting each once" gives a distinct
-  account count as generated SQL — offer it only labelled so, never as
-  the membership figure, until the governed family lands.
 
 ## Developers, contributors, participants, people active
 
-- **Default:** "developers who took part" is participants — distinct
-  people with a code contribution or a collaboration activity (issues,
-  comments, reviews), bots excluded. "Contributors" is the narrower
-  reading — distinct people with a code contribution.
-- **Also means:** any activity at all `[not yet in production: SM-3
-  participants = any activity; the figure jumps]`; maintainers (today's
-  roster of LF projects); in the SQL assistant's data, "member_id" is a
-  person.
+- **Default family reading:** "developers who took part" is the
+  participants family — "distinct people with a code contribution OR a
+  collaboration activity (issues, comments, reviews), bots excluded; a
+  superset of contributors". "Contributors" is the contributors family —
+  distinct code contributors, bots excluded.
+- **Other readings:** any activity at all — a semantic-layer metric
+  today, several times the participants reading because it counts stars,
+  forks, meeting invitations and training rows `[not yet in production:
+  SM-3 participants = any activity; the governed figure jumps]`; the
+  maintainer roster; the metric whose name says "first-time contributors"
+  on the layer, which counts any activity type and is not a subset of
+  contributors.
 - **Offer it as:** "N people took part, counting code and collaboration;
-  M of them contributed code. Say if you want code contributors only, or
-  the maintainer roster."
-- **The assistant today:** "developers who took part" is answered as
-  everyone with any activity row — stars, forks, meeting invitations,
-  training included — several times the participants reading, with a
-  population line saying so; "contributors" is refused and routed to the
-  governed lane. On the semantic layer the metric whose name says
-  "first-time contributors" also counts any activity type and is not a
-  subset of contributors.
+  M of them contributed code. Say if you want code contributors only, the
+  maintainer roster, or everyone with any activity at all."
 
 ## Projects
 
-- **Default:** the LF's project records, resolved by slug; on the activity
-  families a slug covers the project and every project under it on the
-  spine; on memberships a slug is that programme.
-- **Also means:** the project records' own tree (parents and children as
-  the project service stores them), which is not the warehouse spine
-  (hosted foundations are their own spine roots); "project communities"
-  in the annual reports (a published definition that has changed over the
-  years); health-scored projects (LF-hosted vs the wider index);
+- **Default family reading:** a slug resolved from the project records;
+  on the activity families it covers "<slug> and every project under it
+  on the project spine, folded"; on memberships it is that programme
+  plus what the spine maps under it (next to nothing for the umbrella).
+- **Other readings:** the project records' own tree (parents and
+  children as the project service stores them — hosted foundations are
+  the umbrella's children there but their own roots on the spine);
+  "project communities" in the annual reports (published, definition has
+  changed); health-scored projects (LF-hosted vs the wider index);
   repositories.
 - **Offer it as:** "CNCF and every project under it on the project spine"
   / "the umbrella's own programme" / "the annual report's count, cited".
-- **The assistant today:** "how many projects does CNCF have" is the
-  spine's descendants, not the project records' children.
 
 ## New members
 
-- **Default:** new memberships — memberships sold as new business by
-  install date, first-per-project (an organisation joining a second
-  programme counts again; a returning account counts again).
-- **Also means:** organisations new to the LF altogether — today an ad hoc
+- **Default family reading:** new memberships — "memberships from a New
+  Business opportunity, by install date", first-per-project (a second
+  programme counts again; a returning account counts again); as a
+  series, the current year is partial and flagged.
+- **Other readings:** organisations new to the LF altogether — an ad hoc
   reading on the organisation-grain first-membership dimension, counting
   first-ever membership rows (a same-day pair counts twice)
-  `[not yet in production: SM-3 new_member_organizations]`; not the CRM's
-  New Business flag.
+  `[not yet in production: SM-3 new_member_organizations]`; churned
+  memberships (ended with no subsequent membership, non-zero revenue, by
+  the day after the term ended — re-evaluated at every build, so past
+  years can shrink).
 - **Offer it as:** "N new project memberships; of those, roughly M were an
   organisation's first LF membership ever — an ad hoc reading that counts
   first memberships, not organisations."
-- **The assistant today:** "new members in <year>" uses the same CRM
-  New Business flag as the family and matches it; it does not give the
-  organisation reading unless asked for it in those words.
 
 ## Revenue, dues, value
 
-- **Default:** list-price value of active memberships (the memberships
-  family), "list price, not dues billed", never divided by the count.
-- **Also means:** dues actually billed (a finance figure the tools do not
-  hold); sponsorship revenue (asset price, events family); software value
-  (a cost-model estimate per project, software-value family).
-- **Offer it as:** "worth N at list price; billed dues are a finance
-  figure outside these tools; sponsorship and training revenue are
-  separate figures."
-- **The assistant today:** "membership revenue" is list price, matching
-  the family. The semantic layer also carries invoice and discount
-  amounts on memberships as separate metrics — an ad hoc reading, never
-  substituted for the governed value without saying so.
+- **Default family reading:** the memberships family's value — "revenue
+  is list price, not dues billed"; never divided by the count.
+- **Other readings:** invoice and discount amounts on memberships exist
+  as semantic-layer metrics (ad hoc); sponsorship revenue is "the asset
+  price in USD" on the sponsorships family; software value is "COCOMO
+  software value summed over each LF-hosted project's own latest snapshot
+  row", additive across projects, never across days.
+- **Offer it as:** "worth N at list price; billed dues are a separate
+  reading; sponsorship and training revenue are separate figures."
 
 ## Attendees, registrations, reach
 
-- **Default:** for events, accepted registrations (records), with distinct
-  registrants (people by e-mail) and checked-in attendees (only where the
-  source carries check-in) as the two other columns of the same family.
-  For meetings, attendances (one invitee at one occurrence) from the
-  interim recipe.
-- **Also means:** distinct people across meetings; invitees; "reach" in
-  the annual reports (published) and social reach (author followers per
-  mention, not additive across projects).
-- **Offer it as:** "N registrations from M people; check-in data exists
-  only for some sources, so attendance is a floor" / "N attendances, not N
+- **Default family reading:** for events, the registrations family —
+  "accepted registrations of events starting in the window; registrants
+  and attendees are distinct people by email, Bevy speaker rows
+  excluded": three columns, registrations (records), unique registrants
+  (people), checked-in attendees (people, only where the source carries
+  check-in, so zero can mean no data). For meetings, attendances (one
+  invitee at one occurrence) from the interim layer recipe.
+- **Other readings:** distinct people across meetings; invitees; "reach"
+  in the annual reports (published); social reach ("author follower
+  counts over the mentions: the sum is a potential-reach proxy", not
+  additive across projects). Two "attendees" metrics exist on the layer,
+  one for meetings (records) and one for events (people).
+- **Offer it as:** "N registrations from M people; check-in exists only
+  for some sources, so attendance is a floor" / "N attendances, not N
   people".
-- **The assistant today:** "people who attended events" is a distinct
-  user count on the attended flag alone — below the family's checked-in
-  reading, which keys on e-mail, requires an accepted registration and
-  drops synthetic speaker rows. Two "attendees" metrics exist on the
-  layer: one for meetings (records) and one for events (people).
 
 ## Events, meetings
 
-- **Default:** events are conferences and similar with registrations,
-  sponsorships and speakers (the event families, by event start date);
-  meetings are the LF's meeting platform's occurrences (meeting tools and
-  the interim recipe; occurrences and hours from the SQL assistant).
-- **Also means:** the everyday "event" that is really a meeting or a
-  webinar; sponsorship "events" (the same events, from the sponsorship
-  side).
+- **Default family reading:** events are conferences and similar with
+  registrations, sponsorships and speakers — the event families, windowed
+  by event start date. Meetings are the LF platform's occurrences —
+  meeting tools, the interim recipe for attendances, the SQL assistant
+  for occurrences and hours while it remains.
+- **Other readings:** an "event" that is really a meeting or a webinar;
+  sponsorship "events" (the same events from the sponsorship side; one
+  event can carry several sponsorship assets).
 - **Offer it as:** name which — "LF events with registrations" or
   "meetings run through the LF platform".
 
 ## Speakers
 
-- **Default:** accepted speakers, distinct people, no organisation scope
-  today `[not yet in production: SM-3 speakers by organisation]`.
-- **Also means:** every proposal status, read ad hoc (larger).
+- **Default family reading:** "accepted speakers of events starting in
+  the window: distinct people whose speaker status is Accepted"; no
+  organisation scope today `[not yet in production: SM-3 speakers by
+  organisation]`.
+- **Other readings:** every proposal status (a semantic-layer or
+  generated-SQL reading; about three times larger).
 - **Offer it as:** "N accepted speakers; proposals in review or rejected
   are not counted."
-- **The assistant today:** "speakers" counts every proposal status,
-  about three times the accepted reading.
 
 ## Maintainers
 
-- **Default:** today's roster of maintainers of LF projects, distinct
-  people.
-- **Also means:** the whole maintainers index (higher, includes non-LF
-  projects); maintainers as of a past period (the family's period
-  reading); maintainer *contributions* (their activity in a window).
+- **Default family reading:** "today's roster: active maintainers (no end
+  date) on LF projects", distinct people.
+- **Other readings:** the whole maintainers index (includes non-LF
+  projects; higher); maintainers as of a past period (the family's period
+  reading); maintainer contributions — "code contributions by people on
+  today's maintainer roster of the segment", with a distinct
+  contributing-maintainers count beside the volume.
 - **Offer it as:** "N maintainers on LF projects as of today."
-- **The assistant today:** matches the family (active, LF projects).
 
 ## Health, healthy projects
 
-- **Default:** LF-hosted projects with a v2 health score on the latest
-  snapshot, in the stored bands.
-- **Also means:** the wider index population; an average across days (a
-  snapshot error, not a reading).
-- **Offer it as:** "N LF-hosted projects scored; the wider index is a
-  separate population."
-- **The assistant today:** "healthy projects" applies its own score
-  threshold over every project in the index on each project's latest
-  row — a different population and a different band from the family's
-  stored LF-hosted bands; an order of magnitude apart.
+- **Default family reading:** "projects with a v2 health score on the
+  latest daily snapshot on or before end_date, and their mean health
+  score; LF-hosted projects; the average … normalized to a hundred-point
+  scale"; bands are the stored names (Excellent, Healthy, Fair,
+  Concerning, Critical), and the applied coverage says how many LF-hosted
+  projects carry a score that day.
+- **Other readings:** the wider index population (by population); any
+  home-made threshold on the raw score over every project in the index —
+  an order of magnitude away from the family's Healthy band; an average
+  across days (a snapshot error).
+- **Offer it as:** "N LF-hosted projects scored, M in the Healthy band as
+  the score defines it; the wider index is a separate population."
 
 ## Country, region
 
-- **Default:** for memberships, the member account's billing country,
-  conformed, with an unresolved group; for contributors and contributions,
-  the person's own country, known for a minority; for organisation
-  region, the employer's headquarters. The LF region grouping is
-  provisional.
-- **Also means:** where the work happens; where a subsidiary sits; "APAC"
-  in the everyday sense, which is several stored rows.
+- **Default family reading:** for memberships, the member account's
+  billing country, conformed, with an unresolved row ("accounts with no
+  billing country or a spelling the lens does not resolve"); for
+  contributors and contributions, the person's own country, known for a
+  minority; for organisation region, the employer's headquarters. The LF
+  region grouping is provisional.
+- **Other readings:** the raw billing field (more rows, unconformed);
+  where the work happens; "APAC" in the everyday sense, which is several
+  stored rows.
 - **Offer it as:** "countries of the billing address, N resolved plus an
   unresolved group" / "the person's own country where known".
-- **The assistant today:** "countries members come from" counts the raw
-  billing field, more rows than the conformed reading.
 
 ## Last twelve months, this year, last year
 
-- **Default:** the trailing twelve months to today, as dates, on activity,
-  event, training and social families; all history on membership movement
-  families; "as of today" on state families.
-- **Also means:** a calendar year; year-to-date bounded at today; "same
-  point last year"; a past-date membership reading (date-based).
+- **Default family reading:** window families read the trailing twelve
+  months to today as UTC dates on the activity, event, training and
+  social families, and all history on the membership movement families
+  (new, churned); state families read "as of today", status-based.
+- **Other readings:** a calendar year (dates); year-to-date bounded at
+  today; "same point last year"; a past-date membership reading
+  (date-based, says so).
 - **Offer it as:** "the twelve months to <date>; say if you want calendar
   <year> or year-to-date."
 
 ## The Linux Foundation
 
-- **Default:** LF-wide — no project filter, every programme and project.
-- **Also means:** the umbrella's own slug — one membership programme and
-  one activity bucket, not the LF as a whole; the LF as a legal entity.
+- **Default family reading:** LF-wide — no project set, every programme
+  and project.
+- **Other readings:** the umbrella's own slug — its own membership
+  programme and its own activity bucket, not the LF as a whole; the LF as
+  a legal entity.
 - **Offer it as:** "across the LF as a whole" / "the Linux Foundation's own
   membership programme only".
 
 ## Top contributors
 
-- **Default:** people, ranked by contribution volume by identity, shown
-  only where naming individuals suits the audience; otherwise
-  organisations by volume.
-- **Also means:** organisations by headcount (how many people), which
-  ranks differently from volume (how much work).
+- **Default family reading:** contributions by contributor — people
+  ranked by volume by identity (handle; two identities can share a
+  display name), shown only where naming individuals suits the audience;
+  otherwise contributions by organisation.
+- **Other readings:** organisations by headcount (contributors by
+  organisation), which ranks differently from volume.
 - **Offer it as:** "ranked by volume of code contributions; by number of
   people the order differs."
 
 ## Training, learners, certified
 
-- **Default:** platform enrollments (records) and enrolled users (people)
-  by enrollment date; certifications completed; placeholder accounts for
-  unaffiliated learners reported as unattributed.
-- **Also means:** the official lifetime "trained" headline (published).
+- **Default family reading:** enrollments — "distinct enrollments (TI +
+  edX platform data) by enrollment time; the edX branch carries no
+  account" — with enrolled users (people) beside them; certifications —
+  "enrollments that resulted in a completed certification, by enrollment
+  time". Placeholder accounts for unaffiliated learners are unattributed.
+- **Other readings:** the official lifetime "trained" headline
+  (published); a product-type filter on the layer (a nearby but different
+  population).
 - **Offer it as:** "N enrollments from M people on the platform; the
   lifetime figure is the published one, cited."
-- **The assistant today:** "people enrolled in training" filters on a
-  product type rather than the family's enrollment flag — a nearby but
-  different population.
 
 ## Sponsors
 
-- **Default:** sponsorship assets and their price, all tiers, for events
-  starting in the window, by organisation (one event can carry several
-  assets for one company; a subsidiary's row is separate).
-- **Also means:** distinct sponsoring organisations (count the rows'
+- **Default family reading:** "sponsorship assets of events starting in
+  the window, all tier types; revenue is the asset price in USD", by
+  organisation (one event can carry several assets for one company; a
+  subsidiary's row is separate).
+- **Other readings:** distinct sponsoring organisations (count the rows'
   organisations, say so); a tier name (stored per event).
 - **Offer it as:** "N sponsorships worth X, from M organisations."
 
+## Social mentions, reach
+
+- **Default family reading:** mentions — "social listening mentions by
+  mention time; one mention is one source id" — with distinct authors and
+  positive/negative counts beside them (neutral is in neither); reach —
+  the sum and average of author followers over the mentions.
+- **Other readings:** a portfolio total across projects (not additive: a
+  prolific author counts once per mention, and a project can sit inside
+  another's mention set).
+- **Offer it as:** "N mentions from M authors; reach is a potential
+  audience, summed per mention, not added across projects."
+
 ## Committees, boards
 
-- **Default:** the roster of the named committee (board category for
-  governing boards), active seats, with voting status; "visible to you".
-- **Also means:** every committee of a project including election
-  committees ("Other" category); technical bodies.
+- **Default reading (record tools):** the roster of the named committee
+  (board category for governing boards), active seats, with voting
+  status; "visible to you".
+- **Other readings:** every committee of a project including election
+  committees ("Other"); technical bodies.
 - **Offer it as:** "the governing board's roster as visible to you, N
   active seats".
 
 ## Subsidiaries, "the company"
 
-- **Default:** the named legal account alone.
-- **Also means:** the company including subsidiaries at any depth
+- **Default family reading:** the named legal account alone (the
+  organisation switch defaults to excluded).
+- **Other readings:** the company including subsidiaries at any depth
   (combined), or broken down (separate).
 - **Offer it as:** "the IBM account alone; including Red Hat and the
   other subsidiaries the figure is Y — say which view you want on every
@@ -296,7 +290,23 @@ SQL are read before the figure is repeated.
 
 ## The sentence pattern
 
-"<figure>, counting <default reading in plain words>. <One sentence:
-the alternative reading, what it counts instead, and that it is
-available on request or not yet.>" Once per figure, never a lecture; the
-provenance block carries the tool words.
+"<figure>, counting <the family's definition in plain words>. <One
+sentence: the alternative reading, what it counts instead, and whether it
+is governed, ad hoc, or not yet available.>" Once per figure; the
+provenance block carries the tool's words.
+
+## While the SQL assistant remains
+
+The generated-SQL lane is being retired as the families grow, and it
+interprets everyday words on its own. Observed on the production tools on
+the day this file was written: asked for a *count* of organisations it
+took the inferred-employer vocabulary and dropped the unaffiliated group,
+asked for a *ranking* it took CRM accounts; "developers who took part"
+became everyone with any activity row; "countries" the raw billing field;
+"speakers" every proposal status; "healthy projects" a home-made
+threshold over the whole index; "contributors" it refused and routed to
+the governed lane; "members", "new members", "membership revenue" and
+"maintainers" matched the families. So it is never the first lane for an
+everyday word; when it is the only lane for a shape, its population line
+and its SQL are read before the figure is repeated, and the provenance
+says "no governed reading for this shape today" so the gap is visible.

@@ -45,7 +45,11 @@ Answers are labelled as generated SQL. Every answer opens with a **scope**
 line (LF-wide when no project scope was set) and carries the SQL it ran.
 Unknown slugs are rejected before any query runs. Never for social
 listening, people rankings or membership counts on any date — those are
-standard metrics. Guidance: "Routing".
+standard metrics. This lane is being retired as the families grow: it
+interprets everyday words on its own (see the plain-words reference), so
+it is the last lane tried, and every answer that needed it says "no
+governed reading for this shape today" in its provenance, so the gap is
+visible. Guidance: "Routing".
 
 **Service tools** — records and actions, never figures. Names:
 `search_projects`, `get_project`, `search_b2b_orgs`. Membership records:
@@ -238,8 +242,10 @@ larger number by preference, never two readings as a contradiction.
 Organisations are legal organisations known to the CRM unless the reader
 asks for the broader inferred-employer view; members are memberships
 unless the reader asks for distinct organisations; developers who "took
-part" are participants, contributors the narrower reading. The list, with
-the offer sentence for each word:
+part" are participants, contributors the narrower reading. The family's
+`applied.definition` sentence is the default reading in the tool's words;
+repeat its meaning, never a paraphrase that widens it. The list, with the
+family's definition and the offer sentence for each word:
 [references/plain-words.md](references/plain-words.md).
 
 ## 5. The gotchas that survive
