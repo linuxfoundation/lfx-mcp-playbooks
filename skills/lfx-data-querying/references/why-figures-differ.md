@@ -162,7 +162,10 @@ is a reason to group by slug before concluding. *SL* "Scope".
 **Attachment level.** Memberships, registrations and sponsorships attach
 at foundation level; a leaf project's own reading is legitimately
 near-empty. Enrollments and maintainers attach below the foundation too.
-*SL* "Scope"; *SM* "Projects and subprojects".
+And on memberships a foundation's slug is one programme, not a subtree:
+a hosted foundation's memberships sit on its own slug, so a reading on
+the umbrella's slug neither includes nor "excludes" them — they were
+never in scope. *SL* "Scope"; *SM* "Projects and subprojects".
 
 ## People and activity
 

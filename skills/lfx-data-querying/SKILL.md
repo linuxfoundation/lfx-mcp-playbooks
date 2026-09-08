@@ -117,6 +117,15 @@ Decide in this order; stop at the first row that fits:
   project unset on every lane. Passing the bucket understates LF-wide
   figures several times over with no error — "The contract" in the
   standard-metrics guidance, "Scope" in the semantic-layer guidance.
+- **A foundation's slug on memberships is one membership programme, not
+  a subtree.** Memberships scoped to a foundation's own slug are the
+  memberships of that foundation's programme and nothing else; a sibling
+  or hosted foundation's memberships carry their own slug and are not
+  "under" the first. The prose never says "and the projects beneath it",
+  never attaches a child-project count from `search_projects` to a
+  membership figure, and never says "excluding CNCF" as if CNCF's
+  memberships had been filtered out of a tree — there was no tree.
+  LF-wide is no project filter.
 - **Zero for a company that plainly has data is a wrong name.** An
   everyday name can match a shell account that carries almost nothing and
   passes the guard; the family then returns zero without complaint. Back
