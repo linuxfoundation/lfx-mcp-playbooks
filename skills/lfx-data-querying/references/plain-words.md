@@ -142,7 +142,7 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   registrations, sponsorships and speakers — the event families, windowed
   by event start date. Meetings are the LF platform's occurrences —
   meeting tools, the interim recipe for attendances, the SQL assistant
-  for occurrences and hours while it remains.
+  for occurrences and hours.
 - **Other readings:** an "event" that is really a meeting or a webinar;
   sponsorship "events" (the same events from the sponsorship side; one
   event can carry several sponsorship assets).
@@ -295,11 +295,11 @@ sentence: the alternative reading, what it counts instead, and whether it
 is governed, ad hoc, or not yet available.>" Once per figure; the
 provenance block carries the tool's words.
 
-## While the SQL assistant remains
+## The SQL assistant as the fallback lane
 
-The generated-SQL lane is being retired as the families grow, and it
-interprets everyday words on its own. Observed on the production tools on
-the day this file was written: asked for a *count* of organisations it
+The generated-SQL lane covers the shapes and domains the families and
+the layer do not, and it interprets everyday words on its own. Observed
+on the production tools on the day this file was written: asked for a *count* of organisations it
 took the inferred-employer vocabulary and dropped the unaffiliated group,
 asked for a *ranking* it took CRM accounts; "developers who took part"
 became everyone with any activity row; "countries" the raw billing field;
@@ -307,6 +307,8 @@ became everyone with any activity row; "countries" the raw billing field;
 threshold over the whole index; "contributors" it refused and routed to
 the governed lane; "members", "new members", "membership revenue" and
 "maintainers" matched the families. So it is never the first lane for an
-everyday word; when it is the only lane for a shape, its population line
-and its SQL are read before the figure is repeated, and the provenance
-says "no governed reading for this shape today" so the gap is visible.
+everyday word; where it is the lane that covers the shape (meeting
+occurrences and hours, cross-domain joins, a hierarchy walk no family
+expresses), its population line and its SQL are read before the figure
+is repeated, and the provenance says "no governed reading for this shape
+today".

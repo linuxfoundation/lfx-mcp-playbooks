@@ -45,11 +45,11 @@ Answers are labelled as generated SQL. Every answer opens with a **scope**
 line (LF-wide when no project scope was set) and carries the SQL it ran.
 Unknown slugs are rejected before any query runs. Never for social
 listening, people rankings or membership counts on any date — those are
-standard metrics. This lane is being retired as the families grow: it
-interprets everyday words on its own (see the plain-words reference), so
-it is the last lane tried, and every answer that needed it says "no
-governed reading for this shape today" in its provenance, so the gap is
-visible. Guidance: "Routing".
+standard metrics. This is the fallback lane, for the shapes and domains
+the families and the layer do not cover yet: it interprets everyday
+words on its own (see the plain-words reference), so it is the last lane
+tried, and an answer that needed it says so in its provenance ("no
+governed reading for this shape today"). Guidance: "Routing".
 
 **Service tools** — records and actions, never figures. Names:
 `search_projects`, `get_project`, `search_b2b_orgs`. Membership records:
