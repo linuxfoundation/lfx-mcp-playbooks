@@ -12,9 +12,27 @@ the difference is.** Never pick the reading that gives the bigger number,
 never present two readings as a contradiction, never make the reader
 guess which one they got. This file is the list: for each word, the
 default reading and its tool, what else the word means and where, and
-how the offer is phrased. Mechanisms behind each difference:
-[why-figures-differ.md](why-figures-differ.md); scopes:
+how the offer is phrased, and — because the SQL assistant interprets
+the words itself — which reading the assistant picked when asked the
+everyday question on the production tools (observed on the day this file
+was written; re-check before relying on it). Mechanisms behind each
+difference: [why-figures-differ.md](why-figures-differ.md); scopes:
 [axes.md](axes.md).
+
+**What the assistant does with plain words.** Asked for a *count* of
+organisations it takes the inferred-employer vocabulary and drops the
+unaffiliated group; asked for a *ranking* of organisations it takes CRM
+accounts — two vocabularies inside one conversation. Asked for
+"developers who took part" it counts every person with any activity row,
+several times the participants reading. Asked for "countries" it counts
+the raw billing field, not the conformed one. Asked for "speakers" it
+counts every proposal status. Asked for "healthy projects" it applies its
+own score threshold over every project in the index. Asked for
+"contributors" it refuses and points at the governed lane. Asked for
+"members", "new members", "membership revenue" or "maintainers" it
+matches the governed reading. So: the assistant is never the first lane
+for an everyday word, and when it is used its population line and its
+SQL are read before the figure is repeated.
 
 ## Organisations, companies
 
@@ -37,6 +55,9 @@ how the offer is phrased. Mechanisms behind each difference:
   name variants — gives a larger count; say if you want that view." Never
   the two counts as one figure, never the enrichment count as
   "companies".
+- **The assistant today:** a count of organisations comes back in the
+  inferred-employer vocabulary; a ranking comes back in CRM accounts.
+  Name the vocabulary of whichever you repeat.
 
 ## Members, membership
 
@@ -54,6 +75,10 @@ how the offer is phrased. Mechanisms behind each difference:
 - **Offer it as:** "N memberships, counting each organisation once per
   programme it belongs to; the number of distinct organisations is a
   different reading and is not available as a governed figure today."
+- **The assistant today:** "members" gives memberships (pairs), matching
+  the family; "member organisations, counting each once" gives a distinct
+  account count as generated SQL — offer it only labelled so, never as
+  the membership figure, until the governed family lands.
 
 ## Developers, contributors, participants, people active
 
@@ -68,6 +93,13 @@ how the offer is phrased. Mechanisms behind each difference:
 - **Offer it as:** "N people took part, counting code and collaboration;
   M of them contributed code. Say if you want code contributors only, or
   the maintainer roster."
+- **The assistant today:** "developers who took part" is answered as
+  everyone with any activity row — stars, forks, meeting invitations,
+  training included — several times the participants reading, with a
+  population line saying so; "contributors" is refused and routed to the
+  governed lane. On the semantic layer the metric whose name says
+  "first-time contributors" also counts any activity type and is not a
+  subset of contributors.
 
 ## Projects
 
@@ -82,6 +114,8 @@ how the offer is phrased. Mechanisms behind each difference:
   repositories.
 - **Offer it as:** "CNCF and every project under it on the project spine"
   / "the umbrella's own programme" / "the annual report's count, cited".
+- **The assistant today:** "how many projects does CNCF have" is the
+  spine's descendants, not the project records' children.
 
 ## New members
 
@@ -96,6 +130,9 @@ how the offer is phrased. Mechanisms behind each difference:
 - **Offer it as:** "N new project memberships; of those, roughly M were an
   organisation's first LF membership ever — an ad hoc reading that counts
   first memberships, not organisations."
+- **The assistant today:** "new members in <year>" uses the same CRM
+  New Business flag as the family and matches it; it does not give the
+  organisation reading unless asked for it in those words.
 
 ## Revenue, dues, value
 
@@ -107,6 +144,10 @@ how the offer is phrased. Mechanisms behind each difference:
 - **Offer it as:** "worth N at list price; billed dues are a finance
   figure outside these tools; sponsorship and training revenue are
   separate figures."
+- **The assistant today:** "membership revenue" is list price, matching
+  the family. The semantic layer also carries invoice and discount
+  amounts on memberships as separate metrics — an ad hoc reading, never
+  substituted for the governed value without saying so.
 
 ## Attendees, registrations, reach
 
@@ -121,6 +162,11 @@ how the offer is phrased. Mechanisms behind each difference:
 - **Offer it as:** "N registrations from M people; check-in data exists
   only for some sources, so attendance is a floor" / "N attendances, not N
   people".
+- **The assistant today:** "people who attended events" is a distinct
+  user count on the attended flag alone — below the family's checked-in
+  reading, which keys on e-mail, requires an accepted registration and
+  drops synthetic speaker rows. Two "attendees" metrics exist on the
+  layer: one for meetings (records) and one for events (people).
 
 ## Events, meetings
 
@@ -141,6 +187,8 @@ how the offer is phrased. Mechanisms behind each difference:
 - **Also means:** every proposal status, read ad hoc (larger).
 - **Offer it as:** "N accepted speakers; proposals in review or rejected
   are not counted."
+- **The assistant today:** "speakers" counts every proposal status,
+  about three times the accepted reading.
 
 ## Maintainers
 
@@ -150,6 +198,7 @@ how the offer is phrased. Mechanisms behind each difference:
   projects); maintainers as of a past period (the family's period
   reading); maintainer *contributions* (their activity in a window).
 - **Offer it as:** "N maintainers on LF projects as of today."
+- **The assistant today:** matches the family (active, LF projects).
 
 ## Health, healthy projects
 
@@ -159,6 +208,10 @@ how the offer is phrased. Mechanisms behind each difference:
   snapshot error, not a reading).
 - **Offer it as:** "N LF-hosted projects scored; the wider index is a
   separate population."
+- **The assistant today:** "healthy projects" applies its own score
+  threshold over every project in the index on each project's latest
+  row — a different population and a different band from the family's
+  stored LF-hosted bands; an order of magnitude apart.
 
 ## Country, region
 
@@ -171,6 +224,8 @@ how the offer is phrased. Mechanisms behind each difference:
   in the everyday sense, which is several stored rows.
 - **Offer it as:** "countries of the billing address, N resolved plus an
   unresolved group" / "the person's own country where known".
+- **The assistant today:** "countries members come from" counts the raw
+  billing field, more rows than the conformed reading.
 
 ## Last twelve months, this year, last year
 
@@ -208,6 +263,9 @@ how the offer is phrased. Mechanisms behind each difference:
 - **Also means:** the official lifetime "trained" headline (published).
 - **Offer it as:** "N enrollments from M people on the platform; the
   lifetime figure is the published one, cited."
+- **The assistant today:** "people enrolled in training" filters on a
+  product type rather than the family's enrollment flag — a nearby but
+  different population.
 
 ## Sponsors
 
