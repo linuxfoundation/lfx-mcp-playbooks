@@ -172,8 +172,9 @@ After the answer, one block per figure: **lane** and family or metric;
 subsidiaries); **window** as concrete dates or an as-of date;
 **population** (the definition sentence the tool returned); **defaults and
 coverage** (what the tool chose for you; unattributed rows, distinct counts,
-partial last period, future-dated end); **SQL** kept with the working files
-and produced on request only (every query lane returns it); **label** —
+partial last period, future-dated end); **SQL** produced on request only
+(every query lane returns it) — say it was kept only if you kept it;
+**label** —
 governed, ad hoc, generated SQL, visible to you, or interim. No lane stamps
 a data refresh time today: the run date stands for freshness.
 
@@ -251,6 +252,11 @@ Symptom, cause, check and guidance section for each:
   block, not from the request you think you sent.
 - A second figure for the same question was reconciled by mechanism, not
   averaged.
+- Every comparative aside ("would rank just behind", "the next two would
+  be") was checked against the rows it describes, or left out.
+- A dimension chosen because its name matched the question had its own
+  description read first, and the answer says what it counts (rows, or
+  people, or organisations).
 - Every count from records is "visible to you" and was paginated to the
   end.
 - Re-run rather than remember.

@@ -42,10 +42,11 @@ section and says "as of <date>, date-based" when it is not today.
 **Memberships (pairs) vs member organisations.** The family counts
 project-account pairs: a company on three projects counts three times.
 "How many members" in the everyday sense is distinct organisations, a
-reading the family does not give today
+reading no governed family gives today
 `[not yet in production: SM-3 member_organizations]` — report memberships,
-say the grain, say the organisation reading is unavailable; never pull the
-rows and count them. *SM* "Inventory" (memberships).
+say the grain, say the organisation count is not available as a governed
+figure; never pull the rows and count them. *SM* "Inventory"
+(memberships).
 
 **Warehouse family vs membership records.** `search_members` shows the
 CRM's live membership records for one company (status, tier, project, key
@@ -97,13 +98,24 @@ the count. *SM* "Reading results".
 
 **New memberships vs new organisations vs churn vs lost.** New business is
 first-per-project (a second project counts again, a returning account
-counts again); "new to the LF" is a different reading
-`[not yet in production: SM-3 new_member_organizations]`. Churned
+counts again). "New to the LF" is a different reading, and it has two
+routes today, only one of them honest. The semantic layer carries an
+organisation-grain firstness dimension (the membership rows whose install
+date is the account's first LF membership ever); filtering the new
+memberships metric on it gives first-ever membership *rows*, so a same-day
+pair of installs counts twice — report it as ad hoc, say it counts
+first-ever memberships rather than organisations, and never head the
+column "new organisations". The other flag with "first" in its name is the
+CRM's New Business opportunity type: it re-flags a returning account and
+is not firstness at all. The distinct-organisation figure is a governed
+family `[not yet in production: SM-3 new_member_organizations — until
+then: the ad hoc first-ever-membership reading with its caveat]`. Churned
 memberships are pairs that ended; a company that dropped one project and
 kept another churned but is not lost
 `[not yet in production: SM-3 lost_member_organizations]`. The churn date
 is the day after the term ends, so a year-end churn lands in the next
-year. *SM* "Inventory" (new_members, membership_churn).
+year. *SM* "Inventory" (new_members, membership_churn); *SL* "Value
+discovery" (read the dimension's own description before filtering on it).
 
 **Billing country vs conformed country.** The raw billing country is free
 text; the conformed country entity normalises it and files what it cannot

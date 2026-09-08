@@ -1,0 +1,68 @@
+{
+  "skill_name": "lfx-data-querying",
+  "evals": [
+    {
+      "id": 0,
+      "name": "company-memberships-alone-vs-combined",
+      "prompt": "I'm prepping a briefing for IBM's leadership. How many Linux Foundation memberships does IBM hold today and what are they worth? I need two views: IBM on its own, and IBM as a group including Red Hat and any other subsidiaries. Use the LFX MCP tools.",
+      "expected_output": "Resolves the legal account name before querying; reports the memberships family as project-account pairs with list-price value, side by side and never divided; two readings (account alone, subsidiaries combined) named as a scope choice; says 'as of today'; does not count membership records into the figure; a zero for the everyday name 'IBM' is treated as a wrong name, not an answer; provenance block with lane, scope, window, population.",
+      "files": [],
+      "assertions": [
+        "Resolves IBM to the stored legal account name (International Business Machines Corporation) before any membership figure is quoted; the everyday name 'IBM' is not the scope of a reported figure",
+        "Reports the membership count and the list-price value side by side and never divides one by the other or calls the value 'dues billed'",
+        "Gives two readings named as a scope choice: the IBM account alone and IBM including subsidiaries (combined), each from its own standard-metrics call",
+        "States the reading is as of today (or the run date) and describes the count as memberships/project-account pairs, not as 'member organisations'",
+        "Does not count membership records from search_members into the headline figure (record tools may be used for context only)",
+        "Carries a provenance block or equivalent with lane, scope as applied, window/as-of date and the population/definition",
+        "The per-subsidiary breakdown (separate) reconciles to the combined total, and every figure in the answer appears in the call log",
+        "No provenance claim is made that the call log does not support (for example, 'compiled SQL kept with the working files' when no SQL was kept)"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "foundation-participants-vs-contributors-top-companies",
+      "prompt": "For CNCF and all its projects: how many developers took part over the last 12 months, and how does that compare with people who actually contributed code? Then give me the top 5 companies by volume of code contributions in that period. Use the LFX MCP tools.",
+      "expected_output": "Resolves cncf via search_projects; uses the participants family (code or collaboration) as the answer to 'took part' and the contributors family as the narrower reading; uses the contributions family by organisation for the ranking; the unattributed (NULL) row is reported as unattributed and dropped from the ranking, which is re-sorted; window stated as concrete dates; bots excluded stated once; foundation scope 'CNCF and its projects', never the umbrella slug.",
+      "files": [],
+      "assertions": [
+        "Resolves the CNCF slug via search_projects before the data calls and scopes the figures to CNCF and its projects (not the umbrella foundation slug, not LF-wide)",
+        "Answers 'took part' with the participants family (code or collaboration activity) and presents code contributors as the narrower reading, with both figures stated",
+        "Uses the contributions family grouped by organisation for the top-5 ranking, with the unattributed/NULL row excluded from the ranking and mentioned as unattributed",
+        "States the window as concrete dates (start and end) and says bots are excluded",
+        "Does not sum per-organisation or per-project rows to produce a headcount total",
+        "The first organisation ranking call requests more rows than the top-N asked for, so the unattributed row does not cost a re-run; and every comparative aside in the answer matches the rows in the call log"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "board-seats-and-meeting-count-service-tools",
+      "prompt": "Who represents Google on the CNCF Governing Board right now (name, role, voting status), and how many CNCF Technical Oversight Committee meetings have taken place in 2026 so far? Use the LFX MCP tools.",
+      "expected_output": "Finds the CNCF project uid, finds the Governing Board committee by project and name, paginates the roster to the end and filters by organisation client-side; names people only in the roster context; finds the TOC committee and counts past meetings by project and date range, filtered to that committee, paginated; labels both as 'visible to you'; does not infer seats from tier or activity; does not use the semantic layer or lens for either.",
+      "files": [],
+      "assertions": [
+        "Finds the CNCF Governing Board through the committee tools (search_committees scoped to the CNCF project) and lists Google's representatives with name, role and voting status from search_committee_members",
+        "Paginates the roster (follows page tokens until none) or explicitly states the roster was read to the end before filtering by organisation",
+        "Counts TOC meetings in 2026 from the past-meetings tool scoped to the project and date range (and the TOC committee), not from the semantic layer or lens",
+        "Labels the roster and the meeting count as what is visible to the caller ('visible to you' or equivalent), not as an LF total",
+        "Does not infer any seat from membership tier, sponsorship or activity data",
+        "Both Technical Oversight Committee records (Public and Private) are checked before the meeting count is given, and no unscoped committee search across all foundations is made"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "new-members-per-year-and-org-reading",
+      "prompt": "How many new members joined the Linux Foundation per year over the last five years? And separately, can you tell me how many organisations were brand new to the LF each year, as opposed to existing members joining another project? Use the LFX MCP tools.",
+      "expected_output": "Uses the new_members family as a bare series by year without a hand-computed start date, quotes each year from its own row, marks the current year as to-date and says which years are shown; explains that new business is first-per-project; says the 'new to the LF' organisation reading is not available today rather than deriving it from rows or the lens; LF-wide scope with no project set.",
+      "files": [],
+      "assertions": [
+        "Uses the new_members family as a series by year without a hand-computed start date (bare period series or the family default), LF-wide with no project set",
+        "Quotes each year from its own row, marks the current year as year-to-date/partial and says which years the table shows",
+        "Explains that new business is first-per-project (an organisation joining another project counts again)",
+        "For the 'brand new to the LF' question, either states that no governed family gives the organisation count today, or gives an ad hoc semantic-layer reading on the organisation-grain first-membership dimension (first LF membership ever by install date) labelled ad hoc; never derives it from the Salesforce 'New Business' flag, from row counting, or from the SQL assistant",
+        "If the ad hoc first-membership reading is given, the answer says it counts first-ever membership rows rather than distinct organisations (a same-day pair of installs counts twice) and does not head the column 'new organisations'",
+        "The ad hoc reading, if given, is bounded to today (installs can be future-dated) and reconciled against the governed year-to-date figure before being reported",
+        "Carries a provenance block or equivalent with lane, scope, window and population"
+      ]
+    }
+  ]
+}

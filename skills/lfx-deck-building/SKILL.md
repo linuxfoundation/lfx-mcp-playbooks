@@ -122,7 +122,25 @@ Before the deck ships, re-read every figure against the deck as a whole:
 - **Every figure was re-run**, not remembered from an earlier draft of the
   deck.
 
-## 5. What LFX never reproduces, and how to cite it
+## 5. The two recurring deck patterns
+
+Two shapes of executive deck recur, and each has a reference that walks
+its sections with the tool, the reading, the registered trap, the check
+and the label for every question the section asks:
+
+- **The membership-value deck** — growth, coordination, the developer
+  community, health, reach, governance, dues, stories:
+  [references/membership-value-deck.md](references/membership-value-deck.md).
+- **The company briefing** — one company across the LF: footprint, rank,
+  engineers and code, events and sponsorship, seats, meetings, peers:
+  [references/org-briefing-deck.md](references/org-briefing-deck.md).
+
+Read the pattern before the conventions slide: it says which sections
+mix scopes, which figures are floors, and which lines are not answerable
+from the tools today (marked in the reference with the bundle that
+brings them).
+
+## 6. What LFX never reproduces, and how to cite it
 
 Some figures a deck wants cannot come from the LFX tools, and the honest
 move is to cite the source that can carry them — never to present a
