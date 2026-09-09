@@ -5,8 +5,10 @@
 
 The appendix is the deck's audit trail: one row per figure, so that an
 engineer can take any row, re-run the stated call, and either reproduce the
-figure or find the pipeline that drifted. It goes at the back of the deck
-(one or more slides) or on a companion page the deck links to.
+figure or find the pipeline that drifted. It travels with the deck in
+whatever form the deck's own workflow carries an appendix — closing
+slides, a companion page, a notes file — as long as every figure shown
+has its row.
 
 ## Header, once per deck
 

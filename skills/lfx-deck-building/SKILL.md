@@ -1,6 +1,6 @@
 ---
 name: lfx-deck-building
-description: Produces a deck's worth of LFX figures that stay consistent with each other — conventions fixed before the first query, cross-framing checks, a data-notes appendix, a final consistency pass, and the citation rule for what LFX cannot reproduce. Use when building a board deck, a member report or any multi-figure deliverable from LFX data.
+description: Produces a deck's worth of LFX figures that stay consistent with each other — conventions fixed before the first query, cross-framing checks, a data-notes appendix, a final consistency pass, and the citation rule for what LFX cannot reproduce. Use when building a board deck, a member report or any multi-figure deliverable from LFX data. Not a presentation skill: it supplies the figures, their conventions, checks and provenance to whatever workflow builds the slides.
 ---
 <!-- Copyright The Linux Foundation and each contributor to LFX. -->
 <!-- SPDX-License-Identifier: MIT -->
@@ -18,6 +18,13 @@ keeps a deck's figures consistent with each other.
 Prerequisite: the `lfx-data-querying` playbook — the lanes, the routing,
 the discovery rules and the provenance block. Every figure on every slide
 is produced that way. This playbook adds what a deck needs on top.
+
+The slides themselves are not its business. How a deck is written,
+designed or produced belongs to the reader's own tools and skills; this
+playbook decides which figures go on it, how they stay consistent with
+each other, and what travels with each one so that it can be reproduced.
+Where it says "slide", "caption" or "notes", read the equivalent in
+whatever form the deck takes.
 
 ## 1. Set the conventions first
 
@@ -121,8 +128,8 @@ A figure checked only against itself does not go on a slide.
 
 ## 3. The data-notes appendix
 
-Every deck carries a data-notes appendix (one or more slides, or a
-companion page) that lets an engineer take any row, re-run it, and either
+Every deck carries a data-notes appendix, in whatever form its own
+workflow uses, that lets an engineer take any row, re-run it, and either
 reproduce the figure or find the pipeline that drifted. Its format is in
 [references/data-notes-format.md](references/data-notes-format.md): one
 row per figure, in the columns **Slide | Figure | Source | Coverage and
