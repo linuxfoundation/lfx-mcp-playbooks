@@ -59,11 +59,17 @@ Restart Claude Code; the skills then load as
 `/lfx-mcp-playbooks:lfx-deck-building`, and trigger on their own when a
 question asks for LFX figures or a deck of them.
 
-In Claude Desktop (Cowork), upload the repository as a plugin: zip the
-`.claude-plugin/` and `skills/` directories together and add the archive
-under Customize. The skills follow the open Agent Skills (`SKILL.md`)
-standard, so any other client that reads that standard can use the
-`skills/` directories directly: copy or symlink them into its skill path.
+In Claude Desktop, open the Cowork tab, then **Customize → Plugins**. Under
+Personal plugins choose **+ → Add marketplace → Add from a repository** and
+enter `linuxfoundation/lfx-mcp-playbooks` (or the full GitHub URL). The
+`lfx-mcp` marketplace then lists `lfx-mcp-playbooks`: install it, and use
+**Update** on the marketplace to pull the current main later. Uploading the
+plugin as a zip archive (with `.claude-plugin/` and `skills/` at the root
+of the archive) also works, for a machine without GitHub access.
+
+The skills follow the open Agent Skills (`SKILL.md`) standard, so any other
+client that reads that standard can use the `skills/` directories directly:
+copy or symlink them into its skill path.
 
 There is no versioning: the main branch is the release, and a client
 re-installs to pick up changes.
