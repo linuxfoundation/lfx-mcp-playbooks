@@ -1,0 +1,16 @@
+{
+  "name": "lfx-mcp",
+  "owner": {
+    "name": "The Linux Foundation"
+  },
+  "metadata": {
+    "description": "Claude Code marketplace for the LFX MCP playbooks."
+  },
+  "plugins": [
+    {
+      "name": "lfx-mcp-playbooks",
+      "source": "./",
+      "description": "LFX MCP playbooks: /lfx-mcp-playbooks:lfx-data-querying for answering a quantitative question through the LFX MCP tools, /lfx-mcp-playbooks:lfx-deck-building for a deck's worth of figures that stay consistent with each other."
+    }
+  ]
+}
