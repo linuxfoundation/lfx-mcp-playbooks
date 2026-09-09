@@ -159,12 +159,13 @@ visible to you.
 Two readings, both floors bounded by platform onboarding and both on the
 attendance data's organisation field (loosely resolved, no subsidiary
 roll-up: the company's spellings are listed and said). Attendances by
-period for the company: the interim semantic-layer recipe, labelled
-interim, worded "attendances". Distinct meetings the company's people
-attended and the hours those meetings ran: the SQL assistant over the
-same attendance data (occurrence key and scheduled duration are stored
-per occurrence; hours summed over distinct occurrences, never over
-attendance rows), labelled generated SQL. The meeting tools list one
+period and people who attended, for the company: the layer's attendance
+records and attendees metric sliced by the organisation name, labelled
+interim and governed, worded "attendances" and "people". Distinct
+meetings the company's people attended and the scheduled minutes those
+meetings ran: the SQL assistant over the same attendance data (the
+occurrences metric carries no organisation), summed over distinct
+occurrences, labelled generated SQL. The meeting tools list one
 project's or one meeting's records without an organisation filter, so
 they give the story of one meeting, not the company figure; the
 participants search with an exact organisation name, a date range and

@@ -41,13 +41,13 @@
       "expected_output": "Meeting aggregates read through the interim semantic-layer recipe as attendances (records) not people, labelled interim and floor; hours reported as an estimate or omitted with the reason (duration not on the attendance rows); top organisations by attendance on free-text organisation names with the vocabulary note and the unattributed share; the communities-hosted series cited to the annual reports as published, not rebuilt from the project index; the LF-wide scope with no project set; data-notes rows with the label per row.",
       "files": [],
       "assertions": [
-        "The meeting count is given as distinct meeting occurrences (via the SQL assistant over the meeting-attendance data, labelled generated SQL, or via the interim recipe with attendances clearly distinguished from occurrences), labelled as a floor bounded by platform onboarding, never as an LF-wide total of people",
-        "Total hours are either summed scheduled duration over distinct occurrences from the SQL assistant (labelled generated SQL and floor), or an estimate explicitly flagged as an estimate with its method; never presented as measured people-hours or as attendances × an average",
+        "The meeting count is given as distinct meeting occurrences (the layer's occurrences metric, or the SQL assistant over the meeting-attendance data where the metric is not exposed), labelled as a floor bounded by platform onboarding, never as attendances and never as an LF-wide total of people",
+        "Total hours are scheduled duration summed once per occurrence (the layer's scheduled-minutes metric, or the SQL assistant where the metric is not exposed), said to be scheduled rather than time spent; never presented as measured people-hours or as attendances × an average",
         "Top organisations by attendance are grouped on the free-text organisation name with the vocabulary note (not CRM legal names) and the unattributed share stated once",
         "The project-communities-per-year chart is cited to the annual reports as a published figure (report and year) and is not rebuilt from the project index or the semantic layer; it is not reconciled against a warehouse figure",
         "The LF-wide scope is stated with no project set (the umbrella foundation's slug is not used as the LF-wide scope)",
         "Each item carries an explicit reproducible-vs-cited verdict, and the data-notes rows carry a label from the closed list per row and the run date",
-        "The SQL assistant was asked for distinct meeting occurrences and summed scheduled hours over the window, and the reported occurrence and hours figures are within a few percent of that reading (a row-capped or sampled estimate in place of it fails); no claim is made that a figure is unavailable from LFX when the SQL assistant can produce it"
+        "Occurrences and scheduled minutes over the window were read from the layer's named metrics or from the SQL assistant, and the reported figures are within a few percent of that reading (a row-capped or sampled estimate in place of it fails); no claim is made that a figure is unavailable from LFX when either can produce it"
       ]
     }
   ]

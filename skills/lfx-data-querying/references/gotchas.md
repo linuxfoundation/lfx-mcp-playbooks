@@ -170,21 +170,26 @@ tools is in [service-tools.md](service-tools.md).
 
 - **Symptom.** A meeting count or attendance figure presented as complete,
   or a meeting metric fetched from a lane that does not hold it.
-- **Cause.** The meeting tools return the meetings visible to the caller;
-  aggregate meeting metrics (attendances over a period, by company or
-  committee) are an interim semantic-layer recipe, where a row is one
-  invitee at one occurrence, so the figure is attendances, not people.
+- **Cause.** The meeting tools return the meetings visible to the caller
+  and do not aggregate; the layer holds every meeting in the warehouse
+  with no per-caller visibility, as four readings that are easy to
+  swap: occurrences, scheduled minutes, attendees (people) and
+  attendances (records, one person at one occurrence).
 - **Check.** Lists and details from the meeting tools, labelled "visible to
-  you"; aggregates from the layer recipe, labelled interim and worded
-  "attendances". Meetings held, people and hours come from a generated-SQL
-  reading over the same attendance data, and the question carries the
-  keys: meetings held are distinct occurrences; people are distinct LF
-  users, e-mail where the user is unknown — never the invitee id, which is
-  one key per invitee per occurrence and reads like a people count ten
-  times too large; hours are scheduled duration summed once per
-  occurrence (meeting-hours), and people's time is a separate figure
-  (attendances times length, person-hours) — say which. A people figure
-  anywhere near the attendance figure is a key error.
+  you"; aggregates from the layer's named metrics, discovered with
+  explore and copied, never assembled: meetings held are the occurrences
+  metric (with or without attendance is a dimension, say which);
+  duration is scheduled minutes, never time spent — join and leave times
+  are not recorded; people are the attendees metric (an LF user, e-mail
+  where the user is unknown), never invitee ids, which read like a people
+  count ten times too large; attendances are the attendance recipe's
+  records, and the only reading that carries the organisation. People's
+  time (attendances times length) is a separate figure from
+  meeting-minutes — say which. An occurrence shared by several projects
+  is attributed to one of them. A tool figure is cited as "visible to
+  you", a layer figure as "all meetings in the warehouse", and neither
+  is reconciled against the other. A people figure anywhere near the
+  attendance figure is a key error. (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances)
 - **Documented.** SL "Routing", "Worked recipes" 12.
 
 ## 13. Membership count and revenue

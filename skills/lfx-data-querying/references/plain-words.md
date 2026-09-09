@@ -144,13 +144,15 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   and attendees are distinct people by email, Bevy speaker rows
   excluded": three columns, registrations (records), unique registrants
   (people), checked-in attendees (people, only where the source carries
-  check-in, so zero can mean no data). For meetings, attendances (one
-  invitee at one occurrence) from the interim layer recipe.
+  check-in, so zero can mean no data). For meetings, attendees are the
+  layer's distinct-people metric and attendances its records (one
+  person at one occurrence).
 - **Other readings:** distinct people across meetings; invitees; "reach"
   in the annual reports (published); social reach ("author follower
   counts over the mentions: the sum is a potential-reach proxy", not
-  additive across projects). Two "attendees" metrics exist on the layer,
-  one for meetings (records) and one for events (people).
+  additive across projects). Three "attend" readings exist on the layer:
+  meeting attendances (records), meeting attendees (people) and event
+  attendees (people) — name which.
 - **Offer it as:** "N registrations from M people; check-in exists only
   for some sources, so attendance is a floor" / "N attendances, not N
   people".
@@ -159,9 +161,9 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
 
 - **Default family reading:** events are conferences and similar with
   registrations, sponsorships and speakers — the event families, windowed
-  by event start date. Meetings are the LF platform's occurrences —
-  meeting tools, the interim recipe for attendances, the SQL assistant
-  for occurrences and hours.
+  by event start date. Meetings are the LF platform's occurrences: the
+  layer's meeting metrics for how many, how many scheduled minutes and
+  who came over a period, the meeting tools for lists (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances).
 - **Other readings:** an "event" that is really a meeting or a webinar;
   sponsorship "events" (the same events from the sponsorship side; one
   event can carry several sponsorship assets).

@@ -76,8 +76,8 @@ and the discipline that keeps a count of records honest.
   filter on a field the record lacks comes back as zero, which is not an
   answer — never walk the index to get round it. A long window with no
   scope times out today: split it into a few sub-ranges, check each is
-  complete, and add them. Meeting counts over a period stay the layer's
-  reading.
+  complete, and add them. What the tools count is what LFX Self Serve
+  shows; the warehouse total over a period is the layer's.
 - **Children of a foundation** come from the search's parent filter, and
   the entities under a legal parent from its legal-parent filter, each
   with the total and its flag. The legal-parent children of a foundation
@@ -154,15 +154,16 @@ and the discipline that keeps a count of records honest.
   people by identity. Two populations hide in the committee filter: with
   a date range it resolves the committee's past meetings and returns
   everyone at them; without one it returns the participant records that
-  carry the committee — say which ran. A committee's meeting count over a
-  period is the layer's reading.
-- **LF-wide aggregate meeting metrics** (attendances over a period by
-  company or committee, hours per company) are still not a service-tool
-  job: the interim semantic-layer recipe holds attendances as records,
-  labelled interim; occurrences and hours are the generated-SQL reading
-  `[not yet in production: TOOLS-2 org meeting KPIs — until then: the
-  interim recipe for aggregates, the SQL assistant for occurrences and
-  hours, the meeting tools for lists]`.
+  carry the committee — say which ran. A project's or a committee's own
+  meeting count over a period is the count tool, "visible to you"; the
+  total over the warehouse is the layer's, and the two are never
+  reconciled.
+- **Aggregate meeting metrics** (meetings held, scheduled minutes,
+  people and attendances over a period, LF-wide, by foundation or by
+  company) are not a service-tool job: they are the layer's named
+  metrics and its attendance records, with no per-caller visibility; the
+  meeting tools list (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances) `[not yet in production: TOOLS-2 org
+  meeting KPIs on the service tools — until then: the layer]`.
 
 ## Mailing lists and Discord — communities as records
 

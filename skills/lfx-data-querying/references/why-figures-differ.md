@@ -321,16 +321,19 @@ recipes" 8.
 
 ## Meetings and rosters
 
-**Attendances vs attendees vs invitees vs occurrences.** The interim
-meeting recipe counts records (one invitee at one occurrence);
-"attendees" as people is a distinct count on the same data; invitees are
-a larger population than those who attended; the number of meetings is a
-count of distinct occurrences, which the recipe does not expose — it is a
-SQL-assistant reading over the same attendance data, as is the sum of
-scheduled duration (stored per occurrence; summed over distinct
-occurrences, never over attendance rows) and the count of people
-(distinct LF users, e-mail as the fallback, never invitee ids). The
-attendance data is the census; the attended-meeting rows of the activity
+**Attendances vs attendees vs invitees vs occurrences.** The layer
+holds four meeting readings on two models. Occurrences count distinct
+meetings held, with or without attendance as a dimension; scheduled
+minutes sum the stored duration once per occurrence, never per
+attendance row, and are scheduled, not time spent; attendees count
+distinct people (an LF user, e-mail as the fallback, never invitee ids);
+attendances count records, one person at one occurrence, and are the
+reading that carries the organisation, the committee and the meeting
+type. Invitees are a larger population than those who attended, and the
+attendance rate is attendances over invitations on the same slice —
+walk-ins can push it above one. An occurrence shared by several projects
+is attributed to one of them. The layer has no per-caller visibility;
+the meeting tools have — cite which. The attendance data is the census; the attended-meeting rows of the activity
 data are the subset that reached the contributor platform, keyed on
 meeting series and person, so their "meetings" are series-person pairs
 and their people are resolved contributor identities — right for a
@@ -338,9 +341,8 @@ contributor-style question, never for meetings held. The attendance data
 carries the invitee's CRM account only; the enriched employer field
 exists on the activity rows, so an attributable share reads lower on the
 attendance data than on the activity data. Meeting-type buckets include a
-literal "None" and a blank, which are two rows. Worded "attendances",
-labelled interim; occurrences and hours labelled generated SQL
-`[not yet in production: TOOLS-2 org meeting KPIs]`. *SL* "Worked
+literal "None" and a blank, which are two rows. Records worded
+"attendances"; the named metrics labelled governed (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances). *SL* "Worked
 recipes" 12.
 
 **Indexed in LFX v2 vs the warehouse.** The record tools and the count
