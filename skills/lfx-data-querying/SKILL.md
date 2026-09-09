@@ -109,7 +109,10 @@ Decide in this order; stop at the first row that fits:
    generated SQL. A question with no period is asked as all time, never
    with a window of your own; the answer opens with the scope line the tool
    returned. Zero rows or an unknown name from the layer is a discovery
-   failure, not a reason to switch lanes.
+   failure, not a reason to switch lanes. Asked for the assistant by name
+   on ground a family covers, run both: the family figure is the answer
+   and the check, the assistant's figure is shown labelled as generated
+   SQL — never one lane answered as if the other had not been asked for.
 
 ## 3. Discovery
 
@@ -123,7 +126,11 @@ Decide in this order; stop at the first row that fits:
   the way back: the value search on the account-name dimension ("Name
   discovery" in the semantic-layer guidance), and an organisation-scoped
   standard-metric call with the everyday name, whose rejection lists the
-  stored names that carry the family's data, parent alongside. A
+  stored names that carry the family's data, parent alongside. When the
+  search is empty and the family accepts the name first time, the parent
+  is still unknown: a by-organisation reading of that name with the
+  separate switch returns the parent beside each row — read it before
+  saying the account stands alone. A
   membership record confirms a spelling; it is not the resolver. A
   project the search cannot find is not absent from the data: the search
   reads the LFX v2 index, which lags the project directory the metrics
@@ -197,13 +204,19 @@ Five habits the reader never sees but the figure depends on:
 - **A relative window is the family's default or a bare period series**,
   never a start date computed by hand. "The last five years" is a series
   by year; the table quotes each year from its own row, marks the current
-  year as to-date, and says which years it shows.
+  year as to-date, and says which years it shows. Two families compared
+  in one sentence each keep their own default window unless the question
+  names one; an all-history start date is a choice, and the sentence that
+  compares says it.
 - **A parent total comes from the combined reading**, never from adding
   account rows: a ranking's cut hides the subsidiaries a hand-sum would
   miss, and distinct counts do not add at all. The rule is general: a
   result whose scope sentence says its rows do not add up is reported as
   rows, never summed into a headline; the parent's own figure is the
-  combined reading, read separately.
+  combined reading, read separately. A separate reading that comes back
+  as one row is the answer to "by subsidiary": the data carries no split
+  under that name. Say so from that row and stop — the layer and the
+  assistant will not find a split the family did not.
 - **"How many developers took part" is participants**: any non-bot
   activity — code, issues, reviews, comments, stars, forks, meeting
   invitations and attendance, training and exams, Hacker News — so the
@@ -223,22 +236,37 @@ Five habits the reader never sees but the figure depends on:
   figure says which view it is — the account alone, which is the tool's
   default, or the group at any depth — and a figure read with the switch
   set says that the default is not what it reports.
+- **The basis travels with the figure.** The `applied` block carries
+  three sentences the reader cannot do without, and a paraphrase that
+  drops their qualifier changes the figure: **scope** (what the name
+  resolved to — "two accounts stored under it, each taken alone", the
+  tree or the bucket, subsidiaries folded or not); **definition** (the
+  population, and its kind: an as-of reading on a past date is date-based
+  and reads a few percent above the status-based current count; a people
+  ranking is one row per identity, so a person seen under two spellings
+  is two rows; event figures follow the event's start date); **note**
+  (the basis, such as the account's billing country). Each is repeated
+  once, in the reader's words with the qualifier kept, next to the figure
+  it qualifies. Two readings of one family side by side — a past as-of
+  figure and today's — carry their kinds in the row, or they read as one
+  series and are not.
 
 ### 4.3 The provenance block
 
-After the answer, one block per figure: **lane** and family or metric;
-**scope** as applied (the scope sentence the standard metrics return,
-quoted: the name, and whether it covered the tree or the subsidiaries; the
-SQL assistant's scope line likewise — and the same sentence is quoted where
-the figure is given, since a paraphrase in the headline is not the scope);
-**window** as concrete dates or an as-of date;
-**population** (the definition sentence the tool returned); **defaults and
-coverage** (what the tool chose for you; unattributed rows, distinct counts,
-partial last period, future-dated end); **SQL** produced on request only
-(every query lane returns it) — say it was kept only if you kept it;
-**label** —
-governed, ad hoc, generated SQL, visible to you, or interim. No lane stamps
-a data refresh time today: the run date stands for freshness.
+After the answer, one block per figure: **scope** as applied (the scope
+sentence the standard metrics return, quoted: the name, and whether it
+covered the tree or the subsidiaries; the SQL assistant's scope line
+likewise — and the same sentence is quoted where the figure is given,
+since a paraphrase in the headline is not the scope); **window** as
+concrete dates or an as-of date; **population** (the definition sentence
+the tool returned); **defaults and coverage** (what the tool chose for
+you; unattributed rows, distinct counts, partial last period, future-dated
+end); **SQL** produced on request only (every query lane returns it) — say
+it was kept only if you kept it. The **label** is written only when the
+figure is not a governed family — ad hoc, generated SQL, visible to you,
+interim, published — because that is when it changes how far the figure
+can be trusted; "governed" is said only next to a figure that is not. No
+lane stamps a data refresh time today: the run date stands for freshness.
 
 ### 4.4 When the tool pushes back
 
@@ -341,9 +369,10 @@ Symptom, cause, check and guidance section for each:
 - Magnitude cross-framed against a second reading (one scope level up, a
   related figure it must sit inside); the unattributed row is not an
   organisation.
-- Lane, scope, window, population in the reader's words; provenance block
-  present; `truncated`, defaults and coverage read from the `applied`
-  block, not from the request you think you sent.
+- Scope, window, population in the reader's words, the basis sentences
+  kept; the label where the figure is not governed; `truncated`, defaults
+  and coverage read from the `applied` block, not from the request you
+  think you sent.
 - A second figure for the same question was reconciled by mechanism, not
   averaged.
 - Every comparative aside ("would rank just behind", "the next two would

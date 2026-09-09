@@ -124,6 +124,8 @@ tools is in [service-tools.md](service-tools.md).
   work, not an organisation; on the standard metrics they sort last, so a
   top-N holds them only when the list outruns the attributed rows; on an
   ad hoc layer query NULL rows sort first on a descending metric.
+  Under a sort on the measure itself the unattributed row can top the
+  list on either lane, because it is often the largest row.
 - **Check.** The unattributed row is reported as unattributed, dropped from
   every organisation ranking and from every parent fold, and the ranking
   is re-sorted before the top-N is read.

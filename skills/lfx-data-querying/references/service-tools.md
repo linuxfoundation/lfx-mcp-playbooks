@@ -20,6 +20,9 @@ and the discipline that keeps a count of records honest.
 - **Paginate to the end before counting anything.** A page token means
   more; an empty page can still carry a token; stop only when no token
   comes back. A count made from the first page is a guess.
+  Meeting and participant records are large: ask for modest pages (a few
+  dozen) and follow the token, rather than one page of a hundred that
+  overflows the result and has to be read back from a file.
 - **Identifiers come from this session.** A project, committee, meeting
   or organisation identifier is copied from a search result this session,
   never remembered from another. A name resolves to an identifier before

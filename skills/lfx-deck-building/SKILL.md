@@ -22,7 +22,11 @@ is produced that way. This playbook adds what a deck needs on top.
 ## 1. Set the conventions first
 
 Before the first call, fix seven choices and hold them for the whole deck.
-They are written on the data-notes slide (section 3).
+They are written on the data-notes slide (section 3). Choose them
+yourself and state them: the window end (today), the grain (legal
+entity) and a ranking depth (ten) have defaults and are never worth a
+question back to the reader; ask only when a choice would change the
+deck's argument. The data is what the reader is waiting for.
 
 1. **Window.** One of: the trailing twelve months to a stated date, or a
    stated calendar period. Concrete dates, everywhere. Any current-period
@@ -36,6 +40,10 @@ They are written on the data-notes slide (section 3).
 3. **Population.** Bots excluded by convention in contributor and
    activity figures; shares computed on the org-attributed base, with the
    unattributed share stated once on the data-notes slide, not hidden.
+   The share column on the slide is computed on that same base: a share
+   of the total that still includes the unattributed row contradicts the
+   convention it sits under, and the appendix row for the share names
+   its denominator.
 4. **Headcount versus volume.** People for "how many"; work for "share".
    Never one presented as the other; distinct counts never summed across
    rows; the two organisation vocabularies never mixed across slides.
