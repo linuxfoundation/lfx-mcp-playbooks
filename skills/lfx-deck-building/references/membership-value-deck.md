@@ -66,6 +66,15 @@ two programmes is one here, two there), the current year bounded at today
 (M12: future-dated installs inflate an unbounded current year). Label:
 governed.
 
+**Growth as a roll-forward.** Members at the start of the year, joins,
+departures, members at the end: the at-date family on 31 December of
+the prior year and of the year, the new-memberships and churn families
+over the year — the same at organisation grain with the new- and
+lost-organisation families. The four never balance exactly; the notes
+name the residue by mechanism (the querying playbook's roll-forward
+habit), the caption says gross joins, and the deck never presents
+new-minus-churned as the growth. Label: governed.
+
 **Same point last year.** The comparison a growth slide wants ("more than
 at this point in the previous year") is two windows with the same
 start-of-year and the same day-of-year end, both stated as dates; never a

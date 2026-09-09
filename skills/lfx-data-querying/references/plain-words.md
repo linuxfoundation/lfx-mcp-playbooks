@@ -48,7 +48,8 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   programmes counts once) — the member-organisations family, and its
   paying-only sibling; a past-date or
   series reading is date-based, not status-based, and says "as of
-  <date>"; the CRM's membership *records* for one company
+  <date>" (read on today's date it runs above today's own figure: free
+  memberships with an open-ended end date whose status has lapsed); the CRM's membership *records* for one company
   (`search_members`, "visible to you"); committee *members* (people);
   mailing-list *members* (subscribers); and in the activity data a
   "member" is a person's contributor identity.

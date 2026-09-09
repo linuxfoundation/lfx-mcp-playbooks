@@ -35,8 +35,11 @@ size, never measured into this file.
 **Status-based vs date-based membership count.** Today's reading counts
 memberships whose status is active; a reading on any other date, and a
 series, counts terms that cover that date. The two readings of the same
-day differ where statuses lag term dates. A deck uses one kind per
-section and says "as of <date>, date-based" when it is not today.
+day differ where statuses lag term dates — mostly free memberships with
+an open-ended placeholder end date whose status has lapsed, so the
+date-based reading of today runs above today's own figure. A deck uses
+one kind per section and says "as of <date>, date-based" when it is not
+today.
 *SM* "Reading results", "Inventory" (memberships).
 
 **Memberships (pairs) vs member organisations.** The family counts
@@ -46,6 +49,13 @@ member-organisations family (paying-only: its paying sibling), a
 different figure from memberships; report the one the question means,
 say the grain, and never pull membership rows and count them. *SM*
 "Inventory" (memberships, member_organizations).
+
+**Tier rows vs the total.** A pair holding two active terms in two tiers
+sits in both tier rows and once in the total, so tier rows sum at or
+above the total while the list-price value sums exactly. It is a second
+term, not a label defect: say "pairs holding two tiers", and let the CRM
+owner judge whether a same-day pair of identical products is one. *SM*
+"Inventory" (memberships).
 
 **Warehouse family vs membership records.** `search_members` shows the
 CRM's live membership records for one company (status, tier, project, key
@@ -112,9 +122,17 @@ switch (first ever with no project, first in the foundation for a root,
 first in the project with excluded) and is named in the applied block.
 Churned memberships are pairs that ended; a company that dropped one
 project and kept another churned but is not lost — lost organisations are
-their own family, counted when the last membership lapsed. The churn date
-is the day after the term ends, so a year-end churn lands in the next
-year. *SM* "Inventory" (new_members, membership_churn); *SL* "Value
+their own family, counted when the last membership lapsed and still
+inactive as of the build (a lapse that has since returned is not lost).
+The churn date is the day after the term ends, so a year-end churn lands
+in the next year. As a series, new memberships count a pair in every
+year it was sold as new business and once over the span, so the years
+sum at or above one span reading; churned memberships and lost
+organisations sum exactly (a pair churns once; a last lapse is unique).
+Start plus new minus churned against the end is the querying playbook's
+roll-forward habit: start on 31 December of the prior year, residue
+named by mechanism, never forced to balance. *SM* "Inventory"
+(new_members, membership_churn, lost_member_organizations); *SL* "Value
 discovery" (read the dimension's own description before filtering on it).
 
 **Billing country vs conformed country.** The raw billing country is free
@@ -205,8 +223,11 @@ The family counts maintainers of LF projects as of today; an ad hoc count
 over the whole index reads higher. A company's maintainers including
 subsidiaries at any depth: the family's subsidiaries switch, or ad hoc
 through the layer's top-parent dimension on maintainers (two roots can
-share a name; the identifier is the exact key). *SM* "Inventory"
-(maintainers); *SL* "Worked recipes" 11.
+share a name; the identifier is the exact key). Affiliation is carried
+per person, so the by-organisation rows partition the total exactly,
+the unresolved-employer row usually the largest single row; the
+by-project rows sum above it, a person maintaining several projects.
+*SM* "Inventory" (maintainers); *SL* "Worked recipes" 11.
 
 **Maintainer contributions: roster as of the build, activity in the
 window.** People on today's roster, their contributions over the window;
