@@ -71,9 +71,9 @@ departures, members at the end: the at-date family on 31 December of
 the prior year and of the year, the new-memberships and churn families
 over the year — the same at organisation grain with the new- and
 lost-organisation families. The four never balance exactly; the notes
-name the residue by mechanism (the querying playbook's roll-forward
-habit), the caption says gross joins, and the deck never presents
-new-minus-churned as the growth. Label: governed.
+name the residue by mechanism (the querying playbook's "Roll-forward
+residues"), and the caption says gross joins, never new-minus-churned as
+the growth. Label: governed.
 
 **Same point last year.** The comparison a growth slide wants ("more than
 at this point in the previous year") is two windows with the same

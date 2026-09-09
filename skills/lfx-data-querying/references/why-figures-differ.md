@@ -129,11 +129,31 @@ in the next year. As a series, new memberships count a pair in every
 year it was sold as new business and once over the span, so the years
 sum at or above one span reading; churned memberships and lost
 organisations sum exactly (a pair churns once; a last lapse is unique).
-Start plus new minus churned against the end is the querying playbook's
-roll-forward habit: start on 31 December of the prior year, residue
-named by mechanism, never forced to balance. *SM* "Inventory"
-(new_members, membership_churn, lost_member_organizations); *SL* "Value
-discovery" (read the dimension's own description before filtering on it).
+*SM* "Inventory" (new_members, membership_churn,
+lost_member_organizations); *SL* "Value discovery" (read the dimension's
+own description before filtering on it).
+
+**Roll-forward residues.** Start plus new minus churned never equals the
+end count, because the four are four populations. Memberships: the start
+snapshot is 31 December of the prior year — a term ending that day is
+inside the start count and churns on 1 January, and a 1 January install
+is inside a 1 January start count and new, so a 1 January start counts
+both twice; churn is priced, the headcount is not, so a free or
+quasi-associate lapse leaves the count without churning; a lapse with a
+later return is never churn at all (churn requires no later membership,
+which is why past years shrink between builds); new is new business only,
+so a re-activation sold as a renewal enters the end count without being
+new, while a second new-business sale to an already active pair is new
+without adding a member; and a pair that drops one product while keeping
+another churns and stays. Organisations: a returner (first joined before
+the year, inactive at its start, active at its end) is neither new nor
+lost; lost is priced and requires no active membership as of the build,
+so an organisation still holding a free term at year end can be lost
+while the headcount keeps it, and one that has since returned is not lost
+at all. Name the mechanism and the side it falls on; a gap no mechanism
+covers is a scope or date error. *SM* "Inventory" (memberships,
+new_members, membership_churn, member_organizations,
+new_member_organizations, lost_member_organizations).
 
 **Billing country vs conformed country.** The raw billing country is free
 text; the conformed country entity normalises it and files what it cannot

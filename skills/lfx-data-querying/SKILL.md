@@ -256,25 +256,18 @@ The habits the reader never sees but the figure depends on:
   figure and today's — carry their kinds in the row, or they read as one
   series and are not.
 - **A check is a computed figure.** A sum that checks a breakdown
-  against its total is computed from every row (a script when the rows
-  went to a file), quoted exactly, and its outcome named: it reconciles,
-  or the difference and the mechanism behind it. "Roughly" is not a
-  check, and an estimated sum has misread a partition as an overcount. A
-  breakdown cut by a limit gives a floor, said as such; a share base
-  derived as the total minus the unattributed row is described that way,
-  not as "the sum across every organisation".
-- **A roll-forward starts on the last day of the prior period.** Start
-  plus new minus churned against the end: the start snapshot is 31
-  December of the prior year, never 1 January — a term ending that day
-  sits inside the start count and churns the day after; an install on
-  1 January is new, not start. What remains is by construction and is
-  named on its side: churn and lost are priced, the headcount is not, so
-  an unpriced lapse leaves the count without churning; new memberships
-  are new-business installs only, so a re-activation not sold as new
-  enters the end count without being new; a returning organisation is
-  neither new nor lost; a pair that drops one product while keeping
-  another churns and stays a member. Say which side the residue falls
-  on, and never force the four figures to balance.
+  against its total is computed from every row, quoted exactly, and its
+  outcome named: it reconciles, or the difference and its mechanism.
+  "Roughly" is not a check. A breakdown cut by a limit is a floor and
+  says so; a base derived as the total minus the unattributed row is
+  described as derived, not as a sum of the rows.
+- **A roll-forward starts on 31 December of the prior year.** Start plus
+  new minus churned against the end never balances exactly, and it is
+  not made to: the start snapshot is the last day of the prior year (a
+  1 January start double-counts the year-end lapses and the new-year
+  installs), and the residue is named by mechanism on the side it falls
+  — the "Roll-forward residues" entry of the why-figures-differ
+  reference has the list.
 
 ### 4.3 The provenance block
 

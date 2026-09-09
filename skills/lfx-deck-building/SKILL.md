@@ -106,14 +106,11 @@ several times, not as noise. Use whichever applies:
   is unique). The latest period is read again bounded at today and
   compared with the series' own to-date row. A series slide with no check
   line in the notes is the commonest miss.
-- **A roll-forward.** Start plus new minus churned against the end,
-  at either grain, with the start snapshot on 31 December of the prior
-  year (the querying playbook's roll-forward habit). The residue is
-  named by mechanism on the slide's notes — priced churn against an
-  unpriced headcount, re-activations that were not new business,
-  returners that are neither new nor lost — and the caption says the
-  joins are gross, not net. Four figures forced to balance are a wrong
-  slide.
+- **A roll-forward.** Start plus new minus churned against the end, at
+  either grain, the start snapshot on 31 December of the prior year; the
+  residue named by mechanism in the notes (the querying playbook's
+  "Roll-forward residues"), the caption saying gross joins, not net.
+  Four figures forced to balance are a wrong slide.
 - **A second lane where two cover the ground.** A figure from the semantic
   layer or the SQL assistant that a standard metric also covers is read
   from the standard metric too; the governed figure wins, and the
