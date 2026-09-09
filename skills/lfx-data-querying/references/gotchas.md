@@ -146,7 +146,8 @@ tools is in [service-tools.md](service-tools.md).
   layer, the series and its `-fund` project are two slugs: ask for both,
   and say they were combined. A JDF-wide organisation count is not one
   call: the membership axis scopes one programme at a time, so list the
-  consortia under the JDF parent with the project search, then read
+  consortia under the JDF legal entity (one hop below the foundation
+  record) with the project search's legal-parent filter, then read
   distinct organisations across their slugs in one layer query; the
   per-programme rows do not sum, and the answer says so.
 - **Documented.** SM "Resolve names first — ALWAYS" and "Projects and

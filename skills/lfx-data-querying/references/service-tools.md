@@ -64,15 +64,24 @@ and the discipline that keeps a count of records honest.
   identity", is a lower bound when the tool says the count stopped early,
   and is never reconciled against the directory. The record tools stay
   exact for meetings, participants, committees and members, which are
-  native to LFX v2: the count tool counts records of a kind, under a
-  parent, in a date range, and says whether the count is complete; a
-  count that is not complete is a lower bound and is said to be one; the
-  search's own total carries the same flag. Every count is "records
-  indexed in LFX v2 and visible to you".
+  native to LFX v2: the count tool counts records of one kind, under a
+  parent or a filter on that kind's own fields, in a date range, and says
+  whether the count is complete; a count that is not complete is a lower
+  bound and is said to be one; the search's own total carries the same
+  flag. Every count is "records indexed in LFX v2 and visible to you". It
+  does not cross kinds: committees cannot be filtered by their project's
+  status, nor members by their committee's category, so a total that
+  needs a join (seats across every board, boards of active projects
+  only) is a layer or generated-SQL reading, not a walk of the index. An
+  unscoped count over a long window can time out on the service; scope
+  it, or shorten the window — counts over disjoint windows add.
 - **Children of a foundation** come from the search's parent filter, and
-  the entities under a legal parent (a JDF series, a fund) from its
-  legal-parent filter, each with the total and its flag; the layer's
-  foundation dimension is the population reading, not this index.
+  the entities under a legal parent from its legal-parent filter, each
+  with the total and its flag. The legal-parent children of a foundation
+  record are its legal entities; the projects of a JDF-type foundation
+  hang off that entity, one hop lower, so resolve the entity record
+  first and filter on it. The layer's foundation dimension is the
+  population reading, not this index.
 
 ## Organisations — resolve, then read the membership records
 
