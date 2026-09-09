@@ -342,7 +342,7 @@ carries the invitee's CRM account only; the enriched employer field
 exists on the activity rows, so an attributable share reads lower on the
 attendance data than on the activity data. Meeting-type buckets include a
 literal "None" and a blank, which are two rows. Records worded
-"attendances"; the named metrics labelled governed (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances). *SL* "Worked
+"attendances"; the named metrics labelled ad hoc (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances). *SL* "Worked
 recipes" 12.
 
 **Indexed in LFX v2 vs the warehouse.** The record tools and the count

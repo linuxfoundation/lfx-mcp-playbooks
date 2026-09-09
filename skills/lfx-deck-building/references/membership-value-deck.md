@@ -93,15 +93,15 @@ the same window; minutes are scheduled, never time spent, and are
 converted to hours on the slide with that said. Every meeting figure is
 a floor: only meetings run through the LF's meeting platform exist here
 (D9). Trap D8: an hours figure built from attendances times a sampled
-average is an estimate and says so, and is the worse route. Label:
-governed, floor (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances).
+average is an estimate and says so, and is the worse route. Label: ad
+hoc, floor (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances).
 
 **People who attended, attendances.** The layer's attendees metric
 counts people (an LF user, e-mail as the fallback), never invitee ids,
 and sits far below the attendance recipe's records (one person at one
 occurrence); the meeting tools list what the caller's identity may see.
 Trap M3: no metric family covers meetings, so the names come from
-explore. Label: governed for people, interim for attendances, each
+explore. Label: ad hoc for people, interim for attendances, each
 worded as such.
 
 **Organisations that show up most; breadth and intensity.** Attendances
