@@ -248,8 +248,10 @@ the committee tools and nowhere else; one organisation's seats are the
 organisation seats tool (board split, per-project summary, under the
 organisation gate); a ranking of organisations by seats across all
 projects is the generated-SQL reading over the committee data with staff
-and unaffiliated seats set aside; totals of committees and members are
-the same generated-SQL reading, "visible to you". Traps D14 and D15:
+and unaffiliated seats set aside; totals of committees and of seats on
+them are the count tool, one kind a call, "visible to you", with the
+complete flag read, and across all onboarded projects regardless of
+status unless combined with the layer's directory. Traps D14 and D15:
 roster records carry no "community-elected" attribute, so unaffiliated
 seats are a proxy and say so; organisation aliases are unmerged, so a
 company's seats can split across spellings. Committee members' countries

@@ -81,6 +81,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | What one company holds: memberships, tiers, dates, contacts | `search_members`, `get_member_membership` | the record view of the CRM, the story behind the figure | visible to you |
 | Who sits on a board or committee, with what vote | committee tools | rosters live nowhere else | visible to you |
 | A company's seats across the LF, split by board and project | organisation seats tool | one call, under the organisation gate | visible to you |
+| How many committees or members a project, a committee or the LF has in LFX v2 | count tool | one kind a call, filters on the record's own fields, complete flag read | visible to you |
 | Which organisations hold the most seats across all projects | SQL assistant | a roster walk is a hundred calls; the committee data answers in one, with staff and unaffiliated seats set aside | generated SQL |
 | Which meetings a project or committee held, who was invited, who attended, what was discussed | meeting tools | occurrence records with participants and summaries | visible to you |
 | Attendances over a period, by company or committee | semantic layer, interim recipe | the meeting tools list, they do not aggregate | interim |

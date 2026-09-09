@@ -64,11 +64,20 @@ and the discipline that keeps a count of records honest.
   identity", is a lower bound when the tool says the count stopped early,
   and is never reconciled against the directory. The record tools stay
   exact for meetings, participants, committees and members, which are
-  native to LFX v2; a count of them is a search paged to the end and said
-  as "records indexed in LFX v2 and visible to you", and the project
-  search's own total says whether it is complete. A total that needs a
-  join across kinds (seats across every board, boards of active projects
-  only) is a layer or generated-SQL reading, never a walk of the index.
+  native to LFX v2: the count tool counts records of one kind in one
+  call and says whether the count is complete; a count that is not
+  complete is a lower bound and is said to be one; the project search's
+  own total carries the same flag. Every count is "records indexed in
+  LFX v2 and visible to you". Its filters are the fields the record
+  carries: a member record knows its committee's category and its
+  project, so seats across every board is one call; a committee record
+  knows its project but not the project's status, so an active-only
+  figure is the count combined with the layer's project directory, and a
+  filter on a field the record lacks comes back as zero, which is not an
+  answer — never walk the index to get round it. A long window with no
+  scope times out today: split it into a few sub-ranges, check each is
+  complete, and add them. Meeting counts over a period stay the layer's
+  reading.
 - **Children of a foundation** come from the search's parent filter, and
   the entities under a legal parent from its legal-parent filter, each
   with the total and its flag. The legal-parent children of a foundation
