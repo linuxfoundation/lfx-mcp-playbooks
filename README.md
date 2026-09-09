@@ -1,7 +1,7 @@
 <!-- Copyright The Linux Foundation and each contributor to LFX. -->
 <!-- SPDX-License-Identifier: MIT -->
 
-# lfx-mcp-playbooks
+# LFX MCP Playbooks
 
 Playbooks for agents that answer questions through the **LFX MCP server**:
 which tool answers which kind of question, in what order, with what
@@ -46,18 +46,27 @@ call.
 
 ## Installing
 
-The repository is a Claude Code plugin and its own single-plugin
-marketplace. From Claude Code:
+The repository is a Claude Code plugin (`lfx-mcp-playbooks`) and its own
+marketplace (`lfx-mcp`). From Claude Code:
 
-```
-/plugin marketplace add /path/to/lfx-mcp-playbooks
-/plugin install lfx-mcp-playbooks@lfx-mcp-playbooks
+```text
+/plugin marketplace add linuxfoundation/lfx-mcp-playbooks
+/plugin install lfx-mcp-playbooks@lfx-mcp
 ```
 
-The skills then load as `/lfx-mcp-playbooks:lfx-data-querying` and
-`/lfx-mcp-playbooks:lfx-deck-building`. Alternatively, copy or symlink the
-skill directories into the agent's skill path (for Claude Code:
-`.claude/skills/` in the project, or `~/.claude/skills/` for the user).
+Restart Claude Code; the skills then load as
+`/lfx-mcp-playbooks:lfx-data-querying` and
+`/lfx-mcp-playbooks:lfx-deck-building`, and trigger on their own when a
+question asks for LFX figures or a deck of them.
+
+In Claude Desktop (Cowork), upload the repository as a plugin: zip the
+`.claude-plugin/` and `skills/` directories together and add the archive
+under Customize. The skills follow the open Agent Skills (`SKILL.md`)
+standard, so any other client that reads that standard can use the
+`skills/` directories directly: copy or symlink them into its skill path.
+
+There is no versioning: the main branch is the release, and a client
+re-installs to pick up changes.
 
 ## A note to readers
 

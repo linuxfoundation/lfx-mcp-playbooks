@@ -1,10 +1,11 @@
 {
   "name": "lfx-mcp-playbooks",
   "description": "Playbooks for working with the LFX MCP tools: which tool answers which kind of question, in what order, and how a figure is stated and sourced. Two skills: data querying and deck building.",
-  "version": "0.1.0",
   "author": {
     "name": "The Linux Foundation"
   },
+  "homepage": "https://github.com/linuxfoundation/lfx-mcp-playbooks",
+  "repository": "https://github.com/linuxfoundation/lfx-mcp-playbooks",
   "license": "MIT",
   "skills": "./skills/"
 }
