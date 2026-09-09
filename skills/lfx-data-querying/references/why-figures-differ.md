@@ -343,10 +343,18 @@ labelled interim; occurrences and hours labelled generated SQL
 `[not yet in production: TOOLS-2 org meeting KPIs]`. *SL* "Worked
 recipes" 12.
 
-**Visible to you vs the warehouse.** Meeting and committee tools return
-what the caller's identity may see; the warehouse holds what was loaded.
-A count from the service tools is never an LF total. See
-[service-tools.md](service-tools.md).
+**Indexed in LFX v2 vs the warehouse.** The record tools and the count
+tool read the LFX v2 index: records of projects onboarded into LFX v2,
+filtered to what the caller's identity may see, with no project status
+on committees or meetings. The warehouse reads every project it was
+loaded with, at a project status and a date. So the same population —
+boards across the LF, their seats, a foundation's projects, meetings in
+a window — comes out different from each side, by onboarding,
+visibility, status and timing, and neither figure is an error. An
+LF-wide figure is the warehouse reading, said as such; the index count
+is "in LFX v2 today, visible to you", and is what LFX v2 applications
+show their users. Quote one, and name the other only as a cross-check.
+See [service-tools.md](service-tools.md).
 
 **Roster vs inference.** A board seat comes from the committee tools and
 nowhere else; a company's seats are the roster filtered by organisation,
