@@ -144,7 +144,11 @@ tools is in [service-tools.md](service-tools.md).
   and the applied block lists the members — name them in the answer;
   excluded reads the named project alone; on any other family, and on the
   layer, the series and its `-fund` project are two slugs: ask for both,
-  and say they were combined.
+  and say they were combined. A JDF-wide organisation count is not one
+  call: the membership axis scopes one programme at a time, so list the
+  consortia under the JDF parent with the project search, then read
+  distinct organisations across their slugs in one layer query; the
+  per-programme rows do not sum, and the answer says so.
 - **Documented.** SM "Resolve names first — ALWAYS" and "Projects and
   subprojects" (Consortia); SM "Inventory" (the
   memberships row: memberships attach at foundation level); the
@@ -171,7 +175,15 @@ tools is in [service-tools.md](service-tools.md).
   invitee at one occurrence, so the figure is attendances, not people.
 - **Check.** Lists and details from the meeting tools, labelled "visible to
   you"; aggregates from the layer recipe, labelled interim and worded
-  "attendances".
+  "attendances". Meetings held, people and hours come from a generated-SQL
+  reading over the same attendance data, and the question carries the
+  keys: meetings held are distinct occurrences; people are distinct LF
+  users, e-mail where the user is unknown — never the invitee id, which is
+  one key per invitee per occurrence and reads like a people count ten
+  times too large; hours are scheduled duration summed once per
+  occurrence (meeting-hours), and people's time is a separate figure
+  (attendances times length, person-hours) — say which. A people figure
+  anywhere near the attendance figure is a key error.
 - **Documented.** SL "Routing", "Worked recipes" 12.
 
 ## 13. Membership count and revenue

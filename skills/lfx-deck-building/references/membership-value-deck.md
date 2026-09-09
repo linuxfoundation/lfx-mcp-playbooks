@@ -103,7 +103,8 @@ for occurrences and hours, the interim recipe for attendances]`.
 
 **People who attended, attendances.** The interim semantic-layer recipe
 counts attendances (one invitee at one occurrence); people are a distinct
-count on the same data; the meeting tools list what the caller's identity
+count of LF users (e-mail as the fallback) through the SQL assistant,
+never a count of invitee ids, and sit far below attendances; the meeting tools list what the caller's identity
 may see. Trap M3: no metric family covers meetings, so the figures were
 found by exploration; M15: the generated-SQL lane caps rows, so a long
 tail is partial. Label: interim, worded "attendances".
@@ -115,7 +116,9 @@ no rollup and no subsidiaries (D15: aliases unmerged, so one company
 splits across spellings) — distinct people for breadth, attendances per
 person for intensity; the slide says which vocabulary the grouping used
 and carries the alias note; two buckets are not companies and are stated
-once as unattributed. Label: interim
+once as unattributed; LF-hosted entities (the LF's own staff, a
+foundation's own secretariat) top an attendance ranking and are set aside
+from the member ranking, said on the slide. Label: interim
 `[not yet in production: TOOLS-2 — until then: the interim recipe with the
 vocabulary note]`.
 

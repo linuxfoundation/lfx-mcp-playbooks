@@ -229,8 +229,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   minority; for organisation region, the employer's headquarters. The LF
   region grouping is provisional.
 - **Other readings:** the raw billing field (more rows, unconformed);
-  where the work happens; "APAC" in the everyday sense, which is several
-  stored rows.
+  where the work happens; for contributors, the employer-headquarters
+  lens (organisation region), which can invert the ranking the person
+  lens gives and covers a different share of the work — offer it beside;
+  "APAC" in the everyday sense, which is several stored rows.
 - **Offer it as:** "countries of the billing address, N resolved plus an
   unresolved group" / "the person's own country where known".
 
@@ -242,7 +244,8 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   (new, churned); state families read "as of today", status-based.
 - **Other readings:** a calendar year (dates); year-to-date bounded at
   today; "same point last year"; a past-date membership reading
-  (date-based, says so).
+  (date-based, says so); "since tracking began" is the first month with
+  data, read at month grain — a year bucket is not a start date.
 - **Offer it as:** "the twelve months to <date>; say if you want calendar
   <year> or year-to-date."
 
@@ -308,7 +311,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   (board category for governing boards), active seats, with voting
   status; "visible to you".
 - **Other readings:** every committee of a project including election
-  committees ("Other"); technical bodies.
+  committees ("Other"); technical bodies; a ranking of organisations by
+  seats across all projects, which is a generated-SQL reading over the
+  committee data (the why-figures-differ "Roster vs inference" entry),
+  not a roster walk.
 - **Offer it as:** "the governing board's roster as visible to you, N
   active seats".
 

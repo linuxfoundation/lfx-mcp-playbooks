@@ -157,9 +157,12 @@ new_member_organizations, lost_member_organizations).
 
 **Billing country vs conformed country.** The raw billing country is free
 text; the conformed country entity normalises it and files what it cannot
-resolve under NULL. A country breakdown read raw has more rows and
-different totals per country than the conformed one; the LF region
-grouping is provisional. *SM* "Inventory" (memberships, contributors);
+resolve under NULL. A country breakdown read raw has more rows — one per
+spelling, so a raw count of countries is always higher, never lower — and
+different totals per country than the conformed one; the blank row is
+accounts with no billing country, and the conformation drops nothing.
+Say "countries" only of the conformed reading. The LF region grouping is
+provisional. *SM* "Inventory" (memberships, contributors);
 *SL* "Value discovery".
 
 ## Projects and scope
@@ -246,7 +249,9 @@ through the layer's top-parent dimension on maintainers (two roots can
 share a name; the identifier is the exact key). Affiliation is carried
 per person, so the by-organisation rows partition the total exactly,
 the unresolved-employer row usually the largest single row; the
-by-project rows sum above it, a person maintaining several projects.
+by-project rows sum above it, a person maintaining several projects; a
+maintainer figure that equals the sum of the project rows is seats, not
+people.
 *SM* "Inventory" (maintainers); *SL* "Worked recipes" 11.
 
 **Maintainer contributions: roster as of the build, activity in the
@@ -323,7 +328,16 @@ a larger population than those who attended; the number of meetings is a
 count of distinct occurrences, which the recipe does not expose — it is a
 SQL-assistant reading over the same attendance data, as is the sum of
 scheduled duration (stored per occurrence; summed over distinct
-occurrences, never over attendance rows). Meeting-type buckets include a
+occurrences, never over attendance rows) and the count of people
+(distinct LF users, e-mail as the fallback, never invitee ids). The
+attendance data is the census; the attended-meeting rows of the activity
+data are the subset that reached the contributor platform, keyed on
+meeting series and person, so their "meetings" are series-person pairs
+and their people are resolved contributor identities — right for a
+contributor-style question, never for meetings held. The attendance data
+carries the invitee's CRM account only; the enriched employer field
+exists on the activity rows, so an attributable share reads lower on the
+attendance data than on the activity data. Meeting-type buckets include a
 literal "None" and a blank, which are two rows. Worded "attendances",
 labelled interim; occurrences and hours labelled generated SQL
 `[not yet in production: TOOLS-2 org meeting KPIs]`. *SL* "Worked
@@ -336,7 +350,12 @@ A count from the service tools is never an LF total. See
 
 **Roster vs inference.** A board seat comes from the committee tools and
 nowhere else; a company's seats are the roster filtered by organisation,
-paginated to the end `[not yet in production: TOOLS-1
+paginated to the end. A ranking of organisations by seats across every
+project is a different job: walking every roster through the tools is a
+hundred calls, so it is a generated-SQL reading over the committee data,
+labelled as such, with LF staff seats and unaffiliated individuals set
+aside and said, technical steering committees kept out of "boards", and
+spelling variants of one company noted rather than merged by hand `[not yet in production: TOOLS-1
 get_org_committee_seats]`. *SL* "Routing".
 
 ## Time
