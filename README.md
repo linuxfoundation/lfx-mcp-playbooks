@@ -74,6 +74,12 @@ copy or symlink them into its skill path.
 There is no versioning: the main branch is the release, and a client
 re-installs to pick up changes.
 
+## Contributing
+
+[CLAUDE.md](CLAUDE.md) (also `AGENTS.md`) is the playbook for changing this
+repository: the guidance-versus-playbook boundary, the standing rules, the
+scans, the eval loop and the commit conventions.
+
 ## A note to readers
 
 The playbooks are written to a few standing rules, and a reader should hold
