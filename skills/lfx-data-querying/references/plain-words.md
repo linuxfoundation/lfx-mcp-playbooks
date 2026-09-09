@@ -109,7 +109,9 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
 - **Default family reading:** new memberships — "memberships from a New
   Business opportunity, by install date", first-per-project (a second
   programme counts again; a returning account counts again); as a
-  series, the current year is partial and flagged.
+  series, the current year is partial and flagged. Each period counts
+  distinct pairs, so the years sum to at or above the same family read
+  over the whole span — the difference is pairs new in two years.
 - **Other readings:** organisations new to the LF altogether — the
   new-member-organisations family (first ever with no project; first in
   the foundation or the project when one is named, as the applied block

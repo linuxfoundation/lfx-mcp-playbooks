@@ -51,9 +51,11 @@ Trap D10 / M13: this is account-project grain — a company joining a second
 project counts again — and the deck once read it as "new members" at
 organisation grain and had to be relabelled. Say "new project
 memberships". Check: the slide caption names the grain; the yearly rows
-sum to the family read as one figure over the same span (install dates
-are additive), and the to-date row matches a second reading bounded at
-today. Label: governed.
+sum to at or above the family read as one figure over the same span (the
+family counts distinct project-account pairs per period, so a pair that
+lapsed and returned as new business in two years is in both rows and
+once in the span), and the to-date row matches a second reading bounded
+at today. Label: governed.
 
 **First-time member organisations.** Standard metrics, the
 new-member-organisations family LF-wide: distinct organisations whose
