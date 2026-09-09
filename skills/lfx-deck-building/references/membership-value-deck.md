@@ -96,10 +96,7 @@ same window. Every meeting figure is a floor: only meetings run through
 the LF's meeting platform exist here (D9). Trap D8 as registered was
 about the activity table the original deck used, which had no duration
 — an hours figure built from attendances times a sampled average is an
-estimate and says so, and is the worse route. The count tool gives a
-committee's or a project's past meetings in a range as records indexed in
-LFX v2 and visible to the caller, with its complete flag — the
-cross-check for one scope, not the LF-wide census. Label: generated SQL,
+estimate and says so, and is the worse route. Label: generated SQL,
 floor `[not yet in production: TOOLS-2 org meeting KPIs (counts, hours,
 by company) — until then: the SQL assistant for occurrences and hours,
 the interim recipe for attendances]`.
@@ -252,8 +249,7 @@ organisation seats tool (board split, per-project summary, under the
 organisation gate); a ranking of organisations by seats across all
 projects is the generated-SQL reading over the committee data with staff
 and unaffiliated seats set aside; totals of committees and members are
-the count tool, "visible to you", with the complete flag read. Traps D14
-and D15:
+the same generated-SQL reading, "visible to you". Traps D14 and D15:
 roster records carry no "community-elected" attribute, so unaffiliated
 seats are a proxy and say so; organisation aliases are unmerged, so a
 company's seats can split across spellings. Committee members' countries
