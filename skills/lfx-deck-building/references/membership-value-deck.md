@@ -28,11 +28,12 @@ is what the deck does today.
   unset; the umbrella's own slug is a bucket (M1: the generated-SQL lane
   once injected that slug silently and the headline shrank several times
   over). Check: the scope line or the applied block says LF-wide.
-- **Resolve every foundation and company name first**, and confirm the
-  `-fund` sibling for any consortium (M8, D11: a series' memberships sit on
-  the fund, a headline read on the series slug undercounted several
-  times)
-  `[not yet in production: SM-3 consortia — the membership families read the whole consortium in one call and list its members]`.
+- **Resolve every foundation and company name first**, and know which
+  projects are a consortium (M8, D11: a series' memberships sit on the
+  fund, and a headline once read on the series slug alone undercounted
+  several times); the membership and organisation families read the whole
+  consortium in one call by default and list its members, and the appendix
+  row names them.
 - **Run date stands for freshness** (M16: no lane stamps a refresh time).
   Every figure carries the run date in the appendix.
 
@@ -54,15 +55,14 @@ sum to the family read as one figure over the same span (install dates
 are additive), and the to-date row matches a second reading bounded at
 today. Label: governed.
 
-**First-time member organisations.** The organisation-grain reading (an
-account's first LF membership ever, by install date). Today an ad hoc
-reading on the semantic layer's organisation-grain first-membership flag,
-which counts membership *rows*, not organisations, as the guidance says;
-say what it counts and label it ad hoc `[not yet in production: SM-3
-new_member_organizations, distinct organisations — until then: the ad hoc
-first-ever-membership reading with that caveat]`. Check: reconciled to
-the governed year-to-date memberships figure, bounded at today (M12:
-future-dated installs inflate an unbounded current year).
+**First-time member organisations.** Standard metrics, the
+new-member-organisations family LF-wide: distinct organisations whose
+first LF membership ever was installed in the year (a lapsed account that
+rejoins is not new), the firstness named as the applied block gives it.
+Check: sits below the year's new memberships (an organisation joining
+two programmes is one here, two there), the current year bounded at today
+(M12: future-dated installs inflate an unbounded current year). Label:
+governed.
 
 **Same point last year.** The comparison a growth slide wants ("more than
 at this point in the previous year") is two windows with the same
@@ -98,11 +98,13 @@ found by exploration; M15: the generated-SQL lane caps rows, so a long
 tail is partial. Label: interim, worded "attendances".
 
 **Organisations that show up most; breadth and intensity.** Attendances
-grouped by the participant's organisation on the interim recipe, distinct
-people for breadth, attendances per person for intensity. The
-organisation field on meeting records is free text (D15: aliases
-unmerged, so one company splits across spellings) — the vocabulary note
-goes on the slide. The unattributed share is stated once. Label: interim
+grouped by the organisation the meeting record carries, on the interim
+recipe — the invitee's account as the source spelled it, free text with
+no rollup and no subsidiaries (D15: aliases unmerged, so one company
+splits across spellings) — distinct people for breadth, attendances per
+person for intensity; the slide says which vocabulary the grouping used
+and carries the alias note; two buckets are not companies and are stated
+once as unattributed. Label: interim
 `[not yet in production: TOOLS-2 — until then: the interim recipe with the
 vocabulary note]`.
 
@@ -115,14 +117,14 @@ LFX v2.)
 ## Section 3 — The developer community
 
 **People active across LF projects; growth year over year.** Standard
-metrics: participants (code or collaboration) for "took part",
+metrics: participants (any non-bot activity) for "took part",
 contributors for "wrote code"; both LF-wide, both distinct people, each
 window stated as dates; year-over-year is two complete windows. Trap D5:
 three contributor counts exist for the same question (definition,
-population, bots) — the deck names which and holds it. Participants will
-widen to any activity `[not yet in production: SM-3 participants = any
-activity; the figure jumps — until then: code or collaboration, said so]`.
-Label: governed.
+population, bots) — the deck names which and holds it; participants is
+any non-bot activity, stars, forks, meetings and training included, so
+the "took part" figure runs well above "wrote code" and the slide says
+why. Label: governed.
 
 **What developers do in a year: commits, pull requests, reviews, issues,
 by platform.** Semantic layer, activity counts by type and by platform,
@@ -183,8 +185,8 @@ Label: governed.
 **Events, registrations, speakers.** Standard metrics: registrations
 (accepted, by event start date, distinct people separate from records,
 check-in only where the source carries it), speakers (accepted only,
-distinct people, no organisation scope today
-`[not yet in production: SM-3 speakers by organisation — until then: no company split]`),
+distinct people; by organisation is the speaker's account as resolved
+from the proposal, with a large unresolved row stated once),
 sponsorships (assets and their price, all tiers). Label: governed.
 
 **Course enrollments and certifications.** Standard metrics, training and
@@ -214,14 +216,12 @@ Label: governed.
 
 **Organisations that have signed, consortia launched and active, active
 memberships across consortia, the largest consortia.** Memberships by
-project for the consortium and its fund slug together (M8); the
-consortium reading is an ad hoc query on the consortium dimension today
-`[not yet in production: SM-3 consortia — the default combined reading on the membership families is the whole consortium in one call, members listed in the applied block; until then: the ad hoc consortium reading, labelled, or both slugs summed and said so]`;
-distinct
-signatory organisations is an organisation-grain reading (D11, M2: a
-grouped distinct count was capped and the headline had to be stated as a
-floor) `[not yet in production: SM-3 member_organizations — until then:
-"more than N" is not a figure; report memberships and say the grain]`.
+project on the consortium's slug: the default combined reading is the
+whole consortium in one call, its members listed in the applied block
+(M8: a series slug alone once undercounted); distinct signatory
+organisations is the member-organisations family on the same scope (D11,
+M2: an ad hoc grouped distinct count was once capped and the headline had
+to be stated as a floor — the family gives the figure).
 Consortia counts come from the project records (active stage, legal
 entity type), "visible to you". Label: governed / ad hoc / visible to you,
 per line.

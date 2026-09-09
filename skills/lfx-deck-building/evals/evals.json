@@ -11,10 +11,10 @@
         "Conventions are stated before the figures: the window as concrete dates, the organisation grain, the population policy (bots excluded, shares on the attributed base), and the scope of each slide (OpenSSF and its projects, resolved via search_projects)",
         "Slide 1 presents the membership count and the list-price value side by side, never divided, with the count described as memberships (project-account pairs) and the value as list price rather than dues billed",
         "Slide 2 uses the new-memberships family as a series by year without a hand-computed start date, quotes each year from its own row, marks the current year as partial, and names the grain (project memberships, not organisations)",
-        "Slide 3 states both figures: participants (code or collaboration) for 'took part' and code contributors as the narrower reading, both distinct people, with the window as dates",
+        "Slide 3 states both figures: participants (any non-bot activity) for 'took part' and code contributors as the narrower reading, both distinct people, with the window as dates",
         "Slide 4 ranks companies from the contributions family grouped by organisation with the unattributed row excluded from the ranking and the unattributed share stated once; the grain (account or parent) is said",
         "Slide 5 takes board seats from the committee tools (the OpenSSF governing board found by project and name, roster paginated to the end, grouped by organisation client-side) and labels the figures as visible to the caller, never inferring seats from tier or activity",
-        "Every headline figure is cross-framed against a second reading (one scope level up, contributors \u2264 participants, breakdown vs folded figure) and the check is recorded",
+        "Every headline figure is cross-framed against a second reading (one scope level up, contributors ≤ participants, breakdown vs folded figure) and the check is recorded",
         "The data-notes appendix has one row per figure in the Slide | Figure | Source | Coverage format, a label on every row from the closed list (governed / ad hoc / generated SQL / visible to you / interim / published / carried), the run date in the header, and every figure in the deck appears in the appendix and in the call log",
         "The slide captions themselves (not only the appendix) carry the grain: memberships as project-account pairs rather than 'organisations', value as list price rather than dues; every share on a slide recomputes from the appendix rows"
       ]
@@ -31,7 +31,7 @@
         "The rank is read from a memberships-by-organisation ranking ordered by value at a stated grain (account or parent), with 'among whom' said, and never from hand-summed account rows",
         "Code contributions by project for the company use the contributions family with the company as the organisation, the window as concrete dates, bots excluded, top ten projects with the folded headline stated separately from the breakdown",
         "Board representatives for CNCF and OpenSSF come from the committee tools (each governing board found by project and name, roster paginated to the end, filtered on the organisation), with name, role and voting status, labelled visible to the caller",
-        "The data-notes appendix has one row per figure with a label from the closed list, the run date, and every figure in the deck appears in the appendix and in the call log; the alone-vs-combined reconciliation (alone \u2264 combined) is recorded"
+        "The data-notes appendix has one row per figure with a label from the closed list, the run date, and every figure in the deck appears in the appendix and in the call log; the alone-vs-combined reconciliation (alone ≤ combined) is recorded"
       ]
     },
     {
@@ -42,7 +42,7 @@
       "files": [],
       "assertions": [
         "The meeting count is given as distinct meeting occurrences (via the SQL assistant over the meeting-attendance data, labelled generated SQL, or via the interim recipe with attendances clearly distinguished from occurrences), labelled as a floor bounded by platform onboarding, never as an LF-wide total of people",
-        "Total hours are either summed scheduled duration over distinct occurrences from the SQL assistant (labelled generated SQL and floor), or an estimate explicitly flagged as an estimate with its method; never presented as measured people-hours or as attendances \u00d7 an average",
+        "Total hours are either summed scheduled duration over distinct occurrences from the SQL assistant (labelled generated SQL and floor), or an estimate explicitly flagged as an estimate with its method; never presented as measured people-hours or as attendances × an average",
         "Top organisations by attendance are grouped on the free-text organisation name with the vocabulary note (not CRM legal names) and the unattributed share stated once",
         "The project-communities-per-year chart is cited to the annual reports as a published figure (report and year) and is not rebuilt from the project index or the semantic layer; it is not reconciled against a warehouse figure",
         "The LF-wide scope is stated with no project set (the umbrella foundation's slug is not used as the LF-wide scope)",

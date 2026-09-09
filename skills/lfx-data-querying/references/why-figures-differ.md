@@ -41,12 +41,11 @@ section and says "as of <date>, date-based" when it is not today.
 
 **Memberships (pairs) vs member organisations.** The family counts
 project-account pairs: a company on three projects counts three times.
-"How many members" in the everyday sense is distinct organisations, a
-reading no governed family gives today
-`[not yet in production: SM-3 member_organizations]` — report memberships,
-say the grain, say the organisation count is not available as a governed
-figure; never pull the rows and count them. *SM* "Inventory"
-(memberships).
+"How many members" in the everyday sense is distinct organisations, the
+member-organisations family (paying-only: its paying sibling), a
+different figure from memberships; report the one the question means,
+say the grain, and never pull membership rows and count them. *SM*
+"Inventory" (memberships, member_organizations).
 
 **Warehouse family vs membership records.** `search_members` shows the
 CRM's live membership records for one company (status, tier, project, key
@@ -107,12 +106,13 @@ pair of installs counts twice — report it as ad hoc, say it counts
 first-ever memberships rather than organisations, and never head the
 column "new organisations". The other flag with "first" in its name is the
 CRM's New Business opportunity type: it re-flags a returning account and
-is not firstness at all. The distinct-organisation figure is a governed
-family `[not yet in production: SM-3 new_member_organizations — until
-then: the ad hoc first-ever-membership reading with its caveat]`. Churned
-memberships are pairs that ended; a company that dropped one project and
-kept another churned but is not lost
-`[not yet in production: SM-3 lost_member_organizations]`. The churn date
+is not firstness at all. The distinct-organisation figure is the
+new-member-organisations family, whose firstness follows the project
+switch (first ever with no project, first in the foundation for a root,
+first in the project with excluded) and is named in the applied block.
+Churned memberships are pairs that ended; a company that dropped one
+project and kept another churned but is not lost — lost organisations are
+their own family, counted when the last membership lapsed. The churn date
 is the day after the term ends, so a year-end churn lands in the next
 year. *SM* "Inventory" (new_members, membership_churn); *SL* "Value
 discovery" (read the dimension's own description before filtering on it).
@@ -157,11 +157,11 @@ times apart. *SL* "Scope".
 
 **Consortium vs its fund project.** A consortium's memberships can sit on
 a sibling `-fund` project; each slug alone is a partial reading and the
-combined figure is the consortium. Today the combined reading is two
-family calls or one ad hoc query on the consortium dimension, labelled ad
-hoc
-`[not yet in production: SM-3 consortia — the default combined reading on the membership and organisation families is the whole consortium in one call, its members listed in the applied block]`.
-*SM* "Projects and subprojects" today, "Consortia" once it lands.
+combined figure is the consortium: on the membership and organisation
+families the default combined reading is the whole consortium in one
+call, its members listed in the applied block; excluded is the named
+project alone; other families never merge one. *SM* "Projects and
+subprojects" (Consortia).
 
 **Twin slugs.** Some project families exist under two slugs; a low total
 is a reason to group by slug before concluding. *SL* "Scope".
@@ -179,11 +179,11 @@ never in scope. *SL* "Scope"; *SM* "Projects and subprojects".
 **Contributors vs participants vs contributions.** People with a code
 contribution; people with a code contribution or a collaboration
 (issues, comments, reviews); the volume of code activity. Each sits
-inside the next. "How many developers took part" is participants;
-contributors is the narrower alternative, named as such. Participants
-will widen to any activity `[not yet in production: SM-3 participants =
-any activity]` and the figure will jump; say which definition ran, from
-`applied.definition`. *SM* "Reading results", "Inventory".
+inside the next. "How many developers took part" is participants — any
+non-bot activity, stars, forks, meetings and training included — and
+contributors is the narrower alternative, named as such; say which
+definition ran, from the definition sentence the result carries. *SM*
+"Reading results", "Inventory".
 
 **Bots.** Governed contributor and activity figures exclude bots; an ad
 hoc or generated-SQL figure includes them unless it says otherwise. *SM*
@@ -260,9 +260,11 @@ as a dimension on the daily health metrics; the current-state metrics
 carry no such switch because they are already anchored on a score — and
 they read each project's own latest day over the whole index unless
 filtered to LF-hosted projects, a different population from the family's
-pinned day, never "LF project health" without the filter
-`[not yet in production: SM-3 — the family says it has no unpinned reading and points there; the current-state metrics are allowlisted then]`. *SL*
-"Worked recipes" 8.
+pinned day, never "LF project health" without the filter; the family
+itself has no unpinned reading and says so. A project without a score is
+reported as unscored, with the coverage sentence the result carries; the
+answer never supplies a reason the data does not carry. *SL* "Worked
+recipes" 8.
 
 ## Meetings and rosters
 

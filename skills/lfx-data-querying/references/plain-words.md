@@ -45,29 +45,29 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   pairs with an active term, status-based" as of today. "How many members
   does CNCF have" is memberships in CNCF's programme, grain named.
 - **Other readings:** distinct member organisations (a company on three
-  programmes counts once) — no governed family today
-  `[not yet in production: SM-3 member_organizations]`; a past-date or
+  programmes counts once) — the member-organisations family, and its
+  paying-only sibling; a past-date or
   series reading is date-based, not status-based, and says "as of
   <date>"; the CRM's membership *records* for one company
   (`search_members`, "visible to you"); committee *members* (people);
   mailing-list *members* (subscribers); and in the activity data a
   "member" is a person's contributor identity.
-- **Offer it as:** "N memberships, counting each organisation once per
-  programme it belongs to; the number of distinct organisations is a
-  different reading and is not available as a governed figure today
-  `[not yet in production: SM-3 member_organizations — then it is the headline]`."
+- **Offer it as:** "N distinct member organisations" when the question is
+  how many members; "N memberships, counting each organisation once per
+  programme it belongs to" when it is memberships — and the other reading
+  offered beside it.
 
 ## Developers, contributors, participants, people active
 
 - **Default family reading:** "developers who took part" is the
-  participants family — "distinct people with a code contribution OR a
-  collaboration activity (issues, comments, reviews), bots excluded; a
-  superset of contributors". "Contributors" is the contributors family —
+  participants family — "distinct non-bot people with any activity in the
+  window: code, issues, reviews, comments, stars, forks, meeting
+  invitations and attendance, training and exams, Hacker News; the
+  broadest people count". "Contributors" is the contributors family —
   distinct code contributors, bots excluded.
-- **Other readings:** any activity at all — a semantic-layer metric
-  today, several times the participants reading because it counts stars,
-  forks, meeting invitations and training rows `[not yet in production:
-  SM-3 participants = any activity; the governed figure jumps]`; the
+- **Other readings:** the layer's code-or-collaboration count (issues,
+  comments and reviews beside code; no stars, forks or meetings), a
+  middle figure between contributors and participants, said so; the
   maintainer roster; the metric whose name says "first-time contributors"
   on the layer, which counts any activity type and is not a subset of
   contributors.
@@ -110,10 +110,11 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   Business opportunity, by install date", first-per-project (a second
   programme counts again; a returning account counts again); as a
   series, the current year is partial and flagged.
-- **Other readings:** organisations new to the LF altogether — an ad hoc
-  reading on the layer's organisation-grain first-membership flag, which
-  counts membership rows, not organisations, as the guidance says
-  `[not yet in production: SM-3 new_member_organizations]`; churned
+- **Other readings:** organisations new to the LF altogether — the
+  new-member-organisations family (first ever with no project; first in
+  the foundation or the project when one is named, as the applied block
+  says), distinct organisations, a lapsed account that rejoins not among
+  them; churned
   memberships (ended with no subsequent membership, non-zero revenue, by
   the day after the term ended — re-evaluated at every build, so past
   years can shrink).
@@ -167,9 +168,9 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
 ## Speakers
 
 - **Default family reading:** "accepted speakers of events starting in
-  the window: distinct people whose speaker status is Accepted"; no
-  organisation scope today `[not yet in production: SM-3 speakers by
-  organisation]`.
+  the window: distinct people whose speaker status is Accepted"; by
+  organisation is the speaker's account as resolved from the proposal,
+  with a large unresolved row.
 - **Other readings:** every proposal status (a semantic-layer or
   generated-SQL reading; about three times larger).
 - **Offer it as:** "N accepted speakers; proposals in review or rejected
@@ -207,8 +208,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   carry no score; the current-state metrics are already anchored on it
   and read each project's own latest day over the whole index unless
   filtered to LF-hosted projects — a different population from the pinned
-  day, never "LF project health" without the filter
-  `[not yet in production: SM-3 — the family points there for "current"; those metrics are allowlisted then]`.
+  day, never "LF project health" without the filter; the family points
+  there for "current" and has no unpinned reading of its own. An unscored
+  project is reported as unscored with the coverage the result gives,
+  never with a reason of your own.
 - **Offer it as:** "N LF-hosted projects scored, M in the Healthy band as
   the score defines it; the wider index is a separate population."
 

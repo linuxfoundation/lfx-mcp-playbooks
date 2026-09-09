@@ -74,7 +74,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | A count, value, share, ranking or series in a family the inventory lists (members, dues, new and churned memberships, contributors, contributions, participants, maintainers, health, software value, registrations, sponsorships, speakers, training, certifications, social mentions and reach) | standard metrics | fixed definition, whole tree and all subsidiaries, `applied` block, repeatable | governed |
 | A company's figure "including subsidiaries", or a foundation's "and its projects" | standard metrics | the only lane that walks either hierarchy to any depth | governed |
 | A slice the families have no switch for (consortium, meeting type, direct children, a dimension seen in explore) | semantic layer | named metric and dimension, stored values discoverable | ad hoc |
-| How many organisations were new to the LF, as against new memberships | semantic layer | the layer's first-membership flag on the new-memberships metric, with the caveat the guidance gives (membership rows, not organisations) `[not yet in production: SM-3 new_member_organizations — until then: this ad hoc reading, said so]` | ad hoc |
+| How many organisations are members, were new to the LF, or were lost, as against memberships | standard metrics | the organisation families count distinct organisations, the membership families count project-account pairs; the answer says which grain it reports | governed |
 | A cross-domain join or a hierarchy shape no metric expresses | SQL assistant | generated SQL, with its scope line and SQL returned | generated SQL |
 | A project's slug, record, parent, legal entity | `search_projects`, `get_project` | the record is the truth about what a slug is | — |
 | A company's legal name and identifier | `search_b2b_orgs` | the stored name every organisation-scoped call takes | — |
@@ -118,7 +118,18 @@ Decide in this order; stop at the first row that fits:
   not everyday ones. A name either tool returned this session may be
   reused; one that has not come back from them is never passed. A
   foundation is found by its short name or slug, not its long legal name;
-  the record confirms which it is.
+  the record confirms which it is. When the organisation search returns
+  nothing — the caller's permissions, not absence — the guidance names
+  the way back: the value search on the account-name dimension ("Name
+  discovery" in the semantic-layer guidance), and an organisation-scoped
+  standard-metric call with the everyday name, whose rejection lists the
+  stored names that carry the family's data, parent alongside. A
+  membership record confirms a spelling; it is not the resolver. A
+  project the search cannot find is not absent from the data: the search
+  reads the LFX v2 index, which lags the project directory the metrics
+  read, so a standard-metric rejection's candidate slugs and the layer's
+  project values are the census — take the slug from there and say which
+  surface named it.
 - **The Linux Foundation as a whole is no project at all.** `search_projects`
   returns a slug for the foundation's own name, and that slug is one bucket
   of hosted projects, never the umbrella; an LF-wide question leaves the
@@ -189,17 +200,24 @@ Five habits the reader never sees but the figure depends on:
   year as to-date, and says which years it shows.
 - **A parent total comes from the combined reading**, never from adding
   account rows: a ranking's cut hides the subsidiaries a hand-sum would
-  miss, and distinct counts do not add at all.
-- **"How many developers took part" is participants** (code or
-  collaboration today
-  `[not yet in production: SM-3 participants = any activity — stars, forks, meetings, training and Hacker News included; the figure jumps]`);
-  contributors (code only) is the narrower alternative, a different
-  population, named as such, never the silent default.
-- **A ranking asks for a few more rows than the top-N.** The unattributed
-  row sorts first on a descending metric today
-  `[not yet in production: SM-3 — it sorts last; the habit still pays, since a placeholder or a duplicated name can sit in the top rows]`,
-  so a call for exactly N rows returns N-1 organisations and costs a
-  second call; the extra rows are free.
+  miss, and distinct counts do not add at all. The rule is general: a
+  result whose scope sentence says its rows do not add up is reported as
+  rows, never summed into a headline; the parent's own figure is the
+  combined reading, read separately.
+- **"How many developers took part" is participants**: any non-bot
+  activity — code, issues, reviews, comments, stars, forks, meeting
+  invitations and attendance, training and exams, Hacker News — so the
+  figure runs well above contributors; contributors (code only) is the
+  narrower alternative, a different population, named as such, never the
+  silent default.
+- **A ranking asks for a few more rows than the top-N, and asks for its
+  order.** On the standard metrics the unattributed row sorts last, but a
+  placeholder or a duplicated stored name can still sit in the top rows;
+  on an ad hoc layer query NULL rows sort first on a descending metric, so
+  a call for exactly N rows returns N-1 organisations and costs a second
+  call — the extra rows are free. Rows with no order asked are a set, not
+  a rank: their order can change between runs. A plain breakdown is asked
+  without a limit; when one is set, the cut is stated.
 - **The view is named, and so is the parent.** When the resolved account
   has a parent the record shows it, and the answer says so; every company
   figure says which view it is — the account alone, which is the tool's
@@ -209,10 +227,11 @@ Five habits the reader never sees but the figure depends on:
 ### 4.3 The provenance block
 
 After the answer, one block per figure: **lane** and family or metric;
-**scope** as applied (the name, and whether it covered the tree or the
-subsidiaries — the tool's own scope sentence when it returns one
-`[not yet in production: SM-3 applied.scope]`); **window** as concrete
-dates or an as-of date;
+**scope** as applied (the scope sentence the standard metrics return,
+quoted: the name, and whether it covered the tree or the subsidiaries; the
+SQL assistant's scope line likewise — and the same sentence is quoted where
+the figure is given, since a paraphrase in the headline is not the scope);
+**window** as concrete dates or an as-of date;
 **population** (the definition sentence the tool returned); **defaults and
 coverage** (what the tool chose for you; unattributed rows, distinct counts,
 partial last period, future-dated end); **SQL** produced on request only
@@ -293,19 +312,27 @@ Symptom, cause, check and guidance section for each:
 8. A foundation's slug on the plain project column matches only its
    catch-all bucket; scope a foundation with the foundation dimension.
 9. The unattributed row is never an organisation, never folded into a
-   parent; a descending sort puts it first today — re-sort before a top-N
-   `[not yet in production: SM-3 — it sorts last on both engines]`.
-10. Memberships of a JDF series sit on its `-fund` parent slug; ask for
-    both `[not yet in production: SM-3 consortia — one call reads the whole consortium and lists its members]`.
+   parent, never dropped from the total; a ranking is read after it is set
+   aside — it sorts last on the standard metrics and first on an ad hoc
+   layer query.
+10. A JDF series and its `-fund` project are one consortium: the
+    membership and organisation families read the whole consortium in one
+    call by default and list its members in the applied block; excluded
+    reads the named project alone; other families never merge one.
 11. Governance rosters come from the committee tools, never inferred.
 12. Meeting figures come from the meeting tools and are "visible to you";
     aggregate meeting metrics are an interim layer recipe, labelled.
 13. Membership count and revenue are different grains: side by side, never
-    a ratio; and a membership count is not an organisation count — a reading
-    the family says it does not give is reported as unavailable
-    `[not yet in production: SM-3 member_organizations — the organisation count is its own family]`,
-    never derived by pulling and counting rows.
-14. Year-to-date counts bound at today; installs can be future-dated.
+    a ratio; and a membership count is not an organisation count — "how
+    many members" is the organisation families (members, paying, new,
+    lost), never derived by pulling and counting membership rows; the
+    answer names the grain it reports.
+14. Year-to-date counts bound at today; installs can be future-dated. A
+    window drops rows with no usable timestamp, so an all-time figure can
+    exceed the sum of its windows.
+15. A figure is never reconciled against another dashboard, page or
+    report: they differ by definition, population and refresh; say what
+    this figure covers and stop.
 
 ## 6. Before reporting any number
 

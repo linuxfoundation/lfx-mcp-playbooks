@@ -22,11 +22,11 @@
       "id": 1,
       "name": "foundation-participants-vs-contributors-top-companies",
       "prompt": "For CNCF and all its projects: how many developers took part over the last 12 months, and how does that compare with people who actually contributed code? Then give me the top 5 companies by volume of code contributions in that period. Use the LFX MCP tools.",
-      "expected_output": "Resolves cncf via search_projects; uses the participants family (code or collaboration) as the answer to 'took part' and the contributors family as the narrower reading; uses the contributions family by organisation for the ranking; the unattributed (NULL) row is reported as unattributed and dropped from the ranking, which is re-sorted; window stated as concrete dates; bots excluded stated once; foundation scope 'CNCF and its projects', never the umbrella slug.",
+      "expected_output": "Resolves cncf via search_projects; uses the participants family (any non-bot activity) as the answer to 'took part' and the contributors family as the narrower reading; uses the contributions family by organisation for the ranking; the unattributed (NULL) row is reported as unattributed and dropped from the ranking, which is re-sorted; window stated as concrete dates; bots excluded stated once; foundation scope 'CNCF and its projects', never the umbrella slug.",
       "files": [],
       "assertions": [
         "Resolves the CNCF slug via search_projects before the data calls and scopes the figures to CNCF and its projects (not the umbrella foundation slug, not LF-wide)",
-        "Answers 'took part' with the participants family (code or collaboration activity) and presents code contributors as the narrower reading, with both figures stated",
+        "Answers 'took part' with the participants family (any non-bot activity: code, issues, reviews, comments, stars, forks, meetings, training, Hacker News) and presents code contributors as the narrower reading, with both figures stated",
         "Uses the contributions family grouped by organisation for the top-5 ranking, with the unattributed/NULL row excluded from the ranking and mentioned as unattributed",
         "States the window as concrete dates (start and end) and says bots are excluded",
         "Does not sum per-organisation or per-project rows to produce a headcount total",
@@ -52,15 +52,15 @@
       "id": 3,
       "name": "new-members-per-year-and-org-reading",
       "prompt": "How many new members joined the Linux Foundation per year over the last five years? And separately, can you tell me how many organisations were brand new to the LF each year, as opposed to existing members joining another project? Use the LFX MCP tools.",
-      "expected_output": "Uses the new_members family as a bare series by year without a hand-computed start date, quotes each year from its own row, marks the current year as to-date and says which years are shown; explains that new business is first-per-project; says the 'new to the LF' organisation reading is not available today rather than deriving it from rows or the lens; LF-wide scope with no project set.",
+      "expected_output": "Uses the new_members family as a bare series by year without a hand-computed start date, quotes each year from its own row, marks the current year to-date, and names the grain (project-account pairs). For 'brand new to the LF' uses the new-member-organisations family LF-wide as a governed series of distinct organisations, states the firstness the result gives, bounds the current year at today, and presents the two series as different grains, never one derived from the other.",
       "files": [],
       "assertions": [
         "Uses the new_members family as a series by year without a hand-computed start date (bare period series or the family default), LF-wide with no project set",
         "Quotes each year from its own row, marks the current year as year-to-date/partial and says which years the table shows",
         "Explains that new business is first-per-project (an organisation joining another project counts again)",
-        "For the 'brand new to the LF' question, either states that no governed family gives the organisation count today, or gives an ad hoc semantic-layer reading on the organisation-grain first-membership dimension (first LF membership ever by install date) labelled ad hoc; never derives it from the Salesforce 'New Business' flag, from row counting, or from the SQL assistant",
-        "If the ad hoc first-membership reading is given, the answer says it counts first-ever membership rows rather than distinct organisations (a same-day pair of installs counts twice) and does not head the column 'new organisations'",
-        "The ad hoc reading, if given, is bounded to today (installs can be future-dated) and reconciled against the governed year-to-date figure before being reported",
+        "For the 'brand new to the LF' question, uses the new-member-organisations family (distinct organisations whose first LF membership ever fell in the year), LF-wide, as a governed figure, and says a lapsed account that rejoins is not new",
+        "States the firstness the applied block gives (first ever, since no project was named), heads the column as organisations, and presents the two series (new memberships vs new organisations) as different grains, never one derived from the other",
+        "The current year is bounded at today (installs can be future-dated) and the new-organisations figure sits at or below the new-memberships figure for the same year, with the reason stated (an organisation joining two programmes counts once here, twice there)",
         "Carries a provenance block or equivalent with lane, scope, window and population"
       ]
     },
@@ -107,7 +107,7 @@
     {
       "id": 7,
       "name": "axis4-org-vocabularies-never-mixed",
-      "prompt": "Compare Red Hat's Linux Foundation memberships with the number of organisations credited with code contributions to OpenShift-related LF projects \u2014 actually, simpler: how many memberships does Red Hat hold, and how many distinct organisations contributed code to CNCF in the last 12 months? Is Red Hat one of them? Use the LFX MCP tools.",
+      "prompt": "Compare Red Hat's Linux Foundation memberships with the number of organisations credited with code contributions to OpenShift-related LF projects — actually, simpler: how many memberships does Red Hat hold, and how many distinct organisations contributed code to CNCF in the last 12 months? Is Red Hat one of them? Use the LFX MCP tools.",
       "expected_output": "Memberships for the Red Hat LLC account (CRM legal name); contributing organisations for cncf from the contributing-organisations family, which uses the enrichment vocabulary; says the two vocabularies differ and that 'Red Hat' in the enrichment data and 'Red Hat LLC' in the CRM are not the same row; answers whether Red Hat appears in the contributing organisations via the enrichment spelling, without mixing the counts.",
       "assertions": [
         "Memberships are scoped to the stored legal name (Red Hat LLC) resolved this session, and its parent (International Business Machines Corporation) is mentioned as the parent, not folded in",
@@ -131,11 +131,11 @@
     {
       "id": 9,
       "name": "axis6-population-registrations-vs-people",
-      "prompt": "For LF events in the last 12 months: how many registrations were there, how many different people registered, and how many actually showed up? And how many people took part in LF projects overall in that period \u2014 not just coders? Use the LFX MCP tools.",
+      "prompt": "For LF events in the last 12 months: how many registrations were there, how many different people registered, and how many actually showed up? And how many people took part in LF projects overall in that period — not just coders? Use the LFX MCP tools.",
       "expected_output": "Registrations family: records, distinct registrants by e-mail, checked-in attendees only where the source carries check-in (a zero can mean no check-in data); participants family for 'took part'; each population sentence from the applied block in the reader's words; distinct counts never summed.",
       "assertions": [
         "Registrations, distinct registrants and checked-in attendees are presented as three populations from the registrations family, with the caveat that check-in exists only for some registration sources (zero attendees is not zero attendance)",
-        "'Took part, not just coders' is answered with the participants family (code or collaboration activity) and described in those words, with contributors named as the narrower alternative",
+        "'Took part, not just coders' is answered with the participants family (any non-bot activity: code, issues, reviews, comments, stars, forks, meetings, training, Hacker News) and described in those words, with contributors named as the narrower alternative",
         "The window is stated as dates and described as by event start date for the events figures",
         "No population is renamed (no 'attendees' for registrations, no 'developers' for contributors without qualification); provenance block present"
       ]

@@ -31,8 +31,8 @@ them; it never embellishes them. No parameters here, no counts.
 - **Say instead:** "organisations holding a membership in the Linux
   Foundation's own programme, as of today; CNCF and the other hosted
   foundations run their own programmes and are reported separately."
-  When the tool carries its own scope sentence, quote it
-  `[not yet in production: SM-3 applied.scope — until then: the words above, from the applied block's project and subprojects fields]`:
+  The standard metrics return the scope sentence; quote it, and keep the
+  words above for the lanes that return none:
   the umbrella with the default fold reads "tlf is the umbrella root of
   the project tree and the Linux Foundation's own membership programme,
   not the LF-wide scope; the foundations hosted under the LF are their
@@ -86,8 +86,7 @@ them; it never embellishes them. No parameters here, no counts.
 - **Say instead:** "the IBM account alone" / "IBM as one company including
   its subsidiaries at any depth" / "broken down by subsidiary; the rows do
   not add up to the company figure because a person counts once".
-  The tool's own organisation clause, when it lands
-  `[not yet in production: SM-3 applied.scope — until then: the words above, from the applied block's org and subsidiaries fields]`:
+  The standard metrics return the organisation clause; quote it:
   "the account '<name>' alone" / "with its subsidiaries at any depth,
   folded" / "and its subsidiaries at any depth, one row each; rows do not
   add up"; a stored name that resolves to several accounts says so and
@@ -140,9 +139,9 @@ them; it never embellishes them. No parameters here, no counts.
 ## 6. Population: which people, which projects, which records
 
 - **Selects:** contributors = distinct people with a code contribution,
-  bots excluded; participants = distinct people with a code contribution
-  or a collaboration activity `[not yet in production: SM-3 participants =
-  any activity]`; maintainers = today's roster of LF projects;
+  bots excluded; participants = distinct non-bot people with any activity
+  (code, issues, reviews, comments, stars, forks, meetings, training,
+  Hacker News); maintainers = today's roster of LF projects;
   registrations = records, registrants = distinct people by e-mail,
   checked-in only where the source carries it; enrollments = records,
   enrolled users = distinct people; project health and software value =
@@ -174,24 +173,25 @@ them; it never embellishes them. No parameters here, no counts.
 - **Say instead:** "countries of the account's billing address, N
   resolved plus an unresolved group" / "the person's own country where
   known, which is a minority of contributors" — and the comparison
-  sentence names the two subjects before the numbers: a billing-address
-  footprint and a people footprint are two readings, not one bigger and
-  one smaller.
+  sentence names the two subjects before the numbers — a billing-address
+  footprint and a people footprint — and a verdict is fine once they are
+  named; without them it is one bigger and one smaller of nothing.
 
 ## 8. Ranking, limits, identities
 
-- **Selects:** the rows the limit allowed, in the order asked; the
-  unattributed row sorts first on a descending ranking today, so it is
-  dropped and the list re-sorted before a top-N is read
-  `[not yet in production: SM-3 — the unattributed row sorts last on both
-  engines, and a top-N never contains it unless the list is longer than
-  the attributed rows]`; a people ranking is by identity (handle), and two
-  identities can share a display name.
+- **Selects:** the rows the limit allowed, in the order asked — and only
+  when an order was asked: rows with none are a set whose order can
+  change between runs. The unattributed row sorts last on the standard
+  metrics, so a top-N holds it only when the list outruns the attributed
+  rows; on an ad hoc layer query NULL rows sort first on a descending
+  metric, so the row is set aside and the list re-sorted before a top-N
+  is read. A people ranking is by identity (handle), and two identities
+  can share a display name.
 - **Does not select:** "all" when truncated is true; an organisation in the
   unattributed row; one person per display name.
 - **Forbidden:** "the top five organisations" with the unattributed row
   among them; "all contributors" on a truncated list; two handles merged
-  into one person.
+  into one person; a "top N" read off rows that were never ordered.
 - **Say instead:** "the five largest attributed organisations; N% of the
   volume has no resolved organisation" / "the top N shown; the list was
   cut at N".

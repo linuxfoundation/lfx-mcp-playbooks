@@ -121,9 +121,9 @@ tools is in [service-tools.md](service-tools.md).
   name at the top of a ranking; a parent total that grew when the
   unattributed row was folded in.
 - **Cause.** Rows with no resolved account or employer are unattributed
-  work, not an organisation; today a descending sort on the metric places
-  them first
-  `[not yet in production: SM-3 — they sort last on both engines, and a top-N holds them only when the list outruns the attributed rows]`.
+  work, not an organisation; on the standard metrics they sort last, so a
+  top-N holds them only when the list outruns the attributed rows; on an
+  ad hoc layer query NULL rows sort first on a descending metric.
 - **Check.** The unattributed row is reported as unattributed, dropped from
   every organisation ranking and from every parent fold, and the ranking
   is re-sorted before the top-N is read.
@@ -137,12 +137,14 @@ tools is in [service-tools.md](service-tools.md).
 - **Cause.** Memberships attach at foundation level, and a JDF series and
   its `-fund` project are one consortium whose memberships sit on the
   fund, not on the series slug.
-- **Check.** Today the series and its `-fund` project are two slugs: when
-  `search_projects` shows the sibling, ask for both, in one call or two as
-  the lane allows, and say they were combined
-  `[not yet in production: SM-3 consortia — the membership and organisation families read the whole consortium in one call by default and the applied block lists its members; excluded reads the named project alone]`.
+- **Check.** On the membership and organisation families the default
+  combined reading of either slug is the whole consortium in one call,
+  and the applied block lists the members — name them in the answer;
+  excluded reads the named project alone; on any other family, and on the
+  layer, the series and its `-fund` project are two slugs: ask for both,
+  and say they were combined.
 - **Documented.** SM "Resolve names first — ALWAYS" and "Projects and
-  subprojects" today, "Consortia" once it lands; SM "Inventory" (the
+  subprojects" (Consortia); SM "Inventory" (the
   memberships row: memberships attach at foundation level); the
   `query_lfx_lens` tool description (a JDF series plus its `-fund` parent is
   one call).
@@ -177,12 +179,12 @@ tools is in [service-tools.md](service-tools.md).
   term; the revenue is the list price of the active membership assets, not
   dues billed. Different grains. And an organisation holding memberships on
   several projects counts once per project, so "how many members" in the
-  everyday sense (distinct organisations) is a third reading, one the
-  family says it does not give yet
-  `[not yet in production: SM-3 member_organizations and paying_member_organizations — "how many members" is that family, never derived from membership rows]`.
+  everyday sense (distinct organisations) is a third reading, the
+  member-organisations family (paying-only: its paying sibling) — "how
+  many members" is that family, never derived from membership rows.
 - **Check.** Presented side by side, never divided; "list-price value"
-  said in the population sentence; the organisation reading reported as
-  not available, never obtained by pulling every organisation row and
+  said in the population sentence; the organisation reading taken from
+  its own family, never obtained by pulling every organisation row and
   counting them — counts come from the one-figure grouping, breakdowns are
   listed with a limit.
 - **Documented.** SM "Inventory" (memberships), "Reading results".
@@ -210,9 +212,9 @@ tools is in [service-tools.md](service-tools.md).
   a breakdown by slug. SL "Scope".
 - **Churn dates fall the day after the term ends**, so a year-end churn
   lands in the following year. SM "Inventory" (the membership-churn row).
-- **Speakers are accepted speakers only**, distinct people, and carry no
-  organisation scope today
-  `[not yet in production: SM-3 speakers by organisation — the speaker's account as resolved from the proposal, with a large unresolved row]`.
+- **Speakers are accepted speakers only**, distinct people; by
+  organisation is the speaker's account as resolved from the proposal,
+  with a large unresolved row that is reported as unattributed.
   SM "Inventory" (the speakers row).
 - **Training and certification are platform data**: lifetime totals read
   below the official trained figure, and one branch carries no account.
@@ -224,13 +226,23 @@ tools is in [service-tools.md](service-tools.md).
   in an answer. SM "Inventory" (contributors, contributions); SL "Worked
   recipes" 13.
 - **Day boundaries differ between lanes.** The standard metrics and the
-  SQL assistant bound windows on UTC days; the semantic layer's day-grain
-  time-dimension filter compiles to a session-timezone comparison on a
-  timestamp column and silently drops the first UTC day of the window.
-  State the window, never claim an exact calendar day across lanes, and
-  bound an ad hoc day-grain window on the activity model with the
-  UTC-anchored dimension, never the day-grain time dimension. SM "Reading
-  results"; SL "Windows".
+  SQL assistant bound windows on UTC calendar days; the semantic layer's
+  day-grain time-dimension filter cuts at midnight US Pacific, so an ad
+  hoc window sits a few hours off a UTC one and can lose or gain a day's
+  activity at each edge (a date-typed dimension bound stays on the UTC
+  day, verified). State the window, never claim an exact calendar day
+  across lanes, and never call a small cross-lane difference an error.
+  SM "Reading results"; SL "Routing", "Windows".
+- **A project the search cannot find is not absent from the data.**
+  `search_projects` reads the LFX v2 index, which lags the project
+  directory the layer and the standard metrics read, so a real project
+  can be missing from the search and still carry data. A standard-metric
+  rejection lists candidate slugs from the directory, and the layer's
+  project dimension values are the census: take the slug from there, say
+  which surface named it, and never report "no such project" on the
+  search alone. The reverse holds too: a record in the search is no proof
+  the layer has data for it. SM "Errors"; service-tools reference "The
+  search is not a census".
 - **The explore listing can lag the layer.** The dimensions that explore
   lists for a metric come from a cached view that refreshes on its own
   schedule, so on the day a definition ships a dimension can run at query
