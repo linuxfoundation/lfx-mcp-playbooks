@@ -355,8 +355,9 @@ project is a different job: walking every roster through the tools is a
 hundred calls, so it is a generated-SQL reading over the committee data,
 labelled as such, with LF staff seats and unaffiliated individuals set
 aside and said, technical steering committees kept out of "boards", and
-spelling variants of one company noted rather than merged by hand `[not yet in production: TOOLS-1
-get_org_committee_seats]`. *SL* "Routing".
+spelling variants of one company noted rather than merged by hand. One
+company's seats are the organisation seats tool, "visible to you", under
+the organisation gate. *SL* "Routing".
 
 ## Time
 

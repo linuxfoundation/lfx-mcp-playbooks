@@ -46,9 +46,8 @@ and the discipline that keeps a count of records honest.
   well on product and project names ("Kubernetes", "PyTorch") and on the
   short foundation names and slugs ("cncf", "tlf"); a foundation's long
   legal name ranks poorly, so search by the short name or the slug and
-  confirm the record. `[not yet in production: TOOLS-1 exact slug and
-  exact name lookups on search_projects — until then: short name or slug in
-  the typeahead, then get_project to confirm]`
+  confirm the record; the search also takes an exact slug or an exact
+  stored name, which returns the one record and no candidates.
 - **Read the record, not just the slug.** A project record says whether
   it is a foundation, its legal entity type, its parent and its legal
   parent. A foundation record with a legal parent above it is a hosted
@@ -65,12 +64,15 @@ and the discipline that keeps a count of records honest.
   identity", is a lower bound when the tool says the count stopped early,
   and is never reconciled against the directory. The record tools stay
   exact for meetings, participants, committees and members, which are
-  native to LFX v2 `[not yet in production: TOOLS-1 count_lfx_resources
-  with its complete flag and the search's own total — until then: page a
-  search to the end and say the count is what you could see]`.
-- **Children of a foundation** come from the search's parent filter
-  `[not yet in production: TOOLS-1 parent and legal-parent filters — until
-  then: the semantic layer's foundation dimension grouped by project]`.
+  native to LFX v2: the count tool counts records of a kind, under a
+  parent, in a date range, and says whether the count is complete; a
+  count that is not complete is a lower bound and is said to be one; the
+  search's own total carries the same flag. Every count is "records
+  indexed in LFX v2 and visible to you".
+- **Children of a foundation** come from the search's parent filter, and
+  the entities under a legal parent (a JDF series, a fund) from its
+  legal-parent filter, each with the total and its flag; the layer's
+  foundation dimension is the population reading, not this index.
 
 ## Organisations — resolve, then read the membership records
 
@@ -103,10 +105,13 @@ and the discipline that keeps a count of records honest.
   (name and identifier), the role, the voting status (voting, alternate,
   none), how the seat was appointed, and its status. Only active seats are
   seats.
-- **A company's seats across a foundation** are the roster of each board
-  filtered on the organisation identifier, client-side, after pagination
-  `[not yet in production: TOOLS-1 get_org_committee_seats — until then:
-  paginate each committee's roster and filter by organisation]`.
+- **A company's seats across the LF** come from the organisation seats
+  tool: every seat the company holds, split by committee category with a
+  summary by category and by project, in one call. It sits behind the
+  organisation gate: a refusal under an identity without that company's
+  read grant is the gate speaking, not an empty roster, and the answer
+  says so. A ranking of companies by seats is not this tool's job (the
+  querying playbook's routing table).
 - **Roster facts come from here and nowhere else.** A board seat is never
   inferred from tier, sponsorship or activity. Country is not a roster
   field; "from N countries" about a committee is not reproducible.
@@ -131,12 +136,21 @@ and the discipline that keeps a count of records honest.
 - **Summaries** (`search_past_meeting_summaries`, `get_past_meeting_summary`)
   are generated text about one occurrence, useful for "what was
   discussed"; they are not attendance data.
-- **Aggregate meeting metrics** (attendances over a period, by company or
-  committee, hours per company) are not a service-tool job: the interim
-  semantic-layer recipe holds attendances as records, labelled interim
-  `[not yet in production: TOOLS-1 participant filters and
-  count_lfx_resources; TOOLS-2 org meeting KPIs — until then: the interim
-  recipe for aggregates, the meeting tools for lists]`.
+- **People at a committee's or a meeting's past meetings over a period**
+  come from the participants search with its date range, attended-only
+  switch, exact organisation name and count-only mode; it de-duplicates
+  people by identity. Two populations hide in the committee filter: with
+  a date range it resolves the committee's past meetings and returns
+  everyone at them; without one it returns the participant records that
+  carry the committee — say which ran. A committee's meeting count over a
+  period is the count tool.
+- **LF-wide aggregate meeting metrics** (attendances over a period by
+  company or committee, hours per company) are still not a service-tool
+  job: the interim semantic-layer recipe holds attendances as records,
+  labelled interim; occurrences and hours are the generated-SQL reading
+  `[not yet in production: TOOLS-2 org meeting KPIs — until then: the
+  interim recipe for aggregates, the SQL assistant for occurrences and
+  hours, the meeting tools for lists]`.
 
 ## Mailing lists and Discord — communities as records
 

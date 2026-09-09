@@ -145,9 +145,9 @@ committee tools: for each foundation in the company's footprint, the
 board-category committees, each roster paginated to the end, filtered on
 the company's organisation identifier, client-side; voting status and
 role from the seat record. "Visible to you"; a company's seats can split
-across spellings (D15). `[not yet in production: TOOLS-1
-get_org_committee_seats — until then: paginate each board and filter]`.
-Label: visible to you.
+across spellings (D15); the organisation seats tool gives every seat
+with the board split and a per-project summary in one call, under the
+organisation gate. Label: visible to you.
 
 **Key contacts.** The membership records' key contacts — people, shown
 only where naming individuals is appropriate for the audience. Label:
@@ -166,11 +166,13 @@ same attendance data (occurrence key and scheduled duration are stored
 per occurrence; hours summed over distinct occurrences, never over
 attendance rows), labelled generated SQL. The meeting tools list one
 project's or one meeting's records without an organisation filter, so
-they give the story of one meeting, not the company figure
-`[not yet in production: TOOLS-1 participant filters and
-count_lfx_resources; TOOLS-2 org meeting KPIs — until then: the interim
-recipe for attendances, the SQL assistant for occurrences and hours, the
-vocabulary note on both]`. Label: interim / generated SQL.
+they give the story of one meeting, not the company figure; the
+participants search with an exact organisation name, a date range and
+count-only gives the company's people at one committee's or one
+meeting's past meetings, "visible to you"
+`[not yet in production: TOOLS-2 org meeting KPIs — until then: the
+interim recipe for attendances, the SQL assistant for occurrences and
+hours, the vocabulary note on both]`. Label: interim / generated SQL.
 
 ## Section 6 — Peers and comparisons
 
