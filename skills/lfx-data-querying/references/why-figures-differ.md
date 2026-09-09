@@ -250,9 +250,16 @@ by-project rows sum above it, a person maintaining several projects.
 *SM* "Inventory" (maintainers); *SL* "Worked recipes" 11.
 
 **Maintainer contributions: roster as of the build, activity in the
-window.** People on today's roster, their contributions over the window;
-a person who was a maintainer then but not now is not counted. *SM*
-"Inventory" (maintainer_contributions).
+window.** People on the roster, their contributions over the window; a
+person who was a maintainer then but not now is not counted. Two
+readings of "maintainers active in the window" exist and differ by a few
+people either way: the maintainer-contributions family reads a flag
+stamped on each activity when the activities data was last built, so its
+roster is as of that build; the maintainers family with a period joins
+today's roster live. Quote the maintainer-contributions reading, say it
+reflects the roster as of the last activities build, and treat the other
+as the cross-check: the difference is roster changes since that build,
+not an error. *SM* "Inventory" (maintainer_contributions, maintainers).
 
 ## Events and training
 

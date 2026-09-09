@@ -190,7 +190,9 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   top-parent dimension on maintainers (two roots can share a name, so the
   identifier is the exact key); maintainer contributions — "code
   contributions by people on today's maintainer roster of the segment",
-  with a distinct contributing-maintainers count beside the volume.
+  with a distinct contributing-maintainers count beside the volume (the
+  roster as of the last activities build; the maintainers family's period
+  reading uses today's roster and differs by a few people).
 - **Offer it as:** "N maintainers on LF projects as of today."
 
 ## Health, healthy projects
