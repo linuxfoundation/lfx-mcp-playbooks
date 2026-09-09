@@ -76,9 +76,13 @@ Every change is held to these; a reviewer checks each one.
 Scans that must come back empty before a commit (run from the repo root):
 
 ```text
-grep -rnE '[0-9]{3,}|\$[0-9]|[0-9]+%' skills/ | grep -vE '20[0-9]{2}-[0-9]{2}-[0-9]{2}|<yyyy|<n>|evals\.json'
+grep -rnE '[0-9]{3,}|\$[0-9]|[0-9]+%' skills/ | grep -vE '20[0-9]{2}-[0-9]{2}-[0-9]{2}|<yyyy|<n>|evals\.json|365 complete|"in 2025"'
 grep -rn 'not yet in' skills/ | grep -v 'not yet in production'
 ```
+
+The two exclusions at the end of the first scan are the known benign hits
+(a day count that defines a trailing year, and a forbidden-phrase example);
+a new hit is a figure until proven otherwise.
 
 ## Changing a playbook
 
