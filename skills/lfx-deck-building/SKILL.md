@@ -123,13 +123,15 @@ several times, not as noise. Use whichever applies:
   difference is explained by its mechanism (the `lfx-figure-checking`
   skill's why-figures-differ reference) or the figure is dropped.
 
-A figure checked only against itself does not go on a slide. When a
-check comes back further from the figure than scope or drift explains,
-or when the deck refreshes an earlier deck's numbers, load the
-`lfx-figure-checking` skill: it names the mechanism, gives the verdict
-(ours, both, same, open, unverifiable) and writes the reconciliation
-that goes in the notes; the fresh reads still come from the querying
-playbook.
+A figure checked only against itself does not go on a slide. Once the
+reads for a section are in, load the `lfx-figure-checking` skill if
+this session has not yet, and walk the section's figures through its
+traps and mechanisms before the consistency pass; when a check comes
+back further from the figure than scope or drift explains, or when the
+deck refreshes an earlier deck's numbers, it names the mechanism, gives
+the verdict (ours, both, same, open, unverifiable) and writes the
+reconciliation that goes in the notes. The fresh reads still come from
+the querying playbook.
 
 ## 3. The data-notes appendix
 

@@ -83,7 +83,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | A company's seats across the LF, split by board and project | organisation seats tool | one call, under the organisation gate | visible to you |
 | How many meetings, committees or members a project or a committee has in LFX v2 | count tool | one kind a call, filters on the record's own fields, complete flag read; the same visibility as LFX Self Serve | visible to you |
 | Which organisations hold the most seats across all projects | SQL assistant | a roster walk is a hundred calls; the committee data answers in one, with staff and unaffiliated seats set aside | generated SQL |
-| Whether a stated figure holds, why two figures differ, a slide or report checked against LFX | the `lfx-figure-checking` skill | the fresh reads come from here; the mechanism, verdict and written check come from there | as the fresh read |
+| Whether a stated figure holds, why two figures differ, a slide or report checked against LFX — and every answer's own figures before they are reported | the `lfx-figure-checking` skill | the fresh reads come from here; the mechanism, verdict and written check come from there; loaded once per session, before the first answer is written | as the fresh read |
 | Which meetings a project or committee held, who was invited, who attended, what was discussed | meeting tools | occurrence records with participants and summaries | visible to you |
 | How many meetings were held, how many scheduled minutes, how many people attended, over a period, LF-wide or by foundation, project or period | semantic layer | named meeting metrics; the meeting tools list, they do not aggregate (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim) | ad hoc; generated SQL when the fallback ran |
 | Attendances over a period, by company, committee or meeting type | semantic layer, attendance recipe | records, one person at one occurrence; the only reading that carries the organisation | interim |
@@ -183,6 +183,12 @@ Decide in this order; stop at the first row that fits:
   form.
 
 ## 4. Answering
+
+Before writing, with the reads in hand, load the `lfx-figure-checking`
+skill if this session has not yet, and read the figures against its
+gotchas and, for any second reading, its mechanism catalogue. It is the
+step most answers skip and the one that catches a wrong key, a wrong
+scope or an unbounded window before the reader does.
 
 ### 4.1 The reader's words
 
@@ -320,13 +326,17 @@ discovery failure, not a disagreement between sources; "sources differ"
 never goes in an answer. Where the applied block and a guidance sentence
 disagree on a definition, the applied block ran.
 
-Load that skill whenever the question is itself a check — "is this figure
-right", "why does the deck say X and the tool Y", "verify these numbers",
-a comparison against a report or an earlier run — and whenever a
-cross-framing read here comes back further from the first figure than
-scope or drift explains. It carries the procedure, the mechanism
-catalogue, the traps that return a plausible wrong number, and the shape
-of a written check; this playbook takes the fresh reads it asks for.
+Load that skill as a matter of course once the reads are in and before
+the answer is written, if this session has not loaded it yet: it holds
+the mechanism catalogue and the traps that return a plausible wrong
+number, and the figures just read are checked against them the way a
+second reader would. Load it earlier whenever the question is itself a
+check — "is this figure right", "why does the deck say X and the tool
+Y", "verify these numbers", a comparison against a report or an earlier
+run — and whenever a cross-framing read comes back further from the
+first figure than scope or drift explains. The cost is one skill load;
+the answer that skipped it is the one that quotes a plausible wrong
+number with confidence. This playbook takes the fresh reads it asks for.
 
 The sentence that compares two figures carries the caveat that qualifies
 the comparison: two subjects (an account's billing country against a
@@ -397,6 +407,10 @@ Symptom, cause, check and guidance section for each: the
 
 ## 6. Before reporting any number
 
+- The `lfx-figure-checking` skill has been loaded this session and the
+  figures about to be reported were walked through its traps and, where
+  two readings exist, its mechanisms. If it has not been loaded, load it
+  now; the check is part of the answer, not an extra.
 - Every literal came from this session's output; zero rows had spelling
   and scope checked before "none".
 - Magnitude cross-framed against a second reading (one scope level up, a

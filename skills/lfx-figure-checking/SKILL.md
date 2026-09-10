@@ -1,6 +1,6 @@
 ---
 name: lfx-figure-checking
-description: Checks a stated LFX figure against a fresh read and explains a difference by its mechanism — why two tools, two reports or two runs give two numbers for what sounds like one question, which one to quote, and how to write the reconciliation. Use whenever someone asks to verify, audit, reconcile, cross-check or sanity-check a number about Linux Foundation projects, members, contributors, events, health, meetings or governance, asks "why do these differ", "is this figure right", "can we still say this", or wants a deck, a report or a slide checked against LFX data before it goes out.
+description: Checks a stated LFX figure against a fresh read and explains a difference by its mechanism — why two tools, two reports or two runs give two numbers for what sounds like one question, which one to quote, and how to write the reconciliation. Load it as a matter of course after taking reads with the lfx-data-querying or lfx-deck-building skills, before the figures are reported, and whenever someone asks to verify, audit, reconcile, cross-check or sanity-check a number about Linux Foundation projects, members, contributors, events, health, meetings or governance, asks "why do these differ", "is this figure right", "can we still say this", or wants a deck, a report or a slide checked against LFX data before it goes out.
 ---
 <!-- Copyright The Linux Foundation and each contributor to LFX. -->
 <!-- SPDX-License-Identifier: MIT -->
@@ -18,7 +18,11 @@ this playbook exists to prevent is the average, the larger number, or
 
 The fresh read itself is the querying playbook's job (`lfx-data-querying`:
 which tool, discovery, the answer with its provenance). This playbook
-starts when a figure already exists and the question is whether it holds.
+starts when a figure already exists and the question is whether it holds
+— including the figures an answer is about to report: the querying and
+deck playbooks load this one once the reads are in, and the traps in
+section 3 and the checklist in section 5 are read against those figures
+before they are written down.
 Read the tool guidance once per session before any call:
 `read_lfx_standard_metrics_guidance` and `read_lfx_semantic_layer_guidance`
 own every parameter and switch; nothing here restates them.
