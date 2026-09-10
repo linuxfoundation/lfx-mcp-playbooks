@@ -116,8 +116,9 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   new-member-organisations family counts arrivals (no membership anywhere
   in the LF the day before; a lapsed account that rejoins counts again),
   at the LF, the foundation or the project as the applied block says;
-  first-ever organisations, the layer's first-membership dimension, ad
-  hoc; churned memberships (ended with no subsequent membership, non-zero
+  first-ever memberships, the layer's first-membership dimension on the
+  membership rows (ad hoc; a same-day pair of installs counts twice, so
+  never headed "organisations"); churned memberships (ended with no subsequent membership, non-zero
   revenue, by the day after the term ended); lost organisations, paid
   departures judged on the day. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's definition sentence still says first membership while its rows count arrivals, and the lost-organisations family still excludes organisations that have since returned; the layer's metrics carry the new meanings, so say which path ran]`
 - **Offer it as:** "N new project memberships from M organisations
@@ -303,14 +304,14 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   the sum and average of author followers over the mentions.
 - **Other readings:** a portfolio total across projects (not additive: a
   prolific author counts once per mention, and a project can sit inside
-  another's mention set); a de-duplicated audience (each author's
-  followers once), an order of magnitude smaller, which no family or
-  layer metric holds today.
+  another's mention set); a de-duplicated follower total (each author's
+  followers counted once), far smaller, which no family or layer metric
+  holds today.
 - **Offer it as:** "N mentions from M authors; reach is potential
   impressions, follower counts summed per mention, not added across
   projects." Never "audience" or "people reached": follower counts exist
-  for one network only, and a few prolific accounts make up most of the
-  sum.
+  for one network only, and every post by a high-follower account adds
+  that account's followers again.
 
 ## Committees, boards
 
