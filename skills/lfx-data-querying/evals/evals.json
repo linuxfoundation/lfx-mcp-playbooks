@@ -62,7 +62,8 @@
         "States the level of arrival the applied block gives (the LF, since no project was named), heads the column as organisations, and presents the two series (new memberships vs new organisations) as different grains, never one derived from the other",
         "The current year is bounded at today (installs can be future-dated) and the new-organisations figure sits at or below the new-memberships figure for the same year, with the reason stated (an organisation joining two programmes counts once here, twice there)",
         "Carries a provenance block or equivalent with scope, window and population",
-        "Offers the first-ever reading as an alternative (the layer's first-membership dimension), says it counts membership rows rather than organisations, and does not head it 'new organisations'"
+        "Offers the first-ever reading as an alternative (the layer's first-membership dimension), says it counts membership rows rather than organisations, and does not head it 'new organisations'",
+        "While the standard-metric lag stands, the answer quotes the family's rows as arrivals and does not repeat the family's lagging definition sentence ('first membership') as the reading; the provenance says which path ran"
       ]
     },
     {
@@ -209,11 +210,11 @@
       "id": 15,
       "name": "lost-organisations-departures-on-the-day",
       "prompt": "How many organisations did the Linux Foundation lose each year over the last four years, and does that include companies that later came back? Use the LFX MCP tools.",
-      "expected_output": "Lost organisations as departures: a paid term that ended with no other term of the organisation covering the next day, judged on that day, so a later return does not undo it and free-term lapses are not departures; the family and the layer path may differ while the lens lags (the family excludes organisations that have since returned), so the answer says which path ran and, if the family ran, that its figure excludes returners; the current year bounded at today; the churn date is the day after the term ends.",
+      "expected_output": "Lost organisations as departures: a paid term that ended with no other term of the organisation covering the next day, judged on that day, so a later return does not undo it and free-term lapses are not departures. While the lens lag stands, departures judged on the day come from the semantic layer's lost-organisations metric, labelled ad hoc, because the standard-metric family still excludes organisations that have since returned; if the family is quoted at all it is labelled as excluding returners and is not called departures. The current year bounded at today; the churn date is the day after the term ends.",
       "files": [],
       "assertions": [
         "Defines a lost organisation as a paid departure judged on the day it happened (no other term covering the next day), says a later return does not undo it, and says a free or zero-price lapse is not a departure",
-        "Says which path produced the figure (the standard-metric family or the semantic layer's lost-organisations metric) and, where the family ran while its lag stands, that the family's figure excludes organisations that have since returned",
+        "While the lens lag stands, takes departures judged on the day from the semantic layer's lost-organisations metric (labelled ad hoc) rather than the standard-metric family; if the family's figure is quoted at all, it is labelled as excluding organisations that have since returned and is not presented as departures; the provenance says which path ran",
         "Bounds the current year at today and says the churn date is the day after the term ends, so a year-end lapse lands in the next year",
         "Does not derive lost organisations from churned memberships (a company that dropped one project and kept another churned but is not lost)",
         "Carries a provenance block with scope, window and population"
