@@ -346,7 +346,7 @@ author follower counts over the mentions, so an account that posts many
 times counts its followers each time and the total is driven by posting
 frequency as much as by following; follower counts exist for one network
 only, and the others add nothing. A de-duplicated follower total (each
-author's followers once) is far smaller and is not on the layer. A
+author's followers once) is not on the layer. A
 reach figure labelled "authors de-duplicated" that sits near the family's
 figure was the per-mention sum under the wrong label. *SM* "Inventory" (social_reach).
 

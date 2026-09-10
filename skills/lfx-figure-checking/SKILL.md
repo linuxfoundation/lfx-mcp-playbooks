@@ -79,10 +79,11 @@ Most differences are decided here, not in the tools.
    - **both** — two defensible readings of a stated choice (population,
      field, grain, source kind); the slide must declare which, and the
      check says what each is;
-   - **same** — agrees once the movement of the window between the two
-     reads is shown (the same read at the stated figure's date, or the
-     period since it accounted for); a small difference is never assumed
-     to be drift;
+   - **same** — the fresh read equals the stated figure (a fixed window,
+     or a read as of the same date), or agrees once the movement of the
+     window between the two reads is shown (the same read at the stated
+     figure's date, or the period since it accounted for); a small
+     difference is never assumed to be drift;
    - **open** — not checkable under this identity (a gated tool, a
      private scope); say what identity could check it;
    - **unverifiable** — a published figure with no LFX population behind
