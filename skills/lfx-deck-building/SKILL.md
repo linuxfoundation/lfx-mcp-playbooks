@@ -105,15 +105,11 @@ several times, not as noise. Use whichever applies:
   figures, and each one needs the check as much as a headline does. An
   activity series (contributions) sums across the periods to the same
   family read as one figure over the same span. The new-memberships
-  family counts distinct project-account pairs per period, so its yearly
-  rows sum to at or above the same family read over the whole span; the
-  difference is pairs installed as new business in more than one year (a
-  lapse and a return), and the check records it as that, not as an error.
-  A headcount series does not sum, and the folded figure is read
-  separately; the new-organisations family reconciles exactly, since a
-  first-ever membership falls in one year only, and so do churned
-  memberships and lost organisations (a pair churns once, a last lapse
-  is unique). The latest period is read again bounded at today and
+  family counts one row per project, organisation and install day, so
+  its yearly rows add up to the same family read over the whole span,
+  and so do arrivals, churned memberships and departures (each is dated
+  once). A headcount series does not sum, and the folded figure is read
+  separately. The latest period is read again bounded at today and
   compared with the series' own to-date row. A series slide with no check
   line in the notes is the commonest miss.
 - **A roll-forward.** Start plus new minus churned against the end, at

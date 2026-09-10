@@ -51,20 +51,20 @@ Trap D10 / M13: this is account-project grain — a company joining a second
 project counts again — and the deck once read it as "new members" at
 organisation grain and had to be relabelled. Say "new project
 memberships". Check: the slide caption names the grain; the yearly rows
-sum to at or above the family read as one figure over the same span (the
-family counts distinct project-account pairs per period, so a pair that
-lapsed and returned as new business in two years is in both rows and
-once in the span), and the to-date row matches a second reading bounded
-at today. Label: governed.
+add up to the family read as one figure over the same span (one row per
+project, organisation and install day), and the to-date row matches a
+second reading bounded at today. Label: governed.
 
-**First-time member organisations.** Standard metrics, the
-new-member-organisations family LF-wide: distinct organisations whose
-first LF membership ever was installed in the year (a lapsed account that
-rejoins is not new), the firstness named as the applied block gives it.
-Check: sits below the year's new memberships (an organisation joining
-two programmes is one here, two there), the current year bounded at today
-(M12: future-dated installs inflate an unbounded current year). Label:
-governed.
+**New member organisations.** Standard metrics, the
+new-member-organisations family LF-wide: organisations arriving in the
+year — no membership anywhere in the LF the day before, so a lapsed
+account that rejoins counts as new again, as the CRM counts New
+Business; the level of arrival named as the applied block gives it. A
+"first time ever" slide is the layer's first-membership dimension, ad
+hoc, and says it counts memberships. Check: arrivals sit below the year's
+new memberships (an organisation joining two programmes is one here, two
+there), the current year bounded at today (M12: future-dated installs
+inflate an unbounded current year). Label: governed `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's definition sentence still says first membership while its rows count arrivals, and the lost-organisations family still excludes organisations that have since returned; the layer's metrics carry the new meanings, so say which path ran]`.
 
 **Growth as a roll-forward.** Members at the start of the year, joins,
 departures, members at the end: the at-date family on 31 December of

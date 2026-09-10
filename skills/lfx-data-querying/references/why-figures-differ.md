@@ -105,33 +105,29 @@ list price of active memberships; dues actually billed are a finance
 figure the tools do not hold. Say "list-price value"; never divide it by
 the count. *SM* "Reading results".
 
-**New memberships vs new organisations vs churn vs lost.** New business is
-first-per-project (a second project counts again, a returning account
-counts again). "New to the LF" is a different reading, and it has two
-routes today, only one of them honest. The semantic layer carries an
-organisation-grain firstness dimension (the membership rows whose install
-date is the account's first LF membership ever); filtering the new
-memberships metric on it gives first-ever membership *rows*, so a same-day
-pair of installs counts twice — report it as ad hoc, say it counts
-first-ever memberships rather than organisations, and never head the
-column "new organisations". The other flag with "first" in its name is the
-CRM's New Business opportunity type: it re-flags a returning account and
-is not firstness at all. The distinct-organisation figure is the
-new-member-organisations family, whose firstness follows the project
-switch (first ever with no project, first in the foundation for a root,
-first in the project with excluded) and is named in the applied block.
-Churned memberships are pairs that ended; a company that dropped one
-project and kept another churned but is not lost — lost organisations are
-their own family, counted when the last membership lapsed and still
-inactive as of the build (a lapse that has since returned is not lost).
-The churn date is the day after the term ends, so a year-end churn lands
-in the next year. As a series, new memberships count a pair in every
-year it was sold as new business and once over the span, so the years
-sum at or above one span reading; churned memberships and lost
-organisations sum exactly (a pair churns once; a last lapse is unique).
-*SM* "Inventory" (new_members, membership_churn,
-lost_member_organizations); *SL* "Value discovery" (read the dimension's
-own description before filtering on it).
+**New memberships vs new organisations vs churn vs lost.** New
+memberships are New Business installs at the install grain (a project,
+an organisation, a day): a second project counts again, a returning
+account counts again, and the yearly rows add up to the span. "New to
+the LF" is the new-member-organisations family, which counts arrivals:
+a term starting while the organisation held no membership anywhere in
+the LF the day before, so an organisation that lapsed and came back
+counts as new again, the way the CRM re-flags New Business; the level of
+arrival follows the project switch (the LF with no project, the
+foundation for a root, the project with excluded) and is named in the
+applied block. First-ever is a separate reading, the layer's
+first-membership dimension on the membership rows, reported as ad hoc and
+as memberships, never headed "new organisations". Churned memberships
+are pairs that ended; a company that dropped one project and kept
+another churned but is not lost — lost organisations are departures: a
+paid term that ended with no other term of the organisation covering the
+next day, judged on that day, so a later return does not undo it, and a
+free term's lapse is not a departure. The churn date is the day after
+the term ends, so a year-end churn lands in the next year. As series,
+new memberships, arrivals, churned memberships and departures each add
+up across years. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's definition sentence still says first membership while its rows count arrivals, and the lost-organisations family still excludes organisations that have since returned; the layer's metrics carry the new meanings, so say which path ran]` *SM* "Inventory" (new_members,
+membership_churn, lost_member_organizations); *SL* "Value discovery"
+(read the dimension's own description before filtering on it).
 
 **Roll-forward residues.** Start plus new minus churned never equals the
 end count, because the four are four populations. Memberships: the start
@@ -145,13 +141,13 @@ which is why past years shrink between builds); new is new business only,
 so a re-activation sold as a renewal enters the end count without being
 new, while a second new-business sale to an already active pair is new
 without adding a member; and a pair that drops one product while keeping
-another churns and stays. Organisations: a returner (first joined before
-the year, inactive at its start, active at its end) is neither new nor
-lost; lost is priced and requires no active membership as of the build,
-so an organisation still holding a free term at year end can be lost
-while the headcount keeps it, and one that has since returned is not lost
-at all. Name the mechanism and the side it falls on; a gap no mechanism
-covers is a scope or date error. *SM* "Inventory" (memberships,
+another churns and stays. Organisations: start plus arrivals minus
+departures reaches the end up to the free-term residual — a lapse with
+no price is not a departure, so an organisation whose only term at year
+end was free leaves the headcount without being lost, and one holding a
+free term while its paid one ended is lost while the headcount keeps
+it. Name the mechanism and the side it falls on; a gap no mechanism
+covers is a scope or date error. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's definition sentence still says first membership while its rows count arrivals, and the lost-organisations family still excludes organisations that have since returned; the layer's metrics carry the new meanings, so say which path ran]` *SM* "Inventory" (memberships,
 new_members, membership_churn, member_organizations,
 new_member_organizations, lost_member_organizations).
 

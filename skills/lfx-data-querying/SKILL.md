@@ -379,9 +379,9 @@ Symptom, cause, check and guidance section for each:
     answer names the grain it reports.
 14. Year-to-date counts bound at today; installs can be future-dated. A
     window drops rows with no usable timestamp, so an all-time figure can
-    exceed the sum of its windows; and a family that counts distinct
-    pairs per period (new memberships) reads at or below the sum of its
-    yearly rows over the span — neither is an error, both are said.
+    exceed the sum of its windows — not an error, and said. New
+    memberships, arrivals, churn and departures each add up across
+    periods; a headcount series never does.
 15. A figure is never reconciled against another dashboard, page or
     report: they differ by definition, population and refresh; say what
     this figure covers and stop.
