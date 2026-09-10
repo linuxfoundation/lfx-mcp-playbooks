@@ -125,7 +125,7 @@ next day, judged on that day, so a later return does not undo it, and a
 free term's lapse is not a departure. The churn date is the day after
 the term ends, so a year-end churn lands in the next year. As series,
 new memberships, arrivals, churned memberships and departures each add
-up across years. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's definition sentence still says first membership while its rows count arrivals, and the lost-organisations family still excludes organisations that have since returned; the layer's metrics carry the new meanings, so say which path ran]` *SM* "Inventory" (new_members,
+up across years. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's rows are arrivals (its compiled SQL filters on the arrival flag) while its definition sentence still says first membership, so quote the rows as arrivals and say the sentence lags; the lost-organisations family still excludes organisations that have since returned, so for departures judged on the day query the layer's lost-organisations metric and label it ad hoc; either way say which path ran]` *SM* "Inventory" (new_members,
 membership_churn, lost_member_organizations); *SL* "Value discovery"
 (read the dimension's own description before filtering on it).
 
@@ -147,7 +147,7 @@ no price is not a departure, so an organisation whose only term at year
 end was free leaves the headcount without being lost, and one holding a
 free term while its paid one ended is lost while the headcount keeps
 it. Name the mechanism and the side it falls on; a gap no mechanism
-covers is a scope or date error. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's definition sentence still says first membership while its rows count arrivals, and the lost-organisations family still excludes organisations that have since returned; the layer's metrics carry the new meanings, so say which path ran]` *SM* "Inventory" (memberships,
+covers is a scope or date error. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's rows are arrivals (its compiled SQL filters on the arrival flag) while its definition sentence still says first membership, so quote the rows as arrivals and say the sentence lags; the lost-organisations family still excludes organisations that have since returned, so for departures judged on the day query the layer's lost-organisations metric and label it ad hoc; either way say which path ran]` *SM* "Inventory" (memberships,
 new_members, membership_churn, member_organizations,
 new_member_organizations, lost_member_organizations).
 
@@ -338,7 +338,7 @@ carries the invitee's CRM account only; the enriched employer field
 exists on the activity rows, so an attributable share reads lower on the
 attendance data than on the activity data. Meeting-type buckets include a
 literal "None" and a blank, which are two rows. Records worded
-"attendances"; the named metrics labelled ad hoc (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances). *SL* "Worked
+"attendances"; the named metrics labelled ad hoc, a fallback by its own lane (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim). *SL* "Worked
 recipes" 12.
 
 **Potential impressions vs potential audience.** The reach family sums

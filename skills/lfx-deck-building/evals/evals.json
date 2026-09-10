@@ -49,7 +49,7 @@
         "The LF-wide scope is stated with no project set (the umbrella foundation's slug is not used as the LF-wide scope)",
         "Each item carries an explicit reproducible-vs-cited verdict, and the data-notes rows carry a label from the closed list per row and the run date",
         "Occurrences and scheduled minutes over the window were read from the layer's named metrics or from the SQL assistant, and the reported figures are within a few percent of that reading (a row-capped or sampled estimate in place of it fails); no claim is made that a figure is unavailable from LFX when either can produce it",
-        "The meeting occurrences and scheduled-minutes figures are labelled ad hoc (a semantic-layer reading), never governed or interim, and the hours are said to be scheduled rather than time spent"
+        "The meeting occurrences and scheduled-minutes figures are labelled by the lane that produced them — ad hoc when read from the semantic layer's named metrics, generated SQL only if the SQL-assistant fallback ran because explore did not offer them — never governed or interim, and the hours are said to be scheduled rather than time spent"
       ]
     },
     {
