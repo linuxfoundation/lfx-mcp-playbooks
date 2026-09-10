@@ -64,6 +64,20 @@
         "Mentions and authors come from the social-mentions family LF-wide with no project set; the start of the feed is stated from a monthly series or the family's coverage sentence, never inferred from a yearly bucket",
         "Portfolio reach is not summed across projects, and the data notes carry a label per row from the closed list with the run date"
       ]
+    },
+    {
+      "id": 4,
+      "name": "member-growth-roll-forward-organisations",
+      "prompt": "For the membership deck I need a member-growth slide at organisation level for last calendar year: member organisations at the start of the year, organisations that joined during the year, organisations we lost, and members at the end. Give me the figures and the data notes.",
+      "expected_output": "Member organisations from the at-date family on 31 December of the prior year and of the year; organisations that joined as arrivals from the new-member-organisations family (an organisation with no membership anywhere in the LF the day before, so a returner counts again), the caption saying joined rather than first-time; organisations lost as paid departures judged on the day, read while the lens lag stands from the semantic layer's lost-organisations metric labelled ad hoc rather than from the family that excludes returners; the four never forced to balance, the free-term residual named in the notes, gross joins in the caption, each row labelled.",
+      "files": [],
+      "assertions": [
+        "Organisations that joined are arrivals from the new-member-organisations family and the caption or notes say a lapsed organisation that returned counts as joined again; 'first-time' or 'first-ever' is not used for this figure",
+        "While the lens lag stands, organisations lost are read from the semantic layer's lost-organisations metric as paid departures judged on the day, labelled ad hoc; if the standard-metric family is quoted at all it is labelled as excluding organisations that have since returned",
+        "The start and end figures come from the member-organisations family on 31 December of the prior year and of the year, not 1 January",
+        "The four figures are not forced to balance; the notes name the free-term residual and the caption says gross joins, not net growth",
+        "Each row of the data notes carries a label from the closed list and the run date"
+      ]
     }
   ]
 }
