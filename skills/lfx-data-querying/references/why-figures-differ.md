@@ -343,11 +343,10 @@ recipes" 12.
 
 **Potential impressions vs potential audience.** The reach family sums
 author follower counts over the mentions, so an account that posts many
-times counts its followers each time, and a handful of prolific
-high-follower accounts make up most of the total; follower counts exist
-for one network only, and the others add nothing. A de-duplicated reading
-(each author's followers once) is an order of magnitude smaller and is
-not on the layer. A reach figure labelled "authors de-duplicated" that
+times counts its followers each time and the total is driven by posting
+frequency as much as by following; follower counts exist for one network
+only, and the others add nothing. A de-duplicated follower total (each
+author's followers once) is far smaller and is not on the layer. A reach figure labelled "authors de-duplicated" that
 sits near the family's figure was the per-mention sum under the wrong
 label. *SM* "Inventory" (social_reach).
 
