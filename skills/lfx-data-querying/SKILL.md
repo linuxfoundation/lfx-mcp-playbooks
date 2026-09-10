@@ -410,9 +410,12 @@ Symptom, cause, check and guidance section for each: the
     exceed the sum of its windows — not an error, and said. New
     memberships, arrivals, churn and departures each add up across
     periods; a headcount series never does.
-15. A figure is never reconciled against another dashboard, page or
-    report: they differ by definition, population and refresh; say what
-    this figure covers and stop.
+15. A figure is never averaged with, or adjusted toward, a figure from
+    another dashboard, page or report: they differ by definition,
+    population and refresh. A stated figure the reader brings is checked
+    (the `lfx-figure-checking` skill names the mechanism and gives a
+    verdict); a figure from another product is not: say what this figure
+    covers and stop.
 
 ## 6. Before reporting any number
 

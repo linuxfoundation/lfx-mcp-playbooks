@@ -4,7 +4,7 @@
     {
       "id": 0,
       "name": "deck-meetings-figures-mis-keyed",
-      "prompt": "Our August membership deck says the LF hosted a certain number of meetings between 1 September 2025 and 31 August 2026 and gives a people-who-attended figure and a total-hours figure derived from an average meeting length. A colleague re-ran the numbers and got a lower meeting count, a higher people count and a much lower hours figure. Which set should we quote, and why do they differ? Use the LFX MCP tools to take fresh reads.",
+      "prompt": "Our August membership deck says the LF hosted a certain number of meetings between 1 September 2025 and 31 August 2026, gives a people-who-attended figure and a total-hours figure. The deck's author tells me the meeting count was taken from the activity data, the people figure counted invitee ids, and the hours multiplied attendances by an average meeting length. A colleague re-ran the numbers and got a lower meeting count, a higher people count and a much lower hours figure. Which set should we quote, and why do they differ? Use the LFX MCP tools to take fresh reads; I will paste the deck's values into your table afterwards.",
       "expected_output": "Takes fresh reads of meeting occurrences, unique attendees and scheduled minutes from the semantic layer over the stated window; explains that a meeting count taken from the activity table counts meeting-series by person, that a people figure must be distinct users or e-mails and never invitee ids, and that hours are scheduled duration summed once per occurrence, not attendances times an average; gives a verdict per figure with the trap named; writes a reconciliation table with provenance.",
       "files": [],
       "assertions": [
@@ -13,7 +13,7 @@
         "States that people are counted as distinct users or e-mails and that a count of invitee ids is a known wrong key",
         "States that hours are scheduled duration summed once per occurrence and that attendances times an average is an estimate of people's time, a different measure",
         "Gives the verdict 'ours' for the meeting count, the people count and the hours figure (each is mis-keyed or misderived on the deck's side), names the trap for each, and does not soften any of them to 'both'",
-        "Delivers a table with the stated figure, the fresh read, the mechanism and the verdict, plus provenance a verifier could re-run, and never averages or reconciles to a third number"
+        "Delivers a table with a column for the stated figure (left for the owner to fill, as the prompt says the values follow), the fresh read, the mechanism and the verdict, plus provenance a verifier could re-run, and never averages or reconciles to a third number"
       ]
     },
     {

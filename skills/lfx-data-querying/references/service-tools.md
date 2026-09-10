@@ -156,8 +156,9 @@ and the discipline that keeps a count of records honest.
   everyone at them; without one it returns the participant records that
   carry the committee — say which ran. A project's or a committee's own
   meeting count over a period is the count tool, "visible to you"; the
-  total over the warehouse is the layer's, and the two are never
-  reconciled.
+  total over the warehouse is the layer's. They are two readings, never
+  adjusted toward each other; the gap is explained by the
+  `lfx-figure-checking` skill's index-versus-warehouse entry.
 - **Aggregate meeting metrics** (meetings held, scheduled minutes,
   people and attendances over a period, LF-wide, by foundation or by
   company) are not a service-tool job: they are the layer's named
