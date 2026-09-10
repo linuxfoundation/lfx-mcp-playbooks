@@ -346,9 +346,9 @@ author follower counts over the mentions, so an account that posts many
 times counts its followers each time and the total is driven by posting
 frequency as much as by following; follower counts exist for one network
 only, and the others add nothing. A de-duplicated follower total (each
-author's followers once) is far smaller and is not on the layer. A reach figure labelled "authors de-duplicated" that
-sits near the family's figure was the per-mention sum under the wrong
-label. *SM* "Inventory" (social_reach).
+author's followers once) is far smaller and is not on the layer. A
+reach figure labelled "authors de-duplicated" that sits near the family's
+figure was the per-mention sum under the wrong label. *SM* "Inventory" (social_reach).
 
 **Indexed in LFX v2 vs the warehouse.** The record tools and the count
 tool read the LFX v2 index: records of projects onboarded into LFX v2,
@@ -361,7 +361,8 @@ visibility, status and timing, and neither figure is an error. An
 LF-wide figure is the warehouse reading, said as such; the index count
 is "in LFX v2 today, visible to you", and is what LFX v2 applications
 show their users. Quote one, and name the other only as a cross-check.
-See [service-tools.md](service-tools.md).
+The record tools' craft is the `lfx-data-querying` skill's service-tools
+reference.
 
 **Roster vs inference.** A board seat comes from the committee tools and
 nowhere else; a company's seats are the roster filtered by organisation,

@@ -114,16 +114,22 @@ several times, not as noise. Use whichever applies:
   line in the notes is the commonest miss.
 - **A roll-forward.** Start plus new minus churned against the end, at
   either grain, the start snapshot on 31 December of the prior year; the
-  residue named by mechanism in the notes (the querying playbook's
-  "Roll-forward residues"), the caption saying gross joins, not net.
-  Four figures forced to balance are a wrong slide.
+  residue named by mechanism in the notes (the `lfx-figure-checking`
+  skill's "Roll-forward residues"), the caption saying gross joins, not
+  net. Four figures forced to balance are a wrong slide.
 - **A second lane where two cover the ground.** A figure from the semantic
   layer or the SQL assistant that a standard metric also covers is read
   from the standard metric too; the governed figure wins, and the
-  difference is explained by its mechanism (the querying playbook's
-  "why figures differ" reference) or the figure is dropped.
+  difference is explained by its mechanism (the `lfx-figure-checking`
+  skill's why-figures-differ reference) or the figure is dropped.
 
-A figure checked only against itself does not go on a slide.
+A figure checked only against itself does not go on a slide. When a
+check comes back further from the figure than scope or drift explains,
+or when the deck refreshes an earlier deck's numbers, load the
+`lfx-figure-checking` skill: it names the mechanism, gives the verdict
+(ours, both, same, open, unverifiable) and writes the reconciliation
+that goes in the notes; the fresh reads still come from the querying
+playbook.
 
 ## 3. The data-notes appendix
 

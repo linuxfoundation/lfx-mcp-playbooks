@@ -9,12 +9,16 @@ the plugin does and how to install it, see [README.md](README.md).
 
 ## What this repo is
 
-Two skills that teach a client agent how to work with the LFX MCP server:
-`lfx-data-querying` (which tool answers which kind of question, discovery,
-why two tools give two figures, an answer with its provenance) and
+Three skills that teach a client agent how to work with the LFX MCP
+server: `lfx-data-querying` (which tool answers which kind of question,
+discovery, an answer with its provenance), `lfx-figure-checking` (a stated
+figure against a fresh read: the mechanisms behind two numbers for one
+question, the traps, the verdict and the written check) and
 `lfx-deck-building` (a deck's worth of figures that stay consistent with
 each other: conventions, cross-framing checks, the data-notes appendix,
-what LFX cannot reproduce). Distributed as a Claude Code plugin and as the
+what LFX cannot reproduce). The querying and deck skills hand checks to
+the checking skill; it takes its fresh reads from the querying skill.
+Distributed as a Claude Code plugin and as the
 `lfx-mcp` marketplace (`.claude-plugin/`), with `skills/` auto-discovered;
 the same directories work as plain Agent Skills in any client that reads
 `SKILL.md`. There is no versioning: `main` is the release.
@@ -97,10 +101,12 @@ a new hit is a figure until proven otherwise.
    Remembered names and behaviours are frequently wrong.
 3. **Put it where it belongs.** A rule the agent needs on every question
    goes in the SKILL.md body, in the section that already covers that
-   step; a mechanism goes in `references/why-figures-differ.md` or
-   `references/gotchas.md`; an everyday word and its default reading in
-   `references/plain-words.md`; a deck-section recipe in the pattern
-   references. Say a thing once and point to it from elsewhere. Keep the
+   step; a mechanism goes in the checking skill's
+   `references/why-figures-differ.md` or `references/gotchas.md`; an
+   everyday word and its default reading in the querying skill's
+   `references/plain-words.md`; a deck-section recipe in the deck skill's
+   pattern references. A pointer across skills names the skill and the
+   entry, never a relative path into another skill's directory. Say a thing once and point to it from elsewhere. Keep the
    SKILL.md body lean: if a paragraph explains a mechanism, it is in the
    wrong file.
 4. **Write for a smart reader**: explain why a rule exists rather than

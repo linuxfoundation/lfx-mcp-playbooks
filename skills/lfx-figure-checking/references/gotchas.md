@@ -3,7 +3,8 @@
 
 # Gotchas — symptom, cause, check, where documented
 
-One entry per line of the playbook's section 5, in the same order. Each
+One entry per line of the querying playbook's section 5 ("The gotchas
+that survive"), in the same order. Each
 names the symptom you see, the cause, the check that catches it, and the
 guidance section that documents the behaviour and its switch. No parameters
 here either: the guidance owns them. No figures: a trap's size is said
@@ -15,7 +16,7 @@ Guidance readers: `read_lfx_standard_metrics_guidance` (below: *SM*) and
 headings in those documents. Two companions: a difference between two
 tools' figures is explained by mechanism in
 [why-figures-differ.md](why-figures-differ.md); the craft of the record
-tools is in [service-tools.md](service-tools.md).
+tools is the `lfx-data-querying` skill's service-tools reference.
 
 ## 1. Unresolved names
 

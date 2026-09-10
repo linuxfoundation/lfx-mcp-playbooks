@@ -32,9 +32,11 @@ it, so the same question re-run gives the same answer.
 |---|---|
 | [`lfx-data-querying`](skills/lfx-data-querying/SKILL.md) | Answering one quantitative question: the four lanes, the routing decision, name and value discovery, the reader's-words answer with its provenance block, and the traps that return a plausible wrong number instead of an error. |
 | [`lfx-deck-building`](skills/lfx-deck-building/SKILL.md) | Producing a deck's worth of figures: the conventions fixed before the first query, cross-framing checks, the data-notes appendix, the final consistency pass, and what LFX cannot reproduce and how to cite it instead. |
+| [`lfx-figure-checking`](skills/lfx-figure-checking/SKILL.md) | Checking a stated figure against a fresh read: what a figure claims to be, the procedure, the catalogue of mechanisms behind two numbers for one question, the traps that return a plausible wrong number, the verdict words and the written reconciliation. |
 
-Each skill is a `SKILL.md` entry point plus a `references/` file loaded on
-demand.
+Each skill is a `SKILL.md` entry point plus `references/` files loaded on
+demand. The querying and deck skills hand a check to the checking skill;
+the checking skill takes its fresh reads from the querying skill.
 
 ## Evidence
 

@@ -1,0 +1,47 @@
+{
+  "skill_name": "lfx-figure-checking",
+  "evals": [
+    {
+      "id": 0,
+      "name": "deck-meetings-figures-mis-keyed",
+      "prompt": "Our August membership deck says the LF hosted a certain number of meetings between 1 September 2025 and 31 August 2026 and gives a people-who-attended figure and a total-hours figure derived from an average meeting length. A colleague re-ran the numbers and got a lower meeting count, a higher people count and a much lower hours figure. Which set should we quote, and why do they differ? Use the LFX MCP tools to take fresh reads.",
+      "expected_output": "Takes fresh reads of meeting occurrences, unique attendees and scheduled minutes from the semantic layer over the stated window; explains that a meeting count taken from the activity table counts meeting-series by person, that a people figure must be distinct users or e-mails and never invitee ids, and that hours are scheduled duration summed once per occurrence, not attendances times an average; gives a verdict per figure with the trap named; writes a reconciliation table with provenance.",
+      "files": [],
+      "assertions": [
+        "Takes fresh reads through the semantic layer's meeting metrics (occurrences, scheduled minutes, unique attendees) over the stated window with no project set, and reads scope and window back from the tool output",
+        "Explains the meeting-count difference as a key difference (series-person pairs on the activity data versus distinct occurrences on the attendance data), not as drift or as sources disagreeing",
+        "States that people are counted as distinct users or e-mails and that a count of invitee ids is a known wrong key",
+        "States that hours are scheduled duration summed once per occurrence and that attendances times an average is an estimate of people's time, a different measure",
+        "Gives a verdict word per figure (ours / both / same / open / unverifiable) and names the trap for each 'ours' verdict",
+        "Delivers a table with the stated figure, the fresh read, the mechanism and the verdict, plus provenance a verifier could re-run, and never averages or reconciles to a third number"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "boards-and-seats-warehouse-vs-index",
+      "prompt": "A colleague pulled the number of governing boards across active LF projects and their total seats from a warehouse query last month. I get a higher board count and a slightly lower seat count from the LFX count tool today. Is one of us wrong? Check with the LFX MCP tools.",
+      "expected_output": "Identifies the two source kinds (warehouse reading for active projects versus LFX v2 index records across all onboarded projects, visible to the caller); takes a fresh count of board-category committees and their members through the count tool with the complete flag read; explains that board records carry no project status so an active-only figure combines the count with the layer's project directory; verdict 'both' with what each reading is and which to quote for which claim.",
+      "files": [],
+      "assertions": [
+        "Names the two source kinds explicitly: a warehouse reading over active projects versus LFX v2 index records over all onboarded projects filtered to what the caller may see",
+        "Takes a fresh read through the count tool for board-category committees and for members on them, in one call each, and reports whether each count was complete",
+        "Explains that committee records carry no project status, so the index cannot filter to active projects and an active-only figure combines the count with the layer's project directory",
+        "Gives the verdict 'both' (two defensible readings), says what each is, and recommends which to quote for an LF-wide claim and which for 'in LFX v2 today, visible to you'",
+        "Does not walk the committee index page by page to rebuild the count, and does not reconcile the two figures to a third number"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "roll-forward-that-does-not-balance",
+      "prompt": "For our member-growth slide I have members at the start of last year, new memberships during the year, churned memberships, and members at the end. Start plus new minus churned does not equal the end, and the gap is bigger than I expected. Take the four readings fresh from LFX and tell me what explains the gap and whether the slide is wrong.",
+      "expected_output": "Reads the four figures from the standard-metric families with the start snapshot on 31 December of the prior year and the current year bounded at today; explains the roll-forward residues by mechanism (a term ending on the boundary day, free lapses that leave the headcount without churning, renewals that are not new, second new-business sales to an active pair); says the four never balance and the slide is right to show gross joins with the residue named in the notes; never forces the four to balance.",
+      "files": [],
+      "assertions": [
+        "Takes the four readings from the governed families with the start snapshot dated 31 December of the prior year, not 1 January, and says why",
+        "Explains the gap by named mechanisms from the roll-forward residues (boundary-day churn, free or zero-price lapses, renewals that are not new business, second new-business sales to an already active pair) rather than calling it an error",
+        "Says whether any part of the gap is unexplained and, if so, treats that as a scope or date problem to fix before the slide, not as a residue",
+        "Recommends the slide show gross joins with the residue named in the notes, and never adjusts a figure so the four balance"
+      ]
+    }
+  ]
+}

@@ -16,8 +16,8 @@ preference; never two readings as a contradiction; never a figure whose
 population the reader has to guess. Each entry below was checked against
 the family's own definition sentence on the production tools on the day
 this file was written; the sentence in the applied block is the one to
-repeat, not this file's paraphrase, when they differ. Mechanisms:
-[why-figures-differ.md](why-figures-differ.md); scopes:
+repeat, not this file's paraphrase, when they differ. Mechanisms: the
+`lfx-figure-checking` skill's why-figures-differ reference; scopes:
 [axes.md](axes.md).
 
 ## Organisations, companies
@@ -321,8 +321,8 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
 - **Other readings:** every committee of a project including election
   committees ("Other"); technical bodies; a ranking of organisations by
   seats across all projects, which is a generated-SQL reading over the
-  committee data (the why-figures-differ "Roster vs inference" entry),
-  not a roster walk.
+  committee data (the `lfx-figure-checking` skill's "Roster vs
+  inference" entry), not a roster walk.
 - **Offer it as:** "the governing board's roster as visible to you, N
   active seats".
 

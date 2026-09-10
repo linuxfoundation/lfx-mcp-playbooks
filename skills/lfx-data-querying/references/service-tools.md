@@ -30,8 +30,8 @@ and the discipline that keeps a count of records honest.
 - **Vocabularies do not cross.** Record slugs, record organisation
   names, and free-text organisation fields on participants are their
   own vocabularies; they are not the warehouse's slugs or the CRM legal
-  names, and they are not mixed into a figure read elsewhere
-  ([why-figures-differ.md](why-figures-differ.md)).
+  names, and they are not mixed into a figure read elsewhere (the
+  `lfx-figure-checking` skill's why-figures-differ reference).
 - **Actions are not data and are never implied.** Sending an email,
   assigning a role, creating or editing a committee or seat happen only on
   an explicit ask, confirmed, with the exact recipients or target read

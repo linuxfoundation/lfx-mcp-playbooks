@@ -71,7 +71,7 @@ departures, members at the end: the at-date family on 31 December of
 the prior year and of the year, the new-memberships and churn families
 over the year — the same at organisation grain with the new- and
 lost-organisation families. The four never balance exactly; the notes
-name the residue by mechanism (the querying playbook's "Roll-forward
+name the residue by mechanism (the `lfx-figure-checking` skill's "Roll-forward
 residues"), and the caption says gross joins, never new-minus-churned as
 the growth. Label: governed.
 
