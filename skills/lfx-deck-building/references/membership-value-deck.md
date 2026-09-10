@@ -216,10 +216,11 @@ figures, cited with document and year. Label: published.
 
 **Mentions, reach, authors, platforms; brand portfolio reach.** Standard
 metrics, social-mentions and social-reach families by project; reach is
-the sum of author followers per mention (a prolific author counts once
-per mention) and portfolio reach is not additive across projects (D18:
-the feed begins recently, so no long trend; project sets are curated).
-Label: governed.
+potential impressions, the sum of author followers per mention (a
+prolific author counts once per mention; follower counts exist for one
+network only), never an audience, and portfolio reach is not additive
+across projects (D18: the feed begins recently, so no long trend;
+project sets are curated). Label: governed.
 
 ## Section 8 — Consortia and joint development
 
