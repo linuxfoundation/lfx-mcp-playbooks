@@ -20,11 +20,11 @@
       "id": 1,
       "name": "boards-and-seats-warehouse-vs-index",
       "prompt": "A colleague pulled the number of governing boards across active LF projects and their total seats from a warehouse query last month. I get a higher board count and a slightly lower seat count from the LFX count tool today. Is one of us wrong? Check with the LFX MCP tools.",
-      "expected_output": "Identifies the two source kinds (warehouse reading for active projects versus LFX v2 index records across all onboarded projects, visible to the caller); takes a fresh count of board-category committees and their members through the count tool with the complete flag read; explains that board records carry no project status so an active-only figure combines the count with the layer's project directory; verdict 'both' with what each reading is and which to quote for which claim.",
+      "expected_output": "Identifies the two source kinds (warehouse reading for active projects versus LFX v2 index records across all onboarded projects, visible to the caller); takes a fresh count of board-category committees and their members through the count tool with the complete flag read; takes the warehouse side fresh through the SQL assistant over the committee data joined to active-project scope, labelled generated SQL; explains that board records carry no project status so an active-only figure combines the count with the layer's project directory; verdict 'both' with what each reading is and which to quote for which claim.",
       "files": [],
       "assertions": [
         "Names the two source kinds explicitly: a warehouse reading over active projects versus LFX v2 index records over all onboarded projects filtered to what the caller may see",
-        "Takes a fresh warehouse read of the same population too (the semantic layer's committee or project data over active projects, or the standard metrics where a family covers it), so the 'both' verdict rests on two fresh reads, one per source kind, not on the index alone",
+        "Takes a fresh warehouse read of the same population through the SQL assistant over the committee data, joined to active-project scope and labelled generated SQL (no semantic-layer committee metric or standard family exists for it), so the 'both' verdict rests on two fresh reads, one per source kind, not on the index alone",
         "Takes a fresh read through the count tool for board-category committees and for members on them, in one call each, and reports whether each count was complete",
         "Explains that committee records carry no project status, so the index cannot filter to active projects and an active-only figure combines the count with the layer's project directory",
         "Gives the verdict 'both' (two defensible readings), says what each is, and recommends which to quote for an LF-wide claim and which for 'in LFX v2 today, visible to you'",
@@ -56,6 +56,20 @@
         "The organisations-with-a-membership figure is read fresh from the member-organisations family LF-wide as of today, and because the slide carries no value date the answer says a 'same' verdict needs the slide's value and its as-of date, presents the fresh read with its date for the owner to compare, and does not award 'same' (or any tolerance-based agreement) on the fresh read alone",
         "The check is a table with one row per figure, the stated figure, the fresh read, the mechanism and the verdict, with drift stated once at the top and provenance a verifier could re-run"
       ]
+    },
+    {
+      "id": 4,
+      "name": "completed-window-exact-match-same",
+      "prompt": "Our annual report quotes the number of new member organisations that joined the LF during calendar year 2025, read from LFX. I re-ran it this morning through the same LFX tool for the same window and the figure in the report matches mine exactly. Write the check for the report's appendix, and tell me what you would have said had the two differed by a handful.",
+      "expected_output": "Takes a fresh read of new member organisations LF-wide for calendar 2025 as a fixed window through the standard metrics family and reads the window back from the applied block; gives the verdict 'same' for the exact match on a completed window and says why that is the right word; explains that on a completed window a later difference is not drift and needs a mechanism (a re-keyed read, a changed default, a late-arriving record) or the read is redone, so it would not have been waved through; writes a one-row check with the stated figure as quoted by the report, the fresh read, the mechanism (none: same read, same window), the verdict and provenance; no unrelated caveats.",
+      "assertions": [
+        "Takes a fresh read of new member organisations LF-wide for calendar 2025 through the standard metrics family as a fixed window (not a trailing one) and reads the window and the applied defaults back from the tool output",
+        "Gives the verdict 'same' for the exact match on a completed fixed window, and does not label it 'ours', 'both' or 'open'",
+        "Says that had the two figures differed on a completed window, the difference is not drift: it needs a mechanism (a re-keyed read, a changed default, a late-arriving or re-dated record) or the read is redone, and 'same' is not given until the difference is explained",
+        "Writes a one-row check with the stated figure as quoted by the report, the fresh read, the mechanism, the verdict and provenance a verifier could re-run",
+        "Does not pad the check with caveats unrelated to this figure; the membership arrivals definition is stated once only where it bears on the read"
+      ],
+      "files": []
     }
   ]
 }
