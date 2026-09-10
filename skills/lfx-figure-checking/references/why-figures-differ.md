@@ -125,7 +125,7 @@ next day, judged on that day, so a later return does not undo it, and a
 free term's lapse is not a departure. The churn date is the day after
 the term ends, so a year-end churn lands in the next year. As series,
 new memberships, arrivals, churned memberships and departures each add
-up across years. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's rows are arrivals (its compiled SQL filters on the arrival flag) while its definition sentence still says first membership, so quote the rows as arrivals and say the sentence lags; the lost-organisations family still excludes organisations that have since returned, so for departures judged on the day query the layer's lost-organisations metric and label it ad hoc; a call that names a project or groups by foundation runs the older warehouse statement instead: its new-memberships span sits below the sum of its yearly rows, so quote the yearly rows, and its lost-organisations figure carries the same exclusion, so take departures from the layer's metric grouped by foundation; either way say which path ran]` *SM* "Inventory" (new_members,
+up across years. *SM* "Inventory" (new_members,
 membership_churn, lost_member_organizations); *SL* "Value discovery"
 (read the dimension's own description before filtering on it).
 
@@ -147,7 +147,7 @@ no price is not a departure, so an organisation whose only term at year
 end was free leaves the headcount without being lost, and one holding a
 free term while its paid one ended is lost while the headcount keeps
 it. Name the mechanism and the side it falls on; a gap no mechanism
-covers is a scope or date error. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's rows are arrivals (its compiled SQL filters on the arrival flag) while its definition sentence still says first membership, so quote the rows as arrivals and say the sentence lags; the lost-organisations family still excludes organisations that have since returned, so for departures judged on the day query the layer's lost-organisations metric and label it ad hoc; a call that names a project or groups by foundation runs the older warehouse statement instead: its new-memberships span sits below the sum of its yearly rows, so quote the yearly rows, and its lost-organisations figure carries the same exclusion, so take departures from the layer's metric grouped by foundation; either way say which path ran]` *SM* "Inventory" (memberships,
+covers is a scope or date error. *SM* "Inventory" (memberships,
 new_members, membership_churn, member_organizations,
 new_member_organizations, lost_member_organizations).
 
