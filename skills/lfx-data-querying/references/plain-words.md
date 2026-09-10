@@ -108,22 +108,22 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
 ## New members
 
 - **Default family reading:** new memberships — "memberships from a New
-  Business opportunity, by install date", first-per-project (a second
-  programme counts again; a returning account counts again); as a
-  series, the current year is partial and flagged. Each period counts
-  distinct pairs, so the years sum to at or above the same family read
-  over the whole span — the difference is pairs new in two years.
-- **Other readings:** organisations new to the LF altogether — the
-  new-member-organisations family (first ever with no project; first in
-  the foundation or the project when one is named, as the applied block
-  says), distinct organisations, a lapsed account that rejoins not among
-  them; churned
-  memberships (ended with no subsequent membership, non-zero revenue, by
-  the day after the term ended — re-evaluated at every build, so past
-  years can shrink).
-- **Offer it as:** "N new project memberships; of those, roughly M were an
-  organisation's first LF membership ever — an ad hoc reading that counts
-  first memberships, not organisations."
+  Business opportunity, by install date", one per project, organisation
+  and install day (a second programme counts again; a returning account
+  counts again); as a series, the current year is partial and flagged,
+  and the years add up to the span.
+- **Other readings:** organisations new to the LF — the
+  new-member-organisations family counts arrivals (no membership anywhere
+  in the LF the day before; a lapsed account that rejoins counts again),
+  at the LF, the foundation or the project as the applied block says;
+  first-ever organisations, the layer's first-membership dimension, ad
+  hoc; churned memberships (ended with no subsequent membership, non-zero
+  revenue, by the day after the term ended); lost organisations, paid
+  departures judged on the day. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's definition sentence still says first membership while its rows count arrivals, and the lost-organisations family still excludes organisations that have since returned; the layer's metrics carry the new meanings, so say which path ran]`
+- **Offer it as:** "N new project memberships from M organisations
+  arriving at the LF, returners included; of those, roughly K were here
+  for the first time ever — an ad hoc reading that counts first
+  memberships, not organisations."
 
 ## Revenue, dues, value
 

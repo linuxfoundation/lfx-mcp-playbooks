@@ -52,14 +52,14 @@
       "id": 3,
       "name": "new-members-per-year-and-org-reading",
       "prompt": "How many new members joined the Linux Foundation per year over the last five years? And separately, can you tell me how many organisations were brand new to the LF each year, as opposed to existing members joining another project? Use the LFX MCP tools.",
-      "expected_output": "Uses the new_members family as a bare series by year without a hand-computed start date, quotes each year from its own row, marks the current year to-date, and names the grain (project-account pairs). For 'brand new to the LF' uses the new-member-organisations family LF-wide as a governed series of distinct organisations, states the firstness the result gives, bounds the current year at today, and presents the two series as different grains, never one derived from the other.",
+      "expected_output": "Uses the new_members family as a bare series by year without a hand-computed start date, quotes each year from its own row, marks the current year to-date, and names the grain (one per project, organisation and install day). For 'brand new to the LF' uses the new-member-organisations family LF-wide as a governed series of distinct organisations, states the firstness the result gives, bounds the current year at today, and presents the two series as different grains, never one derived from the other.",
       "files": [],
       "assertions": [
         "Uses the new_members family as a series by year without a hand-computed start date (bare period series or the family default), LF-wide with no project set",
         "Quotes each year from its own row, marks the current year as year-to-date/partial and says which years the table shows",
         "Explains that new business is first-per-project (an organisation joining another project counts again)",
-        "For the 'brand new to the LF' question, uses the new-member-organisations family (distinct organisations whose first LF membership ever fell in the year), LF-wide, as a governed figure, and says a lapsed account that rejoins is not new",
-        "States the firstness the applied block gives (first ever, since no project was named), heads the column as organisations, and presents the two series (new memberships vs new organisations) as different grains, never one derived from the other",
+        "For the 'brand new to the LF' question, uses the new-member-organisations family (organisations arriving in the year: no membership anywhere in the LF the day before), LF-wide, as a governed figure, and says a lapsed account that rejoins counts as new again while a first-ever reading is the layer's first-membership dimension",
+        "States the level of arrival the applied block gives (the LF, since no project was named), heads the column as organisations, and presents the two series (new memberships vs new organisations) as different grains, never one derived from the other",
         "The current year is bounded at today (installs can be future-dated) and the new-organisations figure sits at or below the new-memberships figure for the same year, with the reason stated (an organisation joining two programmes counts once here, twice there)",
         "Carries a provenance block or equivalent with scope, window and population"
       ]
