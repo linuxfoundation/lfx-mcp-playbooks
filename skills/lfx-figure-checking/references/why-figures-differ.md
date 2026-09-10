@@ -48,10 +48,11 @@ date-based" when it is not today.
 
 **One account counted twice on one project.** A membership row that
 exists twice for the same account and project (two product lines for one
-term) doubles that account's raw row count and revenue while the
-pair-grain and install-grain families absorb it as one; a revenue or
-row figure for one company on one project that is exactly double
-another reading is this, and the check names the grain each side used.
+term) doubles that account's raw row count and revenue, while a count
+of project-account pairs or of installs (one per project, organisation
+and install day) sees it once; a revenue or row figure for one company
+on one project that is exactly double another reading is this, and the
+check says what each side counted.
 *SM* "Inventory" (memberships, new_members).
 
 **Memberships (pairs) vs member organisations.** The family counts
