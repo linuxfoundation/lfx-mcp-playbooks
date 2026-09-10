@@ -30,8 +30,8 @@ and the discipline that keeps a count of records honest.
 - **Vocabularies do not cross.** Record slugs, record organisation
   names, and free-text organisation fields on participants are their
   own vocabularies; they are not the warehouse's slugs or the CRM legal
-  names, and they are not mixed into a figure read elsewhere
-  ([why-figures-differ.md](why-figures-differ.md)).
+  names, and they are not mixed into a figure read elsewhere (the
+  `lfx-figure-checking` skill's why-figures-differ reference).
 - **Actions are not data and are never implied.** Sending an email,
   assigning a role, creating or editing a committee or seat happen only on
   an explicit ask, confirmed, with the exact recipients or target read
@@ -156,13 +156,14 @@ and the discipline that keeps a count of records honest.
   everyone at them; without one it returns the participant records that
   carry the committee — say which ran. A project's or a committee's own
   meeting count over a period is the count tool, "visible to you"; the
-  total over the warehouse is the layer's, and the two are never
-  reconciled.
+  total over the warehouse is the layer's. They are two readings, never
+  adjusted toward each other; the gap is explained by the
+  `lfx-figure-checking` skill's index-versus-warehouse entry.
 - **Aggregate meeting metrics** (meetings held, scheduled minutes,
   people and attendances over a period, LF-wide, by foundation or by
   company) are not a service-tool job: they are the layer's named
   metrics and its attendance records, with no per-caller visibility; the
-  meeting tools list (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances) `[not yet in production: TOOLS-2 org
+  meeting tools list (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim) `[not yet in production: TOOLS-2 org
   meeting KPIs on the service tools — until then: the layer]`.
 
 ## Mailing lists and Discord — communities as records

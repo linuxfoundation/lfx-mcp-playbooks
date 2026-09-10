@@ -3,7 +3,8 @@
 
 # Gotchas — symptom, cause, check, where documented
 
-One entry per line of the playbook's section 5, in the same order. Each
+One entry per line of the querying playbook's section 5 ("The gotchas
+that survive"), in the same order. Each
 names the symptom you see, the cause, the check that catches it, and the
 guidance section that documents the behaviour and its switch. No parameters
 here either: the guidance owns them. No figures: a trap's size is said
@@ -15,7 +16,7 @@ Guidance readers: `read_lfx_standard_metrics_guidance` (below: *SM*) and
 headings in those documents. Two companions: a difference between two
 tools' figures is explained by mechanism in
 [why-figures-differ.md](why-figures-differ.md); the craft of the record
-tools is in [service-tools.md](service-tools.md).
+tools is the `lfx-data-querying` skill's service-tools reference.
 
 ## 1. Unresolved names
 
@@ -189,7 +190,7 @@ tools is in [service-tools.md](service-tools.md).
   is attributed to one of them. A tool figure is cited as "visible to
   you", a layer figure as "all meetings in the warehouse", and neither
   is reconciled against the other. A people figure anywhere near the
-  attendance figure is a key error. (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances)
+  attendance figure is a key error. (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim)
 - **Documented.** SL "Routing", "Worked recipes" 12.
 
 ## 13. Membership count and revenue
@@ -272,6 +273,13 @@ tools is in [service-tools.md](service-tools.md).
   assemble names: copy the qualified name from explore's output for a
   sibling metric on the same entity, run it, and treat the compiled SQL
   as the proof of what was joined. SL "Value discovery".
+- **A project's manager can be inherited.** The layer's project manager
+  and manager e-mail, and the SQL assistant's, are filled for a project
+  with no manager of its own from the nearest ancestor that has one, the
+  root included, with no marker that the name is inherited. Say "on
+  record for <project> or an ancestor", and when the parent is the LF
+  itself treat a returned manager as unverified until the record is
+  confirmed elsewhere. SL "Scope" (project dimensions).
 - **No refresh stamp exists yet.** No lane reports when its tables were
   last loaded; the same window re-run a day apart can move slightly. Record
   the run date with every figure and re-run rather than reconcile.

@@ -10,7 +10,7 @@
     {
       "name": "lfx-mcp-playbooks",
       "source": "./",
-      "description": "LFX MCP playbooks: /lfx-mcp-playbooks:lfx-data-querying for answering a quantitative question through the LFX MCP tools, /lfx-mcp-playbooks:lfx-deck-building for a deck's worth of figures that stay consistent with each other."
+      "description": "LFX MCP playbooks: /lfx-mcp-playbooks:lfx-data-querying for answering a quantitative question through the LFX MCP tools, /lfx-mcp-playbooks:lfx-figure-checking for verifying a stated figure and explaining why two figures differ, /lfx-mcp-playbooks:lfx-deck-building for a deck's worth of figures that stay consistent with each other."
     }
   ]
 }

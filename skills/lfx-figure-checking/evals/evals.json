@@ -1,0 +1,75 @@
+{
+  "skill_name": "lfx-figure-checking",
+  "evals": [
+    {
+      "id": 0,
+      "name": "deck-meetings-figures-mis-keyed",
+      "prompt": "Our August membership deck says the LF hosted a certain number of meetings between 1 September 2025 and 31 August 2026, gives a people-who-attended figure and a total-hours figure. The deck's author tells me the meeting count was taken from the activity data, the people figure counted invitee ids, and the hours multiplied attendances by an average meeting length. A colleague re-ran the numbers and got a lower meeting count, a higher people count and a much lower hours figure. Which set should we quote, and why do they differ? Use the LFX MCP tools to take fresh reads; I will paste the deck's values into your table afterwards.",
+      "expected_output": "Takes fresh reads of meeting occurrences, unique attendees and scheduled minutes from the semantic layer over the stated window; explains that a meeting count taken from the activity table counts meeting-series by person, that a people figure must be distinct users or e-mails and never invitee ids, and that hours are scheduled duration summed once per occurrence, not attendances times an average; gives a verdict per figure with the trap named; writes a reconciliation table with provenance.",
+      "files": [],
+      "assertions": [
+        "Takes fresh reads through the semantic layer's meeting metrics (occurrences, scheduled minutes, unique attendees) over the stated window with no project set, and reads scope and window back from the tool output",
+        "Explains the meeting-count difference as a key difference (series-person pairs on the activity data versus distinct occurrences on the attendance data), not as drift or as sources disagreeing",
+        "States that people are counted as distinct users or e-mails and that a count of invitee ids is a known wrong key",
+        "States that hours are scheduled duration summed once per occurrence and that attendances times an average is an estimate of people's time, a different measure",
+        "Gives the verdict 'ours' for the meeting count, the people count and the hours figure (each is mis-keyed or misderived on the deck's side), names the trap for each, and does not soften any of them to 'both'",
+        "Delivers a table with a column for the stated figure (left for the owner to fill, as the prompt says the values follow), the fresh read, the mechanism and the verdict, plus provenance a verifier could re-run, and never averages or reconciles to a third number"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "boards-and-seats-warehouse-vs-index",
+      "prompt": "A colleague pulled the number of governing boards across active LF projects and their total seats from a warehouse query last month. I get a higher board count and a slightly lower seat count from the LFX count tool today. Is one of us wrong? Check with the LFX MCP tools.",
+      "expected_output": "Identifies the two source kinds (warehouse reading for active projects versus LFX v2 index records across all onboarded projects, visible to the caller); takes a fresh count of board-category committees and their members through the count tool with the complete flag read; takes the warehouse side fresh through the SQL assistant over the committee data joined to active-project scope, labelled generated SQL; explains that board records carry no project status so an active-only figure combines the count with the layer's project directory; verdict 'both' with what each reading is and which to quote for which claim.",
+      "files": [],
+      "assertions": [
+        "Names the two source kinds explicitly: a warehouse reading over active projects versus LFX v2 index records over all onboarded projects filtered to what the caller may see",
+        "Takes a fresh warehouse read of the same population through the SQL assistant over the committee data, joined to active-project scope and labelled generated SQL (no semantic-layer committee metric or standard family exists for it), so the 'both' verdict rests on two fresh reads, one per source kind, not on the index alone",
+        "Takes a fresh read through the count tool for board-category committees and for members on them, in one call each, and reports whether each count was complete",
+        "Explains that committee records carry no project status, so the index cannot filter to active projects and an active-only figure combines the count with the layer's project directory",
+        "Gives the verdict 'both' (two defensible readings), says what each is, and recommends which to quote for an LF-wide claim and which for 'in LFX v2 today, visible to you'",
+        "Does not walk the committee index page by page to rebuild the count, and does not reconcile the two figures to a third number"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "roll-forward-that-does-not-balance",
+      "prompt": "For our member-growth slide I have members at the start of last year, new memberships during the year, churned memberships, and members at the end. Start plus new minus churned does not equal the end, and the gap is bigger than I expected. Take the four readings fresh from LFX and tell me what explains the gap and whether the slide is wrong.",
+      "expected_output": "Reads the four figures from the standard-metric families for the completed calendar year: the at-date family on 31 December of the prior year and on 31 December of the year, the new-memberships and churn families over the year; explains the roll-forward residues by mechanism (a term ending on the boundary day, free lapses that leave the headcount without churning, renewals that are not new, second new-business sales to an active pair); says the four never balance and the slide is right to show gross joins with the residue named in the notes; never forces the four to balance.",
+      "files": [],
+      "assertions": [
+        "Takes the four readings from the governed families for the completed calendar year, with the start snapshot dated 31 December of the prior year (not 1 January) and the end snapshot dated 31 December of the year, and says why the boundary day matters",
+        "Explains the gap by named mechanisms from the roll-forward residues (boundary-day churn, free or zero-price lapses, renewals that are not new business, second new-business sales to an already active pair) rather than calling it an error",
+        "Says whether any part of the gap is unexplained and, if so, treats that as a scope or date problem to fix before the slide, not as a residue",
+        "Recommends the slide show gross joins with the residue named in the notes, and never adjusts a figure so the four balance"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "three-slide-figures-same-open-unverifiable",
+      "prompt": "Three figures from our membership deck need checking before it goes out: the number of specification consortia launched under the Joint Development Foundation, which the slide cites from an LF press release; the number of board seats Google holds across LF projects; and the number of organisations with an active membership today, which the slide quotes without a date. Check each against LFX and tell me which we can still say.",
+      "expected_output": "One row per figure with a verdict word: the press-release consortia count is unverifiable (a published figure with no LFX population behind it, cited to its publisher, never rebuilt; the index's project count under the JDF entity offered as a different, labelled reading); Google's seats are attempted through the organisation seats tool and the verdict follows what the tool did — open on a permission refusal, with the gate and the identity that could close it named, or a fresh read compared with the slide when it answers — with no roster walk either way; the member-organisations figure is read fresh as of today, and because the slide gives no value date the answer says a 'same' verdict needs the slide's value and its as-of date, gives the fresh read with its date so the owner can compare, and does not award 'same' on a fresh read alone; drift stated once at the top.",
+      "files": [],
+      "assertions": [
+        "The consortia count is given the verdict 'unverifiable': cited to the press release as a published figure and not rebuilt or reconciled against an LFX count; any LFX project count offered is labelled as a different reading",
+        "Google's seats are attempted through the organisation seats tool and the verdict follows the tool's behaviour: on a permission refusal the verdict is 'open' with the refusal named as the organisation gate and the identity that could close it named; if the tool answers, the fresh read is compared with the slide's figure and a verdict given; a roster walk through the committee tools is not attempted in either case",
+        "The organisations-with-a-membership figure is read fresh from the member-organisations family LF-wide as of today, and because the slide carries no value date the answer says a 'same' verdict needs the slide's value and its as-of date, presents the fresh read with its date for the owner to compare, and does not award 'same' (or any tolerance-based agreement) on the fresh read alone",
+        "The check is a table with one row per figure, the stated figure, the fresh read, the mechanism and the verdict, with drift stated once at the top and provenance a verifier could re-run"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "completed-window-exact-match-same",
+      "prompt": "Our annual report quotes the number of new member organisations that joined the LF during calendar year 2025, read from LFX. I re-ran it this morning through the same LFX tool for the same window and the figure in the report matches mine exactly. Write the check for the report's appendix, and tell me what you would have said had the two differed by a handful.",
+      "expected_output": "Takes a fresh read of new member organisations LF-wide for calendar 2025 as a fixed window through the standard metrics family and reads the window back from the applied block; gives the verdict 'same' for the exact match on a completed window and says why that is the right word; explains that on a completed window a later difference is not drift and needs a mechanism (a re-keyed read, a changed default, a late-arriving record) or the read is redone, so it would not have been waved through; writes a one-row check with the stated figure as quoted by the report, the fresh read, the mechanism (none: same read, same window), the verdict and provenance; no unrelated caveats.",
+      "assertions": [
+        "Takes a fresh read of new member organisations LF-wide for calendar 2025 through the standard metrics family as a fixed window (not a trailing one) and reads the window and the applied defaults back from the tool output",
+        "Gives the verdict 'same' for the exact match on a completed fixed window, and does not label it 'ours', 'both' or 'open'",
+        "Says that had the two figures differed on a completed window, the difference is not drift: it needs a mechanism (a re-keyed read, a changed default, a late-arriving or re-dated record) or the read is redone, and 'same' is not given until the difference is explained",
+        "Writes a one-row check with the stated figure as quoted by the report, the fresh read, the mechanism, the verdict and provenance a verifier could re-run",
+        "Does not pad the check with caveats unrelated to this figure; the membership arrivals definition is stated once only where it bears on the read"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -15,7 +15,9 @@
         "Does not count membership records from search_members into the headline figure (record tools may be used for context only)",
         "Carries a provenance block or equivalent with scope as applied, window/as-of date and the population/definition",
         "The per-subsidiary breakdown (separate) reconciles to the combined total, and every figure in the answer appears in the call log",
-        "No provenance claim is made that the call log does not support (for example, 'compiled SQL kept with the working files' when no SQL was kept)"
+        "No provenance claim is made that the call log does not support (for example, 'compiled SQL kept with the working files' when no SQL was kept)",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -30,7 +32,9 @@
         "Uses the contributions family grouped by organisation for the top-5 ranking, with the unattributed/NULL row excluded from the ranking and mentioned as unattributed",
         "States the window as concrete dates (start and end) and says bots are excluded",
         "Does not sum per-organisation or per-project rows to produce a headcount total",
-        "The first organisation ranking call requests more rows than the top-N asked for, so the unattributed row does not cost a re-run; and every comparative aside in the answer matches the rows in the call log"
+        "The first organisation ranking call requests more rows than the top-N asked for, so the unattributed row does not cost a re-run; and every comparative aside in the answer matches the rows in the call log",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -45,23 +49,29 @@
         "Counts TOC meetings in 2026 from the past-meetings tool scoped to the project and date range (and the TOC committee), not from the semantic layer or lens",
         "Labels the roster and the meeting count as what is visible to the caller ('visible to you' or equivalent), not as an LF total",
         "Does not infer any seat from membership tier, sponsorship or activity data",
-        "Both Technical Oversight Committee records (Public and Private) are checked before the meeting count is given, and no unscoped committee search across all foundations is made"
+        "Both Technical Oversight Committee records (Public and Private) are checked before the meeting count is given, and no unscoped committee search across all foundations is made",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
       "id": 3,
       "name": "new-members-per-year-and-org-reading",
       "prompt": "How many new members joined the Linux Foundation per year over the last five years? And separately, can you tell me how many organisations were brand new to the LF each year, as opposed to existing members joining another project? Use the LFX MCP tools.",
-      "expected_output": "Uses the new_members family as a bare series by year without a hand-computed start date, quotes each year from its own row, marks the current year to-date, and names the grain (project-account pairs). For 'brand new to the LF' uses the new-member-organisations family LF-wide as a governed series of distinct organisations, states the firstness the result gives, bounds the current year at today, and presents the two series as different grains, never one derived from the other.",
+      "expected_output": "Uses the new_members family as a bare series by year without a hand-computed start date, quotes each year from its own row, marks the current year to-date, and names the grain (one per project, organisation and install day). For 'brand new to the LF' uses the new-member-organisations family LF-wide as a governed series of distinct organisations, states the level of arrival the result gives (a lapsed organisation that returns counts as new again), offers the first-ever reading as the layer's first-membership dimension and says it counts memberships rather than organisations, bounds the current year at today, and presents the two series as different grains, never one derived from the other.",
       "files": [],
       "assertions": [
         "Uses the new_members family as a series by year without a hand-computed start date (bare period series or the family default), LF-wide with no project set",
         "Quotes each year from its own row, marks the current year as year-to-date/partial and says which years the table shows",
-        "Explains that new business is first-per-project (an organisation joining another project counts again)",
-        "For the 'brand new to the LF' question, uses the new-member-organisations family (distinct organisations whose first LF membership ever fell in the year), LF-wide, as a governed figure, and says a lapsed account that rejoins is not new",
-        "States the firstness the applied block gives (first ever, since no project was named), heads the column as organisations, and presents the two series (new memberships vs new organisations) as different grains, never one derived from the other",
+        "Explains the grain of new memberships: one per project, organisation and install day, so an organisation joining another project counts again and a returning pair counts again on its new install day",
+        "For the 'brand new to the LF' question, uses the new-member-organisations family (organisations arriving in the year: no membership anywhere in the LF the day before), LF-wide, as a governed figure, and says a lapsed account that rejoins counts as new again while a first-ever reading is the layer's first-membership dimension",
+        "States the level of arrival the applied block gives (the LF, since no project was named), heads the column as organisations, and presents the two series (new memberships vs new organisations) as different grains, never one derived from the other",
         "The current year is bounded at today (installs can be future-dated) and the new-organisations figure sits at or below the new-memberships figure for the same year, with the reason stated (an organisation joining two programmes counts once here, twice there)",
-        "Carries a provenance block or equivalent with scope, window and population"
+        "Carries a provenance block or equivalent with scope, window and population",
+        "Offers the first-ever reading as an alternative (the layer's first-membership dimension), says it counts membership rows rather than organisations, and does not head it 'new organisations'",
+        "While the standard-metric lag stands, the answer quotes the family's rows as arrivals and does not repeat the family's lagging definition sentence ('first membership') as the reading; the provenance says which path ran",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -77,7 +87,9 @@
         "Reports the NULL / unresolved country row as unresolved (accounts whose country is not known or whose stored spelling the lens does not resolve) and does not count it as a country",
         "States the reading is as of today and names the grain it reports (organisations or project-account pairs), and gives the top five countries from the breakdown with the NULL row dropped before ranking",
         "Carries a provenance block with scope as applied, as-of date and the population sentence",
-        "States explicitly that the project tree and the membership programme are different axes, so that 'CNCF is a child of the LF' and 'CNCF memberships are not in the LF's own programme' are both true and neither contradicts the other"
+        "States explicitly that the project tree and the membership programme are different axes, so that 'CNCF is a child of the LF' and 'CNCF memberships are not in the LF's own programme' are both true and neither contradicts the other",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -89,7 +101,9 @@
         "States that the CNCF contributors figure covers CNCF and all its projects at any depth (the default folded reading), not CNCF's own bucket alone, and that Kubernetes' contributors are inside it",
         "Does not present the CNCF figure as 'CNCF itself, excluding its projects', and does not sum project rows into a tree headcount",
         "Both figures come from the contributors family with the window stated as dates and bots excluded, and the two slugs come from search_projects",
-        "Carries a provenance block with scope as applied (tree vs bucket named), window and population"
+        "Carries a provenance block with scope as applied (tree vs bucket named), window and population",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -101,7 +115,9 @@
         "The group total comes from a combined reading (its own call), and the per-subsidiary rows from a separate reading; the total is not produced by adding the separate rows",
         "The answer names the scope choice: the account alone is the default and was not what was reported; the group figure is Amazon including its subsidiaries at any depth",
         "The legal account name is resolved before querying, and the breakdown reconciles to the combined total (stated as a check, since contributions are additive)",
-        "Window stated as dates, bots excluded, provenance block present"
+        "Window stated as dates, bots excluded, provenance block present",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -113,7 +129,9 @@
         "Memberships are scoped to the stored legal name (Red Hat LLC) resolved this session, and its parent (International Business Machines Corporation) is mentioned as the parent, not folded in",
         "The contributing-organisations figure is taken from that family (or the equivalent) and described as organisations as the contribution data names them, a different vocabulary from the CRM account names",
         "The answer says explicitly that the two vocabularies are not mixed and does not present 'Red Hat' (enrichment) and 'Red Hat LLC' (account) as one row or compare the two counts as like for like",
-        "Provenance block present for each figure with scope, window and population"
+        "Provenance block present for each figure with scope, window and population",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -125,7 +143,9 @@
         "The end-of-2024 figure is an as-of reading on 2024-12-31 from the memberships family and is described as date-based as of that date, not as 'today'",
         "The 2025 new-memberships figure is a window reading with the calendar year as concrete dates (not the trailing-twelve-months default) and is described as new project memberships by install date",
         "Today's figure is the status-based current reading and is described as of today; the answer explains that the as-of and today readings are two kinds",
-        "No window is computed by hand into a series and no partial period is quoted as full; provenance block present"
+        "No window is computed by hand into a series and no partial period is quoted as full; provenance block present",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -137,7 +157,9 @@
         "Registrations, distinct registrants and checked-in attendees are presented as three populations from the registrations family, with the caveat that check-in exists only for some registration sources (zero attendees is not zero attendance)",
         "'Took part, not just coders' is answered with the participants family (any non-bot activity: code, issues, reviews, comments, stars, forks, meetings, training, Hacker News) and described in those words, with contributors named as the narrower alternative",
         "The window is stated as dates and described as by event start date for the events figures",
-        "No population is renamed (no 'attendees' for registrations, no 'developers' for contributors without qualification); provenance block present"
+        "No population is renamed (no 'attendees' for registrations, no 'developers' for contributors without qualification); provenance block present",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -149,7 +171,9 @@
         "The membership country count is described as the billing country of the member account (conformed), and the unresolved/NULL row is excluded from the count and reported as unresolved",
         "The contributor country count is described as the person's own country, known for a minority of contributors, with the NULL row excluded from the count and reported",
         "The answer states that the two figures follow different subjects (account vs person) and does not present them as the same kind of footprint without that caveat",
-        "Provenance block present; any region mention carries the provisional note"
+        "Provenance block present; any region mention carries the provisional note",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -161,7 +185,9 @@
         "The kernel slug is resolved via search_projects and both rankings come from the contributions family with the window stated as dates and bots excluded",
         "The organisation ranking excludes the unattributed/NULL row (re-sorted before the top five is read) and the unattributed share is stated once",
         "The people ranking is described as by identity (handle), presented in a way appropriate to naming individuals, and two identities are not merged into one person",
-        "The answer says 'the top N shown' rather than 'all', and provenance block present"
+        "The answer says 'the top N shown' rather than 'all', and provenance block present",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
     {
@@ -173,7 +199,56 @@
         "The requested lane is honoured: the SQL assistant is run (its figures labelled generated SQL, each answer repeating the scope line the tool returned) — and when the speakers family is used as the answer, the assistant's reading is still shown beside it, never silently replaced",
         "The CNCF reading is not narrated as covering CNCF's projects beyond what the scope line shows, and the LF-wide reading is described as no project filter, not as the umbrella's slug",
         "Concrete dates are written into the assistant's question, the speakers population is accepted speakers, distinct people, and the LF-wide figure is cross-framed against the speakers family",
-        "Provenance block present with the SQL kept only if it was kept"
+        "Provenance block present with the SQL kept only if it was kept",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "lf-wide-meetings-held-hours-people-ad-hoc",
+      "prompt": "How many meetings were held across all Linux Foundation projects in the last twelve months, how many hours of meetings was that, and how many different people attended? Use the LFX MCP tools.",
+      "expected_output": "Meeting occurrences, scheduled minutes and unique attendees from the semantic layer's named meeting metrics, LF-wide with no project set, the window bounded at today; hours said to be scheduled rather than time spent; people said to be distinct users (e-mail as the fallback), below attendances; every meeting figure a floor by platform onboarding; labelled ad hoc, cited as all meetings in the warehouse, not 'visible to you'.",
+      "files": [],
+      "assertions": [
+        "Reads meeting occurrences, scheduled minutes and unique attendees through the semantic layer (explore then query), LF-wide with no project set, and does not use the count tool or the SQL assistant for the LF-wide totals",
+        "Labels the three figures ad hoc (a semantic-layer reading), not governed, interim or generated SQL, and cites them as all meetings in the warehouse rather than as visible to the caller",
+        "Says hours are scheduled duration summed once per occurrence, not time spent and not person-hours",
+        "Says people are distinct attendees identified by LF user or e-mail, distinct from attendances, and never counts invitee ids",
+        "States the window as concrete dates bounded at today and calls every meeting figure a floor bounded by platform onboarding",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "social-reach-impressions-not-audience",
+      "prompt": "What is the Linux Foundation's social media reach since tracking began, and how many mentions and authors is that based on? Use the LFX MCP tools.",
+      "expected_output": "Social-reach and social-mentions families LF-wide over the all-history default; reach worded as potential impressions, follower counts summed per mention, never audience or people reached; the one-network limitation stated; the start of the feed read from a monthly series or the coverage sentence, not a yearly bucket; not added across projects.",
+      "files": [],
+      "assertions": [
+        "Uses the social-reach and social-mentions families LF-wide with no project set and without a hand-computed start date",
+        "Words reach as potential impressions or an equivalent that says follower counts are summed per mention, and never as audience, people reached or unique followers",
+        "States that follower counts exist for one network only, so reach covers that network",
+        "States the start of the feed from a monthly series or the family's coverage sentence, never inferred from a yearly bucket",
+        "Carries a provenance block with scope, window and population",
+        "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "lost-organisations-departures-on-the-day",
+      "prompt": "How many organisations did the Linux Foundation lose each year over the last four years, and does that include companies that later came back? Use the LFX MCP tools.",
+      "expected_output": "Lost organisations as departures: a paid term that ended with no other term of the organisation covering the next day, judged on that day, so a later return does not undo it and free-term lapses are not departures. While the lens lag stands, departures judged on the day come from the semantic layer's lost-organisations metric, labelled ad hoc, because the standard-metric family still excludes organisations that have since returned; if the family is quoted at all it is labelled as excluding returners and is not called departures. The current year bounded at today; the churn date is the day after the term ends.",
+      "files": [],
+      "assertions": [
+        "Defines a lost organisation as a paid departure judged on the day it happened (no other term covering the next day), says a later return does not undo it, and says a free or zero-price lapse is not a departure",
+        "While the lens lag stands, takes departures judged on the day from the semantic layer's lost-organisations metric (labelled ad hoc) rather than the standard-metric family; if the family's figure is quoted at all, it is labelled as excluding organisations that have since returned and is not presented as departures; the provenance says which path ran",
+        "Bounds the current year at today and says the churn date is the day after the term ends, so a year-end lapse lands in the next year",
+        "Does not derive lost organisations from churned memberships (a company that dropped one project and kept another churned but is not lost)",
+        "Carries a provenance block with scope, window and population",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     }
   ]

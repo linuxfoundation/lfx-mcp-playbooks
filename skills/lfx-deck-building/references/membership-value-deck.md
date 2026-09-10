@@ -51,27 +51,28 @@ Trap D10 / M13: this is account-project grain — a company joining a second
 project counts again — and the deck once read it as "new members" at
 organisation grain and had to be relabelled. Say "new project
 memberships". Check: the slide caption names the grain; the yearly rows
-sum to at or above the family read as one figure over the same span (the
-family counts distinct project-account pairs per period, so a pair that
-lapsed and returned as new business in two years is in both rows and
-once in the span), and the to-date row matches a second reading bounded
-at today. Label: governed.
+add up to the family read as one figure over the same span (one row per
+project, organisation and install day; on a project-scoped call, see the
+marker below), and the to-date row matches a second reading bounded at
+today. Label: governed.
 
-**First-time member organisations.** Standard metrics, the
-new-member-organisations family LF-wide: distinct organisations whose
-first LF membership ever was installed in the year (a lapsed account that
-rejoins is not new), the firstness named as the applied block gives it.
-Check: sits below the year's new memberships (an organisation joining
-two programmes is one here, two there), the current year bounded at today
-(M12: future-dated installs inflate an unbounded current year). Label:
-governed.
+**New member organisations.** Standard metrics, the
+new-member-organisations family LF-wide: organisations arriving in the
+year — no membership anywhere in the LF the day before, so a lapsed
+account that rejoins counts as new again, as the CRM counts New
+Business; the level of arrival named as the applied block gives it. A
+"first time ever" slide is the layer's first-membership dimension, ad
+hoc, and says it counts memberships. Check: arrivals sit below the year's
+new memberships (an organisation joining two programmes is one here, two
+there), the current year bounded at today (M12: future-dated installs
+inflate an unbounded current year). Label: governed `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's rows are arrivals (its compiled SQL filters on the arrival flag) while its definition sentence still says first membership, so quote the rows as arrivals and say the sentence lags; the lost-organisations family still excludes organisations that have since returned, so for departures judged on the day query the layer's lost-organisations metric and label it ad hoc; a call that names a project or groups by foundation runs the older warehouse statement instead: its new-memberships span sits below the sum of its yearly rows, so quote the yearly rows, and its lost-organisations figure carries the same exclusion, so take departures from the layer's metric grouped by foundation; either way say which path ran]`.
 
 **Growth as a roll-forward.** Members at the start of the year, joins,
 departures, members at the end: the at-date family on 31 December of
 the prior year and of the year, the new-memberships and churn families
 over the year — the same at organisation grain with the new- and
 lost-organisation families. The four never balance exactly; the notes
-name the residue by mechanism (the querying playbook's "Roll-forward
+name the residue by mechanism (the `lfx-figure-checking` skill's "Roll-forward
 residues"), and the caption says gross joins, never new-minus-churned as
 the growth. Label: governed.
 
@@ -93,15 +94,15 @@ the same window; minutes are scheduled, never time spent, and are
 converted to hours on the slide with that said. Every meeting figure is
 a floor: only meetings run through the LF's meeting platform exist here
 (D9). Trap D8: an hours figure built from attendances times a sampled
-average is an estimate and says so, and is the worse route. Label:
-governed, floor (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances).
+average is an estimate and says so, and is the worse route. Label: ad
+hoc, floor (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim).
 
 **People who attended, attendances.** The layer's attendees metric
 counts people (an LF user, e-mail as the fallback), never invitee ids,
 and sits far below the attendance recipe's records (one person at one
 occurrence); the meeting tools list what the caller's identity may see.
 Trap M3: no metric family covers meetings, so the names come from
-explore. Label: governed for people, interim for attendances, each
+explore. Label: ad hoc for people, interim for attendances, each
 worded as such.
 
 **Organisations that show up most; breadth and intensity.** Attendances
@@ -216,10 +217,11 @@ figures, cited with document and year. Label: published.
 
 **Mentions, reach, authors, platforms; brand portfolio reach.** Standard
 metrics, social-mentions and social-reach families by project; reach is
-the sum of author followers per mention (a prolific author counts once
-per mention) and portfolio reach is not additive across projects (D18:
-the feed begins recently, so no long trend; project sets are curated).
-Label: governed.
+potential impressions, the sum of author followers per mention (a
+prolific author counts once per mention; follower counts exist for one
+network only), never an audience, and portfolio reach is not additive
+across projects (D18: the feed begins recently, so no long trend;
+project sets are curated). Label: governed.
 
 ## Section 8 — Consortia and joint development
 

@@ -161,7 +161,7 @@ attendance data's organisation field (loosely resolved, no subsidiary
 roll-up: the company's spellings are listed and said). Attendances by
 period and people who attended, for the company: the layer's attendance
 records and attendees metric sliced by the organisation name, labelled
-interim and governed, worded "attendances" and "people". Distinct
+interim and ad hoc, worded "attendances" and "people". Distinct
 meetings the company's people attended and the scheduled minutes those
 meetings ran: the SQL assistant over the same attendance data (the
 occurrences metric carries no organisation), summed over distinct

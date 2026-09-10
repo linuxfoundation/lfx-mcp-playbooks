@@ -83,8 +83,9 @@ from these is "what is visible to you": say so. The craft for each group:
 | A company's seats across the LF, split by board and project | organisation seats tool | one call, under the organisation gate | visible to you |
 | How many meetings, committees or members a project or a committee has in LFX v2 | count tool | one kind a call, filters on the record's own fields, complete flag read; the same visibility as LFX Self Serve | visible to you |
 | Which organisations hold the most seats across all projects | SQL assistant | a roster walk is a hundred calls; the committee data answers in one, with staff and unaffiliated seats set aside | generated SQL |
+| Whether a stated figure holds, why two figures differ, a slide or report checked against LFX — and every answer's own figures before they are reported | the `lfx-figure-checking` skill | the fresh reads come from here; the mechanism, verdict and written check come from there; loaded once per session, before the first answer is written | as the fresh read |
 | Which meetings a project or committee held, who was invited, who attended, what was discussed | meeting tools | occurrence records with participants and summaries | visible to you |
-| How many meetings were held, how many scheduled minutes, how many people attended, over a period, LF-wide or by foundation, project or period | semantic layer | named meeting metrics; the meeting tools list, they do not aggregate (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances) | governed |
+| How many meetings were held, how many scheduled minutes, how many people attended, over a period, LF-wide or by foundation, project or period | semantic layer | named meeting metrics; the meeting tools list, they do not aggregate (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim) | ad hoc; generated SQL when the fallback ran |
 | Attendances over a period, by company, committee or meeting type | semantic layer, attendance recipe | records, one person at one occurrence; the only reading that carries the organisation | interim |
 | A mailing list and its subscriber count | mailing-list tools | list-service records | visible to you |
 | A role check or assignment, an email | Discord and email tools | actions, on an explicit ask, confirmed first | — |
@@ -104,8 +105,9 @@ Decide in this order; stop at the first row that fits:
    where naming individuals is appropriate.
 4. **No family fits?** Explore the semantic layer for the metric and
    dimension the question needs, then query. If a family covers the same
-   ground at a coarser grain, run it too and reconcile
-   ([references/why-figures-differ.md](references/why-figures-differ.md)).
+   ground at a coarser grain, run it too and reconcile by mechanism
+   (the `lfx-figure-checking` skill's why-figures-differ reference, one
+   section per domain).
 5. **The layer cannot express it?** The SQL assistant: concrete dates
    written into the question, the project scope list set explicitly (or
    deliberately omitted for LF-wide, and said so), the answer labelled as
@@ -182,6 +184,20 @@ Decide in this order; stop at the first row that fits:
   form.
 
 ## 4. Answering
+
+Before writing, with the reads in hand, load the `lfx-figure-checking`
+skill if this session has not yet, and read the figures against its
+gotchas and, for any second reading, its mechanism catalogue. It is the
+step most answers skip and the one that catches a wrong key, a wrong
+scope or an unbounded window before the reader does. Run it deliberately
+whenever something looks wrong: a figure out of scale for its scope, two
+reads that disagree, a cross-frame that fails, an answer that came too
+easily. The check changes the answer and leaves no trace in it beyond
+the basis clause and the provenance block; it adds a sentence only when
+the reader would otherwise read the figure wrongly (a grain the word
+hides, a floor taken for a census, a choice between two readings that
+differ materially). No routine talk of data issues: the reader came for
+the number, and a right number with its basis is what earns trust.
 
 ### 4.1 The reader's words
 
@@ -269,8 +285,8 @@ The habits the reader never sees but the figure depends on:
   not made to: the start snapshot is the last day of the prior year (a
   1 January start double-counts the year-end lapses and the new-year
   installs), and the residue is named by mechanism on the side it falls
-  — the "Roll-forward residues" entry of the why-figures-differ
-  reference has the list.
+  — the "Roll-forward residues" entry of the `lfx-figure-checking`
+  skill's why-figures-differ reference has the list.
 
 ### 4.3 The provenance block
 
@@ -311,13 +327,25 @@ lane stamps a data refresh time today: the run date stands for freshness.
 
 When two tools give two figures for what sounds like one question, both
 are usually right about different populations. Name the two populations,
-find the mechanism in
-[references/why-figures-differ.md](references/why-figures-differ.md),
-choose the reading the question wants, and say why in a sentence. The
-governed reading wins for a headline. A difference no mechanism explains
-is a discovery failure, not a disagreement between sources; "sources
-differ" never goes in an answer. Where the applied block and a guidance
-sentence disagree on a definition, the applied block ran.
+find the mechanism in the `lfx-figure-checking` skill's
+why-figures-differ reference (one section per domain), choose the
+reading the question wants, and say why in a sentence. The governed
+reading wins for a headline. A difference no mechanism explains is a
+discovery failure, not a disagreement between sources; "sources differ"
+never goes in an answer. Where the applied block and a guidance sentence
+disagree on a definition, the applied block ran.
+
+Load that skill as a matter of course once the reads are in and before
+the answer is written, if this session has not loaded it yet: it holds
+the mechanism catalogue and the traps that return a plausible wrong
+number, and the figures just read are checked against them the way a
+second reader would. Load it earlier whenever the question is itself a
+check — "is this figure right", "why does the deck say X and the tool
+Y", "verify these numbers", a comparison against a report or an earlier
+run — and whenever a cross-framing read comes back further from the
+first figure than scope or drift explains. The cost is one skill load;
+the answer that skipped it is the one that quotes a plausible wrong
+number with confidence. This playbook takes the fresh reads it asks for.
 
 The sentence that compares two figures carries the caveat that qualifies
 the comparison: two subjects (an account's billing country against a
@@ -342,8 +370,8 @@ family's definition and the offer sentence for each word:
 
 ## 5. The gotchas that survive
 
-Symptom, cause, check and guidance section for each:
-[references/gotchas.md](references/gotchas.md).
+Symptom, cause, check and guidance section for each: the
+`lfx-figure-checking` skill's gotchas reference, in this order.
 
 1. Unresolved names return zero rows or a rejection; resolve first.
 2. Qualified dimension names are entity-prefixed per metric; copy, never
@@ -379,15 +407,22 @@ Symptom, cause, check and guidance section for each:
     answer names the grain it reports.
 14. Year-to-date counts bound at today; installs can be future-dated. A
     window drops rows with no usable timestamp, so an all-time figure can
-    exceed the sum of its windows; and a family that counts distinct
-    pairs per period (new memberships) reads at or below the sum of its
-    yearly rows over the span — neither is an error, both are said.
-15. A figure is never reconciled against another dashboard, page or
-    report: they differ by definition, population and refresh; say what
-    this figure covers and stop.
+    exceed the sum of its windows — not an error, and said. New
+    memberships, arrivals, churn and departures each add up across
+    periods; a headcount series never does.
+15. A figure is never averaged with, or adjusted toward, a figure from
+    another dashboard, page or report: they differ by definition,
+    population and refresh. A stated figure the reader brings is checked
+    (the `lfx-figure-checking` skill names the mechanism and gives a
+    verdict); a figure from another product is not: say what this figure
+    covers and stop.
 
 ## 6. Before reporting any number
 
+- The `lfx-figure-checking` skill has been loaded this session and the
+  figures about to be reported were walked through its traps and, where
+  two readings exist, its mechanisms. If it has not been loaded, load it
+  now; the check is part of the answer, not an extra.
 - Every literal came from this session's output; zero rows had spelling
   and scope checked before "none".
 - Magnitude cross-framed against a second reading (one scope level up, a
@@ -398,7 +433,8 @@ Symptom, cause, check and guidance section for each:
   and coverage read from the `applied` block, not from the request you
   think you sent.
 - A second figure for the same question was reconciled by mechanism, not
-  averaged; every check sum was computed from all the rows and quoted
+  averaged (the `lfx-figure-checking` skill when the mechanism is not
+  obvious); every check sum was computed from all the rows and quoted
   exactly, and a cut breakdown gave a floor and said so.
 - Every comparative aside ("would rank just behind", "the next two would
   be") was checked against the rows it describes, or left out.

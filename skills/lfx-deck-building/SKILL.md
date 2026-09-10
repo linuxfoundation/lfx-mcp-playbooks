@@ -105,29 +105,37 @@ several times, not as noise. Use whichever applies:
   figures, and each one needs the check as much as a headline does. An
   activity series (contributions) sums across the periods to the same
   family read as one figure over the same span. The new-memberships
-  family counts distinct project-account pairs per period, so its yearly
-  rows sum to at or above the same family read over the whole span; the
-  difference is pairs installed as new business in more than one year (a
-  lapse and a return), and the check records it as that, not as an error.
-  A headcount series does not sum, and the folded figure is read
-  separately; the new-organisations family reconciles exactly, since a
-  first-ever membership falls in one year only, and so do churned
-  memberships and lost organisations (a pair churns once, a last lapse
-  is unique). The latest period is read again bounded at today and
+  family counts one row per project, organisation and install day, so
+  its yearly rows add up to the same family read over the whole span,
+  and so do arrivals, churned memberships and departures (each is dated
+  once). A headcount series does not sum, and the folded figure is read
+  separately. The latest period is read again bounded at today and
   compared with the series' own to-date row. A series slide with no check
   line in the notes is the commonest miss.
 - **A roll-forward.** Start plus new minus churned against the end, at
   either grain, the start snapshot on 31 December of the prior year; the
-  residue named by mechanism in the notes (the querying playbook's
-  "Roll-forward residues"), the caption saying gross joins, not net.
-  Four figures forced to balance are a wrong slide.
+  residue named by mechanism in the notes (the `lfx-figure-checking`
+  skill's "Roll-forward residues"), the caption saying gross joins, not
+  net. Four figures forced to balance are a wrong slide.
 - **A second lane where two cover the ground.** A figure from the semantic
   layer or the SQL assistant that a standard metric also covers is read
   from the standard metric too; the governed figure wins, and the
-  difference is explained by its mechanism (the querying playbook's
-  "why figures differ" reference) or the figure is dropped.
+  difference is explained by its mechanism (the `lfx-figure-checking`
+  skill's why-figures-differ reference) or the figure is dropped.
 
-A figure checked only against itself does not go on a slide.
+A figure checked only against itself does not go on a slide. Once the
+reads for a section are in, load the `lfx-figure-checking` skill if
+this session has not yet, and walk the section's figures through its
+traps and mechanisms before the consistency pass; run it again whenever
+a figure looks wrong for its scope or two reads disagree. When a check
+comes back further from the figure than scope or drift explains, or
+when the deck refreshes an earlier deck's numbers, it names the
+mechanism, gives the verdict (ours, both, same, open, unverifiable) and
+writes the reconciliation that goes in the notes. On the slide itself the
+check leaves the caption's grain and nothing else, unless the board
+would read the number wrongly without one more sentence (a floor, a
+hidden grain, a choice of reading); the mechanisms live in the notes.
+The fresh reads still come from the querying playbook.
 
 ## 3. The data-notes appendix
 
