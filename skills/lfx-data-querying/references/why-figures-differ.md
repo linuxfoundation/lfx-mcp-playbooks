@@ -345,6 +345,16 @@ literal "None" and a blank, which are two rows. Records worded
 "attendances"; the named metrics labelled ad hoc (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances). *SL* "Worked
 recipes" 12.
 
+**Potential impressions vs potential audience.** The reach family sums
+author follower counts over the mentions, so an account that posts many
+times counts its followers each time, and a handful of prolific
+high-follower accounts make up most of the total; follower counts exist
+for one network only, and the others add nothing. A de-duplicated reading
+(each author's followers once) is an order of magnitude smaller and is
+not on the layer. A reach figure labelled "authors de-duplicated" that
+sits near the family's figure was the per-mention sum under the wrong
+label. *SM* "Inventory" (social_reach).
+
 **Indexed in LFX v2 vs the warehouse.** The record tools and the count
 tool read the LFX v2 index: records of projects onboarded into LFX v2,
 filtered to what the caller's identity may see, with no project status

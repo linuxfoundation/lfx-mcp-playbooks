@@ -303,9 +303,14 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   the sum and average of author followers over the mentions.
 - **Other readings:** a portfolio total across projects (not additive: a
   prolific author counts once per mention, and a project can sit inside
-  another's mention set).
-- **Offer it as:** "N mentions from M authors; reach is a potential
-  audience, summed per mention, not added across projects."
+  another's mention set); a de-duplicated audience (each author's
+  followers once), an order of magnitude smaller, which no family or
+  layer metric holds today.
+- **Offer it as:** "N mentions from M authors; reach is potential
+  impressions, follower counts summed per mention, not added across
+  projects." Never "audience" or "people reached": follower counts exist
+  for one network only, and a few prolific accounts make up most of the
+  sum.
 
 ## Committees, boards
 
