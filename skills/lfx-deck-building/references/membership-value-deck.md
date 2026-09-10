@@ -52,8 +52,9 @@ project counts again — and the deck once read it as "new members" at
 organisation grain and had to be relabelled. Say "new project
 memberships". Check: the slide caption names the grain; the yearly rows
 add up to the family read as one figure over the same span (one row per
-project, organisation and install day), and the to-date row matches a
-second reading bounded at today. Label: governed.
+project, organisation and install day; on a project-scoped call, see the
+marker below), and the to-date row matches a second reading bounded at
+today. Label: governed.
 
 **New member organisations.** Standard metrics, the
 new-member-organisations family LF-wide: organisations arriving in the
@@ -64,7 +65,7 @@ Business; the level of arrival named as the applied block gives it. A
 hoc, and says it counts memberships. Check: arrivals sit below the year's
 new memberships (an organisation joining two programmes is one here, two
 there), the current year bounded at today (M12: future-dated installs
-inflate an unbounded current year). Label: governed `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's rows are arrivals (its compiled SQL filters on the arrival flag) while its definition sentence still says first membership, so quote the rows as arrivals and say the sentence lags; the lost-organisations family still excludes organisations that have since returned, so for departures judged on the day query the layer's lost-organisations metric and label it ad hoc; either way say which path ran]`.
+inflate an unbounded current year). Label: governed `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's rows are arrivals (its compiled SQL filters on the arrival flag) while its definition sentence still says first membership, so quote the rows as arrivals and say the sentence lags; the lost-organisations family still excludes organisations that have since returned, so for departures judged on the day query the layer's lost-organisations metric and label it ad hoc; a call that names a project or groups by foundation runs the older warehouse statement instead: its new-memberships span sits below the sum of its yearly rows, so quote the yearly rows, and its lost-organisations figure carries the same exclusion, so take departures from the layer's metric grouped by foundation; either way say which path ran]`.
 
 **Growth as a roll-forward.** Members at the start of the year, joins,
 departures, members at the end: the at-date family on 31 December of
