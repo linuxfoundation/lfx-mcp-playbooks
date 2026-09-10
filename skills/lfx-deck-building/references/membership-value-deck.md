@@ -64,7 +64,7 @@ Business; the level of arrival named as the applied block gives it. A
 hoc, and says it counts memberships. Check: arrivals sit below the year's
 new memberships (an organisation joining two programmes is one here, two
 there), the current year bounded at today (M12: future-dated installs
-inflate an unbounded current year). Label: governed `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's definition sentence still says first membership while its rows count arrivals, and the lost-organisations family still excludes organisations that have since returned; the layer's metrics carry the new meanings, so say which path ran]`.
+inflate an unbounded current year). Label: governed `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's rows are arrivals (its compiled SQL filters on the arrival flag) while its definition sentence still says first membership, so quote the rows as arrivals and say the sentence lags; the lost-organisations family still excludes organisations that have since returned, so for departures judged on the day query the layer's lost-organisations metric and label it ad hoc; either way say which path ran]`.
 
 **Growth as a roll-forward.** Members at the start of the year, joins,
 departures, members at the end: the at-date family on 31 December of
@@ -94,7 +94,7 @@ converted to hours on the slide with that said. Every meeting figure is
 a floor: only meetings run through the LF's meeting platform exist here
 (D9). Trap D8: an hours figure built from attendances times a sampled
 average is an estimate and says so, and is the worse route. Label: ad
-hoc, floor (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances).
+hoc, floor (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim).
 
 **People who attended, attendances.** The layer's attendees metric
 counts people (an LF user, e-mail as the fallback), never invitee ids,

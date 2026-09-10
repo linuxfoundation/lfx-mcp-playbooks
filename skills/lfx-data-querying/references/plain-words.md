@@ -120,7 +120,7 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   membership rows (ad hoc; a same-day pair of installs counts twice, so
   never headed "organisations"); churned memberships (ended with no subsequent membership, non-zero
   revenue, by the day after the term ended); lost organisations, paid
-  departures judged on the day. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's definition sentence still says first membership while its rows count arrivals, and the lost-organisations family still excludes organisations that have since returned; the layer's metrics carry the new meanings, so say which path ran]`
+  departures judged on the day. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's rows are arrivals (its compiled SQL filters on the arrival flag) while its definition sentence still says first membership, so quote the rows as arrivals and say the sentence lags; the lost-organisations family still excludes organisations that have since returned, so for departures judged on the day query the layer's lost-organisations metric and label it ad hoc; either way say which path ran]`
 - **Offer it as:** "N new project memberships from M organisations
   arriving at the LF, returners included; of those, roughly K were here
   for the first time ever — an ad hoc reading that counts first
@@ -164,7 +164,7 @@ repeat, not this file's paraphrase, when they differ. Mechanisms:
   registrations, sponsorships and speakers — the event families, windowed
   by event start date. Meetings are the LF platform's occurrences: the
   layer's meeting metrics for how many, how many scheduled minutes and
-  who came over a period, the meeting tools for lists (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances).
+  who came over a period, the meeting tools for lists (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim).
 - **Other readings:** an "event" that is really a meeting or a webinar;
   sponsorship "events" (the same events from the sponsorship side; one
   event can carry several sponsorship assets).

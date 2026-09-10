@@ -189,7 +189,7 @@ tools is in [service-tools.md](service-tools.md).
   is attributed to one of them. A tool figure is cited as "visible to
   you", a layer figure as "all meetings in the warehouse", and neither
   is reconciled against the other. A people figure anywhere near the
-  attendance figure is a key error. (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances)
+  attendance figure is a key error. (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim)
 - **Documented.** SL "Routing", "Worked recipes" 12.
 
 ## 13. Membership count and revenue

@@ -162,7 +162,7 @@ and the discipline that keeps a count of records honest.
   people and attendances over a period, LF-wide, by foundation or by
   company) are not a service-tool job: they are the layer's named
   metrics and its attendance records, with no per-caller visibility; the
-  meeting tools list (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, the attendance recipe attendances) `[not yet in production: TOOLS-2 org
+  meeting tools list (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim) `[not yet in production: TOOLS-2 org
   meeting KPIs on the service tools — until then: the layer]`.
 
 ## Mailing lists and Discord — communities as records
