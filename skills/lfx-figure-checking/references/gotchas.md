@@ -273,6 +273,13 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   assemble names: copy the qualified name from explore's output for a
   sibling metric on the same entity, run it, and treat the compiled SQL
   as the proof of what was joined. SL "Value discovery".
+- **A project's manager can be inherited.** The layer's project manager
+  and manager e-mail, and the SQL assistant's, are filled for a project
+  with no manager of its own from the nearest ancestor that has one, the
+  root included, with no marker that the name is inherited. Say "on
+  record for <project> or an ancestor", and when the parent is the LF
+  itself treat a returned manager as unverified until the record is
+  confirmed elsewhere. SL "Scope" (project dimensions).
 - **No refresh stamp exists yet.** No lane reports when its tables were
   last loaded; the same window re-run a day apart can move slightly. Record
   the run date with every figure and re-run rather than reconcile.

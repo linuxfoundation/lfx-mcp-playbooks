@@ -104,6 +104,11 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
 - **Offer it as:** "N projects in the directory under CNCF" / "CNCF and
   every project under it on the project spine" / "the umbrella's own
   programme" / "the annual report's count, cited".
+- **A project's manager or PMO:** the layer's project-manager
+  dimensions may carry a name inherited from an ancestor project, the
+  root included, with nothing saying so; say "on record for <project> or
+  an ancestor", and treat a manager returned for a direct child of the
+  LF as unverified.
 
 ## New members
 
