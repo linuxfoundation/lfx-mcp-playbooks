@@ -125,7 +125,7 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   membership rows (ad hoc; a same-day pair of installs counts twice, so
   never headed "organisations"); churned memberships (ended with no subsequent membership, non-zero
   revenue, by the day after the term ended); lost organisations, paid
-  departures judged on the day. `[not yet in production: DBT-2c on the standard-metric families — until then: the new-organisations family's rows are arrivals (its compiled SQL filters on the arrival flag) while its definition sentence still says first membership, so quote the rows as arrivals and say the sentence lags; the lost-organisations family still excludes organisations that have since returned, so for departures judged on the day query the layer's lost-organisations metric and label it ad hoc; a call that names a project or groups by foundation runs the older warehouse statement instead: its new-memberships span sits below the sum of its yearly rows, so quote the yearly rows, and its lost-organisations figure carries the same exclusion, so take departures from the layer's metric grouped by foundation; either way say which path ran]`
+  departures judged on the day.
 - **Offer it as:** "N new project memberships from M organisations
   arriving at the LF, returners included; of those, roughly K were here
   for the first time ever — an ad hoc reading that counts first
