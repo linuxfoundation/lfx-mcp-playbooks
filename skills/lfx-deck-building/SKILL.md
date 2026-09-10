@@ -126,12 +126,16 @@ several times, not as noise. Use whichever applies:
 A figure checked only against itself does not go on a slide. Once the
 reads for a section are in, load the `lfx-figure-checking` skill if
 this session has not yet, and walk the section's figures through its
-traps and mechanisms before the consistency pass; when a check comes
-back further from the figure than scope or drift explains, or when the
-deck refreshes an earlier deck's numbers, it names the mechanism, gives
-the verdict (ours, both, same, open, unverifiable) and writes the
-reconciliation that goes in the notes. The fresh reads still come from
-the querying playbook.
+traps and mechanisms before the consistency pass; run it again whenever
+a figure looks wrong for its scope or two reads disagree. When a check
+comes back further from the figure than scope or drift explains, or
+when the deck refreshes an earlier deck's numbers, it names the
+mechanism, gives the verdict (ours, both, same, open, unverifiable) and
+writes the reconciliation that goes in the notes. On the slide itself the
+check leaves the caption's grain and nothing else, unless the board
+would read the number wrongly without one more sentence (a floor, a
+hidden grain, a choice of reading); the mechanisms live in the notes.
+The fresh reads still come from the querying playbook.
 
 ## 3. The data-notes appendix
 

@@ -188,7 +188,15 @@ Before writing, with the reads in hand, load the `lfx-figure-checking`
 skill if this session has not yet, and read the figures against its
 gotchas and, for any second reading, its mechanism catalogue. It is the
 step most answers skip and the one that catches a wrong key, a wrong
-scope or an unbounded window before the reader does.
+scope or an unbounded window before the reader does. Run it deliberately
+whenever something looks wrong: a figure out of scale for its scope, two
+reads that disagree, a cross-frame that fails, an answer that came too
+easily. The check changes the answer and leaves no trace in it beyond
+the basis clause and the provenance block; it adds a sentence only when
+the reader would otherwise read the figure wrongly (a grain the word
+hides, a floor taken for a census, a choice between two readings that
+differ materially). No routine talk of data issues: the reader came for
+the number, and a right number with its basis is what earns trust.
 
 ### 4.1 The reader's words
 

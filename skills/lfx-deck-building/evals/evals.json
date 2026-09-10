@@ -17,7 +17,8 @@
         "Every headline figure is cross-framed against a second reading (one scope level up, contributors ≤ participants, breakdown vs folded figure) and the check is recorded",
         "The data-notes appendix has one row per figure in the Slide | Figure | Source | Coverage format, a label on every row from the closed list (governed / ad hoc / generated SQL / visible to you / interim / published / carried), the run date in the header, and every figure in the deck appears in the appendix and in the call log",
         "The slide captions themselves (not only the appendix) carry the grain: memberships as project-account pairs rather than 'organisations', value as list price rather than dues; every share on a slide recomputes from the appendix rows",
-        "The new-memberships series check states that the yearly rows add up to the same family read over the whole span (one row per project, organisation and install day) and that the folded reading was taken separately; a headcount series is not summed"
+        "The new-memberships series check states that the yearly rows add up to the same family read over the whole span (one row per project, organisation and install day) and that the folded reading was taken separately; a headcount series is not summed",
+        "Beyond the caption's grain and the data-notes appendix, the slides carry no unprompted discussion of data quality or tool differences; a further sentence appears only where the board would otherwise read a figure wrongly (a floor, a hidden grain, a material choice between two readings)"
       ]
     },
     {
@@ -32,7 +33,8 @@
         "The rank is read from a memberships-by-organisation ranking ordered by value at a stated grain (account or parent), with 'among whom' said, and never from hand-summed account rows",
         "Code contributions by project for the company use the contributions family with the company as the organisation, the window as concrete dates, bots excluded, top ten projects with the folded headline stated separately from the breakdown",
         "Board representatives for CNCF and OpenSSF come from the committee tools (each governing board found by project and name, roster paginated to the end, filtered on the organisation), with name, role and voting status, labelled visible to the caller",
-        "The data-notes appendix has one row per figure with a label from the closed list, the run date, and every figure in the deck appears in the appendix and in the call log; the alone-vs-combined reconciliation (alone ≤ combined) is recorded"
+        "The data-notes appendix has one row per figure with a label from the closed list, the run date, and every figure in the deck appears in the appendix and in the call log; the alone-vs-combined reconciliation (alone ≤ combined) is recorded",
+        "Beyond the caption's grain and the data-notes appendix, the slides carry no unprompted discussion of data quality or tool differences; a further sentence appears only where the board would otherwise read a figure wrongly (a floor, a hidden grain, a material choice between two readings)"
       ]
     },
     {
@@ -49,7 +51,9 @@
         "The LF-wide scope is stated with no project set (the umbrella foundation's slug is not used as the LF-wide scope)",
         "Each item carries an explicit reproducible-vs-cited verdict, and the data-notes rows carry a label from the closed list per row and the run date",
         "Occurrences and scheduled minutes over the window were read from the layer's named metrics or from the SQL assistant, and the reported figures are within a few percent of that reading (a row-capped or sampled estimate in place of it fails); no claim is made that a figure is unavailable from LFX when either can produce it",
-        "The meeting occurrences and scheduled-minutes figures are labelled by the lane that produced them — ad hoc when read from the semantic layer's named metrics, generated SQL only if the SQL-assistant fallback ran because explore did not offer them — never governed or interim, and the hours are said to be scheduled rather than time spent"
+        "The meeting occurrences and scheduled-minutes figures are labelled by the lane that produced them — ad hoc when read from the semantic layer's named metrics, generated SQL only if the SQL-assistant fallback ran because explore did not offer them — never governed or interim, and the hours are said to be scheduled rather than time spent",
+        "The meeting occurrences and scheduled-minutes figures are labelled ad hoc (a semantic-layer reading), never governed or interim, and the hours are said to be scheduled rather than time spent",
+        "Beyond the caption's grain and the data-notes appendix, the slides carry no unprompted discussion of data quality or tool differences; a further sentence appears only where the board would otherwise read a figure wrongly (a floor, a hidden grain, a material choice between two readings)"
       ]
     },
     {
@@ -62,7 +66,8 @@
         "Reach is worded as potential impressions (author follower counts summed per mention) and never as audience, people reached or unique followers",
         "The notes say that follower counts exist for one network only, so reach covers that network, and that a prolific account's followers count once per mention",
         "Mentions and authors come from the social-mentions family LF-wide with no project set; the start of the feed is stated from a monthly series or the family's coverage sentence, never inferred from a yearly bucket",
-        "Portfolio reach is not summed across projects, and the data notes carry a label per row from the closed list with the run date"
+        "Portfolio reach is not summed across projects, and the data notes carry a label per row from the closed list with the run date",
+        "Beyond the caption's grain and the data-notes appendix, the slides carry no unprompted discussion of data quality or tool differences; a further sentence appears only where the board would otherwise read a figure wrongly (a floor, a hidden grain, a material choice between two readings)"
       ]
     },
     {

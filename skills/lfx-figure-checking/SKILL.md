@@ -21,8 +21,8 @@ which tool, discovery, the answer with its provenance). This playbook
 starts when a figure already exists and the question is whether it holds
 — including the figures an answer is about to report: the querying and
 deck playbooks load this one once the reads are in, and the traps in
-section 3 and the checklist in section 5 are read against those figures
-before they are written down.
+section 3 are read against those figures before they are written down.
+Section 4 says when the check speaks; most of the time it does not.
 Read the tool guidance once per session before any call:
 `read_lfx_standard_metrics_guidance` and `read_lfx_semantic_layer_guidance`
 own every parameter and switch; nothing here restates them.
@@ -127,7 +127,40 @@ with its symptom, cause and check:
 [references/gotchas.md](references/gotchas.md). A check that finds one of
 them names it as the cause.
 
-## 4. Writing the check
+## 4. When the check runs, and when it speaks
+
+The check runs on three occasions. When a check is asked for: a figure
+handed over, a comparison, a deck before it goes out. When the agent has
+a doubt: a figure that looks wrong for its scope, two reads that
+disagree, a cross-frame that fails, a total that is too round, a people
+figure near an attendance figure, an answer that came out too easily.
+And as a matter of course after the reads for an answer are in, the
+figures walked through section 3's traps before they are written down.
+
+What the check says depends on who needs it, not on how much it found.
+
+- **It changes the answer silently.** A trap it catches corrects the
+  figure or its wording; a mechanism it finds decides which reading is
+  quoted. The reader sees a right figure with the one clause that names
+  its basis and the provenance block. No paragraph on data issues, no
+  list of caveats, no "figures may differ", no hedge on a figure the
+  check confirmed. The reader came for the number.
+- **It speaks unprompted only when the reader would otherwise read the
+  figure wrongly.** A grain the everyday word hides (seats called
+  maintainers, records called people); a floor the reader will take for
+  a census; a reading the reader must choose between because the
+  question is ambiguous and the two answers differ materially; a label
+  known to be in circulation that the check found wrong. One sentence,
+  in the reader's words, next to the figure it qualifies. The test is
+  whether the sentence helps the reader understand the data; a
+  sentence that only shows the check was done fails it.
+- **It writes the full check only when a check was asked for**, in the
+  shape below, verdicts and all.
+
+A doubt the check cannot settle is said as a doubt, once, with what
+would settle it; it is not buried and not dressed up as a caveat.
+
+## 5. Writing the check
 
 A check is written for the person who owns the figure, in their words.
 Tool names, field names and SQL stay in the provenance. The shape that
@@ -153,7 +186,7 @@ survives review:
   from this session's reads; a number remembered from an earlier session
   is re-read.
 
-## 5. Before delivering a check
+## 6. Before delivering a check
 
 - Each row names its mechanism or says the difference is drift; no row
   says "sources differ".
@@ -166,3 +199,6 @@ survives review:
 - Published figures are cited, not rebuilt.
 - The verdict words are used as defined; a "both" row says what each
   reading is; an "ours" row names the trap.
+- For an answer rather than a check: nothing about data quality, tools
+  or caveats reached the reader beyond the basis clause, the provenance
+  block, and any sentence that changes how a figure is read.
