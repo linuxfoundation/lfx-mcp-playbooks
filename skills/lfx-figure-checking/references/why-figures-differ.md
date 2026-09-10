@@ -37,10 +37,22 @@ memberships whose status is active; a reading on any other date, and a
 series, counts terms that cover that date. The two readings of the same
 day differ where statuses lag term dates — mostly free memberships with
 an open-ended placeholder end date whose status has lapsed, so the
-date-based reading of today runs above today's own figure. A deck uses
-one kind per section and says "as of <date>, date-based" when it is not
-today.
+date-based reading of today runs above today's own figure. A lapsed
+free membership can also keep its open-ended end date in the record
+itself, so even today's reading and a year-end headcount can sit above
+the CRM's own member list: the gap is free memberships that ended
+without their record closing, named as such, never a defect to correct
+in the deck. A deck uses one kind per section and says "as of <date>,
+date-based" when it is not today.
 *SM* "Reading results", "Inventory" (memberships).
+
+**One account counted twice on one project.** A membership row that
+exists twice for the same account and project (two product lines for one
+term) doubles that account's raw row count and revenue while the
+pair-grain and install-grain families absorb it as one; a revenue or
+row figure for one company on one project that is exactly double
+another reading is this, and the check names the grain each side used.
+*SM* "Inventory" (memberships, new_members).
 
 **Memberships (pairs) vs member organisations.** The family counts
 project-account pairs: a company on three projects counts three times.
@@ -137,7 +149,11 @@ is inside a 1 January start count and new, so a 1 January start counts
 both twice; churn is priced, the headcount is not, so a free or
 quasi-associate lapse leaves the count without churning; a lapse with a
 later return is never churn at all (churn requires no later membership,
-which is why past years shrink between builds); new is new business only,
+which is why past years shrink between builds; and where several terms
+of one organisation start on the same day, a build can order them
+differently, so churned memberships for a closed window can move by a
+small amount between two reads with no change in the data — say the
+read date beside the figure); new is new business only,
 so a re-activation sold as a renewal enters the end count without being
 new, while a second new-business sale to an already active pair is new
 without adding a member; and a pair that drops one product while keeping
