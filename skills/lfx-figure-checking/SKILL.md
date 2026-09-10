@@ -32,8 +32,8 @@ own every parameter and switch; nothing here restates them.
 Before re-reading anything, pin down what the stated figure claims to be.
 Most differences are decided here, not in the tools.
 
-- **Its source kind.** Three kinds exist and are never reconciled against
-  each other: a warehouse reading (the standard metrics, the semantic
+- **Its source kind.** Three kinds exist and are never interchanged; a
+  comparison across them names both populations and stops there: a warehouse reading (the standard metrics, the semantic
   layer, the SQL assistant: every record loaded, no per-caller
   visibility); an LFX v2 record reading (the count tool, the searches, the
   rosters: records of projects onboarded into LFX v2, filtered to what the
@@ -79,8 +79,10 @@ Most differences are decided here, not in the tools.
    - **both** — two defensible readings of a stated choice (population,
      field, grain, source kind); the slide must declare which, and the
      check says what each is;
-   - **same** — agrees within the drift the window allows; a few percent
-     on a live figure is time, not error;
+   - **same** — agrees once the movement of the window between the two
+     reads is shown (the same read at the stated figure's date, or the
+     period since it accounted for); a small difference is never assumed
+     to be drift;
    - **open** — not checkable under this identity (a gated tool, a
      private scope); say what identity could check it;
    - **unverifiable** — a published figure with no LFX population behind
@@ -134,8 +136,9 @@ handed over, a comparison, a deck before it goes out. When the agent has
 a doubt: a figure that looks wrong for its scope, two reads that
 disagree, a cross-frame that fails, a total that is too round, a people
 figure near an attendance figure, an answer that came out too easily.
-And as a matter of course after the reads for an answer are in, the
-figures walked through section 3's traps before they are written down.
+And as a matter of course after the reads for an answer are in, when
+the figures are walked through section 3's traps before they are
+written down.
 
 What the check says depends on who needs it, not on how much it found.
 

@@ -24,6 +24,7 @@
       "files": [],
       "assertions": [
         "Names the two source kinds explicitly: a warehouse reading over active projects versus LFX v2 index records over all onboarded projects filtered to what the caller may see",
+        "Takes a fresh warehouse read of the same population too (the semantic layer's committee or project data over active projects, or the standard metrics where a family covers it), so the 'both' verdict rests on two fresh reads, one per source kind, not on the index alone",
         "Takes a fresh read through the count tool for board-category committees and for members on them, in one call each, and reports whether each count was complete",
         "Explains that committee records carry no project status, so the index cannot filter to active projects and an active-only figure combines the count with the layer's project directory",
         "Gives the verdict 'both' (two defensible readings), says what each is, and recommends which to quote for an LF-wide claim and which for 'in LFX v2 today, visible to you'",
@@ -34,13 +35,26 @@
       "id": 2,
       "name": "roll-forward-that-does-not-balance",
       "prompt": "For our member-growth slide I have members at the start of last year, new memberships during the year, churned memberships, and members at the end. Start plus new minus churned does not equal the end, and the gap is bigger than I expected. Take the four readings fresh from LFX and tell me what explains the gap and whether the slide is wrong.",
-      "expected_output": "Reads the four figures from the standard-metric families with the start snapshot on 31 December of the prior year and the current year bounded at today; explains the roll-forward residues by mechanism (a term ending on the boundary day, free lapses that leave the headcount without churning, renewals that are not new, second new-business sales to an active pair); says the four never balance and the slide is right to show gross joins with the residue named in the notes; never forces the four to balance.",
+      "expected_output": "Reads the four figures from the standard-metric families for the completed calendar year: the at-date family on 31 December of the prior year and on 31 December of the year, the new-memberships and churn families over the year; explains the roll-forward residues by mechanism (a term ending on the boundary day, free lapses that leave the headcount without churning, renewals that are not new, second new-business sales to an active pair); says the four never balance and the slide is right to show gross joins with the residue named in the notes; never forces the four to balance.",
       "files": [],
       "assertions": [
-        "Takes the four readings from the governed families with the start snapshot dated 31 December of the prior year, not 1 January, and says why",
+        "Takes the four readings from the governed families for the completed calendar year, with the start snapshot dated 31 December of the prior year (not 1 January) and the end snapshot dated 31 December of the year, and says why the boundary day matters",
         "Explains the gap by named mechanisms from the roll-forward residues (boundary-day churn, free or zero-price lapses, renewals that are not new business, second new-business sales to an already active pair) rather than calling it an error",
         "Says whether any part of the gap is unexplained and, if so, treats that as a scope or date problem to fix before the slide, not as a residue",
         "Recommends the slide show gross joins with the residue named in the notes, and never adjusts a figure so the four balance"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "three-slide-figures-same-open-unverifiable",
+      "prompt": "Three figures from our membership deck need checking before it goes out: the number of specification consortia launched under the Joint Development Foundation, which the slide cites from an LF press release; the number of board seats Google holds across LF projects; and the number of organisations with an active membership today. Check each against LFX and tell me which we can still say.",
+      "expected_output": "One row per figure with a verdict word: the press-release consortia count is unverifiable (a published figure with no LFX population behind it, cited to its publisher, never rebuilt; the index's project count under the JDF entity offered as a different, labelled reading); Google's seats are open unless the caller holds the organisation grant the seats tool requires (the refusal named as the gate, the identity that could close it named, no roster walk); the member-organisations family read fresh and compared with the slide's figure, same if the movement since the slide's date accounts for the difference, with drift stated once at the top.",
+      "files": [],
+      "assertions": [
+        "The consortia count is given the verdict 'unverifiable': cited to the press release as a published figure and not rebuilt or reconciled against an LFX count; any LFX project count offered is labelled as a different reading",
+        "Google's seats are attempted through the organisation seats tool; on a permission refusal the verdict is 'open', the refusal is named as the organisation gate and the identity that could close it is named; no roster walk is attempted",
+        "The organisations-with-a-membership figure is read fresh from the member-organisations family LF-wide as of today and compared with the slide's figure; the verdict is 'same' only when the movement since the slide's date is shown, not on a percentage tolerance",
+        "The check is a table with one row per figure, the stated figure, the fresh read, the mechanism and the verdict, with drift stated once at the top and provenance a verifier could re-run"
       ]
     }
   ]

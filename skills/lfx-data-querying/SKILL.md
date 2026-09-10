@@ -106,7 +106,8 @@ Decide in this order; stop at the first row that fits:
 4. **No family fits?** Explore the semantic layer for the metric and
    dimension the question needs, then query. If a family covers the same
    ground at a coarser grain, run it too and reconcile by mechanism
-   (the `lfx-figure-checking` skill holds the catalogue).
+   (the `lfx-figure-checking` skill's why-figures-differ reference, one
+   section per domain).
 5. **The layer cannot express it?** The SQL assistant: concrete dates
    written into the question, the project scope list set explicitly (or
    deliberately omitted for LF-wide, and said so), the answer labelled as
