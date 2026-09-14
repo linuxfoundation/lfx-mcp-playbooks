@@ -251,6 +251,19 @@
         "Carries a provenance block with scope, window and population",
         "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
+    },
+    {
+      "id": 16,
+      "name": "maintainers-kernel-fork-and-representation",
+      "prompt": "How many maintainers does Oracle have on the kernelci project today, and who represents Oracle at the CNCF? Use the LFX MCP tools.",
+      "expected_output": "Oracle resolved to its stored account name; the kernelci maintainers count from the maintainers standard-metric family by project with the company as the organisation, as of today, labelled governed, with the caveat that per-project counts include people inherited from vendored kernel trees and MAINTAINERS-file reviewers; 'represents' answered as two readings, the membership's contact of record (the key-contact tools) and the seat holder on the CNCF Governing Board roster (the committee tools), each named as what it is and neither presented as the other; a tool refused under the tester's identity reported as the gate speaking, never as no contacts or no seats.",
+      "files": [],
+      "assertions": [
+        "The kernelci maintainers figure comes from the maintainers standard-metric family by project with the company as the organisation, as of today",
+        "The answer carries the caveat that per-project maintainer counts include people inherited from vendored kernel trees and MAINTAINERS-file reviewers",
+        "'Represents' is answered as two readings, the membership's contact of record and the seat holder on the board roster, and neither is presented as the other",
+        "When a tool is refused under the tester's identity, the refusal is reported as the gate speaking, not as 'no contacts' or 'no seats'"
+      ]
     }
   ]
 }

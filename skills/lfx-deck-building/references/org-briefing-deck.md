@@ -109,7 +109,13 @@ governed.
 maintainers by project with the company as the organisation; LF projects
 only, as of today, roster-based. The group view (subsidiaries at any
 depth) is the family's subsidiaries switch, or ad hoc through the layer's
-top-parent dimension on maintainers, said so. Label: governed / ad hoc.
+top-parent dimension on maintainers, said so. Per-project maintainer
+counts include people the roster inherits from vendored Linux kernel
+trees on kernel-fork projects, and MAINTAINERS-file reviewers count as
+maintainers; a person maintaining two projects counts once in each. A
+per-project row on a kernel-fork project can be almost entirely the
+kernel's own roster; say so on the slide. Label: governed / ad hoc.
+`[not yet in production: maintainer readings that exclude reviewers and inherited kernel-tree rosters — until then: the caveat sentence]`
 
 **Share of a project's work.** Volume over the org-attributed base of the
 same metric, scope and window; the unattributed share stated once on the

@@ -264,7 +264,13 @@ per person, so the by-organisation rows partition the total exactly,
 the unresolved-employer row usually the largest single row; the
 by-project rows sum above it, a person maintaining several projects; a
 maintainer figure that equals the sum of the project rows is seats, not
-people.
+people. The roster is built from each repository's MAINTAINERS file; a
+project that vendors a Linux kernel tree carries that tree's roster as
+its own, so its per-project count is the kernel's, and reviewer entries
+are folded into maintainers at extraction. A company's per-project
+maintainer rows on such projects therefore come from the kernel tree,
+not from work on the project; the company total across projects is
+unaffected only where those people also maintain the kernel itself.
 *SM* "Inventory" (maintainers); *SL* "Worked recipes" 11.
 
 **Maintainer contributions: roster as of the build, activity in the
