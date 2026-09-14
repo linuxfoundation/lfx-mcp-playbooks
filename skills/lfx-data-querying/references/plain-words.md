@@ -204,9 +204,11 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   with a distinct contributing-maintainers count beside the volume (the
   roster as of the last activities build; the maintainers family's period
   reading uses today's roster and differs by a few people).
-- **Offer it as:** "N maintainers on LF projects as of today"; a
-  per-project figure adds "including people inherited from a vendored
-  kernel tree and MAINTAINERS-file reviewers".
+- **Offer it as:** "N maintainers on LF projects as of today";
+  reviewers named in MAINTAINERS files count as maintainers, said once
+  where it changes the reading; a per-project figure on a kernel-fork
+  project adds "including people inherited from a vendored kernel
+  tree".
 
 ## Health, healthy projects
 

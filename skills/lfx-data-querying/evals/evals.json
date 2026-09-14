@@ -45,7 +45,7 @@
       "files": [],
       "assertions": [
         "Finds the CNCF Governing Board through the committee tools (search_committees scoped to the CNCF project) and lists Google's representatives with name, role and voting status from search_committee_members",
-        "Reads the roster for the organisation either through the roster search filtered on the stored organisation name (spelling copied from a record) or by following page tokens to the end before filtering, and says which",
+        "Reads the roster for the organisation either through the roster search filtered on the stored organisation name, one read for each spelling the organisation appears under (spellings copied from roster records), or by following page tokens to the end before filtering, and says which",
         "Counts TOC meetings in 2026 from the past-meetings tool scoped to the project and date range (and the TOC committee), not from the semantic layer or lens",
         "Labels the roster and the meeting count as what is visible to the caller ('visible to you' or equivalent), not as an LF total",
         "Does not infer any seat from membership tier, sponsorship or activity data",

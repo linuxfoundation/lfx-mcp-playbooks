@@ -142,11 +142,10 @@ and the discipline that keeps a count of records honest.
   contact of record is a different reading (the key-contact tools).
   Country is not a roster field; "from N countries" about a committee is
   not reproducible.
-- **Two filters narrow.** On the committee-member search (committee and
-  project), the past-meetings search (committee and meeting) and the
-  mailing-list-members search (list and project), giving both filters
-  returns the records that match both; a second filter never widens a
-  result.
+- **Two filters narrow.** Where a search takes two scoping filters
+  (each tool's description says which), giving both returns the records
+  that match both; a second filter never widens a result, so a count
+  that grows when a filter is added was read from the wrong tool.
 
 ## Meetings — what happened, who was there
 
