@@ -50,6 +50,7 @@
         "Labels the roster and the meeting count as what is visible to the caller ('visible to you' or equivalent), not as an LF total",
         "Does not infer any seat from membership tier, sponsorship or activity data",
         "Both Technical Oversight Committee records (Public and Private) are checked before the meeting count is given, and no unscoped committee search across all foundations is made",
+        "When the TOC meeting count is read with the committee and the project filters together, the result is treated as the intersection (never wider than the committee alone) and the answer says so; a count that grows when a filter is added is reported as a tool fault, not as the figure",
         "Does not present a membership contact (key-contact record) as a board seat; any contact of record it names is labelled as a different reading from the roster",
         "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
         "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
