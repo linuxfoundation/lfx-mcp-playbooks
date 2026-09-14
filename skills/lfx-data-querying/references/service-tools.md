@@ -118,8 +118,9 @@ and the discipline that keeps a count of records honest.
   runs to many pages.
 - **The roster is `search_committee_members`, paginated to the end.**
   Each seat carries the person, their organisation as the roster stores it
-  (name and identifier), the role, the voting status (voting, alternate,
-  none), how the seat was appointed, and its status. Only active seats are
+  (name and identifier), the role, the voting status (Voting Rep,
+  Alternate Voting Rep, Observer, Emeritus or None, as stored), how the
+  seat was appointed, and its status. Only active seats are
   seats. The roster search takes the organisation's exact stored name as
   a filter, so a company's seats on one committee are one filtered read
   rather than a client-side filter of the full roster; the stored

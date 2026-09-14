@@ -173,8 +173,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   keep their committees under the sibling series.
 - **Check.** Before "no seats", the project's committees were listed (are
   there any? do the board-category ones have members?) and the search's
-  own coverage note was read: the committee-member search says when the
-  project's committees are onboarded but the filtered roster is empty.
+  own roster-coverage note was read: scoped to the project, an empty
+  committee-member search says whether no committees are onboarded (or
+  none visible) or the project's committees are onboarded and nothing
+  matched the filters; without the project scope there is no note.
 - **Documented.** SL "Routing", "Worked recipes" 12; the
   `lfx-data-querying` skill's service-tools reference (Committees).
 
