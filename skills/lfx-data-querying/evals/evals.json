@@ -41,11 +41,11 @@
       "id": 2,
       "name": "board-seats-and-meeting-count-service-tools",
       "prompt": "Who represents Google on the CNCF Governing Board right now (name, role, voting status), and how many CNCF Technical Oversight Committee meetings have taken place in 2026 so far? Use the LFX MCP tools.",
-      "expected_output": "Finds the CNCF project uid, finds the Governing Board committee by project and name, paginates the roster to the end and filters by organisation client-side; names people only in the roster context; finds the TOC committee and counts past meetings by project and date range, filtered to that committee, paginated; labels both as 'visible to you'; does not infer seats from tier or activity; does not use the semantic layer or lens for either.",
+      "expected_output": "Finds the CNCF project uid, finds the Governing Board committee by project and name, reads the roster for the organisation (the roster search filtered on the stored organisation name, one read per spelling, or paginated to the end and filtered); names people only in the roster context; finds the TOC committee and counts past meetings by project and date range, filtered to that committee, paginated; labels both as 'visible to you'; does not infer seats from tier or activity; does not use the semantic layer or lens for either.",
       "files": [],
       "assertions": [
         "Finds the CNCF Governing Board through the committee tools (search_committees scoped to the CNCF project) and lists Google's representatives with name, role and voting status from search_committee_members",
-        "Paginates the roster (follows page tokens until none) or explicitly states the roster was read to the end before filtering by organisation",
+        "Reads the roster for the organisation either through the roster search filtered on the stored organisation name (spelling copied from a record) or by following page tokens to the end before filtering, and says which",
         "Counts TOC meetings in 2026 from the past-meetings tool scoped to the project and date range (and the TOC committee), not from the semantic layer or lens",
         "Labels the roster and the meeting count as what is visible to the caller ('visible to you' or equivalent), not as an LF total",
         "Does not infer any seat from membership tier, sponsorship or activity data",

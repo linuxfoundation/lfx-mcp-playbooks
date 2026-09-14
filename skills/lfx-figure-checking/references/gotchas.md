@@ -177,8 +177,11 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   board-category ones have members? An empty roster is reported as the
   empty read it is, with what it can mean (no committee onboarded, none
   visible to the reader, or no members entered), never as a fact about
-  the board.
-  `[not yet in production: MCP-1 roster-coverage note on an empty committee-member search scoped to a project, saying whether no committees are onboarded or nothing matched the filters — until then: list the project's committees first]`
+  the board. The search's own roster-coverage note says which: scoped
+  to the project, an empty committee-member search states whether no
+  committees are onboarded (or none are visible) or the project's
+  committees are onboarded and nothing matched the filters; without the
+  project scope there is no note.
 - **Documented.** SL "Routing", "Worked recipes" 12; the
   `lfx-data-querying` skill's service-tools reference (Committees).
 

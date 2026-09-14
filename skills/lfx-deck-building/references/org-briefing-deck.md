@@ -157,19 +157,17 @@ seat holder who is not the membership's contact; the slide says which
 reading it shows, and a deck that needs both shows both. Contacts and
 seats are people: shown only where naming individuals is appropriate
 for the audience. Label: visible to you.
-`[not yet in production: MCP-2 organisation seats tool returning the membership contacts beside the seats in one call — until then: two reads, the key-contact tools and the roster]`
 
 **Seats the company holds, across which boards, with what vote.** The
 committee tools: for each foundation in the company's footprint, the
-board-category committees, each roster paginated to the end, filtered
-on the company's organisation identifier, client-side; voting status
-and role from the seat record. An empty roster is checked before it is
-read as "no seats" (the `lfx-figure-checking` skill's governance-rosters
-entry). "Visible to you"; a company's seats can split across spellings
-(D15); the organisation seats tool gives every seat with the board split and a
-per-project summary in one call, under the organisation gate. Label:
-visible to you.
-`[not yet in production: MCP-1 roster search filtered on the company's stored organisation name, one read per spelling the company appears under — until then: the full roster paginated and filtered client-side]`
+board-category committees, each roster read through the roster search
+filtered on the company's stored organisation name, one read per
+spelling the company appears under (D15); voting status and role from
+the seat record. An empty roster is checked before it is read as "no
+seats" (the `lfx-figure-checking` skill's governance-rosters entry).
+"Visible to you"; the organisation seats tool gives every seat with the
+board split and a per-project summary in one call, under the
+organisation gate. Label: visible to you.
 
 **Key contacts.** The membership records' key contacts, the
 contact-of-record reading above — people, shown only where naming

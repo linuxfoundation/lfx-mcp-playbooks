@@ -122,11 +122,12 @@ and the discipline that keeps a count of records honest.
   (name and identifier), the role, the voting status and how the seat
   was appointed, each as stored (the answer keeps the record's own
   wording), and its status. Only active seats are seats. A company's
-  seats on one committee are the full roster filtered on the
-  organisation client-side; a company's seats can split across
-  spellings of its name, so the filter goes on the identifier where the
-  record carries one.
-  `[not yet in production: MCP-1 roster search filtered on the organisation's stored name, one read per spelling the company appears under (copied from roster records) — until then: the full roster paginated and filtered client-side]`
+  seats on one committee come from the roster search filtered on the
+  organisation's stored name, the spelling copied from a roster record;
+  a company's seats can split across spellings of its name, so it is
+  one read per spelling the company appears under, and the full roster
+  paginated and filtered on the identifier client-side is the
+  cross-check.
 - **A company's seats across the LF** come from the organisation seats
   tool: every seat the company holds, split by committee category with a
   summary by category and by project, in one call. It sits behind the
@@ -141,11 +142,11 @@ and the discipline that keeps a count of records honest.
   contact of record is a different reading (the key-contact tools).
   Country is not a roster field; "from N countries" about a committee is
   not reproducible.
-- **Two filters on one search.** On the committee-member search
-  (committee and project), the past-meetings search (committee and
-  meeting) and the mailing-list-members search (list and project), give
-  one filter per call and narrow the rows yourself.
-  `[not yet in production: MCP-1 second filter narrowing the result on those three searches, so that both filters must match — until then: one filter per call, the rest narrowed client-side]`
+- **Two filters narrow.** On the committee-member search (committee and
+  project), the past-meetings search (committee and meeting) and the
+  mailing-list-members search (list and project), giving both filters
+  returns the records that match both; a second filter never widens a
+  result.
 
 ## Meetings — what happened, who was there
 
