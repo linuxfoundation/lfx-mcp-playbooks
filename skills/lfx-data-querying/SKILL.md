@@ -398,8 +398,9 @@ Symptom, cause, check and guidance section for each: the
     reads the named project alone; other families never merge one.
 11. Governance rosters come from the committee tools, never inferred; an
     empty roster is reported as the empty read it is, with what it can
-    mean (no committee onboarded, none visible to the reader, or no
-    members entered), never as "no seats".
+    mean (no committee onboarded, none visible to the reader, no
+    members entered, or, on a filtered search, no record under that
+    spelling), never as "no seats".
 12. Meeting lists come from the meeting tools, "visible to you"; meetings
     held, scheduled minutes and people who attended over a period are the
     layer's named metrics, attendances its records — worded as such.
