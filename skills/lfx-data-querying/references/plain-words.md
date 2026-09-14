@@ -203,11 +203,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   contributions by people on today's maintainer roster of the segment",
   with a distinct contributing-maintainers count beside the volume (the
   roster as of the last activities build; the maintainers family's period
-  reading uses today's roster and differs by a few people); maintainers
-  without reviewers or inherited kernel-tree rosters
-  `[not yet in production: maintainer readings that exclude reviewers and inherited kernel-tree rosters — until then: the caveat sentence]`.
-- **Offer it as:** "N maintainers on LF projects as of today; per-project
-  rows include reviewers and inherited kernel-tree rosters."
+  reading uses today's roster and differs by a few people).
+- **Offer it as:** "N maintainers on LF projects as of today"; a
+  per-project figure adds "including people inherited from a vendored
+  kernel tree and MAINTAINERS-file reviewers".
 
 ## Health, healthy projects
 

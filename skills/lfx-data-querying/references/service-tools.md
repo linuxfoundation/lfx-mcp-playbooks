@@ -102,9 +102,10 @@ and the discipline that keeps a count of records honest.
 - **`get_member_membership` and the key-contact tools** hold one
   membership's detail and its named contacts. The key-contact tools
   answer "who is the contact of record for this membership": the role,
-  and whether the contact is active. "Who holds the seat" is the
-  committee roster (next section); the two are different people often
-  enough that neither stands in for the other. Contacts are people:
+  and whether the contact is active; a contact record's board-member
+  flag is the membership's own claim, not a seat. "Who holds the seat"
+  is the committee roster (next section); the two are different people
+  often enough that neither stands in for the other. Contacts are people:
   presented only where naming individuals is appropriate, never as a
   list to be exported.
 
@@ -120,12 +121,11 @@ and the discipline that keeps a count of records honest.
   Each seat carries the person, their organisation as the roster stores it
   (name and identifier), the role, the voting status (Voting Rep,
   Alternate Voting Rep, Observer, Emeritus or None, as stored), how the
-  seat was appointed, and its status. Only active seats are
-  seats. The roster search takes the organisation's exact stored name as
-  a filter, so a company's seats on one committee are one filtered read
-  rather than a client-side filter of the full roster; the stored
-  spelling comes from a roster record, and a company's seats can split
-  across spellings.
+  seat was appointed, and its status. Only active seats are seats. A
+  company's seats on one committee are the full roster filtered on the
+  organisation client-side; the stored spelling comes from a roster
+  record, and a company's seats can split across spellings.
+  `[not yet in production: MCP-1 roster search filtered on the organisation's stored name, spelling copied from a record — until then: the full roster paginated and filtered client-side]`
 - **A company's seats across the LF** come from the organisation seats
   tool: every seat the company holds, split by committee category with a
   summary by category and by project, in one call. It sits behind the
@@ -137,13 +137,14 @@ and the discipline that keeps a count of records honest.
   inferred from tier, sponsorship or activity. A roster answers "who
   holds the seat"; when the question is "who represents the company",
   the answer says it gives the seat holder and that the membership's
-  contact of record is a different reading (the key-contact tools). Country is not a roster
-  field; "from N countries" about a committee is not reproducible.
-- **Two filters narrow.** On the committee-member search (committee and
-  project), the past-meetings search (committee and meeting) and the
-  mailing-list-members search (list and project), giving both filters
-  returns the records that match both; a second filter never widens a
-  result.
+  contact of record is a different reading (the key-contact tools).
+  Country is not a roster field; "from N countries" about a committee is
+  not reproducible.
+- **Two filters on one search.** On the committee-member search
+  (committee and project), the past-meetings search (committee and
+  meeting) and the mailing-list-members search (list and project), give
+  one filter per call and narrow the rows yourself.
+  `[not yet in production: MCP-1 second filter narrowing the result on those three searches, so that both filters must match — until then: one filter per call, the rest narrowed client-side]`
 
 ## Meetings — what happened, who was there
 

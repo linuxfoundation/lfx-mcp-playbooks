@@ -269,8 +269,9 @@ project that vendors a Linux kernel tree carries that tree's roster as
 its own, so its per-project count is the kernel's, and reviewer entries
 are folded into maintainers at extraction. A company's per-project
 maintainer rows on such projects therefore come from the kernel tree,
-not from work on the project; the company total across projects is
-unaffected only where those people also maintain the kernel itself.
+not from work on the project; the company total across projects counts
+each person once, so a kernel maintainer inherited by several forks adds
+one person, not one per fork.
 *SM* "Inventory" (maintainers); *SL* "Worked recipes" 11.
 
 **Maintainer contributions: roster as of the build, activity in the
