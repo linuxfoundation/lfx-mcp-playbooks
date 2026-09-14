@@ -140,18 +140,33 @@ never companies; platform data only. Label: governed.
 
 ## Section 4 — Governance
 
-**Seats the company holds, across which boards, with what vote.** The
-committee tools: for each foundation in the company's footprint, the
-board-category committees, each roster paginated to the end, filtered on
-the company's organisation identifier, client-side; voting status and
-role from the seat record. "Visible to you"; a company's seats can split
-across spellings (D15); the organisation seats tool gives every seat
-with the board split and a per-project summary in one call, under the
-organisation gate. Label: visible to you.
-
-**Key contacts.** The membership records' key contacts — people, shown
+**Who represents the company at a foundation.** Two readings, never one
+for the other. The *contact of record* is the membership's key contact:
+the person the membership record names for a role (representative,
+billing, technical, signatory …), with the role and whether the contact
+is active. The *seat holder* is the person on the board roster, with the
+voting status the seat carries (voting, alternate, observer). A company
+can have a voting contact who holds no seat, and a seat holder who is
+not the membership's contact; the slide says which reading it shows, and
+a deck that needs both shows both. Contacts and seats are people: shown
 only where naming individuals is appropriate for the audience. Label:
 visible to you.
+`[not yet in production: the organisation seats tool returning the membership contacts beside the seats in one call — until then: two reads, the key-contact tools and the roster]`
+
+**Seats the company holds, across which boards, with what vote.** The
+committee tools: for each foundation in the company's footprint, the
+board-category committees, each roster read for the company's stored
+organisation name; voting status and role from the seat record. An
+empty roster is checked before it is read as "no seats" (the
+`lfx-figure-checking` skill's governance-rosters entry). "Visible to
+you"; a company's seats can split across spellings (D15); the
+organisation seats tool gives every seat with the board split and a
+per-project summary in one call, under the organisation gate. Label:
+visible to you.
+
+**Key contacts.** The membership records' key contacts, the
+contact-of-record reading above — people, shown only where naming
+individuals is appropriate for the audience. Label: visible to you.
 
 ## Section 5 — In the room (meetings)
 

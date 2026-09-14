@@ -100,7 +100,11 @@ and the discipline that keeps a count of records honest.
   list-price value) is the memberships family, and the two are compared
   in words, never counted against each other.
 - **`get_member_membership` and the key-contact tools** hold one
-  membership's detail and its named contacts. Contacts are people:
+  membership's detail and its named contacts. The key-contact tools
+  answer "who is the contact of record for this membership": the role,
+  and whether the contact is active. "Who holds the seat" is the
+  committee roster (next section); the two are different people often
+  enough that neither stands in for the other. Contacts are people:
   presented only where naming individuals is appropriate, never as a
   list to be exported.
 
