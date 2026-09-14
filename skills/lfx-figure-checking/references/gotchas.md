@@ -233,6 +233,21 @@ tools is the `lfx-data-querying` skill's service-tools reference.
 - **Documented.** SM "Defaults and the applied block", "Reading results";
   SL "Windows".
 
+## 15. Maintainer rosters
+
+- **Symptom.** A company's or a project's maintainer count on a project
+  that vendors a Linux kernel tree, presented as that project's own
+  maintainers; or a reviewer counted as a maintainer.
+- **Cause.** The roster is built from each repository's MAINTAINERS file:
+  a vendored kernel tree brings the kernel's roster with it, and reviewer
+  entries are folded into maintainers at extraction. A person maintaining
+  two projects counts once in each.
+- **Check.** Every per-project maintainer figure carries the caveat; a
+  per-project row that looks like the kernel's roster is said to be one.
+  The mechanism is in [why-figures-differ.md](why-figures-differ.md)
+  (Maintainers).
+- **Documented.** SM "Inventory" (maintainers).
+
 ## Also worth knowing (same discipline, no separate line in the playbook)
 
 - **Tier literals differ per foundation.** Look them up per foundation;

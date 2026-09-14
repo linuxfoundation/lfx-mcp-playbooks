@@ -79,7 +79,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | A project's slug, record, parent, legal entity | `search_projects`, `get_project` | the record is the truth about what a slug is | — |
 | A company's legal name and identifier | `search_b2b_orgs` | the stored name every organisation-scoped call takes | — |
 | What one company holds: memberships, tiers, dates, contacts | `search_members`, `get_member_membership` | the record view of the CRM, the story behind the figure | visible to you |
-| Who sits on a board or committee, with what vote | committee tools | rosters live nowhere else | visible to you |
+| Who sits on a board or committee, with what vote | committee tools | rosters live nowhere else; "who represents a company" from a roster is the seat holder, and the membership's contact of record (the key-contact tools) is a different reading, said so | visible to you |
 | A company's seats across the LF, split by board and project | organisation seats tool | one call, under the organisation gate | visible to you |
 | How many meetings, committees or members a project or a committee has in LFX v2 | count tool | one kind a call, filters on the record's own fields, complete flag read; the same visibility as LFX Self Serve | visible to you |
 | Which organisations hold the most seats across all projects | SQL assistant | a roster walk is a hundred calls; the committee data answers in one, with staff and unaffiliated seats set aside | generated SQL |
@@ -418,6 +418,10 @@ Symptom, cause, check and guidance section for each: the
     (the `lfx-figure-checking` skill names the mechanism and gives a
     verdict); a figure from another product is not: say what this figure
     covers and stop.
+16. Per-project maintainer counts include people the roster inherits
+    from vendored Linux kernel trees on kernel-fork projects, and
+    MAINTAINERS-file reviewers count as maintainers; a person maintaining
+    two projects counts once in each. Said with every per-project figure.
 
 ## 6. Before reporting any number
 

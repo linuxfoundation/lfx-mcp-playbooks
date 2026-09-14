@@ -134,7 +134,10 @@ and the discipline that keeps a count of records honest.
   says so. A ranking of companies by seats is not this tool's job (the
   querying playbook's routing table).
 - **Roster facts come from here and nowhere else.** A board seat is never
-  inferred from tier, sponsorship or activity. Country is not a roster
+  inferred from tier, sponsorship or activity. A roster answers "who
+  holds the seat"; when the question is "who represents the company",
+  the answer says it gives the seat holder and that the membership's
+  contact of record is a different reading (the key-contact tools). Country is not a roster
   field; "from N countries" about a committee is not reproducible.
 - **Two filters narrow.** On the committee-member search (committee and
   project), the past-meetings search (committee and meeting) and the
