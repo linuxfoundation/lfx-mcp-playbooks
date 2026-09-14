@@ -169,10 +169,15 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   seats" or "the project has no board".
 - **Cause.** Rosters exist only for committees onboarded into LFX v2 and
   populated; a project with active memberships can have no committee
-  record at all, or committees with no members entered; a JDF `-fund`
-  project's committees sit under its series slug (entry 10).
-- **Check.** Before "no seats", the project's committees were listed:
-  are there any, and do the board-category ones have members?
+  record at all, or committees with no members entered; a JDF
+  consortium is two project records, the series and its `-fund` project
+  (entry 10), and its committees can hang off either one.
+- **Check.** Before "no seats", the project's committees were listed
+  (for a JDF consortium, under both records): are there any, and do the
+  board-category ones have members? An empty roster is reported as the
+  empty read it is, with what it can mean (no committee onboarded, none
+  visible to the reader, or no members entered), never as a fact about
+  the board.
   `[not yet in production: MCP-1 roster-coverage note on an empty committee-member search scoped to a project, saying whether no committees are onboarded or nothing matched the filters — until then: list the project's committees first]`
 - **Documented.** SL "Routing", "Worked recipes" 12; the
   `lfx-data-querying` skill's service-tools reference (Committees).
