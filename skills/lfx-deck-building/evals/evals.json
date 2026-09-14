@@ -101,7 +101,7 @@
         "Maintainers by project come from the maintainers standard-metric family with the company as the organisation, as of today, labelled governed, and the kernelci row carries the caveat that it includes people inherited from a vendored Linux kernel tree",
         "An empty roster, if any, is reported as the empty read it is with what it can mean, never as 'no seats'; a tool refused under the tester's identity is reported as the gate speaking, not as no contacts, no seats or no maintainers",
         "People are named only where the deck's audience makes that appropriate, and the answer says so; otherwise seats and contacts are given as counts by organisation",
-        "The data-notes appendix has one row per figure with a label from the closed list, the run date, and every figure in the deck appears in the appendix and in the call log; the alone-vs-combined reconciliation (alone ≤ combined) is recorded",
+        "The data-notes appendix has one row per figure with a label from the closed list, the run date, and every figure in the deck appears in the appendix and in the call log",
         "Beyond the caption's grain and the data-notes appendix, the slides carry no unprompted discussion of data quality or tool differences; a further sentence appears only where the board would otherwise read a figure wrongly (a floor, a hidden grain, a material choice between two readings)",
         "The transcript shows a Skill step loading lfx-figure-checking once the reads for a section are in and before the consistency pass, and the notes name mechanisms where two readings existed"
       ]
