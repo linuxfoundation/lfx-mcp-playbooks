@@ -165,7 +165,18 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   is inference.
 - **Check.** Any seat, chair or voting status came from
   `search_committee_members`, paginated to the end.
-- **Documented.** SL "Routing", "Worked recipes" 12.
+- **Symptom.** An empty roster read as "the company holds no seats" or
+  "the project has no board".
+- **Cause.** Rosters exist only for committees onboarded into LFX v2 and
+  populated; a project with active memberships can have no committee
+  record at all, or committees with no members entered; consortium funds
+  keep their committees under the sibling series.
+- **Check.** Before "no seats", the project's committees were listed (are
+  there any? do the board-category ones have members?) and the search's
+  own coverage note was read: the committee-member search says when the
+  project's committees are onboarded but the filtered roster is empty.
+- **Documented.** SL "Routing", "Worked recipes" 12; the
+  `lfx-data-querying` skill's service-tools reference (Committees).
 
 ## 12. Meetings
 

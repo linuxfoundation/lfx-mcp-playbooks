@@ -120,7 +120,11 @@ and the discipline that keeps a count of records honest.
   Each seat carries the person, their organisation as the roster stores it
   (name and identifier), the role, the voting status (voting, alternate,
   none), how the seat was appointed, and its status. Only active seats are
-  seats.
+  seats. The roster search takes the organisation's exact stored name as
+  a filter, so a company's seats on one committee are one filtered read
+  rather than a client-side filter of the full roster; the stored
+  spelling comes from a roster record, and a company's seats can split
+  across spellings.
 - **A company's seats across the LF** come from the organisation seats
   tool: every seat the company holds, split by committee category with a
   summary by category and by project, in one call. It sits behind the
@@ -131,6 +135,11 @@ and the discipline that keeps a count of records honest.
 - **Roster facts come from here and nowhere else.** A board seat is never
   inferred from tier, sponsorship or activity. Country is not a roster
   field; "from N countries" about a committee is not reproducible.
+- **Two filters narrow.** On the committee-member search (committee and
+  project), the past-meetings search (committee and meeting) and the
+  mailing-list-members search (list and project), giving both filters
+  returns the records that match both; a second filter never widens a
+  result.
 
 ## Meetings — what happened, who was there
 
