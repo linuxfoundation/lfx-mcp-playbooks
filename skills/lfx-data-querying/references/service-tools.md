@@ -119,13 +119,14 @@ and the discipline that keeps a count of records honest.
   runs to many pages.
 - **The roster is `search_committee_members`, paginated to the end.**
   Each seat carries the person, their organisation as the roster stores it
-  (name and identifier), the role, the voting status (Voting Rep,
-  Alternate Voting Rep, Observer, Emeritus or None, as stored), how the
-  seat was appointed, and its status. Only active seats are seats. A
-  company's seats on one committee are the full roster filtered on the
-  organisation client-side; the stored spelling comes from a roster
-  record, and a company's seats can split across spellings.
-  `[not yet in production: MCP-1 roster search filtered on the organisation's stored name, spelling copied from a record — until then: the full roster paginated and filtered client-side]`
+  (name and identifier), the role, the voting status and how the seat
+  was appointed, each as stored (the answer keeps the record's own
+  wording), and its status. Only active seats are seats. A company's
+  seats on one committee are the full roster filtered on the
+  organisation client-side; a company's seats can split across
+  spellings of its name, so the filter goes on the identifier where the
+  record carries one.
+  `[not yet in production: MCP-1 roster search filtered on the organisation's stored name, one read per spelling the company appears under (copied from roster records) — until then: the full roster paginated and filtered client-side]`
 - **A company's seats across the LF** come from the organisation seats
   tool: every seat the company holds, split by committee category with a
   summary by category and by project, in one call. It sits behind the

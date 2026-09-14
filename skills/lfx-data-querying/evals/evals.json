@@ -265,6 +265,22 @@
         "Carries a provenance block or equivalent with scope as applied, window/as-of date and the population/definition",
         "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
+    },
+    {
+      "id": 17,
+      "prompt": "Which companies hold seats on the Ultra Ethernet Consortium steering committee today? Use the LFX MCP tools.",
+      "expected_output": "Resolves the Ultra Ethernet Consortium in LFX, where the name matches two project records (the project series and its fund); lists the committees scoped to each before any roster read, so that the record with no committees is not read as 'no steering committee' (a JDF project's committees sit under its fund record); reads the board-category steering committee roster to the end and groups seats by the organisation the roster stores; where the roster is empty, says no roster is onboarded into LFX v2 or visible, never that the consortium has no steering committee or that its members hold no seats, and does not fill the gap from membership records or tier; labelled 'visible to you'; provenance block.",
+      "files": [],
+      "assertions": [
+        "Resolves the consortium through search_projects and lists committees with search_committees scoped to the project uid before any roster read; no unscoped committee search across all foundations",
+        "When the first project record found has no committees, the answer checks the sibling record (the fund or the series carrying the same name) before concluding anything about the steering committee",
+        "Reads the steering committee roster with search_committee_members, following page tokens until none, and groups seats by the organisation as the roster stores it",
+        "If the roster comes back empty, the answer says a roster is not onboarded into LFX v2 or not visible to the reader, and does not say the consortium has no steering committee or that its members hold no seats",
+        "Does not infer seats from membership records, membership tier or activity",
+        "Labels the roster reading as visible to you",
+        "Carries a provenance block or equivalent with scope as applied, window/as-of date and the population/definition",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
+      ]
     }
   ]
 }

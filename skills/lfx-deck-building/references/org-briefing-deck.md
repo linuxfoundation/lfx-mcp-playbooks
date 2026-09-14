@@ -147,13 +147,12 @@ never companies; platform data only. Label: governed.
 
 **Who represents the company at a foundation.** Two readings, never one
 for the other. The *contact of record* is the membership's key contact:
-the person the membership record names for a role (Representative/Voting
-Contact, Authorized Signatory, Billing Contact …, as stored), with the
-role and whether the contact is active; a contact record's board-member
-flag is the membership's own claim, not a seat. The *seat holder* is the
-person on the board roster, with the voting status the seat carries
-(Voting Rep, Alternate Voting Rep, Observer, Emeritus or None, as
-stored). A company can have a voting contact who holds no seat, and a
+the person the membership record names for a role, with the role as the
+record stores it and whether the contact is active; a contact record's
+board-member flag is the membership's own claim, not a seat. The *seat
+holder* is the person on the board roster, with the voting status the
+seat carries, as the roster stores it. A company can have a voting
+contact who holds no seat, and a
 seat holder who is not the membership's contact; the slide says which
 reading it shows, and a deck that needs both shows both. Contacts and
 seats are people: shown only where naming individuals is appropriate
@@ -170,7 +169,7 @@ entry). "Visible to you"; a company's seats can split across spellings
 (D15); the organisation seats tool gives every seat with the board split and a
 per-project summary in one call, under the organisation gate. Label:
 visible to you.
-`[not yet in production: MCP-1 roster search filtered on the company's stored organisation name — until then: the full roster paginated and filtered client-side]`
+`[not yet in production: MCP-1 roster search filtered on the company's stored organisation name, one read per spelling the company appears under — until then: the full roster paginated and filtered client-side]`
 
 **Key contacts.** The membership records' key contacts, the
 contact-of-record reading above — people, shown only where naming
