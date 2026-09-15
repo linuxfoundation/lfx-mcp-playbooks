@@ -253,6 +253,29 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   (Maintainers).
 - **Documented.** SM "Inventory" (maintainers).
 
+## 16. Representation
+
+- **Symptom.** "Who represents the company" answered from board seats
+  only; a contact of record presented as "current"; a contact and a seat
+  holder merged into one name, or one presented as the other.
+- **Cause.** Two records in two systems: the membership's contact of
+  record (the member service, which stores a role, a status and an
+  updated date) and the seat (the committee service, whose rows carry no
+  date). A seat represents the company when its committee is of board
+  category or its voting status is Voting Rep or Alternate Voting Rep on
+  any committee, the member-class rosters filed under Other included,
+  so a board-only cut drops the seats that vote elsewhere.
+- **Check.** Both records shown, each labelled, each with its date as
+  recorded (the contact's updated date; none on the seat), never
+  "current"; when they name different people, both side by side, never
+  merged; the representing seats chosen by the rule above, never board
+  alone; Observer, Emeritus and None seats reported as seats from the
+  rows, not as representation.
+- **Documented.** SM "Organizations: account and parent_org" (the
+  standard metrics carry no people); SL "Routing"; the organisation
+  seats tool's description and notes; the `lfx-data-querying` skill's
+  service-tools reference (Which seats represent the company).
+
 ## Also worth knowing (same discipline, no separate line in the playbook)
 
 - **Tier literals differ per foundation.** Look them up per foundation;

@@ -102,12 +102,18 @@ and the discipline that keeps a count of records honest.
 - **`get_member_membership` and the key-contact tools** hold one
   membership's detail and its named contacts. The key-contact tools
   answer "who is the contact of record for this membership": the role,
-  and whether the contact is active; a contact record's board-member
+  whether the contact is active, and the date the contact record was
+  last updated, where one is returned; a contact record's board-member
   flag is the membership's own claim, not a seat. "Who holds the seat"
   is the committee roster (next section); the two are different people
-  often enough that neither stands in for the other. Contacts are people:
-  presented only where naming individuals is appropriate, never as a
-  list to be exported.
+  often enough that neither stands in for the other. The organisation
+  seats tool returns the same contacts beside the seats, in one call
+  under the organisation gate, paired per project with the seats that
+  represent the company (next section); when no key contact is indexed
+  for the company in scope its note says so, and the per-membership
+  key-contact tool is the fallback. Contacts are people: presented only
+  where naming individuals is appropriate, never as a list to be
+  exported.
 
 ## Committees — rosters, seats, voting status
 
@@ -130,18 +136,38 @@ and the discipline that keeps a count of records honest.
   cross-check.
 - **A company's seats across the LF** come from the organisation seats
   tool: every seat the company holds, split by committee category with a
-  summary by category and by project, in one call. It sits behind the
-  organisation gate: a refusal under an identity without that company's
-  read grant is the gate speaking, not an empty roster, and the answer
-  says so. A ranking of companies by seats is not this tool's job (the
-  querying playbook's routing table).
+  summary by category, by project, by role and by voting status, in one
+  call. Asked for, the membership contacts of record come beside the
+  seats — role and status as stored, the updated date where one is
+  returned — with a per-project representation pairing the voting
+  contacts with the seats that represent the company (next bullet),
+  those seat rows included whether or not the seat list was asked for.
+  It sits behind the organisation gate: a refusal under an identity
+  without that company's read grant is the gate speaking, not an empty
+  roster, and the answer says so. A ranking of companies by seats is not
+  this tool's job (the querying playbook's routing table).
+- **Which seats represent the company.** A seat represents the company
+  when its committee is of board category or its voting status is
+  Voting Rep or Alternate Voting Rep on any committee — TOC/TSC seats
+  and the member-class rosters filed under category Other included —
+  never board seats alone, because a company whose vote sits on a
+  technical or member-class committee is represented there, and a
+  board-only cut drops it. Observer, Emeritus and None seats are seats,
+  reported from the rows, not representation. The organisation seats
+  tool's representation pairing applies this rule; a roster read by
+  hand applies the same one.
 - **Roster facts come from here and nowhere else.** A board seat is never
   inferred from tier, sponsorship or activity. A roster answers "who
   holds the seat"; when the question is "who represents the company",
-  the answer says it gives the seat holder and that the membership's
-  contact of record is a different reading (the key-contact tools).
-  Country is not a roster field; "from N countries" about a committee is
-  not reproducible.
+  the answer gives both records, each labelled: the seat holder, and
+  the membership's contact of record (the key-contact tools, or the
+  organisation seats tool's contacts beside the seats). When they name
+  different people, both are shown side by side, never merged into one
+  name. Dates as recorded: a contact carries its updated date, a seat
+  row from the committee tools carries none, so each is cited as
+  recorded on its side, with the date where one is returned, never as
+  "current". Country is not a roster field; "from N countries" about a
+  committee is not reproducible.
 - **Two filters narrow.** Where a search takes two scoping filters
   (each tool's description says which), giving both returns the records
   that match both; a second filter never widens a result, so a count
