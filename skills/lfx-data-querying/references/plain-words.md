@@ -194,21 +194,32 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   include people the roster inherits from vendored Linux kernel trees on
   kernel-fork projects, and MAINTAINERS-file reviewers count as
   maintainers; a person maintaining two projects counts once in each.
-- **Other readings:** the whole maintainers index (includes non-LF
-  projects; higher); maintainers as of a past period (the family's period
-  reading); maintainers by company including subsidiaries at any depth —
-  the family's subsidiaries switch, or ad hoc through the layer's
-  top-parent dimension on maintainers (two roots can share a name, so the
-  identifier is the exact key); maintainer contributions — "code
-  contributions by people on today's maintainer roster of the segment",
-  with a distinct contributing-maintainers count beside the volume (the
-  roster as of the last activities build; the maintainers family's period
-  reading uses today's roster and differs by a few people).
-- **Offer it as:** "N maintainers on LF projects as of today";
-  reviewers named in MAINTAINERS files count as maintainers, said once
-  where it changes the reading; a per-project figure on a kernel-fork
-  project adds "including people inherited from a vendored kernel
-  tree".
+- **Other readings:** the family's own split, read beside the total,
+  never alone: by role (maintainer, reviewer) and by source (the
+  project's own repository, an inherited kernel tree, a seeded roster),
+  one row per value; and the three split columns the total, organisation
+  and project readings carry beside the total — maintainers excluding
+  reviewers and reviewers, which partition the total within one
+  project, and maintainers excluding inherited, which drops people whose
+  roster came only with a vendored kernel tree or another seeded roster.
+  A split queried alone on the layer omits every group with nothing in
+  it, and a person can sit in two role rows or two source rows, so the
+  split is a reading of the total, not a second total. Then the whole
+  maintainers index (includes non-LF projects; higher); maintainers as
+  of a past period (the family's period reading); maintainers by company
+  including subsidiaries at any depth — the family's subsidiaries
+  switch, or ad hoc through the layer's top-parent dimension on
+  maintainers (two roots can share a name, so the identifier is the
+  exact key); maintainer contributions — "code contributions by people
+  on today's maintainer roster of the segment", with a distinct
+  contributing-maintainers count beside the volume (the roster as of the
+  last activities build; the maintainers family's period reading uses
+  today's roster and differs by a few people).
+- **Offer it as:** "N maintainers on LF projects as of today, of which M
+  are reviewers and K came only with an inherited kernel tree" — the
+  split named, the total beside it; a per-project figure on a
+  kernel-fork project says how much of its roster came with the tree,
+  read from the source split rather than added as a caveat.
 
 ## Health, healthy projects
 

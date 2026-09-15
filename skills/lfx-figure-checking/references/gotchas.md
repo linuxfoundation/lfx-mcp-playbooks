@@ -250,16 +250,22 @@ tools is the `lfx-data-querying` skill's service-tools reference.
 
 - **Symptom.** A company's or a project's maintainer count on a project
   that vendors a Linux kernel tree, presented as that project's own
-  maintainers; or a reviewer counted as a maintainer.
+  maintainers; a reviewer counted as a maintainer without the role
+  said; or a split figure (excluding reviewers, excluding inherited, one
+  role or one source) shown alone and read as the roster.
 - **Cause.** The roster is built from each repository's MAINTAINERS file:
   a vendored kernel tree brings the kernel's roster with it, and reviewer
-  entries are folded into maintainers at extraction. A person maintaining
-  two projects counts once in each.
-- **Check.** Every per-project maintainer figure carries the caveat; a
-  per-project row that looks like the kernel's roster is said to be one.
-  The mechanism is in [why-figures-differ.md](why-figures-differ.md)
-  (Maintainers).
-- **Documented.** SM "Inventory" (maintainers).
+  entries count as maintainers, their role kept. A person maintaining
+  two projects counts once in each, and can sit in two role or source
+  rows. A split queried alone omits every group with nothing in it, so
+  it carries no sign of what it left out.
+- **Check.** Every per-project maintainer figure names the split it
+  uses — by role, by source, or one of the three split columns — and
+  shows it beside the total it was cut from; a per-project row that
+  looks like the kernel's roster is said to be one, from the source
+  split. A split shown without its total is the symptom. The mechanism
+  is in [why-figures-differ.md](why-figures-differ.md) (Maintainers).
+- **Documented.** SM "Inventory" (maintainers); SL "Worked recipes" 11.
 
 ## 16. Representation
 

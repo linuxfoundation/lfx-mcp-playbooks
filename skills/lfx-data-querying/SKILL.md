@@ -428,7 +428,15 @@ Symptom, cause, check and guidance section for each: the
 16. Per-project maintainer counts include people the roster inherits
     from vendored Linux kernel trees on kernel-fork projects, and
     MAINTAINERS-file reviewers count as maintainers; a person maintaining
-    two projects counts once in each. Said with every per-project figure.
+    two projects counts once in each. The family names the split — by
+    role (maintainer or reviewer) and by source (the project's own
+    repository, an inherited kernel tree, a seeded roster) — and carries
+    three split columns beside the total: maintainers excluding
+    reviewers, reviewers, maintainers excluding inherited. A figure that
+    uses a split names it and shows it beside the total it was cut
+    from, because a split read alone omits the groups with nothing in
+    them and reads as a total; the everyday reading and the offer
+    sentence: [references/plain-words.md](references/plain-words.md).
 17. "Who represents a company" is two records side by side — the
     membership's contact of record and the holder of a seat — each
     labelled, never merged into one name, and never "current": a
@@ -439,6 +447,12 @@ Symptom, cause, check and guidance section for each: the
     Rep) on any committee, the member-class rosters filed under Other
     included, never board seats alone; Observer, Emeritus and None seats
     are seats, read from the rows, not representation.
+18. The committee tools read the v2 committee service; the layer's
+    committee and maintainer models read the warehouse mirror, which
+    lacks rosters native to v2. A roster question answered from the
+    tools and from the layer can differ with neither wrong: the answer
+    says which one was read (the `lfx-figure-checking` skill's "Rosters:
+    committee tools vs the layer" entry).
 
 ## 6. Before reporting any number
 

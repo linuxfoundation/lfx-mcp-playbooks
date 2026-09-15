@@ -267,11 +267,23 @@ maintainer figure that equals the sum of the project rows is seats, not
 people. The roster is built from each repository's MAINTAINERS file; a
 project that vendors a Linux kernel tree carries that tree's roster as
 its own, so its per-project count is the kernel's, and reviewer entries
-are folded into maintainers at extraction. A company's per-project
+count as maintainers, their role kept. A company's per-project
 maintainer rows on such projects therefore come from the kernel tree,
 not from work on the project; the company total across projects counts
 each person once, so a kernel maintainer inherited by several forks adds
-one person, not one per fork.
+one person, not one per fork. The family names the split: by role
+(maintainer, reviewer) and by source (the project's own repository, an
+inherited kernel tree, a seeded roster), and on the total, organisation
+and project readings three split columns beside the total —
+maintainers excluding reviewers and reviewers partition the total
+within one project; maintainers excluding inherited drops people whose
+roster came only with a vendored kernel tree or another seeded roster.
+A split read alone omits every group with nothing in it, so a split
+figure shown without its total is a partial reading with no sign that
+it is one; and a person can sit in two role rows or two source rows,
+so the rows of a split do not add across projects any more than the
+project rows do. A figure that uses a split names it and shows it
+beside the total it was cut from.
 *SM* "Inventory" (maintainers); *SL* "Worked recipes" 11.
 
 **Maintainer contributions: roster as of the build, activity in the
@@ -398,6 +410,17 @@ aside and said, technical steering committees kept out of "boards", and
 spelling variants of one company noted rather than merged by hand. One
 company's seats are the organisation seats tool, "visible to you", under
 the organisation gate. *SL* "Routing".
+
+**Rosters: committee tools vs the layer.** The committee tools read the
+v2 committee service; the layer's committee and maintainer models read
+the warehouse mirror, which lacks rosters native to v2. So a roster
+question — who sits on a board, how many seats a company holds — can
+come back different from the tools and from the layer with neither
+wrong: a roster onboarded into LFX v2 that the mirror does not carry is
+on one side only. The roster is read from the tools, "visible to you";
+where the layer or the SQL assistant read the committee data (a seats
+ranking), the answer says which one was read, and never adjusts one
+toward the other. *SL* "Routing".
 
 ## Time
 

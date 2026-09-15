@@ -112,9 +112,14 @@ depth) is the family's subsidiaries switch, or ad hoc through the layer's
 top-parent dimension on maintainers, said so. Per-project maintainer
 counts include people the roster inherits from vendored Linux kernel
 trees on kernel-fork projects, and MAINTAINERS-file reviewers count as
-maintainers; a person maintaining two projects counts once in each. A
-per-project row on a kernel-fork project can be almost entirely the
-kernel's own roster; say so on the slide. Label: governed / ad hoc.
+maintainers; a person maintaining two projects counts once in each. The
+family names the split — by role (maintainer, reviewer) and by source
+(the project's own repository, an inherited kernel tree, a seeded
+roster) — and carries the split columns beside the total: a slide that
+uses a split names it and pairs it with the total it was cut from,
+since a split alone omits the groups with nothing in them; a
+kernel-fork row says its source, how much of its roster came with the
+tree, from the source split. Label: governed / ad hoc.
 
 **Share of a project's work.** Volume over the org-attributed base of the
 same metric, scope and window; the unattributed share stated once on the
@@ -184,7 +189,12 @@ before it is read as "no seats": the coverage audit over the foundation
 is the first call, and says per project which committees are indexed
 and which have no visible member, a zero being access or a roster not
 yet onboarded (the `lfx-figure-checking` skill's governance-rosters
-entry). Label: visible to you.
+entry). Every roster in this section is read from the committee tools;
+a figure over the warehouse's committee data (a seats ranking through
+the SQL assistant) is a different source that can differ with neither
+wrong, and the notes say which was read (the `lfx-figure-checking`
+skill's "Rosters: committee tools vs the layer" entry). Label: visible
+to you.
 
 **Key contacts.** The membership records' key contacts, the
 contact-of-record reading above: role and status as stored, the updated
