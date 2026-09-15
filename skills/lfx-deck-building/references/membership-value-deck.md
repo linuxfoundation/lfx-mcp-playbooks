@@ -170,7 +170,17 @@ several stored rows together. Label: governed, region provisional.
 LF projects only, as of today, roster-based. An ad hoc count over the
 whole index reads higher. By company: the family by organisation
 (subsidiaries folded with the switch), or ad hoc by the layer's
-top-parent dimension. Label: governed.
+top-parent dimension. The family names the split — by role (maintainer,
+reviewer) and by source (the project's own repository, an inherited
+kernel tree, a seeded roster) — and the total, organisation and
+project readings carry the split columns beside the total: a slide
+that uses a split names it and pairs it with the total it was cut
+from, since a split alone reads as a total (the `lfx-figure-checking`
+skill's maintainer-rosters gotcha); a per-project row on a kernel-fork
+project keeps the inherited-tree caveat and, from the
+excluding-inherited column beside that row's total, says how much of
+the row came only with an inherited kernel tree or another seeded
+roster. Label: governed.
 
 ## Section 5 — Project health and software value
 
@@ -239,19 +249,32 @@ per line.
 ## Section 9 — Governance
 
 **Top organisations by board seats; foundations spanned; total seats;
-voting split; unaffiliated seats; cross-industry holders.** Rosters live in
-the committee tools and nowhere else; one organisation's seats are the
-organisation seats tool (board split, per-project summary, under the
-organisation gate); a ranking of organisations by seats across all
-projects is the generated-SQL reading over the committee data with staff
-and unaffiliated seats set aside; totals of committees and of seats on
-them are the count tool, one kind a call, "visible to you", with the
-complete flag read, and across all onboarded projects regardless of
-status unless combined with the layer's directory. Traps D14 and D15:
-roster records carry no "community-elected" attribute, so unaffiliated
-seats are a proxy and say so; organisation aliases are unmerged, so a
-company's seats can split across spellings. Committee members' countries
-are not a roster field (deck playbook §5). Label: visible to you.
+voting split; unaffiliated seats; cross-industry holders.** The committee
+tools are the authoritative source for committee rosters in LFX v2; one
+organisation's seats are the
+organisation seats tool (board split, voting-status split, per-project
+summary, in one call under the organisation gate), and for any
+per-organisation reading of who represents it, the same call's contacts
+of record beside the seats, read as [org-briefing-deck.md](org-briefing-deck.md)
+says ("Who represents the company"); a ranking of organisations by
+seats across all projects is the generated-SQL reading over the same
+warehouse data as the layer's committee models, with staff and
+unaffiliated seats set aside, a different source from the tools that
+can differ with neither wrong, and the notes say which was read
+(the `lfx-figure-checking` skill's "Rosters: committee tools vs the
+layer" entry); totals of committees and of seats on them are the count
+tool, one kind a call, "visible to you", with the complete flag read,
+and across all onboarded projects regardless of status unless combined
+with the layer's directory. When a roster comes back empty, the
+coverage audit over its foundation is read before the empty result is
+interpreted, a zero there being an access effect or a roster not yet
+onboarded (the `lfx-figure-checking` skill's governance-rosters
+entry). Traps D14 and
+D15: roster records carry no "community-elected" attribute, so
+unaffiliated seats are a proxy and say so; organisation aliases are
+unmerged, so a company's seats can split across spellings. Committee
+members' countries are not a roster field (deck playbook §5). Label:
+visible to you.
 
 ## Section 10 — Dues and funding
 

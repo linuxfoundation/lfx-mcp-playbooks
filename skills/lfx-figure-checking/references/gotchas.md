@@ -161,8 +161,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
 
 - **Symptom.** A board or committee membership stated from tier, event or
   activity data.
-- **Cause.** Rosters live only in the committee tools; every other source
-  is inference.
+- **Cause.** The committee tools are the authoritative source for
+  committee rosters in LFX v2; the layer's warehouse mirror is a
+  distinct reading, said which (the "Rosters: committee tools vs the
+  layer" mechanism); tier, event and activity data are inference.
 - **Check.** Any seat, chair or voting status came from
   `search_committee_members`, paginated to the end.
 - **Second symptom.** An empty roster read as "the company holds no
@@ -181,9 +183,18 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   to the project, an empty committee-member search states whether no
   committees are onboarded (or none are visible) or the project's
   committees are onboarded and nothing matched the filters; without the
-  project scope there is no note.
-- **Documented.** SL "Routing", "Worked recipes" 12; the
-  `lfx-data-querying` skill's service-tools reference (Committees).
+  project scope there is no note. When a roster comes back empty, the
+  coverage audit over its foundation is read before the empty result is
+  interpreted: it says, per project, which committees are indexed,
+  which have no visible member,
+  and where a project with active memberships has no committee, no
+  board-category committee or a board committee with no visible member;
+  its note says a zero can be an access effect or a roster not yet
+  onboarded, so a zero there is reported as one of those, never as "no
+  seats".
+- **Documented.** SL "Routing", "Worked recipes" 12; the coverage audit
+  tool's description and note; the `lfx-data-querying` skill's
+  service-tools reference (Committees).
 
 ## 12. Meetings
 
@@ -242,16 +253,47 @@ tools is the `lfx-data-querying` skill's service-tools reference.
 
 - **Symptom.** A company's or a project's maintainer count on a project
   that vendors a Linux kernel tree, presented as that project's own
-  maintainers; or a reviewer counted as a maintainer.
+  maintainers; a reviewer counted as a maintainer without the role
+  said; or a split figure (excluding reviewers, excluding inherited, one
+  role or one source) shown alone and read as the roster.
 - **Cause.** The roster is built from each repository's MAINTAINERS file:
   a vendored kernel tree brings the kernel's roster with it, and reviewer
-  entries are folded into maintainers at extraction. A person maintaining
-  two projects counts once in each.
-- **Check.** Every per-project maintainer figure carries the caveat; a
-  per-project row that looks like the kernel's roster is said to be one.
-  The mechanism is in [why-figures-differ.md](why-figures-differ.md)
-  (Maintainers).
-- **Documented.** SM "Inventory" (maintainers).
+  entries count as maintainers, their role kept. A person maintaining
+  two projects counts once in each, and can sit in two role or source
+  rows. On the layer a filtered split queried alone omits every group
+  with nothing in it, so it carries no sign of what it left out; the
+  family's split columns beside the total are the remedy.
+- **Check.** Every per-project maintainer figure that uses a split
+  names it — one of the three split columns beside that project's
+  total — and shows it beside the total it was cut from; a per-project
+  row that looks like the kernel's roster keeps the kernel-fork caveat,
+  and the excluding-inherited column beside that project's total says
+  how much of the row came only with an inherited kernel tree or
+  another seeded roster, never which of the two. A split shown
+  without its total is the symptom. The mechanism is in
+  [why-figures-differ.md](why-figures-differ.md) (Maintainers).
+- **Documented.** SM "Inventory" (maintainers); SL "Worked recipes" 11.
+
+## 16. Representation
+
+- **Symptom.** "Who represents the company" answered from board seats
+  only; a contact of record presented as "current"; a contact and a seat
+  holder merged into one name, or one presented as the other.
+- **Cause.** Two records in two systems: the membership's contact of
+  record (the member service, which stores a role, a status and an
+  updated date) and the seat (the committee service, whose rows carry no
+  date). Which seats represent the company is the `lfx-data-querying`
+  skill's service-tools reference (Which seats represent the company);
+  a board-only cut drops the seats that vote elsewhere.
+- **Check.** Both records shown, each labelled, each with its date as
+  recorded (the contact's updated date; none on the seat), never
+  "current"; when they name different people, both side by side, never
+  merged; the representing seats chosen by that rule, never board
+  alone.
+- **Documented.** SM "Organizations: account and parent_org" (the
+  standard metrics carry no people); SL "Routing"; the organisation
+  seats tool's description and notes; the `lfx-data-querying` skill's
+  service-tools reference (Which seats represent the company).
 
 ## Also worth knowing (same discipline, no separate line in the playbook)
 

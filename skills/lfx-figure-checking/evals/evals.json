@@ -28,6 +28,7 @@
         "Takes a fresh read through the count tool for board-category committees and for members on them, in one call each, and reports whether each count was complete",
         "Explains that committee records carry no project status, so the index cannot filter to active projects and an active-only figure combines the count with the layer's project directory",
         "Gives the verdict 'both' (two defensible readings), says what each is, and recommends which to quote for an LF-wide claim and which for 'in LFX v2 today, visible to you'",
+        "Says which source each reading came from — the committee records the tools read, or the warehouse (the layer's committee models, or the SQL assistant over the same warehouse data) — and treats a roster present on one side only as two sources, never as either side being wrong",
         "Does not walk the committee index page by page to rebuild the count, and does not reconcile the two figures to a third number"
       ]
     },

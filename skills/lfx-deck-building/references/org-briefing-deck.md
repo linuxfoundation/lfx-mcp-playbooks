@@ -112,9 +112,17 @@ depth) is the family's subsidiaries switch, or ad hoc through the layer's
 top-parent dimension on maintainers, said so. Per-project maintainer
 counts include people the roster inherits from vendored Linux kernel
 trees on kernel-fork projects, and MAINTAINERS-file reviewers count as
-maintainers; a person maintaining two projects counts once in each. A
-per-project row on a kernel-fork project can be almost entirely the
-kernel's own roster; say so on the slide. Label: governed / ad hoc.
+maintainers; a person maintaining two projects counts once in each. The
+family names the split — by role (maintainer, reviewer) and by source
+(the project's own repository, an inherited kernel tree, a seeded
+roster) — and the total, organisation and project readings carry the
+split columns beside the total: a slide that uses a split names it and
+pairs it with the total it was cut from, since a split alone reads as
+a total (on the layer a filtered split omits the groups with nothing
+in them); a kernel-fork row keeps the inherited-tree caveat and, from
+the excluding-inherited column beside that row's total, says how much
+of the row came only with an inherited kernel tree or another seeded
+roster. Label: governed / ad hoc.
 
 **Share of a project's work.** Volume over the org-attributed base of the
 same metric, scope and window; the unattributed share stated once on the
@@ -146,31 +154,54 @@ never companies; platform data only. Label: governed.
 ## Section 4 — Governance
 
 **Who represents the company at a foundation.** Two readings, never one
-for the other. The *contact of record* is the membership's key contact:
-the person the membership record names for a role, with the role as the
-record stores it and whether the contact is active; a contact record's
-board-member flag is the membership's own claim, not a seat. The *seat
-holder* is the person on the board roster, with the voting status the
-seat carries, as the roster stores it. A company can have a voting
-contact who holds no seat, and a
-seat holder who is not the membership's contact; the slide says which
-reading it shows, and a deck that needs both shows both. Contacts and
-seats are people: shown only where naming individuals is appropriate
-for the audience. Label: visible to you.
+for the other, never merged into one name. The *contact of record* is
+the membership's key contact: the person the membership record names
+for a role, with the role and the status as the record stores them and
+the date the record was last updated, where one is returned; a contact
+record's board-member flag is the membership's own claim, not a seat.
+The *seat holder* is the person on a seat that represents the company
+— the seats the `lfx-data-querying` skill's service-tools reference
+defines (Which seats represent the company) — with the voting status
+as the roster stores it, and no date, because a seat row from the
+committee tools carries none. The
+read is the organisation seats tool's one call under the organisation
+gate: the contacts of record beside the seats, each with its date as
+recorded, the voting-status split, and a per-project pairing of the
+voting contacts with the seats that represent the company. Under an
+identity without the grant the two reads remain the way — the
+key-contact tools for the contacts, the roster search for the seats —
+and the notes say which ran. A company can have a voting contact who
+holds no seat, and a seat holder who is not the membership's contact:
+the slide shows both side by side, each labelled as what it is and
+cited as recorded on its side, never as "current". Contacts and seats
+are people: shown only where naming individuals is appropriate for the
+audience. Label: visible to you.
 
-**Seats the company holds, across which boards, with what vote.** The
-committee tools: for each foundation in the company's footprint, the
-board-category committees, each roster read through the roster search
+**Seats the company holds, across which boards, with what vote.** Every
+seat the company holds in each foundation of its footprint, on every
+committee category, with voting status and role from the seat record;
+which of them represent the company is the item above. The read is the
+organisation seats tool: every seat with the board split, the
+voting-status split and a per-project summary in one call, under the
+organisation gate. The fallback, under an identity without the grant,
+is the committee tools: each roster read through the roster search
 filtered on the company's stored organisation name, one read per
-spelling the company appears under (D15); voting status and role from
-the seat record. An empty roster is checked before it is read as "no
-seats" (the `lfx-figure-checking` skill's governance-rosters entry).
-"Visible to you"; the organisation seats tool gives every seat with the
-board split and a per-project summary in one call, under the
-organisation gate. Label: visible to you.
+spelling the company appears under (D15). When a roster comes back
+empty, the coverage audit over its foundation is read before the empty
+result is interpreted: it says per project which committees are
+indexed and which have no visible member, a zero being an access
+effect or a roster not yet onboarded (the `lfx-figure-checking` skill's
+governance-rosters entry). Every roster in this section is read from
+the committee tools; a figure read from the warehouse side (the
+layer's committee models, or the SQL assistant over the same warehouse
+data — a seats ranking) is a different source that can differ with
+neither wrong, and the notes say which was read (the
+`lfx-figure-checking` skill's "Rosters: committee tools vs the layer"
+entry). Label: visible to you.
 
 **Key contacts.** The membership records' key contacts, the
-contact-of-record reading above — people, shown only where naming
+contact-of-record reading above: role and status as stored, the updated
+date where one is returned — people, shown only where naming
 individuals is appropriate for the audience. Label: visible to you.
 
 ## Section 5 — In the room (meetings)
