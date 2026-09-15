@@ -278,12 +278,15 @@ and project readings three split columns beside the total —
 maintainers excluding reviewers and reviewers partition the total
 within one project; maintainers excluding inherited drops people whose
 roster came only with a vendored kernel tree or another seeded roster.
-A split read alone omits every group with nothing in it, so a split
-figure shown without its total is a partial reading with no sign that
-it is one; and a person can sit in two role rows or two source rows,
-so the rows of a split do not add across projects any more than the
-project rows do. A figure that uses a split names it and shows it
-beside the total it was cut from.
+On the layer a filtered split read alone omits every group with
+nothing in it, so a split figure shown without its total is a partial
+reading with no sign that it is one — the family's split columns
+beside the total are the remedy; and a person can sit in two role
+rows or two source rows, so the rows of a role or source split can
+sum above the total, as the project rows do; only within one project
+do maintainers-excluding-reviewers and reviewers partition it. A
+figure that uses a split names it and shows it beside the total it
+was cut from.
 *SM* "Inventory" (maintainers); *SL* "Worked recipes" 11.
 
 **Maintainer contributions: roster as of the build, activity in the
@@ -413,14 +416,15 @@ the organisation gate. *SL* "Routing".
 
 **Rosters: committee tools vs the layer.** The committee tools read the
 v2 committee service; the layer's committee and maintainer models read
-the warehouse mirror, which lacks rosters native to v2. So a roster
-question — who sits on a board, how many seats a company holds — can
-come back different from the tools and from the layer with neither
-wrong: a roster onboarded into LFX v2 that the mirror does not carry is
-on one side only. The roster is read from the tools, "visible to you";
-where the layer or the SQL assistant read the committee data (a seats
-ranking), the answer says which one was read, and never adjusts one
-toward the other. *SL* "Routing".
+the warehouse mirror, which lacks rosters native to v2, and the SQL
+assistant reads the same warehouse data. So a roster question — who
+sits on a board, how many seats a company holds — can come back
+different from the tools and from the warehouse side with neither
+wrong: a roster onboarded into LFX v2 that the layer's models do not
+carry is on one side only. The roster is read from the tools, "visible
+to you"; where the layer or the SQL assistant read the committee data
+(a seats ranking), the answer says which one was read, and never
+adjusts one toward the other. *SL* "Routing".
 
 ## Time
 

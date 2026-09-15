@@ -115,11 +115,13 @@ trees on kernel-fork projects, and MAINTAINERS-file reviewers count as
 maintainers; a person maintaining two projects counts once in each. The
 family names the split — by role (maintainer, reviewer) and by source
 (the project's own repository, an inherited kernel tree, a seeded
-roster) — and carries the split columns beside the total: a slide that
-uses a split names it and pairs it with the total it was cut from,
-since a split alone omits the groups with nothing in them; a
-kernel-fork row says its source, how much of its roster came with the
-tree, from the source split. Label: governed / ad hoc.
+roster) — and the total, organisation and project readings carry the
+split columns beside the total: a slide that uses a split names it and
+pairs it with the total it was cut from, since a split alone reads as
+a total (on the layer a filtered split omits the groups with nothing
+in them); a kernel-fork row keeps the inherited-tree caveat and, from
+the excluding-inherited column beside that row's total, says how much
+of the row came with the tree. Label: governed / ad hoc.
 
 **Share of a project's work.** Volume over the org-attributed base of the
 same metric, scope and window; the unattributed share stated once on the
@@ -156,11 +158,11 @@ the membership's key contact: the person the membership record names
 for a role, with the role and the status as the record stores them and
 the date the record was last updated, where one is returned; a contact
 record's board-member flag is the membership's own claim, not a seat.
-The *seat holder* is the person on a seat that represents the company:
-a board seat, or a Voting Rep or Alternate Voting Rep seat on any
-committee, the member-class rosters filed under Other included, never
-board seats alone; the voting status as the roster stores it, and no
-date, because a seat row from the committee tools carries none. The
+The *seat holder* is the person on a seat that represents the company
+— the seats the `lfx-data-querying` skill's service-tools reference
+defines (Which seats represent the company) — with the voting status
+as the roster stores it, and no date, because a seat row from the
+committee tools carries none. The
 read is the organisation seats tool's one call under the organisation
 gate: the contacts of record beside the seats, each with its date as
 recorded, the voting-status split, and a per-project pairing of the
@@ -175,26 +177,26 @@ are people: shown only where naming individuals is appropriate for the
 audience. Label: visible to you.
 
 **Seats the company holds, across which boards, with what vote.** Every
-seat the company holds in each foundation of its footprint — board
-seats and voting seats on any committee, the member-class rosters filed
-under Other included, not the board-category committees only — with
-voting status and role from the seat record. The read is the
+seat the company holds in each foundation of its footprint, on every
+committee category, with voting status and role from the seat record;
+which of them represent the company is the item above. The read is the
 organisation seats tool: every seat with the board split, the
 voting-status split and a per-project summary in one call, under the
 organisation gate. The fallback, under an identity without the grant,
 is the committee tools: each roster read through the roster search
 filtered on the company's stored organisation name, one read per
-spelling the company appears under (D15). An empty roster is checked
-before it is read as "no seats": the coverage audit over the foundation
-is the first call, and says per project which committees are indexed
-and which have no visible member, a zero being access or a roster not
-yet onboarded (the `lfx-figure-checking` skill's governance-rosters
-entry). Every roster in this section is read from the committee tools;
-a figure over the warehouse's committee data (a seats ranking through
-the SQL assistant) is a different source that can differ with neither
-wrong, and the notes say which was read (the `lfx-figure-checking`
-skill's "Rosters: committee tools vs the layer" entry). Label: visible
-to you.
+spelling the company appears under (D15). When a roster comes back
+empty, the coverage audit over its foundation is read before the empty
+result is interpreted: it says per project which committees are
+indexed and which have no visible member, a zero being an access
+effect or a roster not yet onboarded (the `lfx-figure-checking` skill's
+governance-rosters entry). Every roster in this section is read from
+the committee tools; a figure read from the warehouse side (the
+layer's committee models, or the SQL assistant over the same warehouse
+data — a seats ranking) is a different source that can differ with
+neither wrong, and the notes say which was read (the
+`lfx-figure-checking` skill's "Rosters: committee tools vs the layer"
+entry). Label: visible to you.
 
 **Key contacts.** The membership records' key contacts, the
 contact-of-record reading above: role and status as stored, the updated

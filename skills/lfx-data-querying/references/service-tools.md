@@ -140,8 +140,7 @@ and the discipline that keeps a count of records honest.
   call. Asked for, the membership contacts of record come beside the
   seats — role and status as stored, the updated date where one is
   returned — with a per-project representation pairing the voting
-  contacts with the seats that represent the company (next bullet),
-  those seat rows included whether or not the seat list was asked for.
+  contacts with the seats that represent the company (next bullet).
   It sits behind the organisation gate: a refusal under an identity
   without that company's read grant is the gate speaking, not an empty
   roster, and the answer says so. A ranking of companies by seats is not
@@ -168,17 +167,19 @@ and the discipline that keeps a count of records honest.
   recorded on its side, with the date where one is returned, never as
   "current". Country is not a roster field; "from N countries" about a
   committee is not reproducible.
-- **Coverage audit.** `audit_committee_coverage` takes a foundation (its
-  root project) and covers it and its direct child projects, over the
+- **Coverage audit.** The coverage audit tool (`audit_committee_coverage`)
+  takes a foundation (its root project) and covers it and its direct
+  child projects, over the
   records visible to the caller: per project, the active memberships,
   the committees with their category and visible member count, the
   committees with no visible member, whether a board committee exists,
   and a gap, set only for projects with active memberships — no
   committee indexed, no board-category committee, or a board committee
   with no visible member. Its complete flag says when a count stopped
-  early. It is the first call when a roster comes back empty, because
-  it turns an empty read into a named case for the whole foundation in
-  one call; it never turns one into "no seats": its own note says a
+  early. When a roster comes back empty, the audit over its foundation
+  is read before the empty result is interpreted, because it turns an
+  empty read into a named case for the whole foundation in one call; it
+  never turns one into "no seats": its own note says a
   zero can be an access effect or a roster not yet onboarded and never
   to report a project as having no seats from this result alone, and a
   program view over a foundation needs an identity with project-level

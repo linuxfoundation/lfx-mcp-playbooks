@@ -181,9 +181,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   to the project, an empty committee-member search states whether no
   committees are onboarded (or none are visible) or the project's
   committees are onboarded and nothing matched the filters; without the
-  project scope there is no note. The coverage audit is the first call
-  when a roster comes back empty: for the foundation it says, per
-  project, which committees are indexed, which have no visible member,
+  project scope there is no note. When a roster comes back empty, the
+  coverage audit over its foundation is read before the empty result is
+  interpreted: it says, per project, which committees are indexed,
+  which have no visible member,
   and where a project with active memberships has no committee, no
   board-category committee or a board committee with no visible member;
   its note says a zero can be an access effect or a roster not yet
@@ -257,14 +258,16 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   a vendored kernel tree brings the kernel's roster with it, and reviewer
   entries count as maintainers, their role kept. A person maintaining
   two projects counts once in each, and can sit in two role or source
-  rows. A split queried alone omits every group with nothing in it, so
-  it carries no sign of what it left out.
-- **Check.** Every per-project maintainer figure names the split it
-  uses — by role, by source, or one of the three split columns — and
-  shows it beside the total it was cut from; a per-project row that
-  looks like the kernel's roster is said to be one, from the source
-  split. A split shown without its total is the symptom. The mechanism
-  is in [why-figures-differ.md](why-figures-differ.md) (Maintainers).
+  rows. On the layer a filtered split queried alone omits every group
+  with nothing in it, so it carries no sign of what it left out; the
+  family's split columns beside the total are the remedy.
+- **Check.** Every per-project maintainer figure that uses a split
+  names it — one of the three split columns beside that project's
+  total — and shows it beside the total it was cut from; a per-project
+  row that looks like the kernel's roster is said to be one, from the
+  excluding-inherited column beside that project's total. A split shown
+  without its total is the symptom. The mechanism is in
+  [why-figures-differ.md](why-figures-differ.md) (Maintainers).
 - **Documented.** SM "Inventory" (maintainers); SL "Worked recipes" 11.
 
 ## 16. Representation
@@ -275,16 +278,14 @@ tools is the `lfx-data-querying` skill's service-tools reference.
 - **Cause.** Two records in two systems: the membership's contact of
   record (the member service, which stores a role, a status and an
   updated date) and the seat (the committee service, whose rows carry no
-  date). A seat represents the company when its committee is of board
-  category or its voting status is Voting Rep or Alternate Voting Rep on
-  any committee, the member-class rosters filed under Other included,
-  so a board-only cut drops the seats that vote elsewhere.
+  date). Which seats represent the company is the `lfx-data-querying`
+  skill's service-tools reference (Which seats represent the company);
+  a board-only cut drops the seats that vote elsewhere.
 - **Check.** Both records shown, each labelled, each with its date as
   recorded (the contact's updated date; none on the seat), never
   "current"; when they name different people, both side by side, never
-  merged; the representing seats chosen by the rule above, never board
-  alone; Observer, Emeritus and None seats reported as seats from the
-  rows, not as representation.
+  merged; the representing seats chosen by that rule, never board
+  alone.
 - **Documented.** SM "Organizations: account and parent_org" (the
   standard metrics carry no people); SL "Routing"; the organisation
   seats tool's description and notes; the `lfx-data-querying` skill's

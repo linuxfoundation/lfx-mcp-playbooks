@@ -215,11 +215,12 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   contributing-maintainers count beside the volume (the roster as of the
   last activities build; the maintainers family's period reading uses
   today's roster and differs by a few people).
-- **Offer it as:** "N maintainers on LF projects as of today, of which M
-  are reviewers and K came only with an inherited kernel tree" — the
-  split named, the total beside it; a per-project figure on a
-  kernel-fork project says how much of its roster came with the tree,
-  read from the source split rather than added as a caveat.
+- **Offer it as:** "N maintainers on LF projects as of today; M of them
+  are reviewers on at least one project and K came only with an
+  inherited kernel tree" — the split named, the total beside it; a
+  per-project figure on a kernel-fork project keeps the inherited-tree
+  caveat and, from the excluding-inherited column beside that project's
+  total, says how much of its roster came with the tree.
 
 ## Health, healthy projects
 
