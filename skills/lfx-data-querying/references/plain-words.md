@@ -217,7 +217,8 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   today's roster and differs by a few people).
 - **Offer it as:** "N maintainers on LF projects as of today; M of them
   are reviewers on at least one project and K came only with an
-  inherited kernel tree" — the split named, the total beside it; a
+  inherited kernel tree or another seeded roster" — the split named,
+  the total beside it; a
   per-project figure on a kernel-fork project keeps the inherited-tree
   caveat and, from the excluding-inherited column beside that project's
   total, says how much of its roster came only with an inherited kernel

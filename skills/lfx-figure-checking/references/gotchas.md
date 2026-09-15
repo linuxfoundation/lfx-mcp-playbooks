@@ -161,8 +161,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
 
 - **Symptom.** A board or committee membership stated from tier, event or
   activity data.
-- **Cause.** Rosters live only in the committee tools; every other source
-  is inference.
+- **Cause.** The committee tools are the authoritative source for
+  committee rosters in LFX v2; the layer's warehouse mirror is a
+  distinct reading, said which (the "Rosters: committee tools vs the
+  layer" mechanism); tier, event and activity data are inference.
 - **Check.** Any seat, chair or voting status came from
   `search_committee_members`, paginated to the end.
 - **Second symptom.** An empty roster read as "the company holds no
@@ -264,8 +266,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
 - **Check.** Every per-project maintainer figure that uses a split
   names it — one of the three split columns beside that project's
   total — and shows it beside the total it was cut from; a per-project
-  row that looks like the kernel's roster is said to be one, from the
-  excluding-inherited column beside that project's total. A split shown
+  row that looks like the kernel's roster keeps the kernel-fork caveat,
+  and the excluding-inherited column beside that project's total says
+  how much of the row came only with an inherited kernel tree or
+  another seeded roster, never which of the two. A split shown
   without its total is the symptom. The mechanism is in
   [why-figures-differ.md](why-figures-differ.md) (Maintainers).
 - **Documented.** SM "Inventory" (maintainers); SL "Worked recipes" 11.
