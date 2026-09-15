@@ -220,7 +220,8 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   inherited kernel tree" — the split named, the total beside it; a
   per-project figure on a kernel-fork project keeps the inherited-tree
   caveat and, from the excluding-inherited column beside that project's
-  total, says how much of its roster came with the tree.
+  total, says how much of its roster came only with an inherited kernel
+  tree or another seeded roster.
 
 ## Health, healthy projects
 

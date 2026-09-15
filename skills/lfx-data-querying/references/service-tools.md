@@ -155,7 +155,7 @@ and the discipline that keeps a count of records honest.
   reported from the rows, not representation. The organisation seats
   tool's representation pairing applies this rule; a roster read by
   hand applies the same one.
-- **Roster facts come from here and nowhere else.** A board seat is never
+- **Roster facts come from the committee tools, never from inference.** A board seat is never
   inferred from tier, sponsorship or activity. A roster answers "who
   holds the seat"; when the question is "who represents the company",
   the answer gives both records, each labelled: the seat holder, and

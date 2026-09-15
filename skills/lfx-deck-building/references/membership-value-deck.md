@@ -179,7 +179,8 @@ from, since a split alone reads as a total (the `lfx-figure-checking`
 skill's maintainer-rosters gotcha); a per-project row on a kernel-fork
 project keeps the inherited-tree caveat and, from the
 excluding-inherited column beside that row's total, says how much of
-the row came with the tree. Label: governed.
+the row came only with an inherited kernel tree or another seeded
+roster. Label: governed.
 
 ## Section 5 — Project health and software value
 
@@ -248,8 +249,9 @@ per line.
 ## Section 9 — Governance
 
 **Top organisations by board seats; foundations spanned; total seats;
-voting split; unaffiliated seats; cross-industry holders.** Rosters live in
-the committee tools and nowhere else; one organisation's seats are the
+voting split; unaffiliated seats; cross-industry holders.** The committee
+tools are the authoritative source for committee rosters in LFX v2; one
+organisation's seats are the
 organisation seats tool (board split, voting-status split, per-project
 summary, in one call under the organisation gate), and for any
 per-organisation reading of who represents it, the same call's contacts

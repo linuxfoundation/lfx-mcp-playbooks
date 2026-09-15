@@ -121,7 +121,8 @@ pairs it with the total it was cut from, since a split alone reads as
 a total (on the layer a filtered split omits the groups with nothing
 in them); a kernel-fork row keeps the inherited-tree caveat and, from
 the excluding-inherited column beside that row's total, says how much
-of the row came with the tree. Label: governed / ad hoc.
+of the row came only with an inherited kernel tree or another seeded
+roster. Label: governed / ad hoc.
 
 **Share of a project's work.** Volume over the org-attributed base of the
 same metric, scope and window; the unattributed share stated once on the

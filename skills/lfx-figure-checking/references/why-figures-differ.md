@@ -403,8 +403,9 @@ show their users. Quote one, and name the other only as a cross-check.
 The record tools' craft is the `lfx-data-querying` skill's service-tools
 reference.
 
-**Roster vs inference.** A board seat comes from the committee tools and
-nowhere else; a company's seats are the roster filtered by organisation,
+**Roster vs inference.** A board seat comes from the committee tools,
+the authoritative source for committee rosters in LFX v2, never from an
+inference; a company's seats are the roster filtered by organisation,
 paginated to the end. A ranking of organisations by seats across every
 project is a different job: walking every roster through the tools is a
 hundred calls, so it is a generated-SQL reading over the committee data,
