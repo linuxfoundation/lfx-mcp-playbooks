@@ -58,7 +58,8 @@ governed reading for this shape today"). Guidance: "Routing".
 `search_projects`, `get_project`, `search_b2b_orgs`. Membership records:
 `search_members`, `get_member_membership`, the key-contact tools. Rosters:
 `search_committees`, `search_committee_members`, `get_committee`,
-`get_committee_member`. Meetings: `search_meetings`, `search_past_meetings`,
+`get_committee_member`, `get_org_committee_seats`,
+`audit_committee_coverage`. Meetings: `search_meetings`, `search_past_meetings`,
 `search_past_meeting_participants`, `search_meeting_registrants`,
 `search_past_meeting_summaries`, `get_meeting`, `get_past_meeting`,
 `get_past_meeting_participant`, `get_past_meeting_summary`. Lists:
@@ -81,6 +82,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | What one company holds: memberships, tiers, dates, contacts | `search_members`, `get_member_membership` | the record view of the CRM, the story behind the figure | visible to you |
 | Who sits on a board or committee, with what vote | committee tools | rosters live nowhere else; "who represents a company" from a roster is the seat holder, and the seats that represent it are board seats and voting seats on any committee, never board alone; the membership's contact of record (the key-contact tools) is a different reading, said so (rule 17) | visible to you |
 | A company's seats across the LF, split by board and project | organisation seats tool | one call, under the organisation gate, with the membership contacts of record and a per-project representation pairing beside the seats when asked | visible to you |
+| Which of a foundation's projects have committees onboarded, and where the gaps are | coverage audit tool | the first call when a roster comes back empty: per project, the committees indexed with their visible member counts, and a gap where a project with active memberships has no committee, no board committee or an empty board; a zero can be access or a roster not yet onboarded | visible to you |
 | How many meetings, committees or members a project or a committee has in LFX v2 | count tool | one kind a call, filters on the record's own fields, complete flag read; the same visibility as LFX Self Serve | visible to you |
 | Which organisations hold the most seats across all projects | SQL assistant | a roster walk is a hundred calls; the committee data answers in one, with staff and unaffiliated seats set aside | generated SQL |
 | Whether a stated figure holds, why two figures differ, a slide or report checked against LFX — and every answer's own figures before they are reported | the `lfx-figure-checking` skill | the fresh reads come from here; the mechanism, verdict and written check come from there; loaded once per session, before the first answer is written | as the fresh read |
@@ -400,7 +402,10 @@ Symptom, cause, check and guidance section for each: the
     empty roster is reported as the empty read it is, with what it can
     mean (no committee onboarded, none visible to the reader, no
     members entered, or, on a filtered search, no record under that
-    spelling), never as "no seats".
+    spelling), never as "no seats". The coverage audit is the first
+    call when a roster comes back empty — it says, per project of the
+    foundation, which committees are indexed and which have no visible
+    member — and the roster search's own note says which case applies.
 12. Meeting lists come from the meeting tools, "visible to you"; meetings
     held, scheduled minutes and people who attended over a period are the
     layer's named metrics, attendances its records — worded as such.

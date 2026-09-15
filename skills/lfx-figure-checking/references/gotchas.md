@@ -181,9 +181,17 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   to the project, an empty committee-member search states whether no
   committees are onboarded (or none are visible) or the project's
   committees are onboarded and nothing matched the filters; without the
-  project scope there is no note.
-- **Documented.** SL "Routing", "Worked recipes" 12; the
-  `lfx-data-querying` skill's service-tools reference (Committees).
+  project scope there is no note. The coverage audit is the first call
+  when a roster comes back empty: for the foundation it says, per
+  project, which committees are indexed, which have no visible member,
+  and where a project with active memberships has no committee, no
+  board-category committee or a board committee with no visible member;
+  its note says a zero can be an access effect or a roster not yet
+  onboarded, so a zero there is reported as one of those, never as "no
+  seats".
+- **Documented.** SL "Routing", "Worked recipes" 12; the coverage audit
+  tool's description and note; the `lfx-data-querying` skill's
+  service-tools reference (Committees).
 
 ## 12. Meetings
 

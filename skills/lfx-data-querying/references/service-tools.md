@@ -168,6 +168,22 @@ and the discipline that keeps a count of records honest.
   recorded on its side, with the date where one is returned, never as
   "current". Country is not a roster field; "from N countries" about a
   committee is not reproducible.
+- **Coverage audit.** `audit_committee_coverage` takes a foundation (its
+  root project) and covers it and its direct child projects, over the
+  records visible to the caller: per project, the active memberships,
+  the committees with their category and visible member count, the
+  committees with no visible member, whether a board committee exists,
+  and a gap, set only for projects with active memberships — no
+  committee indexed, no board-category committee, or a board committee
+  with no visible member. Its complete flag says when a count stopped
+  early. It is the first call when a roster comes back empty, because
+  it turns an empty read into a named case for the whole foundation in
+  one call; it never turns one into "no seats": its own note says a
+  zero can be an access effect or a roster not yet onboarded and never
+  to report a project as having no seats from this result alone, and a
+  program view over a foundation needs an identity with project-level
+  audit rights. For a person's or a company's seats the roster tools
+  remain the read.
 - **Two filters narrow.** Where a search takes two scoping filters
   (each tool's description says which), giving both returns the records
   that match both; a second filter never widens a result, so a count

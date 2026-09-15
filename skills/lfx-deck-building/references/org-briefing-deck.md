@@ -180,8 +180,11 @@ organisation gate. The fallback, under an identity without the grant,
 is the committee tools: each roster read through the roster search
 filtered on the company's stored organisation name, one read per
 spelling the company appears under (D15). An empty roster is checked
-before it is read as "no seats" (the `lfx-figure-checking` skill's
-governance-rosters entry). Label: visible to you.
+before it is read as "no seats": the coverage audit over the foundation
+is the first call, and says per project which committees are indexed
+and which have no visible member, a zero being access or a roster not
+yet onboarded (the `lfx-figure-checking` skill's governance-rosters
+entry). Label: visible to you.
 
 **Key contacts.** The membership records' key contacts, the
 contact-of-record reading above: role and status as stored, the updated
