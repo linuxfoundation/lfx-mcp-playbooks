@@ -165,7 +165,25 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   is inference.
 - **Check.** Any seat, chair or voting status came from
   `search_committee_members`, paginated to the end.
-- **Documented.** SL "Routing", "Worked recipes" 12.
+- **Second symptom.** An empty roster read as "the company holds no
+  seats" or "the project has no board".
+- **Cause.** Rosters exist only for committees onboarded into LFX v2 and
+  populated; a project with active memberships can have no committee
+  record at all, or committees with no members entered; a JDF
+  consortium is two project records, the series and its `-fund` project
+  (entry 10), and its committees can hang off either one.
+- **Check.** Before "no seats", the project's committees were listed
+  (for a JDF consortium, under both records): are there any, and do the
+  board-category ones have members? An empty roster is reported as the
+  empty read it is, with what it can mean (no committee onboarded, none
+  visible to the reader, or no members entered), never as a fact about
+  the board. The search's own roster-coverage note says which: scoped
+  to the project, an empty committee-member search states whether no
+  committees are onboarded (or none are visible) or the project's
+  committees are onboarded and nothing matched the filters; without the
+  project scope there is no note.
+- **Documented.** SL "Routing", "Worked recipes" 12; the
+  `lfx-data-querying` skill's service-tools reference (Committees).
 
 ## 12. Meetings
 
@@ -219,6 +237,21 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   last row of a series is labelled partial when the tool says so.
 - **Documented.** SM "Defaults and the applied block", "Reading results";
   SL "Windows".
+
+## 15. Maintainer rosters
+
+- **Symptom.** A company's or a project's maintainer count on a project
+  that vendors a Linux kernel tree, presented as that project's own
+  maintainers; or a reviewer counted as a maintainer.
+- **Cause.** The roster is built from each repository's MAINTAINERS file:
+  a vendored kernel tree brings the kernel's roster with it, and reviewer
+  entries are folded into maintainers at extraction. A person maintaining
+  two projects counts once in each.
+- **Check.** Every per-project maintainer figure carries the caveat; a
+  per-project row that looks like the kernel's roster is said to be one.
+  The mechanism is in [why-figures-differ.md](why-figures-differ.md)
+  (Maintainers).
+- **Documented.** SM "Inventory" (maintainers).
 
 ## Also worth knowing (same discipline, no separate line in the playbook)
 

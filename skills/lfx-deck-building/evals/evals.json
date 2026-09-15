@@ -33,7 +33,7 @@
         "Membership count and list-price value are side by side and never divided; the reading is as of today",
         "The rank is read from a memberships-by-organisation ranking ordered by value at a stated grain (account or parent), with 'among whom' said, and never from hand-summed account rows",
         "Code contributions by project for the company use the contributions family with the company as the organisation, the window as concrete dates, bots excluded, top ten projects with the folded headline stated separately from the breakdown",
-        "Board representatives for CNCF and OpenSSF come from the committee tools (each governing board found by project and name, roster paginated to the end, filtered on the organisation), with name, role and voting status, labelled visible to the caller",
+        "Board representatives for CNCF and OpenSSF come from the committee tools (each governing board found by project and name, roster paginated to the end, filtered on the organisation), with name, role and voting status, labelled visible to the caller, and the slide says these are seat holders, not the membership's contacts of record",
         "The data-notes appendix has one row per figure with a label from the closed list, the run date, and every figure in the deck appears in the appendix and in the call log; the alone-vs-combined reconciliation (alone ≤ combined) is recorded",
         "Beyond the caption's grain and the data-notes appendix, the slides carry no unprompted discussion of data quality or tool differences; a further sentence appears only where the board would otherwise read a figure wrongly (a floor, a hidden grain, a material choice between two readings)",
         "The transcript shows a Skill step loading lfx-figure-checking once the reads for a section are in and before the consistency pass, and the notes name mechanisms where two readings existed"
@@ -85,6 +85,23 @@
         "The start and end figures come from the member-organisations family on 31 December of the prior year and of the year, not 1 January",
         "The four figures are not forced to balance; the notes name the free-term residual and the caption says gross joins, not net growth",
         "Each row of the data notes carries a label from the closed list and the run date",
+        "Beyond the caption's grain and the data-notes appendix, the slides carry no unprompted discussion of data quality or tool differences; a further sentence appears only where the board would otherwise read a figure wrongly (a floor, a hidden grain, a material choice between two readings)",
+        "The transcript shows a Skill step loading lfx-figure-checking once the reads for a section are in and before the consistency pass, and the notes name mechanisms where two readings existed"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "company-governance-and-maintainers-kernel-fork",
+      "prompt": "Prepare the governance and maintainers section of an Oracle briefing deck: who represents Oracle at the CNCF, the board seats Oracle holds across Linux Foundation projects, and Oracle's maintainers by project, kernelci included. Use the LFX MCP tools.",
+      "expected_output": "Oracle resolved to its stored account name; representation given as two labelled readings, the membership's contact of record (key-contact tools) and the seat holders on the CNCF Governing Board roster (committee tools), neither presented as the other; seats across boards from the committee tools (or the organisation seats tool under its gate), each roster read for every spelling the company appears under, labelled visible to you, an empty roster reported as the empty read it is; maintainers by project from the maintainers standard-metric family with the company as the organisation, as of today, labelled governed, the kernelci row carrying the caveat that it includes people inherited from a vendored kernel tree; a tool refused under the tester's identity reported as the gate speaking; data-notes appendix with scope, window, population and labels per slide.",
+      "files": [],
+      "assertions": [
+        "The representation slide shows two readings, the membership's contact of record from the key-contact tools (with the role as the record stores it and whether the contact is active) and the seat holder from the CNCF Governing Board roster (with the voting status as stored), each labelled as what it is, and never presents one as the other",
+        "Board seats come from the committee tools or the organisation seats tool, never inferred from tier, sponsorship or activity; each roster is read either paginated to the end and filtered client-side, or through the roster search filtered on the organisation name with one read for each spelling the company appears under and the paginated roster as the cross-check (the transcript shows which), and the seats are labelled visible to you",
+        "Maintainers by project come from the maintainers standard-metric family with the company as the organisation, as of today, labelled governed; the maintainers slide states once that MAINTAINERS-file reviewers count as maintainers, and the kernelci row carries the caveat that it includes people inherited from a vendored Linux kernel tree",
+        "An empty roster, if any, is reported as the empty read it is with what it can mean, never as 'no seats'; a tool refused under the tester's identity is reported as the gate speaking, not as no contacts, no seats or no maintainers",
+        "People are named only where the deck's audience makes that appropriate, and the answer says so; otherwise seats and contacts are given as counts by organisation",
+        "The data-notes appendix has one row per figure with a label from the closed list, the run date, and every figure in the deck appears in the appendix and in the call log",
         "Beyond the caption's grain and the data-notes appendix, the slides carry no unprompted discussion of data quality or tool differences; a further sentence appears only where the board would otherwise read a figure wrongly (a floor, a hidden grain, a material choice between two readings)",
         "The transcript shows a Skill step loading lfx-figure-checking once the reads for a section are in and before the consistency pass, and the notes name mechanisms where two readings existed"
       ]

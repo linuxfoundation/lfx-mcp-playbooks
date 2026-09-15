@@ -100,7 +100,12 @@ and the discipline that keeps a count of records honest.
   list-price value) is the memberships family, and the two are compared
   in words, never counted against each other.
 - **`get_member_membership` and the key-contact tools** hold one
-  membership's detail and its named contacts. Contacts are people:
+  membership's detail and its named contacts. The key-contact tools
+  answer "who is the contact of record for this membership": the role,
+  and whether the contact is active; a contact record's board-member
+  flag is the membership's own claim, not a seat. "Who holds the seat"
+  is the committee roster (next section); the two are different people
+  often enough that neither stands in for the other. Contacts are people:
   presented only where naming individuals is appropriate, never as a
   list to be exported.
 
@@ -114,9 +119,15 @@ and the discipline that keeps a count of records honest.
   runs to many pages.
 - **The roster is `search_committee_members`, paginated to the end.**
   Each seat carries the person, their organisation as the roster stores it
-  (name and identifier), the role, the voting status (voting, alternate,
-  none), how the seat was appointed, and its status. Only active seats are
-  seats.
+  (name and identifier), the role, the voting status and how the seat
+  was appointed, each as stored (the answer keeps the record's own
+  wording), and its status. Only active seats are seats. A company's
+  seats on one committee come from the roster search filtered on the
+  organisation's stored name, the spelling copied from a roster record;
+  a company's seats can split across spellings of its name, so it is
+  one read per spelling the company appears under, and the full roster
+  paginated and filtered on the identifier client-side is the
+  cross-check.
 - **A company's seats across the LF** come from the organisation seats
   tool: every seat the company holds, split by committee category with a
   summary by category and by project, in one call. It sits behind the
@@ -125,8 +136,16 @@ and the discipline that keeps a count of records honest.
   says so. A ranking of companies by seats is not this tool's job (the
   querying playbook's routing table).
 - **Roster facts come from here and nowhere else.** A board seat is never
-  inferred from tier, sponsorship or activity. Country is not a roster
-  field; "from N countries" about a committee is not reproducible.
+  inferred from tier, sponsorship or activity. A roster answers "who
+  holds the seat"; when the question is "who represents the company",
+  the answer says it gives the seat holder and that the membership's
+  contact of record is a different reading (the key-contact tools).
+  Country is not a roster field; "from N countries" about a committee is
+  not reproducible.
+- **Two filters narrow.** Where a search takes two scoping filters
+  (each tool's description says which), giving both returns the records
+  that match both; a second filter never widens a result, so a count
+  that grows when a filter is added was read from the wrong tool.
 
 ## Meetings — what happened, who was there
 

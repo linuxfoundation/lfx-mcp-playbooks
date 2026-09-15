@@ -109,7 +109,12 @@ governed.
 maintainers by project with the company as the organisation; LF projects
 only, as of today, roster-based. The group view (subsidiaries at any
 depth) is the family's subsidiaries switch, or ad hoc through the layer's
-top-parent dimension on maintainers, said so. Label: governed / ad hoc.
+top-parent dimension on maintainers, said so. Per-project maintainer
+counts include people the roster inherits from vendored Linux kernel
+trees on kernel-fork projects, and MAINTAINERS-file reviewers count as
+maintainers; a person maintaining two projects counts once in each. A
+per-project row on a kernel-fork project can be almost entirely the
+kernel's own roster; say so on the slide. Label: governed / ad hoc.
 
 **Share of a project's work.** Volume over the org-attributed base of the
 same metric, scope and window; the unattributed share stated once on the
@@ -140,18 +145,33 @@ never companies; platform data only. Label: governed.
 
 ## Section 4 — Governance
 
+**Who represents the company at a foundation.** Two readings, never one
+for the other. The *contact of record* is the membership's key contact:
+the person the membership record names for a role, with the role as the
+record stores it and whether the contact is active; a contact record's
+board-member flag is the membership's own claim, not a seat. The *seat
+holder* is the person on the board roster, with the voting status the
+seat carries, as the roster stores it. A company can have a voting
+contact who holds no seat, and a
+seat holder who is not the membership's contact; the slide says which
+reading it shows, and a deck that needs both shows both. Contacts and
+seats are people: shown only where naming individuals is appropriate
+for the audience. Label: visible to you.
+
 **Seats the company holds, across which boards, with what vote.** The
 committee tools: for each foundation in the company's footprint, the
-board-category committees, each roster paginated to the end, filtered on
-the company's organisation identifier, client-side; voting status and
-role from the seat record. "Visible to you"; a company's seats can split
-across spellings (D15); the organisation seats tool gives every seat
-with the board split and a per-project summary in one call, under the
+board-category committees, each roster read through the roster search
+filtered on the company's stored organisation name, one read per
+spelling the company appears under (D15); voting status and role from
+the seat record. An empty roster is checked before it is read as "no
+seats" (the `lfx-figure-checking` skill's governance-rosters entry).
+"Visible to you"; the organisation seats tool gives every seat with the
+board split and a per-project summary in one call, under the
 organisation gate. Label: visible to you.
 
-**Key contacts.** The membership records' key contacts — people, shown
-only where naming individuals is appropriate for the audience. Label:
-visible to you.
+**Key contacts.** The membership records' key contacts, the
+contact-of-record reading above — people, shown only where naming
+individuals is appropriate for the audience. Label: visible to you.
 
 ## Section 5 — In the room (meetings)
 

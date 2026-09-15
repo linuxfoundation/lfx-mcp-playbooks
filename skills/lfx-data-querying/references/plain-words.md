@@ -190,7 +190,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
 ## Maintainers
 
 - **Default family reading:** "today's roster: active maintainers (no end
-  date) on LF projects", distinct people.
+  date) on LF projects", distinct people. Per-project maintainer counts
+  include people the roster inherits from vendored Linux kernel trees on
+  kernel-fork projects, and MAINTAINERS-file reviewers count as
+  maintainers; a person maintaining two projects counts once in each.
 - **Other readings:** the whole maintainers index (includes non-LF
   projects; higher); maintainers as of a past period (the family's period
   reading); maintainers by company including subsidiaries at any depth —
@@ -201,7 +204,11 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   with a distinct contributing-maintainers count beside the volume (the
   roster as of the last activities build; the maintainers family's period
   reading uses today's roster and differs by a few people).
-- **Offer it as:** "N maintainers on LF projects as of today."
+- **Offer it as:** "N maintainers on LF projects as of today";
+  reviewers named in MAINTAINERS files count as maintainers, said once
+  where it changes the reading; a per-project figure on a kernel-fork
+  project adds "including people inherited from a vendored kernel
+  tree".
 
 ## Health, healthy projects
 
