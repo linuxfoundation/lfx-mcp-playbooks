@@ -166,8 +166,8 @@ reference, Organisations).
 The *seat holder* is the person on a seat that represents the company
 — the seats the `lfx-data-querying` skill's service-tools reference
 defines (Which seats represent the company) — with the voting status
-as the roster stores it, and no date, because a seat row from the
-committee tools carries none. The
+as the roster stores it, and no "as of" date, because a seat row from
+the committee tools carries a record stamp and no term date. The
 read is the organisation seats tool's one call under the organisation
 gate: the contacts of record beside the seats, each with its date as
 recorded, the voting-status split, and a per-project pairing of the

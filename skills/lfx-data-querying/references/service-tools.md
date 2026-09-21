@@ -177,10 +177,11 @@ and the discipline that keeps a count of records honest.
   the membership's contact of record (the key-contact tools, or the
   organisation seats tool's contacts beside the seats). When they name
   different people, both are shown side by side, never merged into one
-  name. Dates as recorded: a contact carries its updated date, a seat
-  row from the committee tools carries none, so each is cited as
-  recorded on its side, with the date where one is returned, never as
-  "current" or "currently"; and a contact flagged active is not proof
+  name. Dates as recorded: a contact carries its updated date; a seat
+  row from the committee tools carries a record stamp (when the row
+  was created or last changed) and no term date, so neither is an "as
+  of" for the seat, and each is cited as recorded on its side, never
+  as "current" or "currently"; and a contact flagged active is not proof
   the term is active (the organisations section above). Country is not
   a roster field; "from N countries" about a committee is not
   reproducible.

@@ -443,7 +443,8 @@ Symptom, cause, check and guidance section for each: the
 17. "Who represents a company" is two records side by side — the
     membership's contact of record and the holder of a seat — each
     labelled, cited as recorded on its side (the contact's updated date;
-    none on a seat), never merged and never "current"; the representing
+    a seat row's record stamp is not a term date), never merged and
+    never "current"; the representing
     seats are board seats and voting seats on any committee, never board
     seats alone ([references/service-tools.md](references/service-tools.md),
     Which seats represent the company).
