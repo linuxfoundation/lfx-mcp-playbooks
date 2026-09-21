@@ -165,8 +165,9 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   committee rosters in LFX v2; the layer's warehouse mirror is a
   distinct reading, said which (the "Rosters: committee tools vs the
   layer" mechanism); tier, event and activity data are inference.
-- **Check.** Any seat, chair or voting status came from
-  `search_committee_members`, paginated to the end, and every row is
+- **Check.** Any seat, chair or voting status came from the committee
+  tools (the roster search, the organisation seats tool or a committee
+  record), paginated to the end, and every row is
   reported as stored, never dropped on an inference about the person
   (the `lfx-data-querying` skill's service-tools reference, Committees).
 - **Second symptom.** An empty roster read as "the company holds no
