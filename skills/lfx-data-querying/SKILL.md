@@ -306,8 +306,10 @@ figure is not a governed family — ad hoc, generated SQL, visible to you,
 interim, published — because that is when it changes how far the figure
 can be trusted; "governed" is said only next to a figure that is not.
 The label is written in the sentence that carries the figure, not only
-in the block, because the reader keeps the sentence. No lane stamps a
-data refresh time today: the run date stands for freshness.
+in the block — "visible to you" on a record count; "interim, a floor
+bounded by platform onboarding" on meetings by company — because the
+reader keeps the sentence. No lane stamps a data refresh time today:
+the run date stands for freshness.
 
 ### 4.4 When the tool pushes back
 
