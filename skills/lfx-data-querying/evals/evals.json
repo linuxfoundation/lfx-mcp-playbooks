@@ -265,6 +265,7 @@
         "Where the answer gives a split figure (by role, by source, or one of the excluding-reviewers, reviewers, excluding-inherited columns), it names the split and shows it beside the total it was cut from, does not add role or source rows to a total (a person can sit in two), and presents only excluding-reviewers plus reviewers within one project as a partition; no split figure stands alone as the roster",
         "'Represents' is answered as two readings, the membership's contact of record (with the role as the record stores it and whether the contact is active) and the seat holder (with the voting status as stored), neither presented as the other, and the answer says which read gave the contacts (the organisation seats tool beside the seats, or the per-membership key-contact tools); a tool refused under the tester's identity is reported as the gate speaking, not as no contacts or no seats",
         "Each record is cited as recorded on its side: the contact with its updated date where the tool returns one, the seat with no date claimed, and neither called 'current'; when the two name different people both are shown side by side, labelled, never merged into one name",
+        "A contact's Active status is read as the contact record's, not the membership's: the contact is cited as contact of record on the term it sits on, with that term's status taken from the membership record view (through either the seats tool's contacts or the key-contact tools and the membership records, said which), and neither 'current' nor 'currently' is used of a contact or a seat",
         "The seats counted as representing the company are board seats and Voting Rep or Alternate Voting Rep seats on any committee (member-class rosters filed under Other included), never board seats alone; Observer, Emeritus or None seats, if any, are reported as seats, not as representation",
         "Carries a provenance block or equivalent with scope as applied, window/as-of date and the population/definition",
         "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
@@ -299,7 +300,81 @@
         "Reports the gaps in the tool's words — no committee indexed, no board-category committee, or a board committee with no visible member — and says a gap is flagged only where the project has active memberships",
         "Says the counts cover committees, members and memberships indexed in LFX v2 and visible to the caller ('visible to you' or equivalent) and reads whether the audit was complete, reporting the counts as floors and the lists as possibly short when it was not",
         "Says a zero can be an access effect or a roster not yet onboarded and never reports a project as having no seats from this result alone; a refusal or an all-zero result under the tester's identity is reported as the access effect it can be, with a program view needing an identity with project-level audit rights",
+        "For every project with an empty or absent roster, the first sentence about it names the case the audit gives (no committee indexed, no board-category committee, a board committee with no visible member, or not entered) and never says 'no seats' or 'no board' with the caveat underneath",
         "Does not present the audit's projects in scope as the foundation's project count (they are the projects indexed in LFX v2 and visible to the caller, not the project directory)",
+        "Carries a provenance block or equivalent with scope as applied, the run date and the population",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "stray-everyday-name-account-is-not-the-company",
+      "prompt": "How many speakers did IBM have at LF events in the last year?",
+      "expected_output": "Resolves the legal account name; when the legal name returns zero or is rejected while the everyday-name account carries speakers, reads the group reading (the legal name with subsidiaries folded) and discloses the split by account, reporting the everyday-name account as one row under its parent and never as the company; says speakers are attributed by the account the proposal resolved to; the population is accepted speakers, distinct people, for events starting in the trailing year, the window stated as dates; provenance block.",
+      "files": [],
+      "assertions": [
+        "The everyday-name account is not presented as the company: a figure read on the everyday name alone is not the headline, and the answer says that account is one stored account reported as a row under its parent",
+        "When the legal name returns zero or is rejected while the everyday-name account carries speakers, the answer reads the legal name with subsidiaries folded (the group reading) and discloses the split by account, saying which accounts carry the speakers",
+        "The answer says speakers are attributed by the account the proposal resolved to, as the reason an everyday-name account can carry real speakers",
+        "The population is accepted speakers, distinct people, for events starting in the window, with the window stated as dates and the unresolved share, if shown, reported as unattributed",
+        "Carries a provenance block or equivalent with scope as applied, window and population",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "lf-membership-lf-wide-first-then-own-programme",
+      "prompt": "Give me the complete list of organisations holding an active Linux Foundation membership with their annual dues, sorted by dues.",
+      "expected_output": "Reads 'a Linux Foundation membership' as LF-wide first (no project set) and the Linux Foundation's own membership programme second, giving both figures with their grains rather than asking which was meant; the list is memberships by organisation ordered by list-price value, said to be list price rather than dues billed and memberships (project-account pairs) rather than organisations, with the distinct-organisations reading offered; the breakdown returned in full or the cut stated; provenance block.",
+      "files": [],
+      "assertions": [
+        "The LF-wide reading (no project set) is given first and the Linux Foundation's own membership programme second, as two figures each with its grain named, and the answer does not end with a question back about which of the two was meant",
+        "The value is described as list price rather than dues billed, and the count as memberships (project-account pairs) rather than organisations, with the distinct member organisations reading offered as the alternative",
+        "The list is ordered by value and either returned in full or, where a limit cut it, said to be the top N, never 'all'",
+        "Carries a provenance block or equivalent with scope as applied, the as-of date and the population",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
+      ]
+    },
+    {
+      "id": 21,
+      "name": "company-meetings-attended-occurrences-not-attendances",
+      "prompt": "How many people from Red Hat attended LFX meetings so far in 2026, and how many meetings did they attend?",
+      "expected_output": "People from the layer's distinct-attendees reading on the attendance data sliced by the company's stored organisation spellings (listed, no subsidiary roll-up), attendances as records, and the meetings figure as distinct occurrences with an attendee from the company — the SQL assistant over the attendance data, since the occurrences metric carries no organisation — labelled; never attendances divided by people; the participants tool's record count never used as attendances; window year to date bounded at today; figures labelled interim or generated SQL and as a floor bounded by platform onboarding; provenance block.",
+      "files": [],
+      "assertions": [
+        "'How many meetings did they attend' is answered as distinct meeting occurrences with at least one attendee from the company, and not as attendances and not as attendances divided by people",
+        "People are the distinct-attendees reading and attendances are records (one person at one occurrence), each named as such, with the company's stored organisation spellings listed and no subsidiary roll-up claimed",
+        "If the participants search's record count or count-only mode is used, its count is described as index records rather than attendances or people, and attendances are taken from the layer's records or people per occurrence",
+        "The window is year to date bounded at today, stated as dates; the figures are labelled interim (or generated SQL where the assistant ran) and called a floor bounded by platform onboarding, in the sentence that carries the figure",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
+      ]
+    },
+    {
+      "id": 22,
+      "name": "meetings-this-month-series-start-vs-occurrences",
+      "prompt": "How many CNCF meetings are scheduled for this month?",
+      "expected_output": "Resolves the foundation via search_projects; a list from the meetings search is said to be keyed on the series' start date, so it is the series starting this month and not the occurrences held in it, and a recurring series that began earlier is absent; the count tool or the past-meetings search is read or offered for the occurrence reading; every count from records labelled visible to you; provenance block.",
+      "files": [],
+      "assertions": [
+        "The answer says a month's list from the meetings search is keyed on the series' start date: it lists the series starting in the month, not the occurrences held in it, so a recurring series that began earlier is absent from it",
+        "Meetings held or occurring in the month are read from the count tool or the past-meetings search, or that reading is offered by name, rather than taken from the meetings search alone",
+        "Every count made from records is labelled visible to you (or equivalent) and the scope is said to be the project as indexed in LFX v2, with subprojects included or not, said which",
+        "Carries a provenance block or equivalent with scope, window and population",
+        "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
+      ]
+    },
+    {
+      "id": 23,
+      "name": "roster-org-filter-primary-rows-as-stored",
+      "prompt": "Who from Oracle sits on the CNCF Technical Oversight Committee, and who from Oracle sits on any CNCF committee at all? Use the LFX MCP tools.",
+      "expected_output": "The company resolved to its stored legal name; the committee found by project and name; the company's seats on it read through the roster search filtered on the organisation's stored name (one read per spelling) as the primary, with the whole roster paginated and filtered client-side as the cross-check; the committee and organisation filters given together where both apply; every row reported as stored, never dropped on an inference about the person; the 'any committee' half from the organisation seats tool scoped to the foundation or the roster reads across its committees, said which; any empty roster leading with the case it gives; seats labelled visible to you; provenance block.",
+      "files": [],
+      "assertions": [
+        "The company's seats on the committee are read primarily through the roster search filtered on the organisation's stored name (copied from a roster record, one read per spelling the company appears under), and the whole roster paginated and filtered client-side is used as the cross-check rather than as the primary read",
+        "Where both the committee and the organisation filters apply, they are given together and the result is read as the records matching both; a result that grew when a filter was added is treated as a wrong read",
+        "Every roster row is reported as stored: no row is dropped or re-attributed on an inference about the person (an e-mail domain, a personal address, a title); an odd row is shown with its oddity said",
+        "The 'any CNCF committee' half comes from either the organisation seats tool scoped to the foundation or the roster reads across the foundation's committees, said which; a refusal under the tester's identity is reported as the gate speaking, not as no seats",
+        "Seats are labelled visible to you; an empty roster, if any, leads with the case it gives (not entered, no committee onboarded, absent from a populated roster), never 'no seats' with the caveat underneath",
         "Carries a provenance block or equivalent with scope as applied, the run date and the population",
         "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
