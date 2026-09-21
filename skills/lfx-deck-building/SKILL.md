@@ -1,6 +1,6 @@
 ---
 name: lfx-deck-building
-description: Produces a deck's worth of LFX figures that stay consistent with each other — conventions fixed before the first query, cross-framing checks, a data-notes appendix, a final consistency pass, and the citation rule for what LFX cannot reproduce. Use when building a board deck, a member report or any multi-figure deliverable from LFX data. Not a presentation skill: it supplies the figures, their conventions, checks and provenance to whatever workflow builds the slides.
+description: Produces a deck's worth of LFX figures that stay consistent with each other — conventions fixed before the first query, cross-framing checks, a data-notes appendix, a final consistency pass, and the citation rule for what LFX cannot reproduce. Use it whenever the ask is for a deck, a slide, a section of a deck, a briefing, a board pre-read, a member report, an executive summary or any set of figures that must agree with each other — even when only one slide or one section is asked for, and even when the word "deck" is missing: "the governance section", "the maintainers slide", "a briefing on <company>", "refresh these figures for the board". Not a presentation skill: it supplies the figures, their conventions, checks and provenance to whatever workflow builds the slides.
 ---
 <!-- Copyright The Linux Foundation and each contributor to LFX. -->
 <!-- SPDX-License-Identifier: MIT -->
@@ -172,6 +172,9 @@ Before the deck ships, re-read every figure against the deck as a whole:
   appendix, and no headline rests on one alone.
 - **Every service-tool figure says "visible to you"** and is not presented
   as an LF total.
+- **Every interim figure says interim and floor on the slide**, beside
+  the caption, because a label that sits only in the appendix has not
+  been said.
 - **The data-notes slide states** the conventions, the scope of each
   section, the run date and the unattributed share.
 - **Every check was computed**, from all the rows, and quoted exactly;

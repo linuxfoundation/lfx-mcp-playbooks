@@ -211,6 +211,10 @@ survives review:
 - Gated or private reads are marked open with the identity that could
   close them, not silently dropped.
 - Published figures are cited, not rebuilt.
+- The layer and the SQL assistant over the same warehouse table are one
+  source read twice: a cross-framing needs a second lane or a second
+  family, and "independent", "solid" or "confirmed" never describe two
+  reads of one table.
 - The verdict words are used as defined; a "both" row says what each
   reading is; an "ours" row names the trap.
 - For an answer rather than a check: nothing about data quality, tools

@@ -314,7 +314,11 @@ end); **SQL** produced on request only (every query lane returns it) — say
 it was kept only if you kept it. The **label** is written only when the
 figure is not a governed family — ad hoc, generated SQL, visible to you,
 interim, published — because that is when it changes how far the figure
-can be trusted; "governed" is said only next to a figure that is not. No
+can be trusted; "governed" is said only next to a figure that is not. The
+label sits in the sentence that carries the figure, not only in the
+block — "visible to you" on a record count, "interim" and "a floor
+bounded by platform onboarding" on meetings by company — because the
+reader keeps the sentence and not the block. No
 lane stamps a data refresh time today: the run date stands for freshness.
 
 ### 4.4 When the tool pushes back
@@ -417,6 +421,11 @@ Symptom, cause, check and guidance section for each: the
     is interpreted: the audit names the gap per project; on a
     project-scoped empty search the roster search's own note says
     whether no committee is onboarded or nothing matched the filters.
+    The answer's first sentence names the case the audit gives — the
+    committee is not entered, no committee is onboarded, or the company
+    is absent from a populated roster — never "holds no seats" with the
+    caveat underneath, because a reader keeps the first sentence and
+    drops the caveat.
 12. Meeting lists come from the meeting tools, "visible to you"; meetings
     held, scheduled minutes and people who attended over a period are the
     layer's named metrics, attendances its records — worded as such; and

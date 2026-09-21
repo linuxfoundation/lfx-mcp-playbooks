@@ -166,7 +166,9 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   distinct reading, said which (the "Rosters: committee tools vs the
   layer" mechanism); tier, event and activity data are inference.
 - **Check.** Any seat, chair or voting status came from
-  `search_committee_members`, paginated to the end.
+  `search_committee_members`, paginated to the end, and every row is
+  reported as stored, never dropped on an inference about the person
+  (the `lfx-data-querying` skill's service-tools reference, Committees).
 - **Second symptom.** An empty roster read as "the company holds no
   seats" or "the project has no board".
 - **Cause.** Rosters exist only for committees onboarded into LFX v2 and
@@ -191,7 +193,11 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   board-category committee or a board committee with no visible member;
   its note says a zero can be an access effect or a roster not yet
   onboarded, so a zero there is reported as one of those, never as "no
-  seats".
+  seats". The answer's lead sentence names that case — not entered, no
+  committee onboarded, absent from a populated roster — never "no
+  seats" with the caveat underneath, because a reader keeps the first
+  sentence and drops the caveat (the `lfx-data-querying` skill's section
+  5, governance rosters).
 - **Documented.** SL "Routing", "Worked recipes" 12; the coverage audit
   tool's description and note; the `lfx-data-querying` skill's
   service-tools reference (Committees).
@@ -297,7 +303,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   recorded (the contact's updated date; none on the seat), never
   "current"; when they name different people, both side by side, never
   merged; the representing seats chosen by that rule, never board
-  alone.
+  alone. A contact's Active status is the contact record's, not the
+  membership's: the contact is cited on the term it sits on, that
+  term's status read from the membership record view, because a voting
+  contact can sit on an earlier term of the same company.
 - **Documented.** SM "Organizations: account and parent_org" (the
   standard metrics carry no people); SL "Routing"; the organisation
   seats tool's description and notes; the `lfx-data-querying` skill's

@@ -393,7 +393,9 @@ contributor-style question, never for meetings held. The attendance data
 carries the invitee's CRM account only; the enriched employer field
 exists on the activity rows, so an attributable share reads lower on the
 attendance data than on the activity data. Meeting-type buckets include a
-literal "None" and a blank, which are two rows. Records worded
+literal "None" and a blank, which are two rows. The layer's named
+metrics and the SQL assistant read the same attendance data, so the two
+are one source read twice, never a cross-check of each other. Records worded
 "attendances"; the named metrics labelled ad hoc, a fallback by its own lane (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim). *SL* "Worked
 recipes" 12.
 

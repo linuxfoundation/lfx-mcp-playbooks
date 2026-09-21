@@ -159,6 +159,10 @@ the membership's key contact: the person the membership record names
 for a role, with the role and the status as the record stores them and
 the date the record was last updated, where one is returned; a contact
 record's board-member flag is the membership's own claim, not a seat.
+The status is the contact record's, not the membership's: a voting
+contact can sit on an earlier term of the same company, so the slide
+says "contact of record on the <status> term", the term's status read
+from the membership records.
 The *seat holder* is the person on a seat that represents the company
 — the seats the `lfx-data-querying` skill's service-tools reference
 defines (Which seats represent the company) — with the voting status
@@ -191,7 +195,8 @@ empty, the coverage audit over its foundation is read before the empty
 result is interpreted: it says per project which committees are
 indexed and which have no visible member, a zero being an access
 effect or a roster not yet onboarded (the `lfx-figure-checking` skill's
-governance-rosters entry). Every roster in this section is read from
+governance-rosters entry), and the slide's lead line states the audit's
+case, never "no seats" over a caveat. Every roster in this section is read from
 the committee tools; a figure read from the warehouse side (the
 layer's committee models, or the SQL assistant over the same warehouse
 data — a seats ranking) is a different source that can differ with

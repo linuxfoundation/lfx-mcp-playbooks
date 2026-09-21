@@ -104,7 +104,13 @@ and the discipline that keeps a count of records honest.
   answer "who is the contact of record for this membership": the role,
   whether the contact is active, and the date the contact record was
   last updated, where one is returned; a contact record's board-member
-  flag is the membership's own claim, not a seat. "Who holds the seat"
+  flag is the membership's own claim, not a seat. A contact's Active
+  status is the contact record's, not the membership's: a voting
+  contact can sit on an earlier term of the same company, and whether
+  that term is active is the membership record view's to say, so the
+  contact is reported as "contact of record on the <status> term" with
+  its updated date, the seat with no date, and neither as "current" or
+  "currently" (the plain-words reference, "Current, currently"). "Who holds the seat"
   is the committee roster (next section); the two are different people
   often enough that neither stands in for the other. The organisation
   seats tool returns the same contacts beside the seats, in one call
@@ -133,7 +139,15 @@ and the discipline that keeps a count of records honest.
   a company's seats can split across spellings of its name, so it is
   one read per spelling the company appears under, and the full roster
   paginated and filtered on the identifier client-side is the
-  cross-check.
+  cross-check. The filtered read is the primary because it is what the
+  tool's own note qualifies and what a reader can reproduce; the whole
+  roster filtered by eye is the check, never the primary, and the
+  committee and organisation filters together narrow ("Two filters
+  narrow", below). A row is reported as stored, never dropped or
+  re-attributed on an inference about the person (an e-mail domain, a
+  personal address, a title); an odd row is shown with its oddity said,
+  because the roster is the record and the reader's judgement belongs
+  to the reader.
 - **A company's seats across the LF** come from the organisation seats
   tool: every seat the company holds, split by committee category with a
   summary by category, by project, by role and by voting status, in one
@@ -165,7 +179,9 @@ and the discipline that keeps a count of records honest.
   name. Dates as recorded: a contact carries its updated date, a seat
   row from the committee tools carries none, so each is cited as
   recorded on its side, with the date where one is returned, never as
-  "current". Country is not a roster field; "from N countries" about a
+  "current" or "currently"; and a contact's Active status is the
+  contact's, not the membership's (the organisations section above).
+  Country is not a roster field; "from N countries" about a
   committee is not reproducible.
 - **Coverage audit.** The coverage audit tool (`audit_committee_coverage`)
   takes a foundation (its root project) and covers it and its direct
@@ -183,8 +199,11 @@ and the discipline that keeps a count of records honest.
   zero can be an access effect or a roster not yet onboarded and never
   to report a project as having no seats from this result alone, and a
   program view over a foundation needs an identity with project-level
-  audit rights. For a person's or a company's seats the roster tools
-  remain the read.
+  audit rights. The answer leads with the case the audit names — not
+  entered, no committee onboarded, absent from a populated roster —
+  never "no seats" with the caveat underneath, because the first
+  sentence is what the reader keeps. For a person's or a company's
+  seats the roster tools remain the read.
 - **Two filters narrow.** Where a search takes two scoping filters
   (each tool's description says which), giving both returns the records
   that match both; a second filter never widens a result, so a count

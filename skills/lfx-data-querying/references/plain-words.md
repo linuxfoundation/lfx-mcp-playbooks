@@ -214,7 +214,12 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   on today's maintainer roster of the segment", with a distinct
   contributing-maintainers count beside the volume (the roster as of the
   last activities build; the maintainers family's period reading uses
-  today's roster and differs by a few people).
+  today's roster and differs by a few people). The roster by person
+  carries the GitHub identity the contributions readings use under the
+  same word (handle), so a roster and a published maintainers file are
+  matched on that identity's login part, never on display names, and a
+  row without one is reported as unmatched — the standard-metrics
+  guidance's own words ("Reading results", "Worked calls").
 - **Offer it as:** "N maintainers on LF projects as of today; M of them
   are reviewers on at least one project and K came only with an
   inherited kernel tree or another seeded roster" — the split named,
@@ -366,6 +371,20 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   Y, most of it on the account stored as <everyday name>; the legal
   account alone carries none" — the split disclosed, the everyday-name
   account never presented as the company.
+
+## Current, currently
+
+- **Default reading:** never on a contact or a seat, because the two
+  records carry different dates or none — a contact of record carries
+  the date its record was last updated, a seat row from the committee
+  tools carries no date, and a contact's Active status is the contact
+  record's, not the membership's.
+- **Other readings:** "still in post", which neither record states;
+  "the active membership", which is the membership record view's to
+  say, not the contact's status.
+- **Offer it as:** "contact of record on the <status> term, as recorded
+  on <date>"; "holds the seat as of this read" — never "current" or
+  "currently".
 
 ## The sentence pattern
 
