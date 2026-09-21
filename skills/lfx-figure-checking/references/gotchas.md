@@ -219,7 +219,15 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   is attributed to one of them. A tool figure is cited as "visible to
   you", a layer figure as "all meetings in the warehouse", and neither
   is reconciled against the other. A people figure anywhere near the
-  attendance figure is a key error. (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim)
+  attendance figure is a key error. "How many meetings did a company's
+  people attend" is distinct occurrences with an attendee from the
+  company, read the way the `lfx-deck-building` skill's company-briefing
+  reference reads it (In the room), never attendances and never
+  attendances divided by people. A participants-tool record count, its
+  count-only mode included, counts index records, about two per
+  attendee, never attendances (the mechanism in
+  [why-figures-differ.md](why-figures-differ.md), Meetings and rosters).
+  (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim)
 - **Documented.** SL "Routing", "Worked recipes" 12.
 
 ## 13. Membership count and revenue
@@ -357,4 +365,9 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   confirmed elsewhere. SL "Scope" (project dimensions).
 - **No refresh stamp exists yet.** No lane reports when its tables were
   last loaded; the same window re-run a day apart can move slightly. Record
-  the run date with every figure and re-run rather than reconcile.
+  the run date with every figure and re-run rather than reconcile. A
+  closed window moves only by backfill — late-loaded rows,
+  re-attribution, a rebuilt roster, a rebuild that re-orders same-day
+  terms (the roll-forward residues entry in
+  [why-figures-differ.md](why-figures-differ.md)) — so a gap on a closed
+  window is named by that mechanism or left open, never "drift".

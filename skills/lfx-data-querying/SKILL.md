@@ -173,7 +173,14 @@ Decide in this order; stop at the first row that fits:
 - **Zero for a company that plainly has data is a wrong name.** An
   everyday name can match a shell account that carries almost nothing and
   passes the guard; the family then returns zero without complaint. Back
-  to the legal name.
+  to the legal name. When the legal name is rejected or returns zero
+  while an everyday-name account carries data, the reading is the legal
+  name with subsidiaries folded (the group reading) and the answer
+  discloses the split, because an everyday-name account can be a real
+  stored account — speakers and certifications attribute by the
+  proposal-side or training account — reported as one row under its
+  parent, never as the company (the `lfx-figure-checking` skill's
+  why-figures-differ reference, Events and training).
 - **Zero rows means a wrong literal until proven otherwise.** The layer
   returns zero rows, not an error, for a real dimension with a nonexistent
   value. Check spelling and scope before reporting absence — "Value
@@ -233,7 +240,10 @@ The habits the reader never sees but the figure depends on:
   many members do we have", with no project or company named, read
   LF-wide; the answer says "LF-wide" and offers the foundation cut. It
   is never a question back: the reader is waiting for the figure, and a
-  default stated as chosen costs nothing to change.
+  default stated as chosen costs nothing to change. "A Linux Foundation
+  membership" and "LF members" get the LF-wide figure first and the
+  LF's own programme second, two figures each with its grain, because
+  the reader means one of the two and a question back costs the answer.
 - **A parent total comes from the combined reading**, never from adding
   account rows: a ranking's cut hides the subsidiaries a hand-sum would
   miss, and distinct counts do not add at all. The rule is general: a
@@ -409,7 +419,10 @@ Symptom, cause, check and guidance section for each: the
     whether no committee is onboarded or nothing matched the filters.
 12. Meeting lists come from the meeting tools, "visible to you"; meetings
     held, scheduled minutes and people who attended over a period are the
-    layer's named metrics, attendances its records — worded as such.
+    layer's named metrics, attendances its records — worded as such; and
+    "how many meetings a company's people attended" is distinct
+    occurrences with an attendee from the company, never attendances and
+    never attendances divided by people.
 13. Membership count and revenue are different grains: side by side, never
     a ratio; and a membership count is not an organisation count — "how
     many members" is the organisation families (members, paying, new,

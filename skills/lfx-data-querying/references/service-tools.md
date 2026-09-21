@@ -198,6 +198,12 @@ and the discipline that keeps a count of records honest.
   identifier. The list is what the caller may see: restricted meetings of
   committees the caller is not on do not appear, so a count of meetings or
   a sum of hours is "visible to you".
+- **Meetings in a month from the meetings search** (`search_meetings`)
+  are series and upcoming meetings listed by the series' start date, so
+  "meetings in <month>" read from it is the series starting in the
+  month, not the occurrences held in it, and a weekly series that
+  started earlier is absent: say so, and read meetings held from the
+  past-meetings search or the count tool.
 - **Participants of one occurrence** (`search_past_meeting_participants`)
   say who was invited and who attended, with a free-text organisation
   name and two flags saying whether that organisation is a member of the
@@ -216,7 +222,12 @@ and the discipline that keeps a count of records honest.
   people by identity. Two populations hide in the committee filter: with
   a date range it resolves the committee's past meetings and returns
   everyone at them; without one it returns the participant records that
-  carry the committee — say which ran. A project's or a committee's own
+  carry the committee — say which ran. Its record count and its
+  count-only mode count index records, not people: an invitee-side and
+  a join-side record for one person at one occurrence, so a record count
+  reads about twice the attendances; attendance counts come from the
+  people count per occurrence or the layer's attendees metric, never
+  from records. A project's or a committee's own
   meeting count over a period is the count tool, "visible to you"; the
   total over the warehouse is the layer's. They are two readings, never
   adjusted toward each other; the gap is explained by the

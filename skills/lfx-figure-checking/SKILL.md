@@ -61,7 +61,10 @@ Most differences are decided here, not in the tools.
 
 1. **Read the stated figure's claim** in the terms above. If the slide or
    the transcript does not say, infer the likeliest reading and say that
-   it was inferred.
+   it was inferred. When a check is asked for and no figure is given,
+   the fresh read and the candidate mechanisms come first and the
+   request for the figure after, because a turn that ends with an
+   intake form and no read has checked nothing.
 2. **Take the fresh read from the matching place**, through the querying
    playbook: the governed family where one covers it, the layer for a
    slice, the record tools for a caller-visible count, the SQL assistant
@@ -83,7 +86,9 @@ Most differences are decided here, not in the tools.
      or a read as of the same date), or agrees once the movement of the
      window between the two reads is shown (the same read at the stated
      figure's date, or the period since it accounted for); a small
-     difference is never assumed to be drift;
+     difference is never assumed to be drift, and on a closed window
+     a gap moves only by backfill, so it is named by that mechanism or
+     left open (the gotchas reference, "No refresh stamp exists yet");
    - **open** — not checkable under this identity (a gated tool, a
      private scope); say what identity could check it;
    - **unverifiable** — a published figure with no LFX population behind
@@ -133,7 +138,9 @@ them names it as the cause.
 ## 4. When the check runs, and when it speaks
 
 The check runs on three occasions. When a check is asked for: a figure
-handed over, a comparison, a deck before it goes out. When the agent has
+handed over, a comparison, a deck before it goes out — and a check asked
+for without a figure still starts with the read (section 2, step 1),
+not with a request for the figure. When the agent has
 a doubt: a figure that looks wrong for its scope, two reads that
 disagree, a cross-frame that fails, a total that is too round, a people
 figure near an attendance figure, an answer that came out too easily.
@@ -180,6 +187,9 @@ survives review:
   re-run each row.
 - **Drift is stated once**, at the top: the stated figure's date and the
   fresh read's date, and the note that a live figure moves between them.
+  A closed window moves only by backfill, so a gap on one is named by
+  its mechanism or left open, never "drift" (section 2, the "same"
+  verdict).
 - **Nothing is averaged or reconciled to a third number.** Where the
   slide must choose, the check says the two choices and which the
   playbooks recommend for a headline: the governed reading, the warehouse

@@ -285,8 +285,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
 - **Other readings:** the umbrella's own slug — its own membership
   programme and its own activity bucket, not the LF as a whole; the LF as
   a legal entity.
-- **Offer it as:** "across the LF as a whole" / "the Linux Foundation's own
-  membership programme only".
+- **Offer it as:** "across the LF as a whole, N; the Linux Foundation's
+  own membership programme alone, M" — both figures, the LF-wide one
+  first, each with its grain, never a question back about which was
+  meant.
 
 ## Top contributors
 
@@ -359,7 +361,11 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   (combined), or broken down (separate).
 - **Offer it as:** "the IBM account alone; including Red Hat and the
   other subsidiaries the figure is Y — say which view you want on every
-  slide."
+  slide." When the legal name reads zero and an everyday-name account
+  carries the data: "on the group reading of <legal name> the figure is
+  Y, most of it on the account stored as <everyday name>; the legal
+  account alone carries none" — the split disclosed, the everyday-name
+  account never presented as the company.
 
 ## The sentence pattern
 

@@ -305,7 +305,13 @@ not an error. *SM* "Inventory" (maintainer_contributions, maintainers).
 
 **Accepted speakers vs all proposals.** The family counts accepted
 speakers, distinct people; an ad hoc count over every proposal status
-reads higher. *SM* "Inventory" (speakers); *SL* "Routing".
+reads higher. By organisation, the speaker's account is the one the
+proposal resolved to, so a company's speakers can sit on an
+everyday-name account that carries data of its own and passes the
+guard while the legal name reads zero: that account is one row under
+its parent, read with the group reading and the split disclosed,
+never presented as the company. *SM* "Inventory" (speakers); *SL*
+"Routing".
 
 **Registrations vs registrants vs checked-in.** Registrations are records;
 registrants are distinct people by email; checked-in attendance exists
@@ -323,8 +329,12 @@ row is separate from the parent's). *SM* "Inventory" (event_sponsorships).
 **Platform training vs the published trained figure.** The training and
 certification families cover the platform's own history and one branch
 carries no account; lifetime headlines are published figures, cited as
-such. By-account readings ad hoc keep zero rows the family omits. *SM*
-"Inventory" (training_enrollments, certifications); *SL* "Routing".
+such. By-account readings ad hoc keep zero rows the family omits. The
+account is the training platform's own, so the same everyday-name
+account that carries a company's speakers can carry its enrollments
+and certifications while the legal name reads zero — the group
+reading, with the split said, as for speakers. *SM* "Inventory"
+(training_enrollments, certifications); *SL* "Routing".
 
 ## Health and value
 
@@ -367,7 +377,14 @@ reading that carries the organisation, the committee and the meeting
 type. Invitees are a larger population than those who attended, and the
 attendance rate is attendances over invitations on the same slice —
 walk-ins can push it above one. An occurrence shared by several projects
-is attributed to one of them. The layer has no per-caller visibility;
+is attributed to one of them. Attendances divided by people is
+attendances per person, not meetings: a company's meetings are the
+distinct occurrences with an attendee from it, read over the attendance
+data, because the occurrences metric carries no organisation. The
+participants tool's records are index records — an invitee-side and a
+join-side record for one person at one occurrence — so a record count
+reads about twice the attendances and is neither attendances nor
+people. The layer has no per-caller visibility;
 the meeting tools have — cite which. The attendance data is the census; the attended-meeting rows of the activity
 data are the subset that reached the contributor platform, keyed on
 meeting series and person, so their "meetings" are series-person pairs
