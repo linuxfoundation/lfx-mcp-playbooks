@@ -104,22 +104,22 @@ and the discipline that keeps a count of records honest.
   answer "who is the contact of record for this membership": the role,
   whether the contact is active, and the date the contact record was
   last updated, where one is returned; a contact record's board-member
-  flag is the membership's own claim, not a seat. A contact's Active
-  status is the contact record's, not the membership's: a voting
-  contact can sit on an earlier term of the same company, and whether
-  that term is active is the membership record view's to say, so the
+  flag is the membership's own claim, not a seat. A contact flagged
+  active is not proof the term is active: the flag is the contact
+  record's, the term's status is the membership records'. A voting
+  contact can sit on an earlier term of the same company, so the
   contact is reported as "contact of record on the <status> term" with
-  its updated date, the seat with no date, and neither as "current" or
-  "currently" (the plain-words reference, "Current, currently"). "Who holds the seat"
-  is the committee roster (next section); the two are different people
-  often enough that neither stands in for the other. The organisation
-  seats tool returns the same contacts beside the seats, in one call
-  under the organisation gate, paired per project with the seats that
-  represent the company (next section); when no key contact is indexed
-  for the company in scope its note says so, and the per-membership
-  key-contact tool is the fallback. Contacts are people: presented only
-  where naming individuals is appropriate, never as a list to be
-  exported.
+  its updated date, the seat with no date, and neither as "current" nor
+  "currently" (the plain-words reference, "Current, currently"). "Who
+  holds the seat" is the committee roster (next section); the two are
+  different people often enough that neither stands in for the other.
+  The organisation seats tool returns the same contacts beside the
+  seats, in one call under the organisation gate, paired per project
+  with the seats that represent the company (next section); when no key
+  contact is indexed for the company in scope its note says so, and the
+  per-membership key-contact tool is the fallback. Contacts are people:
+  presented only where naming individuals is appropriate, never as a
+  list to be exported.
 
 ## Committees — rosters, seats, voting status
 
@@ -139,15 +139,16 @@ and the discipline that keeps a count of records honest.
   a company's seats can split across spellings of its name, so it is
   one read per spelling the company appears under, and the full roster
   paginated and filtered on the identifier client-side is the
-  cross-check. The filtered read is the primary because it is what the
-  tool's own note qualifies and what a reader can reproduce; the whole
-  roster filtered by eye is the check, never the primary, and the
-  committee and organisation filters together narrow ("Two filters
-  narrow", below). A row is reported as stored, never dropped or
-  re-attributed on an inference about the person (an e-mail domain, a
-  personal address, a title); an odd row is shown with its oddity said,
-  because the roster is the record and the reader's judgement belongs
-  to the reader.
+  cross-check. The filtered read is the primary because the search's
+  roster-coverage note speaks to it (on an empty result it says whether
+  nothing matched the filters) and because one filtered call is what a
+  reader can re-run; the whole roster paginated and filtered client-side
+  is the check, never the primary, and the committee and organisation
+  filters together narrow ("Two filters narrow", below). A row is
+  reported as stored, never dropped or re-attributed on an inference
+  about the person (an e-mail domain, a personal address, a title); an
+  odd row is shown with its oddity said, because the roster is the
+  record and the reader's judgement belongs to the reader.
 - **A company's seats across the LF** come from the organisation seats
   tool: every seat the company holds, split by committee category with a
   summary by category, by project, by role and by voting status, in one
@@ -179,10 +180,10 @@ and the discipline that keeps a count of records honest.
   name. Dates as recorded: a contact carries its updated date, a seat
   row from the committee tools carries none, so each is cited as
   recorded on its side, with the date where one is returned, never as
-  "current" or "currently"; and a contact's Active status is the
-  contact's, not the membership's (the organisations section above).
-  Country is not a roster field; "from N countries" about a
-  committee is not reproducible.
+  "current" or "currently"; and a contact flagged active is not proof
+  the term is active (the organisations section above). Country is not
+  a roster field; "from N countries" about a committee is not
+  reproducible.
 - **Coverage audit.** The coverage audit tool (`audit_committee_coverage`)
   takes a foundation (its root project) and covers it and its direct
   child projects, over the
@@ -199,11 +200,10 @@ and the discipline that keeps a count of records honest.
   zero can be an access effect or a roster not yet onboarded and never
   to report a project as having no seats from this result alone, and a
   program view over a foundation needs an identity with project-level
-  audit rights. The answer leads with the case the audit names — not
-  entered, no committee onboarded, absent from a populated roster —
-  never "no seats" with the caveat underneath, because the first
-  sentence is what the reader keeps. For a person's or a company's
-  seats the roster tools remain the read.
+  audit rights. The answer's first sentence names the case the audit
+  found, never "no seats" over a caveat (the querying playbook's
+  section 5, item 11). For a person's or a company's seats the roster
+  tools remain the read.
 - **Two filters narrow.** Where a search takes two scoping filters
   (each tool's description says which), giving both returns the records
   that match both; a second filter never widens a result, so a count
@@ -220,9 +220,12 @@ and the discipline that keeps a count of records honest.
 - **Meetings in a month from the meetings search** (`search_meetings`)
   are series and upcoming meetings listed by the series' start date, so
   "meetings in <month>" read from it is the series starting in the
-  month, not the occurrences held in it, and a weekly series that
-  started earlier is absent: say so, and read meetings held from the
-  past-meetings search or the count tool.
+  month, not the occurrences in it, and a weekly series that started
+  earlier is absent: say so. "Scheduled this month" needs each series'
+  own occurrences in the month, cancellations dropped, from the meeting
+  records; "held this month" is the past-meetings search or the count
+  tool over past meetings. The answer says which grain it counted,
+  series or occurrences.
 - **Participants of one occurrence** (`search_past_meeting_participants`)
   say who was invited and who attended, with a free-text organisation
   name and two flags saying whether that organisation is a member of the
@@ -237,17 +240,18 @@ and the discipline that keeps a count of records honest.
   discussed"; they are not attendance data.
 - **People at a committee's or a meeting's past meetings over a period**
   come from the participants search with its date range, attended-only
-  switch, exact organisation name and count-only mode; it de-duplicates
-  people by identity. Two populations hide in the committee filter: with
-  a date range it resolves the committee's past meetings and returns
-  everyone at them; without one it returns the participant records that
-  carry the committee — say which ran. Its record count and its
-  count-only mode count index records, not people: an invitee-side and
-  a join-side record for one person at one occurrence, so a record count
-  reads about twice the attendances; attendance counts come from the
-  people count per occurrence or the layer's attendees metric, never
-  from records. A project's or a committee's own
-  meeting count over a period is the count tool, "visible to you"; the
+  switch, exact organisation name and count-only mode. The listing
+  de-duplicates people by identity; its record count and its count-only
+  mode do not — they count index records (the tool's own words: records,
+  not distinct people), and more than one record can exist for one
+  person at one occurrence, so a record count is neither attendances
+  nor people: attendances are the layer's attendance records, people
+  its attendees metric, one occurrence's attendees from the people
+  count. Two populations hide in the committee filter: with a date range
+  it resolves the committee's past meetings and returns everyone at
+  them; without one it returns the participant records that carry the
+  committee — say which ran. A project's or a committee's own meeting
+  count over a period is the count tool, "visible to you"; the
   total over the warehouse is the layer's. They are two readings, never
   adjusted toward each other; the gap is explained by the
   `lfx-figure-checking` skill's index-versus-warehouse entry.

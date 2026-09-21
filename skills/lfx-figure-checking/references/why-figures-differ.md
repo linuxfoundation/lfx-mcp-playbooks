@@ -309,7 +309,7 @@ reads higher. By organisation, the speaker's account is the one the
 proposal resolved to, so a company's speakers can sit on an
 everyday-name account that carries data of its own and passes the
 guard while the legal name reads zero: that account is one row under
-its parent, read with the group reading and the split disclosed,
+its parent, read with the combined reading and the split disclosed,
 never presented as the company. *SM* "Inventory" (speakers); *SL*
 "Routing".
 
@@ -330,11 +330,11 @@ row is separate from the parent's). *SM* "Inventory" (event_sponsorships).
 certification families cover the platform's own history and one branch
 carries no account; lifetime headlines are published figures, cited as
 such. By-account readings ad hoc keep zero rows the family omits. The
-account is the training platform's own, so the same everyday-name
-account that carries a company's speakers can carry its enrollments
-and certifications while the legal name reads zero — the group
-reading, with the split said, as for speakers. *SM* "Inventory"
-(training_enrollments, certifications); *SL* "Routing".
+account is the training branch's own, so a company's enrollments and
+certifications can likewise sit on an everyday-name account while the
+legal name reads zero — the combined reading, with the split said, as
+for speakers. *SM* "Inventory" (training_enrollments, certifications);
+*SL* "Routing".
 
 ## Health and value
 
@@ -381,10 +381,9 @@ is attributed to one of them. Attendances divided by people is
 attendances per person, not meetings: a company's meetings are the
 distinct occurrences with an attendee from it, read over the attendance
 data, because the occurrences metric carries no organisation. The
-participants tool's records are index records — an invitee-side and a
-join-side record for one person at one occurrence — so a record count
-reads about twice the attendances and is neither attendances nor
-people. The layer has no per-caller visibility;
+participants tool's records are index records — more than one record
+can exist for one person at one occurrence — so a record count is
+neither attendances nor people. The layer has no per-caller visibility;
 the meeting tools have — cite which. The attendance data is the census; the attended-meeting rows of the activity
 data are the subset that reached the contributor platform, keyed on
 meeting series and person, so their "meetings" are series-person pairs
@@ -393,10 +392,12 @@ contributor-style question, never for meetings held. The attendance data
 carries the invitee's CRM account only; the enriched employer field
 exists on the activity rows, so an attributable share reads lower on the
 attendance data than on the activity data. Meeting-type buckets include a
-literal "None" and a blank, which are two rows. The layer's named
-metrics and the SQL assistant read the same attendance data, so the two
-are one source read twice, never a cross-check of each other. Records worded
-"attendances"; the named metrics labelled ad hoc, a fallback by its own lane (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim). *SL* "Worked
+literal "None" and a blank, which are two rows. The layer's meeting
+metrics and the SQL assistant read the same warehouse meeting tables —
+occurrences and attendance — so a layer figure and an assistant figure
+over them are one source read twice, never a cross-check of each other
+(the `lfx-deck-building` skill's section 2, Cross-framing checks).
+Records worded "attendances"; the named metrics labelled ad hoc, a fallback by its own lane (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim). *SL* "Worked
 recipes" 12.
 
 **Potential impressions vs potential audience.** The reach family sums

@@ -86,9 +86,12 @@ Most differences are decided here, not in the tools.
      or a read as of the same date), or agrees once the movement of the
      window between the two reads is shown (the same read at the stated
      figure's date, or the period since it accounted for); a small
-     difference is never assumed to be drift, and on a closed window
-     a gap moves only by backfill, so it is named by that mechanism or
-     left open (the gotchas reference, "No refresh stamp exists yet");
+     difference is never assumed to be drift; a closed window has no
+     moving edge, so a gap between two reads of it is either a different
+     read (scope, key, default — compare the echoed lines; verdict ours)
+     or a change in the records between the reads (backfill: late-loaded
+     rows, re-attribution, a rebuilt roster, a rebuild that re-orders
+     same-day terms), named as such with both read dates; never "drift";
    - **open** — not checkable under this identity (a gated tool, a
      private scope); say what identity could check it;
    - **unverifiable** — a published figure with no LFX population behind
@@ -187,8 +190,8 @@ survives review:
   re-run each row.
 - **Drift is stated once**, at the top: the stated figure's date and the
   fresh read's date, and the note that a live figure moves between them.
-  A closed window moves only by backfill, so a gap on one is named by
-  its mechanism or left open, never "drift" (section 2, the "same"
+  A closed window has no drift to state: a gap on one is a different
+  read or a change in the records, named as such (section 2, the "same"
   verdict).
 - **Nothing is averaged or reconciled to a third number.** Where the
   slide must choose, the check says the two choices and which the
@@ -211,10 +214,11 @@ survives review:
 - Gated or private reads are marked open with the identity that could
   close them, not silently dropped.
 - Published figures are cited, not rebuilt.
-- The layer and the SQL assistant over the same warehouse table are one
-  source read twice: a cross-framing needs a second lane or a second
-  family, and "independent", "solid" or "confirmed" never describe two
-  reads of one table.
+- The semantic layer and the SQL assistant read the same warehouse
+  tables, so a figure read from both is one source read twice, never a
+  cross-frame and never "independent", "solid" or "confirmed" against
+  each other (the `lfx-deck-building` skill's section 2, Cross-framing
+  checks).
 - The verdict words are used as defined; a "both" row says what each
   reading is; an "ours" row names the trap.
 - For an answer rather than a check: nothing about data quality, tools

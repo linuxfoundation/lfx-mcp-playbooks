@@ -66,8 +66,7 @@
       "assertions": [
         "Takes a fresh read of new member organisations LF-wide for calendar 2025 through the standard metrics family as a fixed window (not a trailing one) and reads the window and the applied defaults back from the tool output",
         "Gives the verdict 'same' for the exact match on a completed fixed window, and does not label it 'ours', 'both' or 'open'",
-        "Says that had the two figures differed on a completed window, the difference is not drift: it needs a mechanism (a re-keyed read, a changed default, a late-arriving or re-dated record) or the read is redone, and 'same' is not given until the difference is explained",
-        "The 'had they differed' answer says a closed window moves only by backfill (late-loaded rows, re-attribution, a rebuilt roster, a rebuild that re-orders same-day terms) and does not claim a closed window 'should not drift' or cannot change; a gap on it is named by mechanism or left open",
+        "Says that had the two figures differed on a completed window it is not drift: either a different read (a re-keyed read, a changed default, a changed scope) or a change in the records between the reads (late-loaded rows, re-attribution, a rebuilt roster, a rebuild that re-orders same-day terms), named with both read dates; does not claim a closed window cannot change, and 'same' is not given until the difference is explained",
         "Writes a one-row check with the stated figure as quoted by the report, the fresh read, the mechanism, the verdict and provenance a verifier could re-run",
         "Does not pad the check with caveats unrelated to this figure; the membership arrivals definition is stated once only where it bears on the read"
       ],

@@ -1,6 +1,6 @@
 ---
 name: lfx-deck-building
-description: Produces a deck's worth of LFX figures that stay consistent with each other — conventions fixed before the first query, cross-framing checks, a data-notes appendix, a final consistency pass, and the citation rule for what LFX cannot reproduce. Use it whenever the ask is for a deck, a slide, a section of a deck, a briefing, a board pre-read, a member report, an executive summary or any set of figures that must agree with each other — even when only one slide or one section is asked for, and even when the word "deck" is missing: "the governance section", "the maintainers slide", "a briefing on <company>", "refresh these figures for the board". Not a presentation skill: it supplies the figures, their conventions, checks and provenance to whatever workflow builds the slides.
+description: Produces a deck's worth of LFX figures that stay consistent with each other — conventions fixed before the first query, cross-framing checks, a data-notes appendix, a final consistency pass, and the citation rule for what LFX cannot reproduce. Use it whenever the ask is for a deck, a slide, a section of a deck, a briefing, a board pre-read, a member report, an executive summary — even when only one slide or one section is asked for, and even when the word "deck" is missing: "the governance section", "the maintainers slide", "a briefing on <company>", "refresh these figures for the board". Not a presentation skill: it supplies the figures, their conventions, checks and provenance to whatever workflow builds the slides.
 ---
 <!-- Copyright The Linux Foundation and each contributor to LFX. -->
 <!-- SPDX-License-Identifier: MIT -->
@@ -16,8 +16,10 @@ single foundation without saying so. This playbook is the discipline that
 keeps a deck's figures consistent with each other.
 
 Prerequisite: the `lfx-data-querying` playbook — the lanes, the routing,
-the discovery rules and the provenance block. Every figure on every slide
-is produced that way. This playbook adds what a deck needs on top.
+the discovery rules and the provenance block. Load it alongside this one
+if the session has not: this playbook can be chosen on its own, and every
+figure on every slide is produced that way. This playbook adds what a
+deck needs on top.
 
 The slides themselves are not its business. How a deck is written,
 designed or produced belongs to the reader's own tools and skills; this
@@ -121,7 +123,11 @@ several times, not as noise. Use whichever applies:
   layer or the SQL assistant that a standard metric also covers is read
   from the standard metric too; the governed figure wins, and the
   difference is explained by its mechanism (the `lfx-figure-checking`
-  skill's why-figures-differ reference) or the figure is dropped.
+  skill's why-figures-differ reference) or the figure is dropped. The
+  semantic layer and the SQL assistant read the same warehouse tables,
+  so a figure read from both is one source read twice — a cross-framing
+  is a second family, a second scope level or a different population,
+  never the assistant repeating the layer.
 
 A figure checked only against itself does not go on a slide. Once the
 reads for a section are in, load the `lfx-figure-checking` skill if
