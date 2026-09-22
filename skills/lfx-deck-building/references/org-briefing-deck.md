@@ -159,11 +159,15 @@ the membership's key contact: the person the membership record names
 for a role, with the role and the status as the record stores them and
 the date the record was last updated, where one is returned; a contact
 record's board-member flag is the membership's own claim, not a seat.
+A contact flagged active is not proof the term is active, so the slide
+says "contact of record on the <status> term", the term's status from
+the membership records (the `lfx-data-querying` skill's service-tools
+reference, Organisations).
 The *seat holder* is the person on a seat that represents the company
 — the seats the `lfx-data-querying` skill's service-tools reference
 defines (Which seats represent the company) — with the voting status
-as the roster stores it, and no date, because a seat row from the
-committee tools carries none. The
+as the roster stores it, and no "as of" date, because a seat row from
+the committee tools carries a record stamp and no term date. The
 read is the organisation seats tool's one call under the organisation
 gate: the contacts of record beside the seats, each with its date as
 recorded, the voting-status split, and a per-project pairing of the
@@ -191,11 +195,13 @@ empty, the coverage audit over its foundation is read before the empty
 result is interpreted: it says per project which committees are
 indexed and which have no visible member, a zero being an access
 effect or a roster not yet onboarded (the `lfx-figure-checking` skill's
-governance-rosters entry). Every roster in this section is read from
-the committee tools; a figure read from the warehouse side (the
-layer's committee models, or the SQL assistant over the same warehouse
-data — a seats ranking) is a different source that can differ with
-neither wrong, and the notes say which was read (the
+governance-rosters entry), and the slide's lead line names which case
+the audit found, never "no seats" over a caveat (the
+`lfx-data-querying` skill's section 5, item 11). Every roster in this
+section is read from the committee tools; a figure read from the
+warehouse side (the layer's committee models, or the SQL assistant over
+the same warehouse data — a seats ranking) is a different source that
+can differ with neither wrong, and the notes say which was read (the
 `lfx-figure-checking` skill's "Rosters: committee tools vs the layer"
 entry). Label: visible to you.
 

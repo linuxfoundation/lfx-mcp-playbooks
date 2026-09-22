@@ -35,12 +35,9 @@ compiled SQL for anyone who asks how a figure was made. Guidance:
 warehouse, for a grouping, filter or slice the families do not offer (a
 consortium, a meeting type, a direct-children list, a dimension a family
 has no switch for). Explore discovers names and stored values; query runs
-them. On organisations the account entity carries both a one-hop roll-up
-(the direct parent) and the top-parent and path dimensions (the whole
-group, any depth); on projects a foundation dimension reaches the
-foundation completely, a node below it one level down, and the project
-path dimensions the subtree. Answers are labelled ad hoc. Guidance:
-"Protocol", "Scope".
+them; how far its organisation and project dimensions reach (one hop,
+the whole group, the subtree) is the guidance's "Scope" (Reach). Answers
+are labelled ad hoc. Guidance: "Protocol", "Scope".
 
 **SQL assistant** — `query_lfx_lens`. Generated SQL over the warehouse, for
 cross-domain joins and hierarchy shapes no standard metric expresses.
@@ -89,6 +86,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | Which meetings a project or committee held, who was invited, who attended, what was discussed | meeting tools | occurrence records with participants and summaries | visible to you |
 | How many meetings were held, how many scheduled minutes, how many people attended, over a period, LF-wide or by foundation, project or period | semantic layer | named meeting metrics; the meeting tools list, they do not aggregate (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim) | ad hoc; generated SQL when the fallback ran |
 | Attendances over a period, by company, committee or meeting type | semantic layer, attendance recipe | records, one person at one occurrence; the only reading that carries the organisation | interim |
+| How many meetings a company's people attended over a period | semantic layer, over the attendance data | distinct occurrences with an attendee from the company, because the occurrences metric carries no organisation; never attendances, never attendances divided by people (the `lfx-deck-building` skill's org-briefing reference, Section 5) | interim |
 | A mailing list and its subscriber count | mailing-list tools | list-service records | visible to you |
 | A role check or assignment, an email | Discord and email tools | actions, on an explicit ask, confirmed first | — |
 
@@ -137,13 +135,12 @@ Decide in this order; stop at the first row that fits:
   search is empty and the family accepts the name first time, the parent
   is still unknown: a by-organisation reading of that name with the
   separate switch returns the parent beside each row — read it before
-  saying the account stands alone. A
-  membership record confirms a spelling; it is not the resolver. A
-  project the search cannot find is not absent from the data: the search
-  reads the LFX v2 index, which lags the project directory the metrics
-  read, so a standard-metric rejection's candidate slugs and the layer's
-  project values are the census — take the slug from there and say which
-  surface named it.
+  saying the account stands alone. A membership record confirms a
+  spelling; it is not the resolver. A project the search cannot find is
+  not absent from the data: the search reads the LFX v2 index, which
+  lags the project directory the metrics read, so a standard-metric
+  rejection's candidate slugs and the layer's project values are the
+  census — take the slug from there and say which surface named it.
 - **The Linux Foundation as a whole is no project at all.** `search_projects`
   returns a slug for the foundation's own name, and that slug is one bucket
   of hosted projects, never the umbrella; an LF-wide question leaves the
@@ -151,29 +148,32 @@ Decide in this order; stop at the first row that fits:
   figures several times over with no error — "The contract" in the
   standard-metrics guidance, "Scope" in the semantic-layer guidance.
 - **Two axes, and they differ: the project tree and the membership
-  programme.** On the tree, the umbrella foundation is the root: the major
-  foundations (CNCF, PyTorch Foundation, OpenSSF, LF Networking, LF AI &
-  Data, LF Decentralized Trust, LF Edge, LF Energy, CDF, OpenInfra, Open
-  Mainframe, ASWF, FINOS, GraphQL Foundation and their peers) are its
-  children, and product projects (Kubernetes, Envoy, Prometheus,
-  Hyperledger Fabric, Besu, ONAP, EdgeX, Zowe and the rest) sit under their
-  foundation — confirmed with `search_projects` and `get_project`, never
-  from memory. On memberships, a foundation's slug is that foundation's
-  own membership programme, one slug: a child foundation's memberships
-  carry the child's slug and are neither included in nor "excluded" from
-  the parent's reading; there is no subtree scope on memberships, and
-  LF-wide is no project filter. So the prose never says "CNCF is not part
-  of the LF" (wrong on the tree) and never says "memberships in projects
-  under the LF" or attaches a child-project count to a membership figure
-  (wrong on the membership axis). Which axis a figure sits on is said in
-  the reader's words. Every scope axis — project, switches, organisation,
-  time, population, geography, ranking, the assistant's scope line — has a
-  row in [references/axes.md](references/axes.md): what it selects, what
-  it does not, and the sentence never to write.
+  programme.** On the tree, the umbrella foundation is the root, the
+  foundations (CNCF, OpenSSF, LF AI & Data and their peers) are its
+  children, and product projects (Kubernetes, ONAP, Zowe and the rest)
+  sit under their foundation — confirmed with `search_projects` and
+  `get_project`, never from memory. On memberships, a foundation's slug
+  is that foundation's own membership programme, one slug: a child
+  foundation's memberships carry the child's slug and are neither
+  included in nor "excluded" from the parent's reading; there is no
+  subtree scope on memberships, and LF-wide is no project filter. So the
+  prose never says "CNCF is not part of the LF" (wrong on the tree) and
+  never says "memberships in projects under the LF" or attaches a
+  child-project count to a membership figure (wrong on the membership
+  axis). Which axis a figure sits on is said in the reader's words. Every
+  scope axis — project, switches, organisation, time, population,
+  geography, ranking, the assistant's scope line — has a row in
+  [references/axes.md](references/axes.md): what it selects, what it
+  does not, and the sentence never to write.
 - **Zero for a company that plainly has data is a wrong name.** An
   everyday name can match a shell account that carries almost nothing and
   passes the guard; the family then returns zero without complaint. Back
-  to the legal name.
+  to the legal name. A candidate that carries nothing is not a choice; a
+  candidate that carries data under an everyday name is a real stored
+  account — read the legal name with subsidiaries folded (the combined
+  reading) and disclose the split, never that account as the company
+  (the `lfx-figure-checking` skill's why-figures-differ reference, Events
+  and training).
 - **Zero rows means a wrong literal until proven otherwise.** The layer
   returns zero rows, not an error, for a real dimension with a nonexistent
   value. Check spelling and scope before reporting absence — "Value
@@ -193,13 +193,12 @@ gotchas and, for any second reading, its mechanism catalogue. It is the
 step most answers skip and the one that catches a wrong key, a wrong
 scope or an unbounded window before the reader does. Run it deliberately
 whenever something looks wrong: a figure out of scale for its scope, two
-reads that disagree, a cross-frame that fails, an answer that came too
-easily. The check changes the answer and leaves no trace in it beyond
-the basis clause and the provenance block; it adds a sentence only when
-the reader would otherwise read the figure wrongly (a grain the word
-hides, a floor taken for a census, a choice between two readings that
-differ materially). No routine talk of data issues: the reader came for
-the number, and a right number with its basis is what earns trust.
+reads that disagree, an answer that came too easily. The check changes
+the answer and leaves no trace in it beyond the basis clause and the
+provenance block; it adds a sentence only when the reader would
+otherwise read the figure wrongly (a grain the word hides, a floor taken
+for a census, a choice between two readings that differ materially). No
+routine talk of data issues: the reader came for the number.
 
 ### 4.1 The reader's words
 
@@ -233,7 +232,11 @@ The habits the reader never sees but the figure depends on:
   many members do we have", with no project or company named, read
   LF-wide; the answer says "LF-wide" and offers the foundation cut. It
   is never a question back: the reader is waiting for the figure, and a
-  default stated as chosen costs nothing to change.
+  default stated as chosen costs nothing to change. A question naming
+  the Linux Foundation as the membership without naming a foundation
+  gets two figures, each with its scope named, LF-wide first, because
+  the name is also one programme's; "the LF itself" or "the LF's own
+  programme" gets that one, with the LF-wide offered in a sentence.
 - **A parent total comes from the combined reading**, never from adding
   account rows: a ranking's cut hides the subsidiaries a hand-sum would
   miss, and distinct counts do not add at all. The rule is general: a
@@ -250,13 +253,12 @@ The habits the reader never sees but the figure depends on:
   narrower alternative, a different population, named as such, never the
   silent default.
 - **A ranking asks for a few more rows than the top-N, and asks for its
-  order.** On the standard metrics the unattributed row sorts last, but a
-  placeholder or a duplicated stored name can still sit in the top rows;
-  on an ad hoc layer query NULL rows sort first on a descending metric, so
-  a call for exactly N rows returns N-1 organisations and costs a second
-  call — the extra rows are free. Rows with no order asked are a set, not
-  a rank: their order can change between runs. A plain breakdown is asked
-  without a limit; when one is set, the cut is stated.
+  order.** The unattributed row sorts last on the standard metrics and
+  first on an ad hoc layer query, and a placeholder or a duplicated
+  stored name can sit in the top rows, so exactly N rows returns fewer
+  organisations — the extra rows are free. Rows with no order asked are
+  a set, not a rank: their order can change between runs. A plain
+  breakdown is asked without a limit; when one is set, the cut is stated.
 - **The view is named, and so is the parent.** When the resolved account
   has a parent the record shows it, and the answer says so; every company
   figure says which view it is — the account alone, which is the tool's
@@ -265,17 +267,15 @@ The habits the reader never sees but the figure depends on:
 - **The basis travels with the figure.** The `applied` block carries
   three sentences the reader cannot do without, and a paraphrase that
   drops their qualifier changes the figure: **scope** (what the name
-  resolved to — "two accounts stored under it, each taken alone", the
-  tree or the bucket, subsidiaries folded or not); **definition** (the
-  population, and its kind: an as-of reading on a past date is date-based
-  and reads a few percent above the status-based current count; a people
-  ranking is one row per identity, so a person seen under two spellings
-  is two rows; event figures follow the event's start date); **note**
-  (the basis, such as the account's billing country). Each is repeated
-  once, in the reader's words with the qualifier kept, next to the figure
-  it qualifies. Two readings of one family side by side — a past as-of
-  figure and today's — carry their kinds in the row, or they read as one
-  series and are not.
+  resolved to — the tree or the bucket, subsidiaries folded or not);
+  **definition** (the population and its kind: a past as-of reading is
+  date-based and reads above the status-based current count; a people
+  ranking is one row per identity; event figures follow the event's
+  start date); **note** (the basis, such as the account's billing
+  country). Each is repeated once, in the reader's words with the
+  qualifier kept, next to the figure it qualifies. Two readings of one
+  family side by side — a past as-of figure and today's — carry their
+  kinds in the row, or they read as one series and are not.
 - **A check is a computed figure.** A sum that checks a breakdown
   against its total is computed from every row, quoted exactly, and its
   outcome named: it reconciles, or the difference and its mechanism.
@@ -304,8 +304,12 @@ end); **SQL** produced on request only (every query lane returns it) — say
 it was kept only if you kept it. The **label** is written only when the
 figure is not a governed family — ad hoc, generated SQL, visible to you,
 interim, published — because that is when it changes how far the figure
-can be trusted; "governed" is said only next to a figure that is not. No
-lane stamps a data refresh time today: the run date stands for freshness.
+can be trusted; "governed" is said only next to a figure that is not.
+The label is written in the sentence that carries the figure, not only
+in the block — "visible to you" on a record count; "interim, a floor
+bounded by platform onboarding" on meetings by company — because the
+reader keeps the sentence. No lane stamps a data refresh time today:
+the run date stands for freshness.
 
 ### 4.4 When the tool pushes back
 
@@ -316,10 +320,10 @@ lane stamps a data refresh time today: the run date stands for freshness.
   Never present a candidate as the asker's choice; never retry the everyday
   name.
 - **An organisation is rejected** (no account carrying the family's data
-  matches): pick
-  the parent legal name among the candidates or go back to
-  `search_b2b_orgs`. A candidate that itself carries nothing is not a
-  choice. Never sum stray same-company accounts into a parent.
+  matches): pick the parent legal name among the candidates or go back
+  to `search_b2b_orgs`. A candidate that itself carries nothing is not a
+  choice (section 3). Never sum stray same-company accounts into a
+  parent by hand: the folded reading is the tool's.
 - **An empty result**: say what it means — a wrong literal, an attachment
   level (memberships attach at foundation level, so a leaf project's own
   are legitimately empty), or genuine absence — and which you verified.
@@ -337,17 +341,14 @@ discovery failure, not a disagreement between sources; "sources differ"
 never goes in an answer. Where the applied block and a guidance sentence
 disagree on a definition, the applied block ran.
 
-Load that skill as a matter of course once the reads are in and before
-the answer is written, if this session has not loaded it yet: it holds
-the mechanism catalogue and the traps that return a plausible wrong
-number, and the figures just read are checked against them the way a
-second reader would. Load it earlier whenever the question is itself a
-check — "is this figure right", "why does the deck say X and the tool
+Load that skill once the reads are in and before the answer is
+written, if this session has not: it holds the traps that return a
+plausible wrong number. Load it earlier whenever the question is itself
+a check — "is this figure right", "why does the deck say X and the tool
 Y", "verify these numbers", a comparison against a report or an earlier
 run — and whenever a cross-framing read comes back further from the
-first figure than scope or drift explains. The cost is one skill load;
-the answer that skipped it is the one that quotes a plausible wrong
-number with confidence. This playbook takes the fresh reads it asks for.
+first figure than scope or drift explains. This playbook takes the fresh
+reads it asks for.
 
 The sentence that compares two figures carries the caveat that qualifies
 the comparison: two subjects (an account's billing country against a
@@ -398,18 +399,23 @@ Symptom, cause, check and guidance section for each: the
     membership and organisation families read the whole consortium in one
     call by default and list its members in the applied block; excluded
     reads the named project alone; other families never merge one.
-11. Governance rosters come from the committee tools, never inferred; an
-    empty roster is reported as the empty read it is, with what it can
-    mean (no committee onboarded, none visible to the reader, no
-    members entered, or, on a filtered search, no record under that
-    spelling), never as "no seats". When a roster comes back empty, the
-    coverage audit over its foundation is read before the empty result
-    is interpreted: the audit names the gap per project; on a
-    project-scoped empty search the roster search's own note says
-    whether no committee is onboarded or nothing matched the filters.
+11. Governance rosters come from the committee tools, never inferred.
+    When a roster comes back empty, the coverage audit over its
+    foundation is read before the empty result is interpreted: the audit
+    names the gap per project, and on a project-scoped empty search the
+    roster search's own note says whether no committee is onboarded or
+    nothing matched the filters. "Holds no seats" is said only after a
+    populated roster was read and the company was not on it; an empty
+    roster or an audit gap (no committee onboarded, no board-category
+    committee, a board with no visible member) is never "no seats", and
+    the answer's first sentence names which of these it found, because
+    the reader keeps the first sentence and drops a caveat beneath it.
 12. Meeting lists come from the meeting tools, "visible to you"; meetings
     held, scheduled minutes and people who attended over a period are the
-    layer's named metrics, attendances its records — worded as such.
+    layer's named metrics, attendances its records, and the meetings a
+    company's people attended distinct occurrences with an attendee from
+    it (the routing table) — worded as such, never attendances divided
+    by people.
 13. Membership count and revenue are different grains: side by side, never
     a ratio; and a membership count is not an organisation count — "how
     many members" is the organisation families (members, paying, new,
@@ -436,14 +442,12 @@ Symptom, cause, check and guidance section for each: the
     [references/plain-words.md](references/plain-words.md), Maintainers.
 17. "Who represents a company" is two records side by side — the
     membership's contact of record and the holder of a seat — each
-    labelled, never merged into one name, and never "current": a
-    contact carries its updated date and a seat row from the committee
-    tools carries none, so each is cited as recorded on its side, with
-    the date where one is returned. The seats that represent a company
-    are board seats and voting seats (Voting Rep or Alternate Voting
-    Rep) on any committee, the member-class rosters filed under Other
-    included, never board seats alone; Observer, Emeritus and None seats
-    are seats, read from the rows, not representation.
+    labelled, cited as recorded on its side (the contact's updated date;
+    a seat row's record stamp is not a term date), never merged and
+    never "current"; the representing
+    seats are board seats and voting seats on any committee, never board
+    seats alone ([references/service-tools.md](references/service-tools.md),
+    Which seats represent the company).
 18. A roster read from the committee tools and one read from the layer
     or the SQL assistant can differ with neither wrong; the answer says
     which was read (the `lfx-figure-checking` skill's "Rosters:

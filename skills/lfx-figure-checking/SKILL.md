@@ -61,7 +61,10 @@ Most differences are decided here, not in the tools.
 
 1. **Read the stated figure's claim** in the terms above. If the slide or
    the transcript does not say, infer the likeliest reading and say that
-   it was inferred.
+   it was inferred. When a check is asked for and no figure is given,
+   the fresh read and the candidate mechanisms come first and the
+   request for the figure after, because a turn that ends with an
+   intake form and no read has checked nothing.
 2. **Take the fresh read from the matching place**, through the querying
    playbook: the governed family where one covers it, the layer for a
    slice, the record tools for a caller-visible count, the SQL assistant
@@ -83,7 +86,12 @@ Most differences are decided here, not in the tools.
      or a read as of the same date), or agrees once the movement of the
      window between the two reads is shown (the same read at the stated
      figure's date, or the period since it accounted for); a small
-     difference is never assumed to be drift;
+     difference is never assumed to be drift; a closed window has no
+     moving edge, so a gap between two reads of it is either a different
+     read (scope, key, default — compare the echoed lines; verdict ours)
+     or a change in the records between the reads (backfill: late-loaded
+     rows, re-attribution, a rebuilt roster, a rebuild that re-orders
+     same-day terms), named as such with both read dates; never "drift";
    - **open** — not checkable under this identity (a gated tool, a
      private scope); say what identity could check it;
    - **unverifiable** — a published figure with no LFX population behind
@@ -133,7 +141,9 @@ them names it as the cause.
 ## 4. When the check runs, and when it speaks
 
 The check runs on three occasions. When a check is asked for: a figure
-handed over, a comparison, a deck before it goes out. When the agent has
+handed over, a comparison, a deck before it goes out — and a check asked
+for without a figure still starts with the read (section 2, step 1),
+not with a request for the figure. When the agent has
 a doubt: a figure that looks wrong for its scope, two reads that
 disagree, a cross-frame that fails, a total that is too round, a people
 figure near an attendance figure, an answer that came out too easily.
@@ -180,6 +190,9 @@ survives review:
   re-run each row.
 - **Drift is stated once**, at the top: the stated figure's date and the
   fresh read's date, and the note that a live figure moves between them.
+  A closed window has no drift to state: a gap on one is a different
+  read or a change in the records, named as such (section 2, the "same"
+  verdict).
 - **Nothing is averaged or reconciled to a third number.** Where the
   slide must choose, the check says the two choices and which the
   playbooks recommend for a headline: the governed reading, the warehouse
@@ -201,6 +214,11 @@ survives review:
 - Gated or private reads are marked open with the identity that could
   close them, not silently dropped.
 - Published figures are cited, not rebuilt.
+- The semantic layer and the SQL assistant read the same warehouse
+  tables, so a figure read from both is one source read twice, never a
+  cross-frame and never "independent", "solid" or "confirmed" against
+  each other (the `lfx-deck-building` skill's section 2, Cross-framing
+  checks).
 - The verdict words are used as defined; a "both" row says what each
   reading is; an "ours" row names the trap.
 - For an answer rather than a check: nothing about data quality, tools

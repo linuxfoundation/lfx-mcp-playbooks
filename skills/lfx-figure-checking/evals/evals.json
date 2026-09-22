@@ -66,11 +66,25 @@
       "assertions": [
         "Takes a fresh read of new member organisations LF-wide for calendar 2025 through the standard metrics family as a fixed window (not a trailing one) and reads the window and the applied defaults back from the tool output",
         "Gives the verdict 'same' for the exact match on a completed fixed window, and does not label it 'ours', 'both' or 'open'",
-        "Says that had the two figures differed on a completed window, the difference is not drift: it needs a mechanism (a re-keyed read, a changed default, a late-arriving or re-dated record) or the read is redone, and 'same' is not given until the difference is explained",
+        "Says that had the two figures differed on a completed window it is not drift: either a different read (a re-keyed read, a changed default, a changed scope) or a change in the records between the reads (late-loaded rows, re-attribution, a rebuilt roster, a rebuild that re-orders same-day terms), named with both read dates; does not claim a closed window cannot change, and 'same' is not given until the difference is explained",
         "Writes a one-row check with the stated figure as quoted by the report, the fresh read, the mechanism, the verdict and provenance a verifier could re-run",
         "Does not pad the check with caveats unrelated to this figure; the membership arrivals definition is stated once only where it bears on the read"
       ],
       "files": []
+    },
+    {
+      "id": 5,
+      "name": "check-asked-without-figures-reads-first",
+      "prompt": "Our August deck says the LF hosted many more meetings between September 2025 and August 2026 than the number I get today from the meetings metric, and it gives a much higher hours figure. Which should we quote and why do they differ?",
+      "expected_output": "Takes the fresh reads first — meeting occurrences and scheduled minutes from the semantic layer's named meeting metrics over the stated window, LF-wide with no project set — and names the candidate mechanisms (a meeting count keyed on series-person pairs from the activity data versus distinct occurrences on the attendance data; hours as attendances times an average versus scheduled duration summed once per occurrence) before asking for the deck's figures; the turn never ends with an intake form and no read; recommends the layer's reading and says why; writes the check table with the stated-figure column left for the owner, the fresh read, the mechanism, the verdict and provenance.",
+      "files": [],
+      "assertions": [
+        "The transcript shows fresh reads of meeting occurrences and scheduled minutes through the semantic layer's named meeting metrics over the stated window with no project set, taken before any request for the deck's figures",
+        "The answer names the candidate mechanisms for each difference (series-person pairs on the activity data versus distinct occurrences; attendances times an average versus scheduled duration summed once per occurrence) before or alongside any request for the stated figures",
+        "The turn does not end with only a form or a question asking for the deck's figures; a request for them, if made, comes after the fresh reads and the mechanisms",
+        "Recommends the layer's reading to quote and says why, with hours said to be scheduled duration rather than time spent; never 'sources differ' and never an average of the two",
+        "Delivers a check table with the stated-figure column left for the owner to fill, the fresh read, the mechanism and the verdict, plus provenance a verifier could re-run"
+      ]
     }
   ]
 }

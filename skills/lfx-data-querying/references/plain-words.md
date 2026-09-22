@@ -214,7 +214,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   on today's maintainer roster of the segment", with a distinct
   contributing-maintainers count beside the volume (the roster as of the
   last activities build; the maintainers family's period reading uses
-  today's roster and differs by a few people).
+  today's roster and differs by a few people). A roster matched against
+  a published maintainers file is matched on the GitHub identity, never
+  on display names (the `lfx-figure-checking` skill's gotchas reference,
+  Maintainer rosters).
 - **Offer it as:** "N maintainers on LF projects as of today; M of them
   are reviewers on at least one project and K came only with an
   inherited kernel tree or another seeded roster" — the split named,
@@ -285,8 +288,13 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
 - **Other readings:** the umbrella's own slug — its own membership
   programme and its own activity bucket, not the LF as a whole; the LF as
   a legal entity.
-- **Offer it as:** "across the LF as a whole" / "the Linux Foundation's own
-  membership programme only".
+- **Offer it as:** "across the LF as a whole, N; the Linux Foundation's
+  own membership programme alone, M" — both figures, the LF-wide one
+  first, each with its scope named, when the question names the Linux
+  Foundation as the membership without naming a foundation, because the
+  name is also one programme's name; a question that says "the LF
+  itself" or "the LF's own programme" gets that one, with the LF-wide
+  offered in a sentence; never a question back about which was meant.
 
 ## Top contributors
 
@@ -359,7 +367,27 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   (combined), or broken down (separate).
 - **Offer it as:** "the IBM account alone; including Red Hat and the
   other subsidiaries the figure is Y — say which view you want on every
-  slide."
+  slide." When the legal name reads zero and an everyday-name account
+  carries the data: "on the combined reading of <legal name> the figure is
+  Y, most of it on the account stored as <everyday name>; the legal
+  account alone carries none" — the split disclosed, the everyday-name
+  account never presented as the company.
+
+## Current, currently
+
+- **Default reading:** never on a contact or a seat, because the two
+  records carry different dates or none — a contact of record carries
+  the date its record was last updated, a seat row from the committee
+  tools carries no date, and a contact flagged active is not proof the
+  term is active: the flag is the contact record's, the term's status
+  is the membership records' (the service-tools reference,
+  Organisations).
+- **Other readings:** "still in post", which neither record states;
+  "the active membership", which is the membership records' to say, not
+  the contact's flag.
+- **Offer it as:** "contact of record on the <status> term, record last
+  updated <date>"; "holds the seat as of this read" — never "current" or
+  "currently".
 
 ## The sentence pattern
 

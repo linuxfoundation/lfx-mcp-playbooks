@@ -165,8 +165,11 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   committee rosters in LFX v2; the layer's warehouse mirror is a
   distinct reading, said which (the "Rosters: committee tools vs the
   layer" mechanism); tier, event and activity data are inference.
-- **Check.** Any seat, chair or voting status came from
-  `search_committee_members`, paginated to the end.
+- **Check.** Any seat, chair or voting status came from the committee
+  tools (the roster search, the organisation seats tool or a committee
+  record), paginated to the end, and every row is
+  reported as stored, never dropped on an inference about the person
+  (the `lfx-data-querying` skill's service-tools reference, Committees).
 - **Second symptom.** An empty roster read as "the company holds no
   seats" or "the project has no board".
 - **Cause.** Rosters exist only for committees onboarded into LFX v2 and
@@ -191,7 +194,9 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   board-category committee or a board committee with no visible member;
   its note says a zero can be an access effect or a roster not yet
   onboarded, so a zero there is reported as one of those, never as "no
-  seats".
+  seats". The answer's first sentence names which of these it found,
+  and "holds no seats" is said only of a populated roster the company
+  was not on (the `lfx-data-querying` skill's section 5, item 11).
 - **Documented.** SL "Routing", "Worked recipes" 12; the coverage audit
   tool's description and note; the `lfx-data-querying` skill's
   service-tools reference (Committees).
@@ -219,7 +224,16 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   is attributed to one of them. A tool figure is cited as "visible to
   you", a layer figure as "all meetings in the warehouse", and neither
   is reconciled against the other. A people figure anywhere near the
-  attendance figure is a key error. (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim)
+  attendance figure is a key error. "How many meetings did a company's
+  people attend" is distinct occurrences with an attendee from the
+  company (the `lfx-data-querying` skill's routing table; the
+  `lfx-deck-building` skill's org-briefing reference, Section 5), never
+  attendances and never attendances divided by people. A
+  participants-tool record count, its count-only mode included, counts
+  index records — more than one can exist for one person at one
+  occurrence — so it is neither attendances nor people (the mechanism in
+  [why-figures-differ.md](why-figures-differ.md), Meetings and rosters).
+  (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim)
 - **Documented.** SL "Routing", "Worked recipes" 12.
 
 ## 13. Membership count and revenue
@@ -270,7 +284,13 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   and the excluding-inherited column beside that project's total says
   how much of the row came only with an inherited kernel tree or
   another seeded roster, never which of the two. A split shown
-  without its total is the symptom. The mechanism is in
+  without its total is the symptom. A roster matched against a
+  published maintainers file is matched on the GitHub identity the
+  contributions readings return under the same word — its login part,
+  case-insensitively, in the form the standard-metrics guidance
+  describes ("Reading results", "Worked calls") — never on display
+  names; a roster row with no such identity is reported as unmatched
+  under its display name, never as a match. The mechanism is in
   [why-figures-differ.md](why-figures-differ.md) (Maintainers).
 - **Documented.** SM "Inventory" (maintainers); SL "Worked recipes" 11.
 
@@ -289,7 +309,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   recorded (the contact's updated date; none on the seat), never
   "current"; when they name different people, both side by side, never
   merged; the representing seats chosen by that rule, never board
-  alone.
+  alone; and a contact flagged active is not proof the term is active —
+  the contact is cited on the term it sits on, the term's status from
+  the membership records (the `lfx-data-querying` skill's service-tools
+  reference, Organisations).
 - **Documented.** SM "Organizations: account and parent_org" (the
   standard metrics carry no people); SL "Routing"; the organisation
   seats tool's description and notes; the `lfx-data-querying` skill's
@@ -357,4 +380,9 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   confirmed elsewhere. SL "Scope" (project dimensions).
 - **No refresh stamp exists yet.** No lane reports when its tables were
   last loaded; the same window re-run a day apart can move slightly. Record
-  the run date with every figure and re-run rather than reconcile.
+  the run date with every figure and re-run rather than reconcile. A
+  closed window has no moving edge: a gap between two reads of it is a
+  different read or a change in the records between the reads, named as
+  such with both read dates, never "drift" (the playbook's section 2,
+  the "same" verdict; the backfill mechanisms are the roll-forward
+  residues entry in [why-figures-differ.md](why-figures-differ.md)).
