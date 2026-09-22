@@ -228,7 +228,7 @@ they give the story of one meeting, not the company figure; the
 participants search with an exact organisation name, a date range and
 count-only gives the company's index records at one committee's or one
 meeting's past meetings, "visible to you" — records, not people, since
-one person can hold more than one at one occurrence; people are the
+one person can hold more than one record at one occurrence; people are the
 listing's de-duplicated result or the layer's attendees metric
 `[not yet in production: TOOLS-2 org meeting KPIs — until then: the
 interim recipe for attendances, the SQL assistant for occurrences and
