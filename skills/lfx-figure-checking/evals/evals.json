@@ -76,14 +76,31 @@
       "id": 5,
       "name": "check-asked-without-figures-reads-first",
       "prompt": "Our August deck says the LF hosted many more meetings between September 2025 and August 2026 than the number I get today from the meetings metric, and it gives a much higher hours figure. Which should we quote and why do they differ?",
-      "expected_output": "Takes the fresh reads first — meeting occurrences and scheduled minutes from the semantic layer's named meeting metrics over the stated window, LF-wide with no project set — and names the candidate mechanisms (a meeting count keyed on series-person pairs from the activity data versus distinct occurrences on the attendance data; hours as attendances times an average versus scheduled duration summed once per occurrence) before asking for the deck's figures; the turn never ends with an intake form and no read; recommends the layer's reading and says why; writes the check table with the stated-figure column left for the owner, the fresh read, the mechanism, the verdict and provenance.",
+      "expected_output": "Takes the fresh reads first — meeting occurrences and scheduled minutes from the semantic layer's named meeting metrics over the stated window, LF-wide with no project set — and names the candidate mechanisms (a meeting count keyed on series-person pairs from the activity data versus distinct occurrences on the attendance data; hours as attendances times an average versus scheduled duration summed once per occurrence) before asking for the deck's figures; the turn never ends with an intake form and no read; recommends the layer's reading and says why; writes the check table with the stated-figure column left for the owner, the fresh read, the mechanism, the verdict cell left empty while the stated figure is missing and provenance.",
       "files": [],
       "assertions": [
         "The transcript shows fresh reads of meeting occurrences and scheduled minutes through the semantic layer's named meeting metrics over the stated window with no project set, taken before any request for the deck's figures",
         "The answer names the candidate mechanisms for each difference (series-person pairs on the activity data versus distinct occurrences; attendances times an average versus scheduled duration summed once per occurrence) before or alongside any request for the stated figures",
         "The turn does not end with only a form or a question asking for the deck's figures; a request for them, if made, comes after the fresh reads and the mechanisms",
         "Recommends the layer's reading to quote and says why, with hours said to be scheduled duration rather than time spent; never 'sources differ' and never an average of the two",
-        "Delivers a check table with the stated-figure column left for the owner to fill, the fresh read, the mechanism and the verdict, plus provenance a verifier could re-run"
+        "Delivers a check table with the stated-figure column left for the owner to fill, the fresh read and the mechanism per row, and the verdict cell left empty rather than guessed while the stated figure is missing, plus provenance a verifier could re-run"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "maintainers-published-list-matched-on-login",
+      "prompt": "The file evals/fixtures/maintainers-list.txt is the MAINTAINERS list our project page publishes for Kubernetes: three GitHub logins and one entry that is a display name only. Check it against the LFX maintainer roster for Kubernetes over the last twelve months: who from the file is an active maintainer in LFX, who in the file has no LFX match, and who on the LFX roster is missing from the file?",
+      "expected_output": "The maintainers family read by maintainer with the handle column for the project over the stated window; each file login compared with the login part of the roster handles, case-insensitively, the comparison rule said; the display-name-only entry reported as unmatched because no login was given, never matched on the name; roster rows with no handle reported as unmatched under their display name; the three lists (matched, in the file with no match, on the roster and not in the file) given separately, with the window, the maintainers definition applied and a provenance block; nothing from the file summed into a figure. The fixture's logins are placeholders, so the matched list is expected to be empty and said to be.",
+      "files": [
+        "fixtures/maintainers-list.txt"
+      ],
+      "assertions": [
+        "The read is the maintainers family by maintainer with the handle column for the project, over the twelve-month window stated as dates, and the applied definition (the split between maintainers, inherited maintainers and reviewers where the tool reports it) is named",
+        "Each file login is compared with the login part of the roster handle case-insensitively, and the answer says the comparison is on the login, not the display name; the capitalised file entry is treated as the same login as its lower-case form",
+        "The display-name-only file entry is reported as having no login to compare and is not matched on the name, even where a roster row carries a similar display name",
+        "Roster rows whose handle is empty are reported as unmatched under their display name, never as matches and never dropped silently",
+        "The answer gives three separate lists (matched, in the file without a match, on the roster and not in the file), says the matched list is empty when it is, and does not add file entries and roster rows into one figure",
+        "The transcript shows a Skill step loading lfx-data-querying for the read (or it was loaded earlier in the session), and the answer ends with a provenance block naming the family, project, window and definition"
       ]
     }
   ]

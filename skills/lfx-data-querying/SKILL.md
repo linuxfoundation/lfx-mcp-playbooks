@@ -86,7 +86,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | Which meetings a project or committee held, who was invited, who attended, what was discussed | meeting tools | occurrence records with participants and summaries | visible to you |
 | How many meetings were held, how many scheduled minutes, how many people attended, over a period, LF-wide or by foundation, project or period | semantic layer | named meeting metrics; the meeting tools list, they do not aggregate (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim) | ad hoc; generated SQL when the fallback ran |
 | Attendances over a period, by company, committee or meeting type | semantic layer, attendance recipe | records, one person at one occurrence; the only reading that carries the organisation | interim |
-| How many meetings a company's people attended over a period | semantic layer, over the attendance data | distinct occurrences with an attendee from the company, because the occurrences metric carries no organisation; never attendances, never attendances divided by people (the `lfx-deck-building` skill's org-briefing reference, Section 5) | interim |
+| How many meetings a company's people attended over a period | SQL assistant, over the attendance data, because the occurrences metric carries no organisation | distinct occurrences with an attendee from the company; never attendances, never attendances divided by people; a layer read taken beside it is the check, not the figure (the `lfx-deck-building` skill's org-briefing reference, Section 5) | generated SQL, interim |
 | A mailing list and its subscriber count | mailing-list tools | list-service records | visible to you |
 | A role check or assignment, an email | Discord and email tools | actions, on an explicit ask, confirmed first | — |
 
@@ -413,9 +413,9 @@ Symptom, cause, check and guidance section for each: the
 12. Meeting lists come from the meeting tools, "visible to you"; meetings
     held, scheduled minutes and people who attended over a period are the
     layer's named metrics, attendances its records, and the meetings a
-    company's people attended distinct occurrences with an attendee from
-    it (the routing table) — worded as such, never attendances divided
-    by people.
+    company's people attended are distinct occurrences with an attendee
+    from it (the routing table) — worded as such, never attendances
+    divided by people.
 13. Membership count and revenue are different grains: side by side, never
     a ratio; and a membership count is not an organisation count — "how
     many members" is the organisation families (members, paying, new,
