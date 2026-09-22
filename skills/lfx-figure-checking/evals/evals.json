@@ -85,6 +85,21 @@
         "Recommends the layer's reading to quote and says why, with hours said to be scheduled duration rather than time spent; never 'sources differ' and never an average of the two",
         "Delivers a check table with the stated-figure column left for the owner to fill, the fresh read, the mechanism and the verdict, plus provenance a verifier could re-run"
       ]
+    },
+    {
+      "id": 6,
+      "name": "maintainers-published-list-matched-on-login",
+      "prompt": "Our project page reproduces the Kubernetes MAINTAINERS file as a list of GitHub logins: the same three logins the LFX roster shows for its three most active maintainers over the last twelve months, one of them written with capital letters, plus a fourth entry that gives only a person's display name and no login. Check that list against the LFX maintainer roster for the same window: who from the file is an active maintainer in LFX, who in the file has no LFX match, and who on the LFX roster is missing from the file?",
+      "expected_output": "The maintainers family read by maintainer with the handle column over the stated window; each file login matched on the login part of the handle, case-insensitively (so the capitalised entry still matches); the display-name-only entry reported as unmatched because no login was given, never matched on the name; roster rows with no handle reported as unmatched under their display name; the three lists (matched, in the file with no match, on the roster and not in the file) given separately with the window, the maintainers definition applied and a provenance block; nothing from the file summed into a figure.",
+      "files": [],
+      "assertions": [
+        "The read is the maintainers family by maintainer with the handle column, over the twelve-month window stated as dates, and the applied definition (the split between maintainers, inherited maintainers and reviewers where the tool reports it) is named",
+        "Each file login is matched on the login part of the roster handle case-insensitively: the capitalised entry is matched to its lower-case handle, and the answer says the match is on the login, not the display name",
+        "The display-name-only entry is reported as having no login to match and is not matched on the name, even where a roster row carries the same display name",
+        "Roster rows whose handle is empty are reported as unmatched under their display name, never as matches and never dropped silently",
+        "The answer gives three separate lists (matched, in the file without a match, on the roster and not in the file) and does not add file entries and roster rows into one figure",
+        "The transcript shows a Skill step loading lfx-data-querying for the read (or it was loaded earlier in the session), and the answer ends with a provenance block naming the family, window and definition"
+      ]
     }
   ]
 }

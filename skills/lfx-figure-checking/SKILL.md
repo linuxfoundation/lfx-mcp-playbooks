@@ -64,7 +64,11 @@ Most differences are decided here, not in the tools.
    it was inferred. When a check is asked for and no figure is given,
    the fresh read and the candidate mechanisms come first and the
    request for the figure after, because a turn that ends with an
-   intake form and no read has checked nothing.
+   intake form and no read has checked nothing. The check is delivered
+   either way: the fresh read, the candidate mechanisms and the verdict
+   filled, the stated-figure cell left empty for the owner to fill,
+   never guessed, so the owner pins the figure to a row rather than
+   restarting the check.
 2. **Take the fresh read from the matching place**, through the querying
    playbook: the governed family where one covers it, the layer for a
    slice, the record tools for a caller-visible count, the SQL assistant
@@ -181,7 +185,8 @@ Tool names, field names and SQL stay in the provenance. The shape that
 survives review:
 
 - **One row per figure**, in a table: the figure as stated (with its
-  label), the fresh read, the mechanism in a sentence, the verdict word.
+  label; empty when the owner has not supplied it), the fresh read, the
+  mechanism in a sentence, the verdict word.
   Group rows by domain; put "ours" rows before "both" rows so the reader
   sees what must change before what must be declared.
 - **Every fresh read carries its provenance** exactly as the querying

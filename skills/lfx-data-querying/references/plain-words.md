@@ -386,8 +386,9 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   "the active membership", which is the membership records' to say, not
   the contact's flag.
 - **Offer it as:** "contact of record on the <status> term, record last
-  updated <date>"; "holds the seat as of this read" — never "current" or
-  "currently".
+  updated <date>"; "on the seat as the roster records it at this read
+  (record stamp <date>, no term date)" — never "current" or "currently",
+  and never the read date or the stamp as a tenure date.
 
 ## The sentence pattern
 
