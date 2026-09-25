@@ -124,7 +124,7 @@
         "The transcript shows a Skill step loading lfx-deck-building for this section-of-a-deck ask, not the querying skill alone, and lfx-data-querying is loaded alongside it (before or after) rather than never",
         "The contact is cited as contact of record on the term it sits on, with that term's status read from the membership records (not from the seats tool, whichever read gave the contact) and the contact's updated date where returned; the seat carries a recorded role or voting term only where returned, empty placeholders mean no term date recorded, organisation-seats rows carry no date, and record stamps are never seat dates; neither is called 'current', 'currently' or 'member since'",
         "If the organisation-seats tool refuses, says the refusal is the gate, never no seats, and attempts membership search and key-contact tools for contacts and roster search or count tool for seats, each visible to you; an empty side is a visibility limit and is never inferred from the other",
-        "A count uses the count tool with completeness read; rows are paged to the end only to read them, not merely to count seats",
+        "A granted organisation-seats summary is accepted for its organisation scope; without the grant, the count-tool fallback reads completeness and keeps its caller-visible label, never substitutes that population for the organisation-granted total; rows are paged only to read them",
         "Observer, Emeritus or None seats, where present, are shown as seats with their status as stored and are not counted as representing the company",
         "Every seat and contact figure says visible to you in the sentence that carries it, not only in the data-notes rows, and the data-notes rows carry a label from the closed list with the run date",
         "The transcript shows a Skill step loading lfx-figure-checking once the reads for a section are in and before the consistency pass, and the notes name mechanisms where two readings existed"
@@ -133,7 +133,7 @@
     {
       "id": 7,
       "name": "company-meetings-briefing-staff-and-community",
-      "prompt": "Prepare the meeting section of a company briefing: how many meetings did the company's people attend at the foundation in the first half of this year, how many people was that, and how many hours did those meetings run? I also need a version for a community reader who has only meeting and count tools.",
+      "prompt": "Prepare the meeting section of a Google briefing: how many meetings did Google's people attend at CNCF in the first half of this year, how many people was that, and how many hours did those meetings run? I also need a version for a community reader who has only meeting and count tools.",
       "expected_output": "For staff, people come from the account-aware layer metrics labelled ad hoc; distinct meetings attended and their scheduled minutes use generated SQL because there is no named company-occurrence metric. For community readers, offers scoped participant listings in the stored-name vocabulary, visible to you, never a warehouse or company-wide total. Captions and data-note rows preserve grains, windows, floors and source labels.",
       "files": [],
       "assertions": [
@@ -142,7 +142,7 @@
         "The community version reads all raw attended participant rows per project or committee with observed exact case-sensitive organisation spelling, one spelling a call and no subsidiary roll-up, and counts distinct attended occurrences; people come from the de-duplicated listing",
         "Count-only participant records and the listing's meetings-expanded count are not used as meetings attended, people or attendances; distinct occurrence-and-person pairs are the caller-visible attendance grain",
         "Every community figure says visible to you on the slide; the answer says an LF-wide or company-wide period total is unavailable without staff tools and never reconciles a visible subset with a warehouse total",
-        "The data notes have matching labels and concrete dates for each figure; no interim meeting label or obsolete organisation-meeting tool marker remains"
+        "The final consistency pass and data notes retain lane-specific labels: company-meeting figures from the SQL assistant say generated SQL, those derived from scoped participant records say visible to you, never generated SQL; concrete dates match and no interim label or obsolete organisation-meeting tool marker remains"
       ]
     }
   ]

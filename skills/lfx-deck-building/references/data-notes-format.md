@@ -72,8 +72,10 @@ Every row says what the figure does and does not cover. At minimum:
 - **"Generated SQL"** on every SQL-assistant figure, with the scope line
   the tool returned (LF-wide, or the slugs) repeated in the cell.
 - **"Attendances"** on attendance figures (one person at one occurrence),
-  "people" on unique attendees; named layer metrics are ad hoc, distinct
-  meetings by company and those meetings' scheduled minutes are generated SQL.
+  "people" on unique attendees. Named layer metrics are ad hoc; company
+  meetings and their scheduled minutes produced by the SQL assistant are
+  generated SQL; figures derived from scoped participant records are
+  visible to you, never generated SQL.
 - **Distinct count** where the figure is people or organisations: "distinct;
   rows of the breakdown do not sum to it".
 - **Partial period** where the last period of a series is to-date.

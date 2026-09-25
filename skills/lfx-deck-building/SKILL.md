@@ -182,8 +182,10 @@ Before the deck ships, re-read every figure against the deck as a whole:
 - **Every service-tool figure says "visible to you"** and is not presented
   as an LF total.
 - **Every layer meeting figure says ad hoc and floor on the slide**,
-  beside the caption; distinct meetings by company say generated SQL and
-  floor. A label that sits only in the appendix has not been said.
+  beside the caption; company-meeting figures produced by the SQL assistant
+  say generated SQL and floor. Figures derived from scoped participant
+  records say "visible to you", never generated SQL. A label that sits only
+  in the appendix has not been said.
 - **The data-notes slide states** the conventions, the scope of each
   section, the run date and the unattributed share.
 - **Every check was computed**, from all the rows, and quoted exactly;

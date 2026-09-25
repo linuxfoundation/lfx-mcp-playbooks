@@ -275,6 +275,7 @@ deck that is not re-run.
 - **Every rank says among whom**, at which grain, on which date or window.
 - **Every caller-visible figure and every layer meeting figure is a floor**
   for the wider population and says what bounds it; layer meeting figures
-  say ad hoc, distinct meetings by company say generated SQL.
+  say ad hoc, company-meeting figures from the SQL assistant say generated
+  SQL, and figures derived from scoped participant records say visible to you.
 - **Every figure was re-run for this deck**, and the applied block's
   definition sentence is the population on the slide.

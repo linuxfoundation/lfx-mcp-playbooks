@@ -410,7 +410,7 @@
     {
       "id": 26,
       "name": "community-meeting-period-and-spelling",
-      "prompt": "I only have the community meeting and count tools. For my company at the CNCF Technical Oversight Committee, how many people attended in the first half of this year, and how many meetings did they attend? Can you also give the company total across the LF?",
+      "prompt": "I only have the community meeting and count tools. For Google at the CNCF Technical Oversight Committee, how many people attended in the first half of this year, and how many meetings did they attend? Can you also give the company total across the LF?",
       "expected_output": "Uses the scoped participants listing and observed participant organisation spelling, not a CRM spelling. Returns only readable committee-period figures labelled visible to you, distinguishing people, attendances and distinct attended occurrences. Says a company-wide LF period total is unavailable without staff tools and does not attempt those tools.",
       "files": [],
       "assertions": [
