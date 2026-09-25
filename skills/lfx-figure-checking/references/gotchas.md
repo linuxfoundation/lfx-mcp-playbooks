@@ -224,8 +224,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   are not recorded; people are the attendees metric (an LF user, e-mail
   where the user is unknown), never invitee ids, which read like a people
   count far too large; attendances are the attendances metric's records.
-  Attendances and people carry the organisation through the account entity,
-  including subsidiaries through the top parent; occurrences and scheduled
+  Attendances and people carry the organisation through the account entity
+  at the chosen grain — the account alone by default, the whole group by its
+  top parent when the reading is the company including subsidiaries — with
+  the grain named and the unattributed share stated. Occurrences and scheduled
   minutes carry committee and meeting type, but no organisation. No account,
   an unresolvable account and a placeholder account are unattributed; state
   that share, and treat a company figure as a floor. People's
@@ -249,20 +251,24 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   and those meetings' scheduled minutes still need the SQL assistant,
   labelled generated SQL. Without staff tools, the count tool gives past
   meetings and the participants listing gives people per project or committee,
-  "visible to you", never an LF-wide or company-wide total. Distinct
-  occurrence-and-person pairs on all raw attended rows give attendances;
-  distinct occurrences on those rows give meetings attended. People follow
-  the listing's identity de-duplication, which can fall back to a normalized
-  name, not the layer's user-or-email identity alone. The listing's meeting
-  count is meetings expanded, not meetings attended.
+  "visible to you", never an LF-wide or company-wide total.
 - **Silent-zero traps.** The participants search matches the exact stored
   organisation spelling, case-sensitively, one spelling per call, with no
   subsidiary roll-up; copy it from a participant record. A miss is a silent
-  zero. A date range needs a project or committee. Counting participant
-  records by an unknown date field, or by meeting start time (which those
-  records do not carry), also gives a silent zero. Record creation time is
-  not meeting time: use the scoped participants search for a meeting period,
-  not a record-creation count presented as attendance.
+  zero. A date range needs a project or committee. With a period, a committee
+  reading expands its past meetings and includes everyone at them; without
+  a period, it reads participant records that carry the committee. Say which
+  population was read. Counting participant records by an unknown date field,
+  or by meeting start time (which those records do not carry), also gives a
+  silent zero. Record creation time is not meeting time: use the scoped
+  participants search for a meeting period, not a record-creation count
+  presented as attendance. For caller-visible attendances, read all raw
+  attended rows: distinct occurrence-and-person pairs give attendances;
+  distinct occurrences give meetings attended. People follow the listing's
+  identity de-duplication, which can fall back to a normalized name, not the
+  layer's user-or-email identity alone. The listing's meeting count is meetings
+  expanded, not meetings attended; count-only gives index records, neither
+  people nor attendances.
 - **Timeout trap.** An unscoped long-window count can time out. Scope by
   project or committee, use month windows and read completeness on every
   count; only non-overlapping record counts add, never distinct people.

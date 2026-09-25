@@ -261,16 +261,12 @@ and the discipline that keeps a count of records honest.
   count index records, and more than one record can exist for one person
   at one occurrence, so a record count is neither attendances nor people.
   On the layer, attendances count one person at one occurrence and unique
-  attendees count people. Without the layer, read all raw attended rows:
-  distinct occurrence-and-person pairs give attendances; distinct
-  occurrences give meetings attended. The listing's meeting count is the
-  meetings expanded, not the meetings anyone attended. For a company,
-  copy its exact stored organisation spelling from a participant record:
-  case-sensitive, one spelling a call, no subsidiary roll-up, a miss is a
-  silent zero. A date range needs a project or committee. Two populations hide in the committee filter: with a date range
-  it resolves the committee's past meetings and returns everyone at
-  them; without one it returns the participant records that carry the
-  committee — say which ran. A project's or a committee's own meeting
+  attendees count people. For a company's caller-visible slice, use the
+  participants search at the relevant project or committee, "visible to you".
+  The listing's meeting count is meetings expanded, not meetings attended.
+  For the record-grain and spelling checks, read the `lfx-figure-checking`
+  skill's "Meetings — Silent-zero traps" entry; the tool descriptions own
+  the call mechanics. A project's or a committee's own meeting
   count over a period is the count tool, "visible to you"; the
   total over the warehouse is the layer's. They are two readings, never
   adjusted toward each other; the gap is explained by the

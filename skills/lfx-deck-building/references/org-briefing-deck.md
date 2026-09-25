@@ -226,25 +226,20 @@ individuals is appropriate for the audience. Label: visible to you.
 
 **Meetings the company's people attended; attendances by month; hours.**
 Attendances and people who attended, for the company: the layer's
-attendances and unique-attendees metrics by the account entity — the whole
-company by its top parent, subsidiaries folded in — worded "attendances"
-and "people", with the unattributed share (no account, an account that
-does not resolve, or a placeholder account) stated once; label ad hoc,
+attendances and unique-attendees metrics through the account entity at the
+chosen grain — the account alone by default, the whole group by its top parent
+when the reading is the company including subsidiaries — with the grain named
+and the unattributed share stated (no account, an account that does not resolve,
+or a placeholder account). Worded "attendances" and "people"; label ad hoc,
 a floor bounded by platform onboarding. Distinct meetings the company's
 people attended, and the scheduled minutes those meetings ran: the SQL
 assistant over the attendance data, summed over distinct occurrences,
 because no named metric counts occurrences by company; label generated SQL,
-also a platform floor. The meeting tools filter participants by the exact
-stored organisation name (case-sensitive, one spelling a call, no subsidiary
-roll-up, a wrong spelling returns zero, not an error). With a project or
-committee and a date range they give the company's people at that body's
-past meetings, "visible to you"; count-only gives index records — not people
-and not attendances. Distinct occurrences on all raw attended rows give
-meetings attended, distinct occurrence-and-person pairs give attendances;
-the listing's meeting count is meetings expanded, not meetings attended.
-These are the readings for a caller without staff tools, one project or
-committee at a time, never an LF-wide or company-wide period total, and
-never reconciled with the layer's. State that the wider total is unavailable.
+also a platform floor. Without staff tools, use the participants search for
+the company's meeting slice at a project or committee, following the
+`lfx-data-querying` skill's service-tools "Meetings" entry. Label: visible to
+you, never an LF-wide or company-wide period total. State that the wider total
+is unavailable and never reconcile this reading with the layer's.
 
 ## Section 6 — Peers and comparisons
 

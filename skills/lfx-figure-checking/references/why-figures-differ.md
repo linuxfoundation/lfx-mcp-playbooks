@@ -373,9 +373,11 @@ minutes sum the stored duration once per occurrence, never per
 attendance row, and are scheduled, not time spent; attendees count
 distinct people (an LF user, e-mail as the fallback, never invitee ids);
 attendances count records, one person at one occurrence. Attendances and
-attendees carry the organisation through the account entity, subsidiaries
-included through the top parent; occurrences and scheduled minutes carry
-the committee and meeting type but no organisation. Invitees are a larger population than those who attended, and the
+attendees carry the organisation through the account entity at the chosen
+grain — the account alone by default, the whole group by its top parent when
+the reading is the company including subsidiaries — with the grain named and
+the unattributed share stated. Occurrences and scheduled minutes carry the
+committee and meeting type but no organisation. Invitees are a larger population than those who attended, and the
 attendance rate is attendances over invitations on the same slice —
 walk-ins can push it above one. An occurrence shared by several projects
 is attributed to one of them. Attendances divided by people is
@@ -383,8 +385,9 @@ attendances per person, not meetings: a company's meetings are the
 distinct occurrences with an attendee from it, read over the attendance
 data through the SQL assistant (generated SQL), because no named metric
 counts distinct occurrences by company. For a caller without staff tools,
-count distinct occurrences on all raw attended participant rows per project
-or committee, "visible to you", never a company-wide period total. The
+the participants search gives a project or committee reading, "visible to you",
+never a company-wide period total; the record-grain and spelling checks are
+in [gotchas.md](gotchas.md), "Meetings — Silent-zero traps". The
 participants tool's records are index records — more than one record
 can exist for one person at one occurrence — so a record count is
 neither attendances nor people. The layer has no per-caller visibility;

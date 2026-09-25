@@ -106,11 +106,12 @@ Trap M3: no metric family covers meetings, so the names come from
 explore. Label: ad hoc for people and attendances, each worded as such.
 
 **Organisations that show up most; breadth and intensity.** Attendances
-grouped by the account the attendance record carries — the whole company
-by its top parent, subsidiaries folded in — with unattributed (no account,
-an account that does not resolve, or a placeholder account) stated once.
-Distinct people for breadth, attendances per person for intensity; the
-slide names the account grain, and the company figure is a floor.
+through the account entity at the chosen grain — the account alone by default,
+the whole group by its top parent when the reading is the company including
+subsidiaries — with the grain named and the unattributed share stated
+(no account, an account that does not resolve, or a placeholder account).
+Distinct people for breadth, attendances per person for intensity;
+the company figure is a floor.
 LF-hosted entities (the LF's own staff, a foundation's own secretariat)
 are set aside from the member ranking, said on the slide. Label: ad hoc.
 
@@ -120,14 +121,10 @@ A foundation's project *population* is the layer's project metrics over
 the authoritative project directory, never a count of the projects indexed
 in LFX v2.
 
-**Without staff tools.** The count tool over past meetings gives meetings
-visible to you; the participants listing gives people at a project's or
-committee's past meetings in the period. Count-only gives index records,
-not people or attendances. For company slices, use the exact stored
-participant organisation spelling, one spelling a call, with no subsidiary
-roll-up. Read all raw attended rows to count distinct occurrence-and-person
-pairs as attendances or distinct occurrences as meetings attended. Label:
-visible to you; an LF-wide or company-wide period total is unavailable,
+**Without staff tools.** Use the count tool for past meetings and the
+participants search for people and company slices at a project or committee;
+follow the `lfx-data-querying` skill's service-tools "Meetings" entry.
+Label: visible to you; an LF-wide or company-wide period total is unavailable,
 and the slide says so. Never reconcile this reading with the layer's.
 
 ## Section 3 — The developer community

@@ -62,7 +62,8 @@ Every row says what the figure does and does not cover. At minimum:
 
 - **The label.** One of: *Governed* (standard metric); *Ad hoc* (semantic
   layer); *Generated SQL* (SQL assistant); *Visible to you* (service
-  tools); *Published* (a cited external figure, no LFX lane).
+  tools); *Published* (a cited external figure, no LFX lane); *Carried*
+  (copied from an earlier deck, source named).
 - **Unattributed share**, whenever the figure is an organisation share or
   an organisation ranking: "computed on the org-attributed base;
   unattributed share stated in the header".
