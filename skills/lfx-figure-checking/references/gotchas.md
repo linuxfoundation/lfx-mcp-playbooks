@@ -26,9 +26,14 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   semantic layer returns zero rows for a literal that matches nothing; the
   standard metrics reject an unknown slug or a name matching no account
   that carries the family's data, and list candidates instead.
-- **Check.** Every slug came from `search_projects` and every organisation
-  name from `search_b2b_orgs` in this session. A zero from the layer sends
-  you back to discovery, not to "none".
+- **Check.** Every name and identifier came from this session's output in
+  the receiving tool's vocabulary: CRM accounts from organisation discovery
+  or the staff warehouse recovery routes; roster and participant spellings
+  from their own readable records. Project slugs come from project search
+  or, for staff, warehouse-directory discovery, with the source said.
+  An unavailable discovery tool is a visibility limit, not absence; use
+  the core-tool routes where readable. A zero sends you back to spelling
+  and scope, not straight to "none".
 - **Documented.** SM "Resolve names first — ALWAYS", "Organizations:
   account and parent_org", "Errors"; SL "Protocol", "Value discovery".
 
@@ -162,9 +167,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
 - **Symptom.** A board or committee membership stated from tier, event or
   activity data.
 - **Cause.** The committee tools are the authoritative source for
-  committee rosters in LFX v2; the layer's warehouse mirror is a
-  distinct reading, said which (the "Rosters: committee tools vs the
-  layer" mechanism); tier, event and activity data are inference.
+  committee rosters in LFX v2; the SQL assistant's warehouse copy of the
+  v1 committee records is a distinct source (the "Rosters: LFX v2 vs the
+  v1 warehouse copy" mechanism). The layer has no committee metric;
+  tier, event and activity data are inference.
 - **Check.** Any seat, chair or voting status came from the committee
   tools (the roster search, the organisation seats tool or a committee
   record), paginated to the end, and every row is
@@ -217,14 +223,22 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   duration is scheduled minutes, never time spent — join and leave times
   are not recorded; people are the attendees metric (an LF user, e-mail
   where the user is unknown), never invitee ids, which read like a people
-  count ten times too large; attendances are the attendance recipe's
-  records, and the only reading that carries the organisation. People's
+  count far too large; attendances are the attendances metric's records.
+  Attendances and people carry the organisation through the account entity
+  at the chosen grain — the account alone by default, the whole group by its
+  top parent when the reading is the company including subsidiaries — with
+  the grain named and the unattributed share stated. Occurrences and scheduled
+  minutes carry committee and meeting type, but no organisation. No account,
+  an unresolvable account and a placeholder account are unattributed; state
+  that share, and treat a company figure as a floor. People's
   time (attendances times length) is a separate figure from
   meeting-minutes — say which. An occurrence shared by several projects
   is attributed to one of them. A tool figure is cited as "visible to
   you", a layer figure as "all meetings in the warehouse", and neither
-  is reconciled against the other. A people figure anywhere near the
-  attendance figure is a key error. "How many meetings did a company's
+  is reconciled against the other. For the same population and window,
+  distinct people cannot exceed attendances, but equality is valid when
+  each person attended once. Nearby figures prompt an identity/grain check,
+  not a key-error verdict on their own. "How many meetings did a company's
   people attend" is distinct occurrences with an attendee from the
   company (the `lfx-data-querying` skill's routing table; the
   `lfx-deck-building` skill's org-briefing reference, Section 5), never
@@ -233,8 +247,33 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   index records — more than one can exist for one person at one
   occurrence — so it is neither attendances nor people (the mechanism in
   [why-figures-differ.md](why-figures-differ.md), Meetings and rosters).
-  (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim)
-- **Documented.** SL "Routing", "Worked recipes" 12.
+  Staff label named meeting metrics ad hoc; distinct meetings by company
+  and those meetings' scheduled minutes still need the SQL assistant,
+  labelled generated SQL. Without staff tools, the count tool gives past
+  meetings and the participants listing gives people per project or committee,
+  "visible to you", never an LF-wide or company-wide total.
+- **Silent-zero traps.** The participants search matches the exact stored
+  organisation spelling, case-sensitively, one spelling per call, with no
+  subsidiary roll-up; copy it from a participant record. A miss is a silent
+  zero. A date range needs a project or committee. With a period, a committee
+  reading expands its past meetings and includes everyone at them; without
+  a period, it reads participant records that carry the committee. Say which
+  population was read. Counting participant records by an unknown date field,
+  or by meeting start time (which those records do not carry), also gives a
+  silent zero. Record creation time is not meeting time: use the scoped
+  participants search for a meeting period, not a record-creation count
+  presented as attendance. For caller-visible attendances, read all raw
+  attended rows: distinct occurrence-and-person pairs give attendances;
+  distinct occurrences give meetings attended. People follow the listing's
+  identity de-duplication, which can fall back to a normalized name, not the
+  layer's user-or-email identity alone. The listing's meeting count is meetings
+  expanded, not meetings attended; count-only gives index records, neither
+  people nor attendances.
+- **Timeout trap.** An unscoped long-window count can time out. Scope by
+  project or committee, use month windows and read completeness on every
+  count; only non-overlapping record counts add, never distinct people.
+- **Documented.** SL "Routing", "Worked recipes" 12; count and participants
+  tool descriptions.
 
 ## 13. Membership count and revenue
 
@@ -301,13 +340,18 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   holder merged into one name, or one presented as the other.
 - **Cause.** Two records in two systems: the membership's contact of
   record (the member service, which stores a role, a status and an
-  updated date) and the seat (the committee service, whose rows carry no
-  date). Which seats represent the company is the `lfx-data-querying`
+  updated date) and the seat (roster rows carry a role or voting term date
+  only where recorded; organisation-seats rows carry none). Empty placeholder
+  terms are not dates; created and updated stamps date the LFX v2 record,
+  not the seat. Which seats represent the company is the `lfx-data-querying`
   skill's service-tools reference (Which seats represent the company);
   a board-only cut drops the seats that vote elsewhere.
 - **Check.** Both records shown, each labelled, each with its date as
-  recorded (the contact's updated date; none on the seat), never
-  "current"; when they name different people, both side by side, never
+  recorded (the contact's updated date; the seat's recorded term date, if
+  any, never its record stamp), never "current" or "member since". Say
+  "no term date recorded" when absent; report an active status beside a
+  past recorded end as an oddity, not proof of tenure. When they name
+  different people, both side by side, never
   merged; the representing seats chosen by that rule, never board
   alone; and a contact flagged active is not proof the term is active —
   the contact is cited on the term it sits on, the term's status from

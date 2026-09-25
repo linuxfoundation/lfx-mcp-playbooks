@@ -41,12 +41,12 @@
       "id": 2,
       "name": "board-seats-and-meeting-count-service-tools",
       "prompt": "Who represents Google on the CNCF Governing Board right now (name, role, voting status), and how many CNCF Technical Oversight Committee meetings have taken place in 2026 so far? Use the LFX MCP tools.",
-      "expected_output": "Finds the CNCF project uid, finds the Governing Board committee by project and name, reads the roster for the organisation (the roster search filtered on the stored organisation name, one read per spelling, or paginated to the end and filtered); names people only in the roster context; finds the TOC committee and counts past meetings by project and date range, filtered to that committee, paginated; labels both as 'visible to you'; does not infer seats from tier or activity; does not use the semantic layer or lens for either.",
+      "expected_output": "Finds the CNCF project uid, finds the Governing Board committee by project and name, reads the roster for the organisation (the roster search filtered on the stored organisation name, one read per spelling, or paginated to the end and filtered); names people only in the roster context; finds the TOC committee and counts past meetings with the count tool, scoped to the committee and period, with completeness read; labels both as 'visible to you'; does not infer seats from tier or activity; does not use the semantic layer or lens for either.",
       "files": [],
       "assertions": [
         "Finds the CNCF Governing Board through the committee tools (search_committees scoped to the CNCF project) and lists Google's representatives with name, role and voting status from search_committee_members",
         "Reads the roster for the organisation either through the roster search filtered on the stored organisation name, one read for each spelling the organisation appears under (spellings copied from roster records), or by following page tokens to the end before filtering, and says which",
-        "Counts TOC meetings in 2026 from the past-meetings tool scoped to the project and date range (and the TOC committee), not from the semantic layer or lens",
+        "Counts TOC meetings through the count tool scoped to the committee and period, reads completeness and labels an incomplete count a lower bound; does not page a search merely to count or use a warehouse total as the caller-visible count",
         "Labels the roster and the meeting count as what is visible to the caller ('visible to you' or equivalent), not as an LF total",
         "Does not infer any seat from membership tier, sponsorship or activity data",
         "Both Technical Oversight Committee records (Public and Private) are checked before the meeting count is given, and no unscoped committee search across all foundations is made",
@@ -210,13 +210,14 @@
       "id": 13,
       "name": "lf-wide-meetings-held-hours-people-ad-hoc",
       "prompt": "How many meetings were held across all Linux Foundation projects in the last twelve months, how many hours of meetings was that, and how many different people attended? Use the LFX MCP tools.",
-      "expected_output": "Meeting occurrences, scheduled minutes and unique attendees from the semantic layer's named meeting metrics, LF-wide with no project set, the window bounded at today; hours said to be scheduled rather than time spent; people said to be distinct users (e-mail as the fallback), below attendances; every meeting figure a floor by platform onboarding; labelled ad hoc, cited as all meetings in the warehouse, not 'visible to you'.",
+      "expected_output": "For staff, meeting occurrences, scheduled minutes and unique attendees come from the layer's named metrics, LF-wide with no project set and the window bounded at today; hours are scheduled, people are distinct, and figures are ad hoc platform floors, all meetings in the warehouse. Without staff tools, offers past-meeting counts and participant listings per project or committee, visible to you, explicitly not an LF-wide total.",
       "files": [],
       "assertions": [
-        "Reads meeting occurrences, scheduled minutes and unique attendees through the semantic layer (explore then query), LF-wide with no project set, and does not use the count tool or the SQL assistant for the LF-wide totals",
-        "Labels the three figures ad hoc (a semantic-layer reading), not governed, interim or generated SQL, and cites them as all meetings in the warehouse rather than as visible to the caller",
+        "When staff tools are available, reads meeting occurrences, scheduled minutes and unique attendees through the semantic layer (explore then query), LF-wide with no project set; never pre-emptively falls back to generated SQL because a meeting metric might not be exposed",
+        "Without staff tools, says an LF-wide warehouse total is unavailable and offers counts visible to you from the count tool over past meetings and people from a participants listing per project or committee; never calls unavailable guidance or warehouse tools and never reconciles these counts with warehouse totals",
+        "Any layer figures are labelled ad hoc, not governed, interim or generated SQL, and cited as all meetings in the warehouse; any core-tool fallback is labelled visible to you rather than a warehouse total",
         "Says hours are scheduled duration summed once per occurrence, not time spent and not person-hours",
-        "Says people are distinct attendees identified by LF user or e-mail, distinct from attendances, and never counts invitee ids",
+        "For layer figures, says people are distinct attendees identified by LF user or e-mail; for community participant listings, uses the listing's identity de-duplication, including normalized-name fallback where no username or e-mail exists; never treats raw invitee ids or record counts as people",
         "States the window as concrete dates bounded at today and calls every meeting figure a floor bounded by platform onboarding",
         "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
         "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
@@ -257,14 +258,15 @@
       "id": 16,
       "name": "maintainers-kernel-fork-and-representation",
       "prompt": "How many maintainers does Oracle have on the kernelci project today, and who represents Oracle at the CNCF? Use the LFX MCP tools.",
-      "expected_output": "Oracle resolved to its stored account name; the maintainers count for the KernelCI Foundation tree (slug kernelci, the projects under it folded) from the maintainers standard-metric family by project with the company as the organisation, as of today, labelled governed, with the caveat that per-project counts include people inherited from vendored kernel trees and MAINTAINERS-file reviewers; 'represents' answered as two readings, the membership's contact of record and the holder of a seat that represents the company (a board seat, or a Voting Rep or Alternate Voting Rep seat on any committee) — from the organisation seats tool's contacts beside the seats in one call, or from the key-contact tools and the roster, said which — each named as what it is, neither presented as the other, each cited as recorded on its side with the contact's updated date where returned and the seat with at most its record stamp shown as such and no term, tenure or as-of date claimed, never as 'current'; a tool refused under the tester's identity reported as the gate speaking, never as no contacts or no seats.",
+      "expected_output": "Oracle resolved to its stored account name; the maintainers count for the KernelCI Foundation tree (slug kernelci, the projects under it folded) from the maintainers standard-metric family by project with the company as the organisation, as of today, labelled governed, with the caveat that per-project counts include people inherited from vendored kernel trees and MAINTAINERS-file reviewers; 'represents' answered as two readings, the membership's contact of record and the holder of a seat that represents the company (a board seat, or a Voting Rep or Alternate Voting Rep seat on any committee) — from the organisation seats tool's contacts beside the seats in one call, or from the key-contact tools and the roster, said which — each named as what it is, neither presented as the other, each cited as recorded on its side with the contact's updated date where returned and the seat's role or voting term only where recorded; organisation-seats rows have no date, empty placeholders mean no term recorded, and record stamps are never seat dates, never 'current' or 'member since'; a tool refused under the tester's identity reported as the gate speaking, never as no contacts or no seats.",
       "files": [],
       "assertions": [
         "The kernelci maintainers figure comes from the maintainers standard-metric family by project with the company as the organisation, as of today",
         "The answer carries the caveat that per-project maintainer counts include people inherited from vendored kernel trees and MAINTAINERS-file reviewers",
         "Where the answer gives a split figure (by role, by source, or one of the excluding-reviewers, reviewers, excluding-inherited columns), it names the split and shows it beside the total it was cut from, does not add role or source rows to a total (a person can sit in two), and presents only excluding-reviewers plus reviewers within one project as a partition; no split figure stands alone as the roster",
         "'Represents' is answered as two readings, the membership's contact of record (with the role as the record stores it and whether the contact is active) and the seat holder (with the voting status as stored), neither presented as the other, and the answer says which read gave the contacts (the organisation seats tool beside the seats, or the per-membership key-contact tools); a tool refused under the tester's identity is reported as the gate speaking, not as no contacts or no seats",
-        "Each record is cited as recorded on its side: the contact as contact of record on the term it sits on, with that term's status read from the membership records (whichever read gave the contact — the seats tool's contacts or the key-contact tools — said which) and its updated date where the tool returns one, the seat with at most its record stamp shown as such and no term, tenure or as-of date claimed, and neither called 'current' or 'currently'; when the two name different people both are shown side by side, labelled, never merged into one name",
+        "Each record is cited as recorded on its side: the contact as contact of record on the term it sits on, with that term's status read from the membership records (whichever read gave the contact — the seats tool's contacts or the key-contact tools — said which) and its updated date where the tool returns one, the seat with its recorded role or voting term only where returned by the roster tools, empty placeholders treated as absent and organisation-seats rows given no date, never citing a record stamp for the seat; neither called 'current', 'currently' or 'member since'; when the two name different people both are shown side by side, labelled, never merged into one name",
+        "If the organisation-seats read is refused, says the refusal is the gate, never no seats or no contacts, and attempts membership search then key-contact tools for contacts and roster search or count tool for seats; each fallback is visible to you, and an empty side is a visibility limit, not an absence",
         "The seats counted as representing the company are board seats and Voting Rep or Alternate Voting Rep seats on any committee (member-class rosters filed under Other included), never board seats alone; Observer, Emeritus or None seats, if any, are reported as seats, not as representation",
         "Carries a provenance block or equivalent with scope as applied, window/as-of date and the population/definition",
         "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
@@ -338,13 +340,14 @@
       "id": 21,
       "name": "company-meetings-attended-occurrences-not-attendances",
       "prompt": "How many people from Red Hat attended LFX meetings so far in 2026, and how many meetings did they attend?",
-      "expected_output": "People from the layer's distinct-attendees reading on the attendance data sliced by the company's stored organisation spellings (listed, no subsidiary roll-up), attendances as records, and the meetings figure as distinct occurrences with an attendee from the company — the SQL assistant over the attendance data, since the occurrences metric carries no organisation — labelled; never attendances divided by people; the participants tool's record count never used as attendances; window year to date bounded at today; figures labelled interim or generated SQL and as a floor bounded by platform onboarding; provenance block.",
+      "expected_output": "For staff, people and attendances come from named layer metrics through the account entity, at the chosen grain, account alone by default and the top-parent group only when including subsidiaries is chosen, with the grain and unattributed share stated, labelled ad hoc; distinct meetings attended come from the SQL assistant because no named metric counts occurrences by company, labelled generated SQL. Without staff tools, offer attended participant listings per project or committee, visible to you, never a company-wide period total. Distinct occurrences give meetings, distinct occurrence-and-person pairs give attendances, and the listing gives people; count-only is index records. Window bounded at today, platform floor stated and provenance supplied.",
       "files": [],
       "assertions": [
-        "'How many meetings did they attend' is answered as distinct meeting occurrences with at least one attendee from the company, read through the SQL assistant over the attendance data and labelled generated SQL and interim in the sentence that carries it (a layer read taken beside it, if any, is presented as the check and not as the figure), and not as attendances and not as attendances divided by people",
-        "People are the distinct-attendees reading and attendances are records (one person at one occurrence), each named as such, with the company's stored organisation spellings listed and no subsidiary roll-up claimed",
-        "If the participants search's record count or count-only mode is used, its count is described as index records that are neither attendances nor people, and attendances are taken from the layer's attendance records or the people count per occurrence, people from the layer's attendees metric",
-        "The window is year to date bounded at today, stated as dates; the figures are labelled interim (or generated SQL where the assistant ran) and called a floor bounded by platform onboarding, in the sentence that carries the figure",
+        "With staff tools, distinct meetings with an attendee from the company come from the SQL assistant and say generated SQL in the figure's sentence because no named metric counts occurrences by company; never substitutes attendances, attendances divided by people or meeting-name/day groups",
+        "With staff tools, people and attendances come from named layer metrics through the account entity at the chosen grain: account alone by default and top-parent group only when including subsidiaries is chosen; names the grain and unattributed share and labels the figure an ad hoc floor without silently expanding scope",
+        "If a participants record count or count-only mode is read, it is labelled index records, neither people nor attendances; the listing's meeting count is meetings expanded, never taken as meetings attended",
+        "Without staff tools, follows the service-tools Meetings route to the participants search for a company slice and the checking skill's Meetings — Silent-zero traps entry for spelling and record-grain checks; reports the resulting people, attendances and distinct meetings as visible to you, never a company-wide total",
+        "The window is year to date bounded at today, stated as dates; named layer figures say ad hoc and platform floor, distinct-company-meeting SQL says generated SQL and platform floor, and core-tool figures say visible to you; no meeting figure is labelled interim",
         "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
       ]
     },
@@ -376,6 +379,45 @@
         "Seats are labelled visible to you; an empty roster, if any, leads with the case found (no committee onboarded, nothing matched the filters, or an audit gap: no board-category committee, a board with no visible member), never 'no seats' with the caveat underneath; 'no seat on that committee' is said only of a populated roster the company is not on",
         "Carries a provenance block or equivalent with scope as applied, the run date and the population",
         "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"
+      ]
+    },
+    {
+      "id": 24,
+      "name": "seat-ranking-bounded-candidates-first",
+      "prompt": "For the CNCF member organisations, which hold the most board seats? Give me a ranking I can use in a briefing.",
+      "expected_output": "Finds the bounded candidate set from readable membership records, counts each organisation by identifier with the board category and reads completeness. Labels the ranking seats visible to you in LFX v2 and names the candidate set, never a complete LF-wide ranking; does not default to generated SQL or search for a committee metric in the layer.",
+      "files": [],
+      "assertions": [
+        "Starts with the count tool per candidate organisation, using observed identifiers and the requested board category, reads completeness and labels incomplete counts as floors; never pages rosters merely to count",
+        "States the candidate set and labels seats visible to you in LFX v2; a membership search that is permission-empty limits candidate discovery, not proof that no organisations hold seats",
+        "Does not use the SQL assistant for the bounded ranking and does not search the layer for committee metrics or promise an undeployed grouped-count call",
+        "If counts are scoped to a project, uses the member records' project tag, never a project parent; a complete-flagged zero is not trusted when the reference or field is absent from that record type"
+      ]
+    },
+    {
+      "id": 25,
+      "name": "open-lf-wide-seat-ranking-last-resort",
+      "prompt": "Across the whole Linux Foundation, which organisations hold the most board seats? I mean all organisations, not just a list of peers.",
+      "expected_output": "Distinguishes an open ranking from bounded candidates. Staff may use generated SQL over the warehouse copy of the v1 committee records as the last resort, active seats only, staff and unaffiliated seats set aside and technical seats kept separate. Without staff tools, states that a complete LF-wide ranking is unavailable and offers a bounded candidate ranking or a foundation roster. No committee metric is claimed in the layer; v1 and LFX v2 are never combined or reconciled.",
+      "files": [],
+      "assertions": [
+        "For staff, the open ranking is the SQL assistant only as the last resort and is labelled generated SQL over the warehouse copy of the v1 committee records, not the layer or the LFX v2 roster",
+        "The generated-SQL reading requests active seats only, with an empty or future end date, says that filter was applied, sets staff and unaffiliated seats aside and keeps technical seats out of boards",
+        "Names the v1 versus LFX v2 source difference, including seat-status and attribution differences rather than visibility alone; never merges, tops up or reconciles the sources",
+        "Without staff tools, states that a complete LF-wide ranking is unavailable and offers a bounded candidate ranking using the count tool or a foundation roster grouped by organisation, visible to you"
+      ]
+    },
+    {
+      "id": 26,
+      "name": "community-meeting-period-and-spelling",
+      "prompt": "I only have the community meeting and count tools. For Google at the CNCF Technical Oversight Committee, how many people attended in the first half of this year, and how many meetings did they attend? Can you also give the company total across the LF?",
+      "expected_output": "Uses the scoped participants listing and observed participant organisation spelling, not a CRM spelling. Returns only readable committee-period figures labelled visible to you, distinguishing people, attendances and distinct attended occurrences. Says a company-wide LF period total is unavailable without staff tools and does not attempt those tools.",
+      "files": [],
+      "assertions": [
+        "Uses a project or committee scope for the date range and the exact case-sensitive organisation spelling copied from a participant record, one spelling per call; says subsidiaries are not rolled up and a spelling miss is a silent zero, not absence",
+        "Counts people from the de-duplicated listing, attendances only from distinct occurrence-and-person pairs on all raw attended rows, and meetings attended only from distinct attended occurrences; neither count-only records nor meetings expanded stands in for those grains",
+        "Labels each core-tool reading visible to you and says the LF-wide company total over the period is unavailable; no unavailable guidance, standard-metric, layer or SQL-assistant call is attempted",
+        "Accepts names and identifiers observed in the receiving tool's readable records rather than requiring a successful CRM organisation search; a gated discovery tool does not block the supported scoped answer"
       ]
     }
   ]

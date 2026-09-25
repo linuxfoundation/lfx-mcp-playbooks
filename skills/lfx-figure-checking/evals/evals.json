@@ -20,15 +20,15 @@
       "id": 1,
       "name": "boards-and-seats-warehouse-vs-index",
       "prompt": "A colleague pulled the number of governing boards across active LF projects and their total seats from a warehouse query last month. I get a higher board count and a slightly lower seat count from the LFX count tool today. Is one of us wrong? Check with the LFX MCP tools.",
-      "expected_output": "Identifies the two source kinds (warehouse reading for active projects versus LFX v2 index records across all onboarded projects, visible to the caller); takes a fresh count of board-category committees and their members through the count tool with the complete flag read; takes the warehouse side fresh through the SQL assistant over the committee data joined to active-project scope, labelled generated SQL; explains that board records carry no project status so an active-only figure combines the count with the layer's project directory; verdict 'both' with what each reading is and which to quote for which claim.",
+      "expected_output": "Identifies LFX v2 caller-visible index counts versus the warehouse copy of v1 committee records, with source, seat-status and attribution differences as well as visibility. Takes fresh board and seat counts through the count tool and reads completeness. The layer has no committee metric; does not route this count to a fabricated layer model or turn it into an open ranking. Says active-project scope needs directory information where staff tools are available; without a comparable fresh warehouse read the check stays open, never verified by the visible subset.",
       "files": [],
       "assertions": [
         "Names the two source kinds explicitly: a warehouse reading over active projects versus LFX v2 index records over all onboarded projects filtered to what the caller may see",
-        "Takes a fresh warehouse read of the same population through the SQL assistant over the committee data, joined to active-project scope and labelled generated SQL (no semantic-layer committee metric or standard family exists for it), so the 'both' verdict rests on two fresh reads, one per source kind, not on the index alone",
+        "States that the layer has no committee metric and does not search for one; identifies the warehouse committee source as the v1 copy, not a layer model or the LFX v2 service",
         "Takes a fresh read through the count tool for board-category committees and for members on them, in one call each, and reports whether each count was complete",
         "Explains that committee records carry no project status, so the index cannot filter to active projects and an active-only figure combines the count with the layer's project directory",
-        "Gives the verdict 'both' (two defensible readings), says what each is, and recommends which to quote for an LF-wide claim and which for 'in LFX v2 today, visible to you'",
-        "Says which source each reading came from — the committee records the tools read, or the warehouse (the layer's committee models, or the SQL assistant over the same warehouse data) — and treats a roster present on one side only as two sources, never as either side being wrong",
+        "Does not certify the historical warehouse figure from the fresh index count; without a comparable fresh reading the check stays open, with source populations and missing verification stated",
+        "Names the LFX v2 service and the warehouse copy of v1 committee records as different sources with different ended-seat handling and fallback company attribution; never merges, tops up or reconciles them",
         "Does not walk the committee index page by page to rebuild the count, and does not reconcile the two figures to a third number"
       ]
     },
@@ -49,11 +49,11 @@
       "id": 3,
       "name": "three-slide-figures-same-open-unverifiable",
       "prompt": "Three figures from our membership deck need checking before it goes out: the number of specification consortia launched under the Joint Development Foundation, which the slide cites from an LF press release; the number of board seats Google holds across LF projects; and the number of organisations with an active membership today, which the slide quotes without a date. Check each against LFX and tell me which we can still say.",
-      "expected_output": "One row per figure with a verdict word: the press-release consortia count is unverifiable (a published figure with no LFX population behind it, cited to its publisher, never rebuilt; the index's project count under the JDF entity offered as a different, labelled reading); Google's seats are attempted through the organisation seats tool and the verdict follows what the tool did — open on a permission refusal, with the gate and the identity that could close it named, or a fresh read compared with the slide when it answers — with no roster walk either way; the member-organisations figure is read fresh as of today, and because the slide gives no value date the answer says a 'same' verdict needs the slide's value and its as-of date, gives the fresh read with its date so the owner can compare, and does not award 'same' on a fresh read alone; drift stated once at the top.",
+      "expected_output": "One row per figure with a verdict word: the press-release consortia count is unverifiable (a published figure with no LFX population behind it, cited to its publisher, never rebuilt; the index's project count under the JDF entity offered as a different, labelled reading); Google's seats are attempted through the organisation seats tool and the verdict follows what the tool did — open on a permission refusal, with the gate and the identity that could close it named, or a fresh read compared with the slide when it answers — with the count tool offered for a separately labelled visible-to-you seat count, never as verification of the unavailable organisation-wide reading; the member-organisations figure is read fresh as of today, and because the slide gives no value date the answer says a 'same' verdict needs the slide's value and its as-of date, gives the fresh read with its date so the owner can compare, and does not award 'same' on a fresh read alone; drift stated once at the top.",
       "files": [],
       "assertions": [
         "The consortia count is given the verdict 'unverifiable': cited to the press release as a published figure and not rebuilt or reconciled against an LFX count; any LFX project count offered is labelled as a different reading",
-        "Google's seats are attempted through the organisation seats tool and the verdict follows the tool's behaviour: on a permission refusal the verdict is 'open' with the refusal named as the organisation gate and the identity that could close it named; if the tool answers, the fresh read is compared with the slide's figure and a verdict given; a roster walk through the committee tools is not attempted in either case",
+        "Google's seats are attempted through the organisation seats tool and the verdict follows the tool's behaviour: on a permission refusal the verdict is 'open' with the refusal named as the organisation gate and the identity that could close it named; if the tool answers, the fresh read is compared with the slide's figure and a verdict given; a count-tool fallback may supply seats visible to you but is never treated as verification of the gated organisation-wide figure",
         "The organisations-with-a-membership figure is read fresh from the member-organisations family LF-wide as of today, and because the slide carries no value date the answer says a 'same' verdict needs the slide's value and its as-of date, presents the fresh read with its date for the owner to compare, and does not award 'same' (or any tolerance-based agreement) on the fresh read alone",
         "The check is a table with one row per figure, the stated figure, the fresh read, the mechanism and the verdict, with drift stated once at the top and provenance a verifier could re-run"
       ]
@@ -101,6 +101,45 @@
         "Roster rows whose handle is empty are reported as unmatched under their display name, never as matches and never dropped silently",
         "The answer gives three separate lists (matched, in the file without a match, on the roster and not in the file), says the matched list is empty when it is, and does not add file entries and roster rows into one figure",
         "The transcript shows a Skill step loading lfx-data-querying for the read (or it was loaded earlier in the session), and the answer ends with a provenance block naming the family, project, window and definition"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "seat-terms-versus-record-stamps",
+      "prompt": "Please check the representation notes for our company briefing. One roster row has an active status but a term end in the past, another has an empty placeholder for the term, and the organisation-wide seats read has no dates. The draft uses the rows' last-updated dates to say how long people have held their seats. Is that wording safe?",
+      "expected_output": "Rejects record stamps as seat dates, distinguishes optional roster role/voting terms from dateless organisation-seat rows, and reports the active/past-end combination as an oddity. Contacts retain their own updated dates, each side labelled as recorded and never merged.",
+      "files": [],
+      "assertions": [
+        "Allows a roster role or voting term only where actually recorded, phrases it as term recorded as or voting term recorded to, and treats an empty placeholder as no term date recorded",
+        "States that organisation-seats rows have no date and that created/updated stamps date the LFX v2 record, not the seat; never uses stamps, the read date, current or member since as tenure evidence",
+        "Reports the past term end beside active status as an oddity and says listed as active on the roster at this read rather than asserting current tenure",
+        "Keeps the contact of record separate from the seat holder; a contact's updated date remains a contact-record date, not proof of a current membership term or seat"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "meeting-count-silent-zero-and-timeout",
+      "prompt": "My long-window meeting count timed out. I then counted participant records by meeting start time and got an apparently complete zero. A colleague got people back after changing the company's spelling and looking at one committee. What should I check before using either figure?",
+      "expected_output": "Checks the counted record type, date meaning and exact stored spelling before absence. Explains that participant records do not carry meeting start time and an unknown date selection can silently return zero. Uses a project or committee and month windows for a long count, with completeness read; preserves the difference between index records, attendances and people.",
+      "files": [],
+      "assertions": [
+        "Does not treat a complete-flagged zero as absence when participant records were counted by a missing meeting-start date or an unknown date field; record creation time is not substituted as the meeting period",
+        "Checks the participant organisation spelling against a record, exact and case-sensitive, one spelling a call without a subsidiary roll-up; a miss is a silent zero",
+        "Requires a project or committee for a participants date range and scopes a long count, using month windows with completeness read; only non-overlapping record counts add, never distinct people",
+        "Uses the listing for people and distinct occurrence-and-person pairs for attendances, never a count-only participant record count for either"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "scoped-attendance-equality-and-name-only-identities",
+      "prompt": "I'm checking the counting logic for a committee-meetings slide. Everyone in the selected period attended just one occurrence, though some participant records are duplicates. Some participants have only a stored name, with no username or email. Must the people figure be much smaller than attendances, and should those name-only participants disappear? Check the logic, not live figures.",
+      "expected_output": "Explains that correctly de-duplicated people and occurrence-person attendances can match when everyone attended once; proximity alone is not a key error. Participant listings can identify people through their normalized-name fallback, unlike the layer's user-or-email definition. Duplicate index records are not additional people or attendances. No invented live figures or fabricated query result.",
+      "files": [],
+      "assertions": [
+        "Accepts equality between distinct people and distinct occurrence-person attendances when each person attended once, including a scope containing one attended occurrence; does not diagnose an invitee-key error from proximity alone",
+        "Uses the same population and window for the people-not-exceeding-attendances check, and distinguishes duplicate participant index records from distinct occurrence-person pairs",
+        "Preserves name-only identities under the participant listing's documented normalized-name fallback rather than imposing the layer's user-or-email-only definition or claiming those rows have verified usernames or emails",
+        "Answers as a qualitative counting-logic check without inventing figures, claiming a live query or reporting a measured recipient visibility"
       ]
     }
   ]

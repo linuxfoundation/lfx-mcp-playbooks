@@ -169,7 +169,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   registrations, sponsorships and speakers — the event families, windowed
   by event start date. Meetings are the LF platform's occurrences: the
   layer's meeting metrics for how many, how many scheduled minutes and
-  who came over a period, the meeting tools for lists (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim).
+  who came over a period (staff, ad hoc), the meeting tools for lists and
+  caller-visible counts. Without staff tools, use the count tool for past
+  meetings and the participants listing for people per project or committee,
+  "visible to you"; an LF-wide or company-wide period total is unavailable.
 - **Other readings:** an "event" that is really a meeting or a webinar;
   sponsorship "events" (the same events from the sponsorship side; one
   event can carry several sponsorship assets).
@@ -353,9 +356,13 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   status; "visible to you".
 - **Other readings:** every committee of a project including election
   committees ("Other"); technical bodies; a ranking of organisations by
-  seats across all projects, which is a generated-SQL reading over the
-  committee data (the `lfx-figure-checking` skill's "Roster vs
-  inference" entry), not a roster walk.
+  seats: the count tool per candidate organisation, "visible to you".
+  Only an open LF-wide ranking falls back, for staff, to generated SQL over
+  the warehouse copy of the v1 committee records, active seats only, staff
+  and unaffiliated seats set aside, board and technical seats kept separate
+  (the `lfx-figure-checking` skill's "Roster vs inference" entry). Without
+  staff tools, offer a bounded ranking or a foundation roster, never a
+  complete LF-wide ranking. The layer has no committee metric.
 - **Offer it as:** "the governing board's roster as visible to you, N
   active seats".
 
@@ -377,8 +384,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
 
 - **Default reading:** never on a contact or a seat, because the two
   records carry different dates or none — a contact of record carries
-  the date its record was last updated, a seat row from the committee
-  tools carries no date, and a contact flagged active is not proof the
+  the date its record was last updated, a seat row carries a term date
+  only where the roster records one (the organisation seats tool's rows
+  carry none), never a tenure date from its record stamps; a contact
+  flagged active is not proof the
   term is active: the flag is the contact record's, the term's status
   is the membership records' (the service-tools reference,
   Organisations).
@@ -387,8 +396,9 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   the contact's flag.
 - **Offer it as:** "contact of record on the <status> term, record last
   updated <date>"; "on the seat as the roster records it at this read
-  (record stamp <date>, no term date)" — never "current" or "currently",
-  and never the read date or the stamp as a tenure date.
+  (term recorded as <start>–<end>, or no term date recorded)" — never
+  "current" or "currently", never "member since", and never the read date
+  or a record stamp as a tenure date. Empty placeholder terms are not dates.
 
 ## The sentence pattern
 
@@ -409,8 +419,9 @@ became everyone with any activity row; "countries" the raw billing field;
 threshold over the whole index; "contributors" it refused and routed to
 the governed lane; "members", "new members", "membership revenue" and
 "maintainers" matched the families. So it is never the first lane for an
-everyday word; where it is the lane that covers the shape (meeting
-occurrences and hours, cross-domain joins, a hierarchy walk no family
-expresses), its population line and its SQL are read before the figure
+everyday word; where it is the lane that covers the shape (distinct meetings
+a company's people attended and those meetings' scheduled minutes, an open
+LF-wide seat ranking as the staff last resort, cross-domain joins, a hierarchy
+walk no family expresses), its population line and its SQL are read before the figure
 is repeated, and the provenance says "no governed reading for this shape
 today".
