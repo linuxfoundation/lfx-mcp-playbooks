@@ -7,7 +7,8 @@ description: Answers a question about Linux Foundation projects, members, contri
 
 # Querying LFX data
 
-Read the guidance once per session before the first call:
+For callers with staff tools, read the guidance once per session before
+the first call:
 `read_lfx_standard_metrics_guidance` for the standard metrics,
 `read_lfx_semantic_layer_guidance` for the semantic layer and the SQL
 assistant. They and the tool descriptions own the mechanics of a call:
@@ -15,7 +16,10 @@ every parameter, grouping, switch, default, literal, error and worked
 call. This playbook owns the work: which tool answers which kind of
 question, in what order, how the same figure differs across tools and why,
 and how an answer is worded and sourced. It never restates a parameter.
-Answer from fresh calls only.
+Answer from fresh calls only. Community callers have neither these guidance
+tools nor the standard metrics, layer or SQL assistant: follow the service-tool
+routes below, label every reading "visible to you", and say when the requested
+LF-wide or company-wide total is not available.
 
 ## 1. The tools, by the job they do
 
@@ -51,7 +55,8 @@ words on its own (see the plain-words reference), so it is the last lane
 tried, and an answer that needed it says so in its provenance ("no
 governed reading for this shape today"). Guidance: "Routing".
 
-**Service tools** — records and actions, never figures. Names:
+**Service tools** — records, caller-visible counts and actions, never
+warehouse totals. Counts: `count_lfx_resources`. Names:
 `search_projects`, `get_project`, `search_b2b_orgs`. Membership records:
 `search_members`, `get_member_membership`, the key-contact tools. Rosters:
 `search_committees`, `search_committee_members`, `get_committee`,
@@ -70,32 +75,36 @@ from these is "what is visible to you": say so. The craft for each group:
 | The question asks for | Tool | Why this one | Label |
 |---|---|---|---|
 | A count, value, share, ranking or series in a family the inventory lists (members, dues, new and churned memberships, contributors, contributions, participants, maintainers, health, software value, registrations, sponsorships, speakers, training, certifications, social mentions and reach) | standard metrics | fixed definition, whole tree and all subsidiaries, `applied` block, repeatable | governed |
-| A company's figure "including subsidiaries", or a foundation's "and its projects" | standard metrics | the only lane that walks either hierarchy to any depth | governed |
+| A company's figure "including subsidiaries", or a foundation's "and its projects" | standard metrics | governed hierarchy readings for the families it covers | governed |
 | A slice the families have no switch for (consortium, meeting type, direct children, a dimension seen in explore) | semantic layer | named metric and dimension, stored values discoverable | ad hoc |
 | How many organisations are members, were new to the LF, or were lost, as against memberships | standard metrics | the organisation families count distinct organisations, the membership families count project-account pairs; the answer says which grain it reports | governed |
 | A cross-domain join or a hierarchy shape no metric expresses | SQL assistant | generated SQL, with its scope line and SQL returned | generated SQL |
 | A project's slug, record, parent, legal entity | `search_projects`, `get_project` | the record is the truth about what a slug is | — |
 | A company's legal name and identifier | `search_b2b_orgs` | the stored name every organisation-scoped call takes | — |
 | What one company holds: memberships, tiers, dates, contacts | `search_members`, `get_member_membership` | the record view of the CRM, the story behind the figure | visible to you |
-| Who sits on a board or committee, with what vote | committee tools | the authoritative source for committee rosters in LFX v2 (rule 18 for the layer's mirror); "who represents a company" is two records side by side (rule 17) | visible to you |
+| Who sits on a board or committee, with what vote | committee tools | the authoritative source for committee rosters in LFX v2 (rule 18 for the SQL assistant's v1 copy; the layer has no committee metric); "who represents a company" is two records side by side (rule 17) | visible to you |
 | A company's seats across the LF, split by board and project | organisation seats tool | one call, under the organisation gate, with the membership contacts of record and a per-project representation pairing beside the seats when asked | visible to you |
 | Which of a foundation's projects have committees onboarded, and where the gaps are | coverage audit tool | when a roster comes back empty, read over its foundation before the empty result is interpreted: per project, the committees indexed with their visible member counts, and a gap where a project with active memberships has no committee, no board committee or an empty board; a zero can be an access effect or a roster not yet onboarded | visible to you |
 | How many meetings, committees or members a project or a committee has in LFX v2 | count tool | one kind a call, filters on the record's own fields, complete flag read; the same visibility as LFX Self Serve | visible to you |
-| Which organisations hold the most seats across all projects | SQL assistant | a roster walk is a hundred calls; the committee data answers in one, with staff and unaffiliated seats set aside | generated SQL |
+| Which organisations hold the most seats | count tool, one call per candidate organisation (its identifier, board category when asked); an open LF-wide ranking only through the SQL assistant as the staff last resort | caller-visible LFX v2 seats for a bounded set; the assistant reads the warehouse copy of the v1 committee records, a different source: active seats only, staff and unaffiliated seats set aside and said, board seats separate from technical seats; without staff tools, offer a bounded ranking or a foundation roster, never a complete LF-wide ranking | visible to you / generated SQL |
 | Whether a stated figure holds, why two figures differ, a slide or report checked against LFX — and every answer's own figures before they are reported | the `lfx-figure-checking` skill | the fresh reads come from here; the mechanism, verdict and written check come from there; loaded once per session, before the first answer is written | as the fresh read |
-| Which meetings a project or committee held, who was invited, who attended, what was discussed | meeting tools | occurrence records with participants and summaries | visible to you |
-| How many meetings were held, how many scheduled minutes, how many people attended, over a period, LF-wide or by foundation, project or period | semantic layer | named meeting metrics; the meeting tools list, they do not aggregate (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim) | ad hoc; generated SQL when the fallback ran |
-| Attendances over a period, by company, committee or meeting type | semantic layer, attendance recipe | records, one person at one occurrence; the only reading that carries the organisation | interim |
-| How many meetings a company's people attended over a period | SQL assistant, over the attendance data, because the occurrences metric carries no organisation | distinct occurrences with an attendee from the company; never attendances, never attendances divided by people; a layer read taken beside it is the check, not the figure (the `lfx-deck-building` skill's org-briefing reference, Section 5) | generated SQL, interim |
+| Which meetings a project or committee held, who was invited, who attended, what was discussed | meeting tools, for staff and community alike | occurrence records with participants and summaries | visible to you |
+| How many meetings were held, how many scheduled minutes, how many people attended, over a period, LF-wide or by foundation, project or committee | semantic layer (staff) | named meeting metrics: occurrences, scheduled minutes, unique attendees; without the layer, the count tool over past meetings gives meetings visible to you, the participants listing gives people per project or committee; an LF-wide total is not available to community callers | ad hoc; visible to you |
+| Attendances or people over a period, by company, committee or meeting type | semantic layer (staff) | attendances (one person at one occurrence) and unique attendees; by company through the account entity — the whole company by its top parent, subsidiaries included — unattributed stated; without the layer, the participants search per project or committee with the exact stored organisation name, visible to you, never a company-wide total | ad hoc; visible to you |
+| How many meetings a company's people attended over a period | SQL assistant (staff), because no named metric counts distinct occurrences by company | distinct occurrences with an attendee from the company; never attendances, never attendances divided by people; without staff tools, distinct occurrences on the attended participants listing per project or committee, visible to you, never a company-wide total (the `lfx-deck-building` skill's org-briefing reference, Section 5) | generated SQL; visible to you |
 | A mailing list and its subscriber count | mailing-list tools | list-service records | visible to you |
 | A role check or assignment, an email | Discord and email tools | actions, on an explicit ask, confirmed first | — |
 
 Decide in this order; stop at the first row that fits:
 
-1. **Read the guidance** for the lane, once per session.
+1. **Read the guidance** for the lane, once per session, if available.
+   Without staff tools, use the community routes in the table; do not
+   try the unavailable lanes below.
 2. **A record or a roster?** Names, membership records, seats, meetings,
-   lists: the service tools. Neither the layer nor the assistant holds a
-   roster or a meeting.
+   lists: the service tools, which read LFX v2. The layer holds no committee
+   roster; the SQL assistant holds the warehouse copy of the v1 committee
+   records, a different source used only for an open LF-wide seats ranking
+   as the staff last resort (the routing table).
 3. **Does a family match?** Read "Inventory" in the standard-metrics
    guidance and match by what the family answers. Past-date and year-end
    membership counts, series by period, "top contributors", "top
@@ -303,11 +312,11 @@ you; unattributed rows, distinct counts, partial last period, future-dated
 end); **SQL** produced on request only (every query lane returns it) — say
 it was kept only if you kept it. The **label** is written only when the
 figure is not a governed family — ad hoc, generated SQL, visible to you,
-interim, published — because that is when it changes how far the figure
+published — because that is when it changes how far the figure
 can be trusted; "governed" is said only next to a figure that is not.
 The label is written in the sentence that carries the figure, not only
-in the block — "visible to you" on a record count; "interim, a floor
-bounded by platform onboarding" on meetings by company — because the
+in the block — "visible to you" on a record count; "ad hoc, a floor
+bounded by platform onboarding" on company attendances and people — because the
 reader keeps the sentence. No lane stamps a data refresh time today:
 the run date stands for freshness.
 
@@ -443,15 +452,16 @@ Symptom, cause, check and guidance section for each: the
 17. "Who represents a company" is two records side by side — the
     membership's contact of record and the holder of a seat — each
     labelled, cited as recorded on its side (the contact's updated date;
-    a seat row's record stamp is not a term date), never merged and
-    never "current"; the representing
+    a seat row's term date only where recorded, never its record stamp),
+    never merged and never "current" or "member since"; the representing
     seats are board seats and voting seats on any committee, never board
     seats alone ([references/service-tools.md](references/service-tools.md),
     Which seats represent the company).
-18. A roster read from the committee tools and one read from the layer
-    or the SQL assistant can differ with neither wrong; the answer says
-    which was read (the `lfx-figure-checking` skill's "Rosters:
-    committee tools vs the layer" entry).
+18. The committee tools read LFX v2; the SQL assistant reads the warehouse
+    copy of the v1 committee records. The layer has no committee metric.
+    Say which source was read, never combine or reconcile them (the
+    `lfx-figure-checking` skill's "Rosters: LFX v2 vs the v1 warehouse copy"
+    entry).
 
 ## 6. Before reporting any number
 
@@ -477,6 +487,6 @@ Symptom, cause, check and guidance section for each: the
 - A dimension chosen because its name matched the question had its own
   description read first, and the answer says what it counts (rows, or
   people, or organisations).
-- Every count from records is "visible to you" and was paginated to the
-  end.
+- Every count from records is "visible to you" and was counted by the count
+  tool with its complete flag read, or read from rows paginated to the end.
 - Re-run rather than remember.

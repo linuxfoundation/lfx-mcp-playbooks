@@ -17,9 +17,10 @@ and the discipline that keeps a count of records honest.
   company, one committee, one meeting. A number counted from records is
   "what is visible to you" and is labelled so; it is never an LF total
   and never substitutes for a family or metric that holds the figure.
-- **Paginate to the end before counting anything.** A page token means
-  more; an empty page can still carry a token; stop only when no token
-  comes back. A count made from the first page is a guess.
+- **Count with the count tool; page only to read.** Count records with
+  the count tool and read its complete flag. Page a search to the end
+  when its rows are the answer; a page token means more rows, and an
+  empty page can still carry one. A partial count is a lower bound.
   Meeting and participant records are large: ask for modest pages (a few
   dozen) and follow the token, rather than one page of a hundred that
   overflows the result and has to be read back from a file.
@@ -70,13 +71,16 @@ and the discipline that keeps a count of records honest.
   own total carries the same flag. Every count is "records indexed in
   LFX v2 and visible to you". Its filters are the fields the record
   carries: a member record knows its committee's category and its
-  project, so seats across every board is one call; a committee record
+  project, so seats across every board is one call. Committee members
+  are scoped to a project by their project tag, never by a project
+  parent, which they do not carry and which counts zero. A committee record
   knows its project but not the project's status, so an active-only
   figure is the count combined with the layer's project directory, and a
   filter on a field the record lacks comes back as zero, which is not an
   answer — never walk the index to get round it. A long window with no
-  scope times out today: split it into a few sub-ranges, check each is
-  complete, and add them. What the tools count is what LFX Self Serve
+  scope can time out: scope by project or committee and use month windows,
+  check each record count is complete, and add only non-overlapping counts,
+  never distinct people. What the tools count is what LFX Self Serve
   shows; the warehouse total over a period is the layer's.
 - **Children of a foundation** come from the search's parent filter, and
   the entities under a legal parent from its legal-parent filter, each
@@ -109,7 +113,8 @@ and the discipline that keeps a count of records honest.
   record's, the term's status is the membership records'. A voting
   contact can sit on an earlier term of the same company, so the
   contact is reported as "contact of record on the <status> term" with
-  its updated date, the seat with no date, and neither as "current" nor
+  its updated date, the seat with its recorded term date, if any, and
+  neither as "current" nor
   "currently" (the plain-words reference, "Current, currently"). "Who
   holds the seat" is the committee roster (next section); the two are
   different people often enough that neither stands in for the other.
@@ -156,10 +161,13 @@ and the discipline that keeps a count of records honest.
   seats — role and status as stored, the updated date where one is
   returned — with a per-project representation pairing the voting
   contacts with the seats that represent the company (next bullet).
-  It sits behind the organisation gate: a refusal under an identity
-  without that company's read grant is the gate speaking, not an empty
-  roster, and the answer says so. A ranking of companies by seats is not
-  this tool's job (the querying playbook's routing table).
+  It sits behind the organisation gate: a refusal is the gate, never
+  "no seats", and returns no contacts either. Fall back to the membership
+  search and key-contact tools for contacts, and the roster search or
+  count tool for seats, each "visible to you"; an empty side is a
+  visibility limit, not an absence. Never infer one side from the other.
+  A ranking of companies by seats is not this tool's job (the querying
+  playbook's routing table).
 - **Which seats represent the company.** A seat represents the company
   when its committee is of board category or its voting status is
   Voting Rep or Alternate Voting Rep on any committee — TOC/TSC seats
@@ -177,12 +185,16 @@ and the discipline that keeps a count of records honest.
   the membership's contact of record (the key-contact tools, or the
   organisation seats tool's contacts beside the seats). When they name
   different people, both are shown side by side, never merged into one
-  name. Dates as recorded: a contact carries its updated date; a seat
-  row from the committee tools carries a record stamp (when the row
-  was created or last changed) and no term date, so neither is an "as
-  of" for the seat, and each is cited as recorded on its side, never
-  as "current" or "currently"; and a contact flagged active is not proof
-  the term is active (the organisations section above). Country is not
+  name. Dates as recorded: a contact carries its updated date; a roster
+  row carries a role or voting term date only where recorded (an empty
+  placeholder is no date). The organisation seats tool's rows carry none.
+  A roster row's created and updated stamps date the LFX v2 record —
+  mostly its onboarding — never the seat. Cite "term recorded as
+  <start>–<end>" or "no term date recorded", never "current", "currently"
+  or "member since". Say "listed as active on the roster at this read";
+  a past recorded end beside an active status is reported as that oddity,
+  not silently corrected. A contact flagged active is not proof the term
+  is active (the organisations section above). Country is not
   a roster field; "from N countries" about a committee is not
   reproducible.
 - **Coverage audit.** The coverage audit tool (`audit_committee_coverage`)
@@ -239,16 +251,19 @@ and the discipline that keeps a count of records honest.
 - **Summaries** (`search_past_meeting_summaries`, `get_past_meeting_summary`)
   are generated text about one occurrence, useful for "what was
   discussed"; they are not attendance data.
-- **People at a committee's or a meeting's past meetings over a period**
-  come from the participants search with its date range, attended-only
-  switch, exact organisation name and count-only mode. The listing
-  de-duplicates people by identity; its record count and its count-only
-  mode do not — they count index records (the tool's own words: records,
-  not distinct people), and more than one record can exist for one
-  person at one occurrence, so a record count is neither attendances
-  nor people: attendances are the layer's attendance records, people
-  its attendees metric, one occurrence's attendees from the people
-  count. Two populations hide in the committee filter: with a date range
+- **People at a project's or a committee's past meetings over a period**
+  come from the attended participants listing, which de-duplicates people
+  by identity. Its record count and its count-only mode do not — they
+  count index records, and more than one record can exist for one person
+  at one occurrence, so a record count is neither attendances nor people.
+  On the layer, attendances count one person at one occurrence and unique
+  attendees count people. Without the layer, read all raw attended rows:
+  distinct occurrence-and-person pairs give attendances; distinct
+  occurrences give meetings attended. The listing's meeting count is the
+  meetings expanded, not the meetings anyone attended. For a company,
+  copy its exact stored organisation spelling from a participant record:
+  case-sensitive, one spelling a call, no subsidiary roll-up, a miss is a
+  silent zero. A date range needs a project or committee. Two populations hide in the committee filter: with a date range
   it resolves the committee's past meetings and returns everyone at
   them; without one it returns the participant records that carry the
   committee — say which ran. A project's or a committee's own meeting
@@ -256,12 +271,17 @@ and the discipline that keeps a count of records honest.
   total over the warehouse is the layer's. They are two readings, never
   adjusted toward each other; the gap is explained by the
   `lfx-figure-checking` skill's index-versus-warehouse entry.
-- **Aggregate meeting metrics** (meetings held, scheduled minutes,
-  people and attendances over a period, LF-wide, by foundation or by
-  company) are not a service-tool job: they are the layer's named
-  metrics and its attendance records, with no per-caller visibility; the
-  meeting tools list (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim) `[not yet in production: TOOLS-2 org
-  meeting KPIs on the service tools — until then: the layer]`.
+- **Aggregate meeting metrics** are the layer's named metrics, labelled
+  ad hoc, with no per-caller visibility, and reach only callers with staff
+  tools: occurrences and scheduled minutes by foundation, project or
+  committee; attendances and people also by company through the account
+  entity. Distinct meetings a company's people attended and those meetings'
+  scheduled minutes have no named metric: the SQL assistant, generated SQL.
+  A caller without the staff tools gets counts visible to them — the count
+  tool over past meetings, the participants listing for people — one
+  project or committee at a time. An LF-wide or company-wide total over a
+  period is not available to them, and the answer says so. Never reconcile
+  these caller-visible readings with warehouse totals.
 
 ## Mailing lists and Discord — communities as records
 
