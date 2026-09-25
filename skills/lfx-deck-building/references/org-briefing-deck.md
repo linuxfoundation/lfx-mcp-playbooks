@@ -18,12 +18,15 @@ parameters. Lines that need something not deployed carry
 
 ## Section 0 — Resolve the company, choose the scope
 
-- **Legal name first.** `search_b2b_orgs` gives the stored legal name and
-  identifier; the everyday name is often a stray account with nothing on
+- **Legal name first for CRM figures.** When visible, `search_b2b_orgs`
+  gives the stored legal name and identifier; the everyday name is often a stray account with nothing on
   it or a shell with a little (a few enrollments) that returns a confident
   zero for everything else. A zero for a company that plainly has data is
   a wrong name. The record vocabulary of the membership records
-  (`search_members`) confirms the same identifier.
+  (`search_members`) confirms the same identifier. When organisation
+  discovery is gated, use the querying skill's readable-record discovery
+  routes. Roster and participant searches take their own stored spellings,
+  never a CRM name substituted for one.
 - **The scope choice is the first slide's decision.** The default reading
   of a named company is the account alone. "The company including its
   subsidiaries" is the combined reading, walked to any depth by the
@@ -37,8 +40,9 @@ parameters. Lines that need something not deployed carry
   registration slides are on the CRM account (legal name, parent alongside).
   Activity slides read by organisation are on the account too (the row's
   account is resolved to the parent for that project before the parent
-  column applies); meeting and participant records carry free-text
-  organisation names (D15: aliases unmerged) and say so.
+  column applies); the meeting tools' participant records carry the
+  organisation name as stored, while the layer's attendance metrics carry
+  the CRM account and its parents.
 - **Window.** The trailing twelve months to the run date, as concrete
   dates, on every activity slide; the deck that started this work used a
   month-anchored thirteen-month window while saying "last twelve months"
@@ -166,8 +170,10 @@ reference, Organisations).
 The *seat holder* is the person on a seat that represents the company
 — the seats the `lfx-data-querying` skill's service-tools reference
 defines (Which seats represent the company) — with the voting status
-as the roster stores it, and no "as of" date, because a seat row from
-the committee tools carries a record stamp and no term date. The
+as the roster stores it, and its term date only where the roster records
+one, never the record stamp, which dates the LFX v2 record. Empty placeholder
+terms are not dates; say "no term date recorded" when absent. The organisation
+seats tool's rows carry no date. The
 read is the organisation seats tool's one call under the organisation
 gate: the contacts of record beside the seats, each with its date as
 recorded, the voting-status split, and a per-project pairing of the
@@ -179,7 +185,10 @@ holds no seat, and a seat holder who is not the membership's contact:
 the slide shows both side by side, each labelled as what it is and
 cited as recorded on its side, never as "current". Contacts and seats
 are people: shown only where naming individuals is appropriate for the
-audience. Label: visible to you.
+audience. A refusal is the gate, never "no seats"; each fallback reading
+is "visible to you", and an empty side is a visibility limit, not an
+absence. Never infer the missing contact from a seat, or a seat from a
+contact; never call a record stamp "member since". Label: visible to you.
 
 **Seats the company holds, across which boards, with what vote.** Every
 seat the company holds in each foundation of its footprint, on every
@@ -187,8 +196,10 @@ committee category, with voting status and role from the seat record;
 which of them represent the company is the item above. The read is the
 organisation seats tool: every seat with the board split, the
 voting-status split and a per-project summary in one call, under the
-organisation gate. The fallback, under an identity without the grant,
-is the committee tools: each roster read through the roster search
+organisation gate. For a seat count without the grant, use the count
+tool for the organisation and read its complete flag, "visible to you".
+To read the seats, the fallback is the committee tools: each roster read
+through the roster search
 filtered on the company's stored organisation name, one read per
 spelling the company appears under (D15). When a roster comes back
 empty, the coverage audit over its foundation is read before the empty
@@ -199,11 +210,12 @@ governance-rosters entry), and the slide's lead line names which case
 the audit found, never "no seats" over a caveat (the
 `lfx-data-querying` skill's section 5, item 11). Every roster in this
 section is read from the committee tools; a figure read from the
-warehouse side (the layer's committee models, or the SQL assistant over
-the same warehouse data — a seats ranking) is a different source that
-can differ with neither wrong, and the notes say which was read (the
-`lfx-figure-checking` skill's "Rosters: committee tools vs the layer"
-entry). Label: visible to you.
+warehouse side is the SQL assistant's warehouse copy of the v1 committee
+records, only for an open LF-wide ranking as the staff last resort,
+active seats only. The layer has no committee metric. This is a different
+source: say which was read, never combine or reconcile them (the
+`lfx-figure-checking` skill's "Rosters: LFX v2 vs the v1 warehouse copy"
+entry). Label: visible to you for these company seat readings.
 
 **Key contacts.** The membership records' key contacts, the
 contact-of-record reading above: role and status as stored, the updated
@@ -213,26 +225,26 @@ individuals is appropriate for the audience. Label: visible to you.
 ## Section 5 — In the room (meetings)
 
 **Meetings the company's people attended; attendances by month; hours.**
-Two readings, both floors bounded by platform onboarding and both on the
-attendance data's organisation field (loosely resolved, no subsidiary
-roll-up: the company's spellings are listed and said). Attendances by
-period and people who attended, for the company: the layer's attendance
-records and attendees metric sliced by the organisation name, labelled
-interim and ad hoc, worded "attendances" and "people". Distinct
-meetings the company's people attended and the scheduled minutes those
-meetings ran: the SQL assistant over the same attendance data (the
-occurrences metric carries no organisation), summed over distinct
-occurrences, labelled generated SQL. The meeting tools list one
-project's or one meeting's records without an organisation filter, so
-they give the story of one meeting, not the company figure; the
-participants search with an exact organisation name, a date range and
-count-only gives the company's index records at one committee's or one
-meeting's past meetings, "visible to you" — records, not people, since
-one person can hold more than one record at one occurrence; people are the
-listing's de-duplicated result or the layer's attendees metric
-`[not yet in production: TOOLS-2 org meeting KPIs — until then: the
-interim recipe for attendances, the SQL assistant for occurrences and
-hours, the vocabulary note on both]`. Label: interim / generated SQL.
+Attendances and people who attended, for the company: the layer's
+attendances and unique-attendees metrics by the account entity — the whole
+company by its top parent, subsidiaries folded in — worded "attendances"
+and "people", with the unattributed share (no account, an account that
+does not resolve, or a placeholder account) stated once; label ad hoc,
+a floor bounded by platform onboarding. Distinct meetings the company's
+people attended, and the scheduled minutes those meetings ran: the SQL
+assistant over the attendance data, summed over distinct occurrences,
+because no named metric counts occurrences by company; label generated SQL,
+also a platform floor. The meeting tools filter participants by the exact
+stored organisation name (case-sensitive, one spelling a call, no subsidiary
+roll-up, a wrong spelling returns zero, not an error). With a project or
+committee and a date range they give the company's people at that body's
+past meetings, "visible to you"; count-only gives index records — not people
+and not attendances. Distinct occurrences on all raw attended rows give
+meetings attended, distinct occurrence-and-person pairs give attendances;
+the listing's meeting count is meetings expanded, not meetings attended.
+These are the readings for a caller without staff tools, one project or
+committee at a time, never an LF-wide or company-wide period total, and
+never reconciled with the layer's. State that the wider total is unavailable.
 
 ## Section 6 — Peers and comparisons
 
@@ -245,7 +257,8 @@ hours, the vocabulary note on both]`. Label: interim / generated SQL.
 ## Section 7 — What the briefing cannot say from LFX today
 
 Listed on the data-notes slide, not silently dropped: meeting attendance
-by company as a governed figure (today interim and generated SQL, floors);
+by company as a governed family figure (attendances and people are ad hoc
+on the layer; distinct meetings by company is generated SQL, all floors);
 anything matched by corporate e-mail domain; any figure from a previous
 deck that is not re-run.
 
@@ -260,6 +273,8 @@ deck that is not re-run.
 - **One vocabulary per slide**, and the grain (account or parent) on every
   slide that names the company.
 - **Every rank says among whom**, at which grain, on which date or window.
-- **Every "visible to you" and "interim" figure is a floor** and says so.
+- **Every caller-visible figure and every layer meeting figure is a floor**
+  for the wider population and says what bounds it; layer meeting figures
+  say ad hoc, distinct meetings by company say generated SQL.
 - **Every figure was re-run for this deck**, and the applied block's
   definition sentence is the population on the slide.

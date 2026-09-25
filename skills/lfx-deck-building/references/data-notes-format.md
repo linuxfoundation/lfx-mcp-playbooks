@@ -62,8 +62,7 @@ Every row says what the figure does and does not cover. At minimum:
 
 - **The label.** One of: *Governed* (standard metric); *Ad hoc* (semantic
   layer); *Generated SQL* (SQL assistant); *Visible to you* (service
-  tools); *Interim recipe* (the meeting-metrics workaround); *Published*
-  (a cited external figure, no LFX lane).
+  tools); *Published* (a cited external figure, no LFX lane).
 - **Unattributed share**, whenever the figure is an organisation share or
   an organisation ranking: "computed on the org-attributed base;
   unattributed share stated in the header".
@@ -72,8 +71,9 @@ Every row says what the figure does and does not cover. At minimum:
   the caller's identity could see, not an LF total.
 - **"Generated SQL"** on every SQL-assistant figure, with the scope line
   the tool returned (LF-wide, or the slugs) repeated in the cell.
-- **"Interim recipe"** on any aggregate meeting metric, worded
-  "attendances" (records), not "attendees" (people).
+- **"Attendances"** on attendance figures (one person at one occurrence),
+  "people" on unique attendees; named layer metrics are ad hoc, distinct
+  meetings by company and those meetings' scheduled minutes are generated SQL.
 - **Distinct count** where the figure is people or organisations: "distinct;
   rows of the breakdown do not sum to it".
 - **Partial period** where the last period of a series is to-date.

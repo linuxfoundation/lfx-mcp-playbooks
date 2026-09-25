@@ -56,13 +56,16 @@ deck's argument. The data is what the reader is waiting for.
 4. **Headcount versus volume.** People for "how many"; work for "share".
    Never one presented as the other; distinct counts never summed across
    rows; the two organisation vocabularies never mixed across slides.
-5. **Source lane per slide type.** Headline counts, revenue, shares and
-   series: standard metrics. A grouping the families lack: the semantic
-   layer, labelled ad hoc. Cross-domain shapes only: the SQL assistant,
-   labelled as generated SQL, never alone under a headline. Rosters,
-   membership records and meeting lists: the service tools, labelled
-   "visible to you", paginated to the end (the querying playbook's
-   "service tools" reference).
+5. **Source lane per slide type.** With staff tools: headline counts,
+   revenue, shares and series from standard metrics; a grouping or named
+   metric the families lack from the layer, labelled ad hoc. Shapes neither
+   expresses go to the SQL assistant as the last resort, labelled generated
+   SQL, never alone under a headline. Rosters, membership records and meeting
+   lists come from service tools, labelled "visible to you": count with the
+   count tool and read completeness; page to the end to read rows. Community
+   callers use these core-tool routes where available and state when an
+   LF-wide or company-wide total is unavailable; a visible subset never
+   replaces the unavailable total (the querying playbook's routing table).
 6. **The caption carries the grain, not only the appendix.** The board
    reads the slide, not the notes: "memberships" (project-account pairs)
    is never captioned "organisations", "list-price value" is never
@@ -178,9 +181,9 @@ Before the deck ships, re-read every figure against the deck as a whole:
   appendix, and no headline rests on one alone.
 - **Every service-tool figure says "visible to you"** and is not presented
   as an LF total.
-- **Every interim figure says interim and floor on the slide**, beside
-  the caption, because a label that sits only in the appendix has not
-  been said.
+- **Every layer meeting figure says ad hoc and floor on the slide**,
+  beside the caption; distinct meetings by company say generated SQL and
+  floor. A label that sits only in the appendix has not been said.
 - **The data-notes slide states** the conventions, the scope of each
   section, the run date and the unattributed share.
 - **Every check was computed**, from all the rows, and quoted exactly;
