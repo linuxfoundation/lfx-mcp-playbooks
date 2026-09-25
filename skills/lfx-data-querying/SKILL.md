@@ -80,7 +80,7 @@ from these is "what is visible to you": say so. The craft for each group:
 | How many organisations are members, were new to the LF, or were lost, as against memberships | standard metrics | the organisation families count distinct organisations, the membership families count project-account pairs; the answer says which grain it reports | governed |
 | A cross-domain join or a hierarchy shape no metric expresses | SQL assistant | generated SQL, with its scope line and SQL returned | generated SQL |
 | A project's slug, record, parent, legal entity | `search_projects`, `get_project` | the record is the truth about what a slug is | — |
-| A company's legal name and identifier | `search_b2b_orgs` | the stored name every organisation-scoped call takes | — |
+| A company's legal name and identifier | `search_b2b_orgs` | the CRM account name; service-tool roster and participant spellings come from their own records | — |
 | What one company holds: memberships, tiers, dates, contacts | `search_members`, `get_member_membership` | the record view of the CRM, the story behind the figure | visible to you |
 | Who sits on a board or committee, with what vote | committee tools | the authoritative source for committee rosters in LFX v2 (rule 18 for the SQL assistant's v1 copy; the layer has no committee metric); "who represents a company" is two records side by side (rule 17) | visible to you |
 | A company's seats across the LF, split by board and project | organisation seats tool | one call, under the organisation gate, with the membership contacts of record and a per-project representation pairing beside the seats when asked | visible to you |
@@ -130,22 +130,27 @@ Decide in this order; stop at the first row that fits:
 
 ## 3. Discovery
 
-- **Resolve names first.** Project slugs from `search_projects`,
-  organisation legal names from `search_b2b_orgs`; stored spellings are
-  not everyday ones. A name either tool returned this session may be
-  reused; one that has not come back from them is never passed. A
-  foundation is found by its short name or slug, not its long legal name;
-  the record confirms which it is. When the organisation search returns
-  nothing — the caller's permissions, not absence — the guidance names
-  the way back: the value search on the account-name dimension ("Name
-  discovery" in the semantic-layer guidance), and an organisation-scoped
-  standard-metric call with the everyday name, whose rejection lists the
-  stored names that carry the family's data, parent alongside. When the
+- **Resolve names in the receiving tool's vocabulary.** Start project
+  discovery with `search_projects` and CRM account discovery with
+  `search_b2b_orgs`; stored spellings are not everyday ones. Copy roster
+  organisation names from roster records and participant organisation names
+  from participant records, not from the CRM spelling. Identifiers can come
+  from the appropriate readable records this session. A foundation is found
+  by its short name or slug, not its long legal name; the record confirms
+  which it is. An empty organisation search can be a permission limit, not
+  absence: community callers continue with readable membership, roster or
+  participant records in that tool's vocabulary and say what remains
+  inaccessible. For staff, the guidance also names warehouse recovery:
+  the value search on the account-name dimension ("Name discovery" in the
+  semantic-layer guidance), and an organisation-scoped standard-metric call
+  with the everyday name, whose rejection lists the stored names that carry
+  the family's data, parent alongside. When the
   search is empty and the family accepts the name first time, the parent
   is still unknown: a by-organisation reading of that name with the
   separate switch returns the parent beside each row — read it before
-  saying the account stands alone. A membership record confirms a
-  spelling; it is not the resolver. A project the search cannot find is
+  saying the account stands alone. A membership record confirms its own
+  spelling and identifier, not the warehouse's account hierarchy.
+  A project the search cannot find is
   not absent from the data: the search reads the LFX v2 index, which
   lags the project directory the metrics read, so a standard-metric
   rejection's candidate slugs and the layer's project values are the

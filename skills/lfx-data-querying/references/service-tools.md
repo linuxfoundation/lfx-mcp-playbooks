@@ -26,8 +26,9 @@ and the discipline that keeps a count of records honest.
   overflows the result and has to be read back from a file.
 - **Identifiers come from this session.** A project, committee, meeting
   or organisation identifier is copied from a search result this session,
-  never remembered from another. A name resolves to an identifier before
-  it goes into any other call.
+  never remembered from another; an appropriate readable membership or
+  roster record can also supply an organisation identifier. Names used
+  as filters come from that tool's own records, never a different vocabulary.
 - **Vocabularies do not cross.** Record slugs, record organisation
   names, and free-text organisation fields on participants are their
   own vocabularies; they are not the warehouse's slugs or the CRM legal
@@ -92,9 +93,12 @@ and the discipline that keeps a count of records honest.
 
 ## Organisations — resolve, then read the membership records
 
-- **The legal name comes from `search_b2b_orgs`**: it returns the CRM
-  account's legal name and identifier, which every organisation-scoped
-  data call takes. The everyday name is not passed on.
+- **The CRM legal name comes from `search_b2b_orgs`** when visible: use it
+  for CRM-account readings, not as a replacement for the organisation
+  spelling on a roster or participant record. Those searches use their own
+  stored names. If organisation discovery is gated, readable membership or
+  roster records can supply identifiers; say which source named them and
+  which scope remains inaccessible.
 - **`search_members` is the record view of a company's memberships**:
   every membership record for an organisation (by its identifier) or for
   a project, with status, tier, dates, the company name as the CRM spells

@@ -26,9 +26,14 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   semantic layer returns zero rows for a literal that matches nothing; the
   standard metrics reject an unknown slug or a name matching no account
   that carries the family's data, and list candidates instead.
-- **Check.** Every slug came from `search_projects` and every organisation
-  name from `search_b2b_orgs` in this session. A zero from the layer sends
-  you back to discovery, not to "none".
+- **Check.** Every name and identifier came from this session's output in
+  the receiving tool's vocabulary: CRM accounts from organisation discovery
+  or the staff warehouse recovery routes; roster and participant spellings
+  from their own readable records. Project slugs come from project search
+  or, for staff, warehouse-directory discovery, with the source said.
+  An unavailable discovery tool is a visibility limit, not absence; use
+  the core-tool routes where readable. A zero sends you back to spelling
+  and scope, not straight to "none".
 - **Documented.** SM "Resolve names first — ALWAYS", "Organizations:
   account and parent_org", "Errors"; SL "Protocol", "Value discovery".
 
