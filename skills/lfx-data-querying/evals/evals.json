@@ -217,7 +217,7 @@
         "Without staff tools, says an LF-wide warehouse total is unavailable and offers counts visible to you from the count tool over past meetings and people from a participants listing per project or committee; never calls unavailable guidance or warehouse tools and never reconciles these counts with warehouse totals",
         "Any layer figures are labelled ad hoc, not governed, interim or generated SQL, and cited as all meetings in the warehouse; any core-tool fallback is labelled visible to you rather than a warehouse total",
         "Says hours are scheduled duration summed once per occurrence, not time spent and not person-hours",
-        "Says people are distinct attendees identified by LF user or e-mail, distinct from attendances, and never counts invitee ids",
+        "For layer figures, says people are distinct attendees identified by LF user or e-mail; for community participant listings, uses the listing's identity de-duplication, including normalized-name fallback where no username or e-mail exists; never treats raw invitee ids or record counts as people",
         "States the window as concrete dates bounded at today and calls every meeting figure a floor bounded by platform onboarding",
         "Beyond the basis clause next to each figure and the provenance block, the answer carries no unprompted discussion of data quality, caveats or tool differences; a further sentence appears only where the reader would otherwise read a figure wrongly (a hidden grain, a floor, a material choice between two readings)",
         "The transcript shows a Skill step loading lfx-figure-checking after the reads and before the answer is written (or earlier in the same session), and the answer's figures reflect its traps"

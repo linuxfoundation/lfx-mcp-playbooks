@@ -98,8 +98,10 @@ hoc, floor.
 
 **People who attended, attendances.** The layer's attendees metric
 counts people (an LF user, e-mail as the fallback), never invitee ids,
-and sits far below the attendances metric's records (one person at one
-occurrence); the meeting tools list what the caller's identity may see.
+and can sit far below the attendances metric's records (one person at one
+occurrence). On the same population and window, people cannot exceed
+attendances, but they match when each person attended once; proximity alone
+is not a key error. The meeting tools list what the caller's identity may see.
 Trap M3: no metric family covers meetings, so the names come from
 explore. Label: ad hoc for people and attendances, each worded as such.
 

@@ -97,9 +97,11 @@ several times, not as noise. Use whichever applies:
   is reported as a breakdown.
 - **A tier split against the member total.** The per-tier rows and the
   folded total come from the same scope and date; they reconcile.
-- **People sit well below attendances.** On meetings, distinct people
-  are a small fraction of attendance records; a people figure near the
-  attendance figure was keyed on invitees, not people.
+- **People do not exceed attendances on the same scope and window.**
+  A person is counted once in people and once per attended occurrence in
+  attendances, so equality is valid when each person attended once.
+  Nearby figures prompt a check of identity and grain, not an automatic
+  diagnosis that invitees were counted as people.
 - **Contributors ≤ participants ≤ activities.** People with a code
   contribution sit inside people with any collaboration, and both sit
   below the volume of work.

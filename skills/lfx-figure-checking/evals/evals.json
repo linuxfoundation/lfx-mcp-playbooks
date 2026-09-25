@@ -128,6 +128,19 @@
         "Requires a project or committee for a participants date range and scopes a long count, using month windows with completeness read; only non-overlapping record counts add, never distinct people",
         "Uses the listing for people and distinct occurrence-and-person pairs for attendances, never a count-only participant record count for either"
       ]
+    },
+    {
+      "id": 9,
+      "name": "scoped-attendance-equality-and-name-only-identities",
+      "prompt": "I'm checking the counting logic for a committee-meetings slide. Everyone in the selected period attended just one occurrence, though some participant records are duplicates. Some participants have only a stored name, with no username or email. Must the people figure be much smaller than attendances, and should those name-only participants disappear? Check the logic, not live figures.",
+      "expected_output": "Explains that correctly de-duplicated people and occurrence-person attendances can match when everyone attended once; proximity alone is not a key error. Participant listings can identify people through their normalized-name fallback, unlike the layer's user-or-email definition. Duplicate index records are not additional people or attendances. No invented live figures or fabricated query result.",
+      "files": [],
+      "assertions": [
+        "Accepts equality between distinct people and distinct occurrence-person attendances when each person attended once, including a scope containing one attended occurrence; does not diagnose an invitee-key error from proximity alone",
+        "Uses the same population and window for the people-not-exceeding-attendances check, and distinguishes duplicate participant index records from distinct occurrence-person pairs",
+        "Preserves name-only identities under the participant listing's documented normalized-name fallback rather than imposing the layer's user-or-email-only definition or claiming those rows have verified usernames or emails",
+        "Answers as a qualitative counting-logic check without inventing figures, claiming a live query or reporting a measured recipient visibility"
+      ]
     }
   ]
 }

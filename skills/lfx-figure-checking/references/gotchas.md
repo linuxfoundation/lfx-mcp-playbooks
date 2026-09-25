@@ -233,8 +233,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   meeting-minutes — say which. An occurrence shared by several projects
   is attributed to one of them. A tool figure is cited as "visible to
   you", a layer figure as "all meetings in the warehouse", and neither
-  is reconciled against the other. A people figure anywhere near the
-  attendance figure is a key error. "How many meetings did a company's
+  is reconciled against the other. For the same population and window,
+  distinct people cannot exceed attendances, but equality is valid when
+  each person attended once. Nearby figures prompt an identity/grain check,
+  not a key-error verdict on their own. "How many meetings did a company's
   people attend" is distinct occurrences with an attendee from the
   company (the `lfx-data-querying` skill's routing table; the
   `lfx-deck-building` skill's org-briefing reference, Section 5), never
@@ -249,8 +251,10 @@ tools is the `lfx-data-querying` skill's service-tools reference.
   meetings and the participants listing gives people per project or committee,
   "visible to you", never an LF-wide or company-wide total. Distinct
   occurrence-and-person pairs on all raw attended rows give attendances;
-  distinct occurrences on those rows give meetings attended. The listing's
-  meeting count is meetings expanded, not meetings attended.
+  distinct occurrences on those rows give meetings attended. People follow
+  the listing's identity de-duplication, which can fall back to a normalized
+  name, not the layer's user-or-email identity alone. The listing's meeting
+  count is meetings expanded, not meetings attended.
 - **Silent-zero traps.** The participants search matches the exact stored
   organisation spelling, case-sensitively, one spelling per call, with no
   subsidiary roll-up; copy it from a participant record. A miss is a silent

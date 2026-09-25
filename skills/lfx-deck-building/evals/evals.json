@@ -132,16 +132,16 @@
     },
     {
       "id": 7,
-      "name": "company-meetings-briefing-staff-and-community",
-      "prompt": "Prepare the meeting section of a Google briefing: how many meetings did Google's people attend at CNCF in the first half of this year, how many people was that, and how many hours did those meetings run? I also need a version for a community reader who has only meeting and count tools.",
+      "name": "company-meetings-briefing-by-caller-availability",
+      "prompt": "Prepare the meeting section of a Google briefing: how many meetings did Google's people attend at CNCF in the first half of this year, how many people was that, and how many hours did those meetings run? Give me what the tools available to me can answer, with slide captions and data notes.",
       "expected_output": "For staff, people come from the account-aware layer metrics labelled ad hoc; distinct meetings attended and their scheduled minutes use generated SQL because there is no named company-occurrence metric. For community readers, offers scoped participant listings in the stored-name vocabulary, visible to you, never a warehouse or company-wide total. Captions and data-note rows preserve grains, windows, floors and source labels.",
       "files": [],
       "assertions": [
-        "The staff people figure uses the account entity, names account-alone or whole-company scope and includes subsidiaries through the top parent when requested; unresolved and placeholder accounts are unattributed, and the figure says ad hoc and floor",
-        "Distinct meetings attended and those meetings' scheduled minutes use the SQL assistant as the staff gap route, labelled generated SQL and floor; neither attendances nor attendances divided by people answers meetings attended",
-        "The community version reads all raw attended participant rows per project or committee with observed exact case-sensitive organisation spelling, one spelling a call and no subsidiary roll-up, and counts distinct attended occurrences; people come from the de-duplicated listing",
+        "When the caller has staff tools, the people figure uses the account entity, names account-alone or whole-company scope and includes subsidiaries through the top parent when requested; unresolved and placeholder accounts are unattributed, and the figure says ad hoc and floor",
+        "When the caller has staff tools, distinct meetings attended and those meetings' scheduled minutes use the SQL assistant as the gap route, labelled generated SQL and floor; neither attendances nor attendances divided by people answers meetings attended",
+        "Without staff tools, uses raw attended participant rows per project or committee with observed exact case-sensitive organisation spelling, one spelling a call and no subsidiary roll-up, and counts distinct attended occurrences when the rows are readable; people come from the de-duplicated listing, and inaccessible reads are reported as visibility limits rather than invented figures",
         "Count-only participant records and the listing's meetings-expanded count are not used as meetings attended, people or attendances; distinct occurrence-and-person pairs are the caller-visible attendance grain",
-        "Every community figure says visible to you on the slide; the answer says an LF-wide or company-wide period total is unavailable without staff tools and never reconciles a visible subset with a warehouse total",
+        "Every core-tool figure says visible to you for the calling identity, never claims a different reader's visibility was measured; without staff tools, states that the LF-wide or company-wide period total is unavailable, attempts no staff calls and never reconciles a visible subset with a warehouse total",
         "The final consistency pass and data notes retain lane-specific labels: company-meeting figures from the SQL assistant say generated SQL, those derived from scoped participant records say visible to you, never generated SQL; concrete dates match and no interim label or obsolete organisation-meeting tool marker remains"
       ]
     }
