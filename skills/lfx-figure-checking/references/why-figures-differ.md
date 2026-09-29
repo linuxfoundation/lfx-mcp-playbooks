@@ -372,15 +372,22 @@ meetings held, with or without attendance as a dimension; scheduled
 minutes sum the stored duration once per occurrence, never per
 attendance row, and are scheduled, not time spent; attendees count
 distinct people (an LF user, e-mail as the fallback, never invitee ids);
-attendances count records, one person at one occurrence, and are the
-reading that carries the organisation, the committee and the meeting
-type. Invitees are a larger population than those who attended, and the
+attendances count records, one person at one occurrence. Attendances and
+attendees carry the organisation through the account entity at the chosen
+grain — the account alone by default, the whole group by its top parent when
+the reading is the company including subsidiaries — with the grain named and
+the unattributed share stated. Occurrences and scheduled minutes carry the
+committee and meeting type but no organisation. Invitees are a larger population than those who attended, and the
 attendance rate is attendances over invitations on the same slice —
 walk-ins can push it above one. An occurrence shared by several projects
 is attributed to one of them. Attendances divided by people is
 attendances per person, not meetings: a company's meetings are the
 distinct occurrences with an attendee from it, read over the attendance
-data, because the occurrences metric carries no organisation. The
+data through the SQL assistant (generated SQL), because no named metric
+counts distinct occurrences by company. For a caller without staff tools,
+the participants search gives a project or committee reading, "visible to you",
+never a company-wide period total; the record-grain and spelling checks are
+in [gotchas.md](gotchas.md), "Meetings — Silent-zero traps". The
 participants tool's records are index records — more than one record
 can exist for one person at one occurrence — so a record count is
 neither attendances nor people. The layer has no per-caller visibility;
@@ -397,8 +404,9 @@ metrics and the SQL assistant read the same warehouse meeting tables —
 occurrences and attendance — so a layer figure and an assistant figure
 over them are one source read twice, never a cross-check of each other
 (the `lfx-deck-building` skill's section 2, Cross-framing checks).
-Records worded "attendances"; the named metrics labelled ad hoc, a fallback by its own lane (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim). *SL* "Worked
-recipes" 12.
+Attendance records worded "attendances"; the named metrics labelled ad hoc;
+distinct meetings by company and those meetings' scheduled minutes labelled
+generated SQL. *SL* "Worked recipes" 12.
 
 **Potential impressions vs potential audience.** The reach family sums
 author follower counts over the mentions, so an account that posts many
@@ -417,9 +425,11 @@ loaded with, at a project status and a date. So the same population —
 boards across the LF, their seats, a foundation's projects, meetings in
 a window — comes out different from each side, by onboarding,
 visibility, status and timing, and neither figure is an error. An
-LF-wide figure is the warehouse reading, said as such; the index count
+warehouse-wide figure is the staff reading, said as such; the index count
 is "in LFX v2 today, visible to you", and is what LFX v2 applications
-show their users. Quote one, and name the other only as a cross-check.
+show their users. State the source and population; never combine, top up
+or reconcile the two. Without staff tools, an LF-wide warehouse total is
+not available; offer the caller-visible scope instead.
 The record tools' craft is the `lfx-data-querying` skill's service-tools
 reference.
 
@@ -427,25 +437,31 @@ reference.
 the authoritative source for committee rosters in LFX v2, never from an
 inference; a company's seats are the roster filtered by organisation,
 paginated to the end. A ranking of organisations by seats across every
-project is a different job: walking every roster through the tools is a
-hundred calls, so it is a generated-SQL reading over the committee data,
-labelled as such, with LF staff seats and unaffiliated individuals set
-aside and said, technical steering committees kept out of "boards", and
-spelling variants of one company noted rather than merged by hand. One
-company's seats are the organisation seats tool, "visible to you", under
-the organisation gate. *SL* "Routing".
+project is a different job: start with the count tool per candidate
+organisation, using its identifier, one call each, "seats visible to you
+in LFX v2", with completeness read. Candidates can be a foundation's
+member organisations or named peers. Only an open LF-wide ranking falls
+back, for staff, to generated SQL over the warehouse copy of the v1
+committee records, labelled as such, active seats only (end date empty or
+in the future), with that filter said. Set LF staff seats and unaffiliated
+individuals aside and say so; keep technical steering and oversight seats
+out of "boards", and note spelling variants rather than merging them by
+hand. Without staff tools there is no complete LF-wide ranking: offer a
+bounded candidate ranking or a foundation roster grouped by organisation.
+One company's seats are the organisation seats tool under the organisation
+gate; a refusal is the gate, never "no seats", and the roster search or
+count tool gives the seats "visible to you". *SL* "Routing".
 
-**Rosters: committee tools vs the layer.** The committee tools read the
-v2 committee service; the layer's committee and maintainer models read
-the warehouse mirror, which lacks rosters native to v2, and the SQL
-assistant reads the same warehouse data. So a roster question — who
-sits on a board, how many seats a company holds — can come back
-different from the tools and from the warehouse side with neither
-wrong: a roster onboarded into LFX v2 that the layer's models do not
-carry is on one side only. The roster is read from the tools, "visible
-to you"; where the layer or the SQL assistant read the committee data
-(a seats ranking), the answer says which one was read, and never
-adjusts one toward the other. *SL* "Routing".
+**Rosters: LFX v2 vs the v1 warehouse copy.** The committee tools read the
+LFX v2 committee service; the SQL assistant reads the warehouse copy of
+the v1 committee records, which lacks rosters native to v2 and keeps rows
+v2 does not (ended seats, seats credited to the member's own company).
+That copy held more rows on the foundations checked; source, seat-status
+handling and attribution differ, not just visibility. The layer has no
+committee metric: committees there are only meeting slices. Read rosters
+from the committee tools, "visible to you"; only the open LF-wide ranking
+uses the staff last-resort v1 reading, active seats only. Say which source
+was read; never merge, reconcile or top up one with the other. *SL* "Routing".
 
 ## Time
 

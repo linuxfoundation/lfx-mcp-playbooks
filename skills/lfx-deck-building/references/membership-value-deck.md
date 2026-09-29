@@ -94,34 +94,38 @@ converted to hours on the slide with that said. Every meeting figure is
 a floor: only meetings run through the LF's meeting platform exist here
 (D9). Trap D8: an hours figure built from attendances times a sampled
 average is an estimate and says so, and is the worse route. Label: ad
-hoc, floor (if explore does not offer them, the SQL assistant over the attendance data gives occurrences and scheduled minutes, labelled generated SQL, and the attendance recipe attendances, labelled interim).
+hoc, floor.
 
 **People who attended, attendances.** The layer's attendees metric
 counts people (an LF user, e-mail as the fallback), never invitee ids,
-and sits far below the attendance recipe's records (one person at one
-occurrence); the meeting tools list what the caller's identity may see.
+and can sit far below the attendances metric's records (one person at one
+occurrence). On the same population and window, people cannot exceed
+attendances, but they match when each person attended once; proximity alone
+is not a key error. The meeting tools list what the caller's identity may see.
 Trap M3: no metric family covers meetings, so the names come from
-explore. Label: ad hoc for people, interim for attendances, each
-worded as such.
+explore. Label: ad hoc for people and attendances, each worded as such.
 
 **Organisations that show up most; breadth and intensity.** Attendances
-grouped by the organisation the meeting record carries, on the interim
-recipe — the invitee's account as the source spelled it, free text with
-no rollup and no subsidiaries (D15: aliases unmerged, so one company
-splits across spellings) — distinct people for breadth, attendances per
-person for intensity; the slide says which vocabulary the grouping used
-and carries the alias note; two buckets are not companies and are stated
-once as unattributed; LF-hosted entities (the LF's own staff, a
-foundation's own secretariat) top an attendance ranking and are set aside
-from the member ranking, said on the slide. Label: interim
-`[not yet in production: TOOLS-2 — until then: the interim recipe with the
-vocabulary note]`.
+through the account entity at the chosen grain — the account alone by default,
+the whole group by its top parent when the reading is the company including
+subsidiaries — with the grain named and the unattributed share stated
+(no account, an account that does not resolve, or a placeholder account).
+Distinct people for breadth, attendances per person for intensity;
+the company figure is a floor.
+LF-hosted entities (the LF's own staff, a foundation's own secretariat)
+are set aside from the member ranking, said on the slide. Label: ad hoc.
 
-**Projects and working groups that met.** A distinct count of projects on
-the same data, floor by onboarding. Label: interim. (A foundation's
-project *population* is the layer's project metrics over the
-authoritative project directory, never a count of the projects indexed in
-LFX v2.)
+**Projects and working groups that met.** The occurrences metric by
+project, a floor bounded by platform onboarding. Label: ad hoc.
+A foundation's project *population* is the layer's project metrics over
+the authoritative project directory, never a count of the projects indexed
+in LFX v2.
+
+**Without staff tools.** Use the count tool for past meetings and the
+participants search for people and company slices at a project or committee;
+follow the `lfx-data-querying` skill's service-tools "Meetings" entry.
+Label: visible to you; an LF-wide or company-wide period total is unavailable,
+and the slide says so. Never reconcile this reading with the layer's.
 
 ## Section 3 — The developer community
 
@@ -257,12 +261,20 @@ summary, in one call under the organisation gate), and for any
 per-organisation reading of who represents it, the same call's contacts
 of record beside the seats, read as [org-briefing-deck.md](org-briefing-deck.md)
 says ("Who represents the company"); a ranking of organisations by
-seats across all projects is the generated-SQL reading over the same
-warehouse data as the layer's committee models, with staff and
-unaffiliated seats set aside, a different source from the tools that
-can differ with neither wrong, and the notes say which was read
-(the `lfx-figure-checking` skill's "Rosters: committee tools vs the
-layer" entry); totals of committees and of seats on them are the count
+seats starts with the count tool per candidate organisation, visible to you.
+Only an open LF-wide ranking uses the SQL assistant as the staff last
+resort: generated SQL over the warehouse copy of the v1 committee records,
+active seats only (end date empty or in the future), with that filter said,
+staff and unaffiliated seats set aside, and technical seats kept out of
+"boards". The layer has no committee metric. The v1 copy is a different
+source from LFX v2; the notes say which was read, never merge or reconcile
+them (the `lfx-figure-checking` skill's "Rosters: LFX v2 vs the v1 warehouse
+copy" entry). Without staff tools there is no complete LF-wide ranking:
+offer a bounded candidate ranking or a foundation roster grouped by
+organisation. A refusal from the organisation seats tool is the gate, never
+"no seats"; fall back to the key-contact tools for contacts and the roster
+search or count tool for seats, each "visible to you". An empty side is a
+visibility limit, not an absence. Totals of committees and of seats on them are the count
 tool, one kind a call, "visible to you", with the complete flag read,
 and across all onboarded projects regardless of status unless combined
 with the layer's directory. When a roster comes back empty, the
@@ -274,7 +286,7 @@ D15: roster records carry no "community-elected" attribute, so
 unaffiliated seats are a proxy and say so; organisation aliases are
 unmerged, so a company's seats can split across spellings. Committee
 members' countries are not a roster field (deck playbook §5). Label:
-visible to you.
+visible to you; generated SQL only for the staff last-resort ranking.
 
 ## Section 10 — Dues and funding
 
@@ -304,10 +316,11 @@ carried. Nothing in this section is LFX data.
   is a scope error, not growth.
 - **Contributors ≤ participants ≤ activities**, in every section that
   shows two of them.
-- **One vocabulary per slide** (CRM legal names on membership and dues
-  slides; enrichment or free-text names on activity and meeting slides,
-  said so).
-- **Every "visible to you" and every "interim" figure is a floor**, and
-  the slide says floor.
+- **One vocabulary per slide**: the account entity on company layer
+  attendance and membership figures; the stored spelling on meeting-tool
+  participant records, said so.
+- **Every caller-visible figure and every layer meeting figure is a floor**
+  for the wider population, and the slide says what bounds it; layer meeting
+  figures say ad hoc, never a company-wide total from a visible subset.
 - **Every published figure is cited and not reconciled** against a
   warehouse figure on the same slide.

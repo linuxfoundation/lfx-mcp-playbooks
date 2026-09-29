@@ -23,9 +23,13 @@ starts when a figure already exists and the question is whether it holds
 deck playbooks load this one once the reads are in, and the traps in
 section 3 are read against those figures before they are written down.
 Section 4 says when the check speaks; most of the time it does not.
-Read the tool guidance once per session before any call:
-`read_lfx_standard_metrics_guidance` and `read_lfx_semantic_layer_guidance`
-own every parameter and switch; nothing here restates them.
+For callers with staff tools, read the tool guidance once per session
+before any call: `read_lfx_standard_metrics_guidance` and
+`read_lfx_semantic_layer_guidance` own every parameter and switch; nothing
+here restates them. Community callers use the querying skill's core-tool
+routes and the tool descriptions, not unavailable guidance or warehouse
+lanes. Check caller-visible figures on that basis; a warehouse figure that
+cannot be freshly read stays open, never verified by a visible subset.
 
 ## 1. What a stated figure carries
 
