@@ -74,9 +74,11 @@ so and leave the cell as the template has it.
 - **Circle 2, the rest of the Linux Foundation**: everything in the LF
   not under the foundation. Two kinds of measure, two routes, and the
   packet says which ran. An **additive** measure (activities,
-  attendances, registrations, sponsorships, enrollments, certifications,
-  seats) is the LF-wide figure (no project scope at all) minus the
-  circle-1 figure.
+  attendances, registrations, sponsorships, enrollments, certifications)
+  is the LF-wide figure (no project scope at all) minus the circle-1
+  figure; seats, additive too, are instead partitioned by the foundation's
+  project tree, because the seats tool's own foundation scope is shallower
+  than the tree (section 7).
   A **distinct-people** measure (contributors, participants, maintainers,
   attendees, registrants) is read directly on the layer with an
   exclusion — rows not under the foundation's subtree, rows with no
@@ -185,8 +187,9 @@ entry by entry. The order that keeps the checks possible:
    that Part C and the projects-contributed-to count share.
 2. The governed LF-wide reads for the additive measures, with the same
    dates, so each subtraction has both terms from one session.
-3. The seats reads, circle 1 and all projects, by the route section 7
-   chooses.
+3. The seats reads: the all-projects read partitioned by the foundation's
+   tree walked from the project records, and the foundation-scoped read
+   as its cross-check, by the route section 7 chooses.
 4. The layer reads: first each circle-1 people reading for the names-live
    comparison, then the rest-of-LF exclusion reads, then meetings (both
    circles and the slices for Part C), then the circle-3 maintainers.
@@ -212,7 +215,12 @@ subsidiary's record is not counted while the other rows fold subsidiaries
 in. The routes in full, with the discovery read, are in the recipe's
 "Seats and subsidiaries" section. The tool's foundation scope is the root
 project plus its direct children (its description says so) while the
-standard metrics read the whole tree, so the footnote says that too; a
+packet's circle 1 is the whole tree, so circle 1 and circle 2 are both
+read off one all-projects read partitioned by the tree walked from
+`search_projects` (the foundation, its children, their children, until no
+more), and the foundation-scoped read is the cross-check whose shortfall
+the footnote states; a seat row whose project the search cannot find
+leaves its cells unfilled, said, never guessed; a
 refusal is the gate, never "no seats" (querying playbook, section 5, item
 11), and the fallback reads of its service-tools reference are "visible
 to you" with the footnote naming the identity that could read them
@@ -255,15 +263,24 @@ the packet, outside the document, for whoever re-runs it.
   the day cut; meetings are checked by the additive reconciliation
   instead.
 - **Additive reconciliation**: LF-wide = circle 1 + circle 2, exactly,
-  for activities, attendances, registrations, sponsorships, enrollments,
-  certifications and seats. Where circle 2 was read by subtraction the
-  equality holds by construction, so the check bites where circle 2 was
-  read directly (attendances) and, for a subtracted measure, through the
-  optional layer read the recipe's contributions entry names.
+  for activities, attendances, registrations, sponsorships, enrollments
+  and certifications; for seats, the two sides of the partition sum to
+  the all-projects read, and the foundation-scoped read is at or below
+  the circle-1 side. Where circle 2 was read by subtraction the equality
+  holds by construction, so the check bites where circle 2 was read
+  directly (attendances, seats) and, for a subtracted measure, through
+  the optional layer read the recipe's contributions entry names.
 - **People**: circle 1 ≤ LF-wide, circle 2 ≤ LF-wide, and circle 1 +
   circle 2 ≥ LF-wide (the excess is people active in both circles, said
-  once). A rest-of-LF people figure above the LF-wide figure is a wrong
-  read — scope or literal — not a finding.
+  once), run on **layer readings only**: the circle-1 layer reading
+  already made for names-live, the rest-of-LF reading, and one more
+  LF-wide layer reading with the same metric, organisation scope and day
+  bounds and no project filter. The governed circle-1 and LF-wide figures
+  are UTC-day figures and the rest-of-LF figure is a session-day one, so
+  the inequalities are exact only when all three terms are read the same
+  way; the governed figure stays the packet's figure and names-live stays
+  the bridge between the lanes. A rest-of-LF people figure above the
+  LF-wide layer figure is a wrong read — scope or literal — not a finding.
 - Contributors ≤ participants in each circle; people ≤ attendances;
   checked-in ≤ registered.
 - A circle-1 zero on a family whose LF-wide figure is not zero has the

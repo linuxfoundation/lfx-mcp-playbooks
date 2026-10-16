@@ -43,7 +43,9 @@ stored accounts puts all of them in scope.
 **Circle 2, the rest of the LF.** For an additive measure: the LF-wide
 figure (no project scope at all; "The contract") minus the circle-1 figure,
 and the packet says it was computed that way (footnote *Rest of the LF,
-additive measures*). For a distinct-people measure: a direct read on the
+additive measures*); seats are the exception, partitioned by the
+foundation's project tree instead of subtracted, because the seats tool's
+foundation scope is shallower than the tree (the seats entry). For a distinct-people measure: a direct read on the
 semantic layer with the **exclusion**: rows whose conformed project path is
 not under the foundation's subtree, rows with no project attribution
 included. On the activity model the exclusion read also keeps to the
@@ -65,7 +67,12 @@ wrong literal or a wrong scope dimension, and nothing is filled until it
 is found. A wrong literal on the layer returns zero rows, not an error, so
 this check is what the layer figures rest on. Meetings have no governed
 family: their check is the additive one on attendances (the meetings
-entry).
+entry). The people inequalities of the checks (circle 1 ≤ LF-wide,
+circle 2 ≤ LF-wide, circle 1 + circle 2 ≥ LF-wide) run on layer readings
+only — the circle-1 layer reading made here, the rest-of-LF reading, and
+an LF-wide layer reading with the same metric, organisation scope and day
+bounds and no project filter — because they are exact only when all three
+terms are read the same way; the governed figure stays the packet's figure.
 
 **The window.** The dates the first windowed call returned in the `applied`
 block's start and end (the tool's default, never computed by hand), reused
@@ -177,21 +184,37 @@ project table, so they are made once.
 
 | | Circle 1 — the foundation | Circle 2 — the rest of the LF |
 |---|---|---|
-| Lane | `get_org_committee_seats` scoped to the foundation, the seat rows asked for | `get_org_committee_seats` with no foundation (all projects), the seat rows asked for, minus circle 1 |
-| Scope | the applicant's record (or the group's records: "Seats and subsidiaries" below); the foundation as the tool scopes it — its root project plus its direct child projects | the applicant's record (or the group's); every project |
+| Lane | `get_org_committee_seats` with no foundation (all projects), the seat rows asked for; the rows partitioned by the foundation's project tree (below) | the same read, the other side of the partition |
+| Scope | the applicant's record (or the group's records: "Seats and subsidiaries" below); the foundation's whole tree, walked from the project records | the applicant's record (or the group's); every project not in that tree |
 | Window | none: the roster at this read | none |
-| One is | a seat: one seat row; a group: a distinct committee among the seat rows, told apart by project and committee | a seat row of the all-projects read not in the circle-1 read; a distinct committee likewise |
-| Route | direct | subtraction, said |
-| Label | visible to you | visible to you, computed |
-| Footnotes | *Seats* | *Seats*; *Rest of the LF, additive measures* |
+| One is | a seat: one seat row whose project is in the tree; a group: a distinct committee among those rows, told apart by project and committee | a seat row whose project is not in the tree; a distinct committee likewise |
+| Route | direct, off the partition | direct, off the partition |
+| Label | visible to you | visible to you |
+| Footnotes | *Seats* | *Seats* |
 
-Seats are additive; people are not. The tool reports people (distinct
-e-mails) for each read it makes, so a people figure exists for circle 1
-and for the whole LF, and none for the rest: a people cell for the rest
-stays empty with a dash and the footnote says why. The tool's foundation
-scope is the root project plus its direct children (its description says
-so), while the standard metrics read the whole tree; the footnote says it.
-Under the organisation grant the result is complete for the scope; a
+One ancestry serves both circles. The tool's own foundation scope is the
+root project plus its direct child projects (its description says so),
+while the packet's circle 1 is the whole tree, so "all projects minus the
+foundation-scoped read" would leave a grandchild project's seats in the
+rest. Instead: walk the foundation's tree from `search_projects` by parent
+at every level — the foundation, its children, their children, until no
+more — into the set of project slugs in the tree; then every seat row of
+the all-projects read goes to circle 1 if its project is in that set and
+to circle 2 otherwise. Seat counts, group counts and the technical-steering
+category are read off the partition, never by subtraction. Where a seat
+row's project cannot be found by the search at all, the walk is not
+established for it: the affected cells stay unfilled and the reply says
+why, never a guess.
+
+The foundation-scoped read stays as the **cross-check**: its seat count
+equals the circle-1 partition when the walk found no grandchildren, and is
+below it otherwise, which makes the depth disclosure concrete, and the
+footnote carries the comparison. Seats are additive; people are not. The
+tool reports people (distinct e-mails) per read, so a people figure exists
+for the whole LF and for the foundation-scoped read — exact for circle 1
+when the walk found no grandchildren, otherwise a floor and said so — and
+none for the rest: that cell stays empty with a dash and the footnote says
+why. Under the organisation grant the result is complete for the scope; a
 refusal is the gate, never "no seats" (the `lfx-data-querying` skill's
 service-tools reference, Governance rosters; its section 5, item 11).
 
@@ -199,17 +222,18 @@ service-tools reference, Governance rosters; its section 5, item 11).
 
 | | Circle 1 — the foundation | Circle 2 — the rest of the LF |
 |---|---|---|
-| Lane | the circle-1 seats read: its summary by committee category, the technical steering category exactly as the tool spells it | the all-projects seats read, the same category, minus circle 1 |
+| Lane | the circle-1 side of the seat partition: rows whose committee category is the technical steering category exactly as the tool spells it in its by-category summary | the circle-2 side of the partition, the same category |
 | Scope | as the seats entry | as the seats entry |
 | Window | none | none |
 | One is | a seat filed under that category | the same |
-| Route | direct | subtraction, said |
-| Label | visible to you | visible to you, computed |
+| Route | direct, off the partition | direct, off the partition |
+| Label | visible to you | visible to you |
 | Footnotes | *Seats* | *Seats* |
 
 Oversight, advisory and board categories are other categories and are not
 folded in; the footnote names the category that was read, spelled as the
-tool stores it. No new call: the summary comes with the seats read.
+tool stores it. No new call: the category comes on every seat row, and the
+summary's spelling of it is the one copied.
 
 ### Meeting attendance (people · attendances)
 
@@ -472,10 +496,11 @@ its parent is the applicant, or its parent's parent is, and so on up the
 chain the records show. Immediate-parent equality is not the test, because
 a subsidiary of a subsidiary is in the packet's scope on every other row.
 The applicant's own resolved accounts are in the set; accounts are
-deduplicated by identifier, not by name. Then read seats per account,
-scoped to the foundation for circle 1 and unscoped for the whole LF, and
-add the seat counts: a seat is filed under exactly one organisation record,
-so seats add. People are not added across accounts. The footnote names how
+deduplicated by identifier, not by name. Then read seats per account:
+the all-projects read, partitioned by the foundation's tree as the seats
+entry says, and the foundation-scoped read as its cross-check; add the
+seat counts across accounts on each side of the partition: a seat is
+filed under exactly one organisation record, so seats add. People are not added across accounts. The footnote names how
 many accounts were read and that discovery covers the subsidiaries that
 carry data or that the search found; an account neither surfaces is
 undiscovered, and the footnote says the count is a floor for that reason.

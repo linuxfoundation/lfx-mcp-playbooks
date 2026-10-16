@@ -21,8 +21,8 @@ only the angle-bracket slots from this session's output.
 > hours of activity at the window's edges.
 
 **Rest of the LF, additive measures.** Qualifies every rest-of-LF cell
-computed by subtraction (activities, projects, seats, sponsorships,
-enrollments, certifications, maintainer contributions).
+computed by subtraction (activities, projects, sponsorships, enrollments,
+certifications, maintainer contributions).
 
 > Computed as the LF-wide figure minus the foundation's figure, both
 > read for the applicant over the same dates; the two are additive, so
@@ -45,10 +45,13 @@ the maintainer-contributions cell and the project rows of Part C.
 seat side of Part C's group table.
 
 > Seats are committee seats visible to the caller in LFX, complete for
-> the scope under the caller's organisation grant. The foundation scope
-> is the foundation's root project and its direct child projects, as
-> LFX scopes it, while the other rows read the foundation's whole project
-> tree. The technical-steering figure is the seats filed under the
+> the scope under the caller's organisation grant. The foundation's seats
+> are those of its whole project tree, as walked from the project
+> records; LFX's own foundation scope for seats, the root project and its
+> direct child projects, <agreed with that count | was below it by <n>
+> seats on deeper projects>. The people figure for the foundation is the
+> tool's figure for its own scope and is <exact | a floor, since deeper
+> projects' seats are outside it>. The technical-steering figure is the seats filed under the
 > committee category <stored category name>; board, oversight and
 > advisory categories are counted in the total and not in it. Seats
 > were read for <one account: the applicant's own record | <n> accounts:
