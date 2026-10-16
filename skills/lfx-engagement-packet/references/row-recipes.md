@@ -219,7 +219,7 @@ tool stores it. No new call: the summary comes with the seats read.
 | Scope | the whole subtree on the conformed project entity; the applicant group through the account entity (recipe 12: organisations on the attendance model) | the exclusion on the conformed project path; the applicant group |
 | Window | the packet window as day bounds on the model's time axis, the meeting date | the same |
 | One is | people: a distinct identified attendee; attendances: one person at one occurrence | the same |
-| Route | direct | direct, with the exclusion, for both; attendances are then checked: circle 1 plus rest equals the LF-wide read with the company alone |
+| Route | direct | direct, with the exclusion, for both; attendances are then checked: circle 1 plus rest equals the same applicant-group reading with no project scope |
 | Label | ad hoc, a floor | ad hoc, a floor |
 | Footnotes | *Meetings*; *Day cut* | *Meetings*; *Day cut* |
 
@@ -308,11 +308,13 @@ even when a tool returns them. The truncated flag false on both reads.
 | Label | governed | governed, computed, a floor |
 | Footnotes | — | *Speakers, rest of the LF* |
 
-This is the one people measure read by subtraction, because speakers carry
-no account entity on the layer (the Reach paragraph of "Scope"), so no
-direct exclusion read by organisation exists. A person who spoke in both
-circles is subtracted away, so the rest is a floor; it is exact when the
-circle-1 figure is zero, and the footnote says so.
+This is the one people measure read by subtraction, because the layer
+offers no organisation reading at any depth for speakers: speakers carry
+no account entity (the Reach paragraph of "Scope"), and the speakers
+model's own account-name slice reads one account by its stored name, not
+the group, so the applicant group has no direct exclusion read. A person
+who spoke in both circles is subtracted away, so the rest is a floor; it
+is exact when the circle-1 figure is zero, and the footnote says so.
 
 ### Foundation certifications (certifications · enrollments)
 
@@ -457,12 +459,14 @@ table's caption.
 organisation is the group, so there are two routes, and the *Seats*
 footnote says which one ran.
 
-**Group.** Enumerate the subsidiary accounts that can be discovered: a
-by-organisation breakdown with the separate reading of a family that
-carries the group (`contributors` or `maintainers`, the applicant as the
-organisation scope) lists the stored accounts under the applicant at any
-depth, each with its direct parent alongside; `search_b2b_orgs` on each
-name confirms the record and its parent. An account is in the group when
+**Group.** Enumerate the subsidiary accounts that can be discovered: the
+`contributors` family's by-organisation breakdown with the separate
+reading, the applicant as the organisation scope, lists the stored
+accounts under the applicant at any depth, each with its direct parent
+alongside. (The `maintainers` family's by-organisation rows carry no
+parent column, so they are not the discovery read.) `search_b2b_orgs` on
+each name confirms the record and its parent, and the chain upward is
+walked on those records. An account is in the group when
 it sits **under one of the applicant's resolved accounts at any depth**:
 its parent is the applicant, or its parent's parent is, and so on up the
 chain the records show. Immediate-parent equality is not the test, because

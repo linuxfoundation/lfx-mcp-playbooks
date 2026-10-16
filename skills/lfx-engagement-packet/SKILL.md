@@ -82,7 +82,8 @@ so and leave the cell as the template has it.
   exclusion — rows not under the foundation's subtree, rows with no
   project attribution included — because distinct counts never
   subtract: a person active in both circles would vanish from the rest.
-  Accepted speakers is the one people measure with no direct route and
+  Accepted speakers is the one people measure with no direct route (the
+  layer offers no organisation reading at any depth for speakers) and
   is subtracted as a labelled floor (the recipe says why).
 - **Circle 3, beyond the LF**: only maintainer roles on projects outside
   the LF, a floor. Every other beyond-LF cell stays as the template has
@@ -255,7 +256,10 @@ the packet, outside the document, for whoever re-runs it.
   instead.
 - **Additive reconciliation**: LF-wide = circle 1 + circle 2, exactly,
   for activities, attendances, registrations, sponsorships, enrollments,
-  certifications and seats.
+  certifications and seats. Where circle 2 was read by subtraction the
+  equality holds by construction, so the check bites where circle 2 was
+  read directly (attendances) and, for a subtracted measure, through the
+  optional layer read the recipe's contributions entry names.
 - **People**: circle 1 ≤ LF-wide, circle 2 ≤ LF-wide, and circle 1 +
   circle 2 ≥ LF-wide (the excess is people active in both circles, said
   once). A rest-of-LF people figure above the LF-wide figure is a wrong

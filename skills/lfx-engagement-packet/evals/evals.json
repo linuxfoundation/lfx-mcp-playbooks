@@ -19,7 +19,7 @@
         "Seats come from get_org_committee_seats with the foundation's identifier for circle 1 and without it for the LF, labelled visible to you, with the footnote naming which accounts were read and that the foundation scope is the root project plus its direct children",
         "Part C's seats-and-attendance table matches the two sources on project and committee name together, says they are two sources, and shows an unmatched or ambiguous row as unmatched rather than pairing it on the committee name alone",
         "The participants cell names its population beside the figure (code, issues, reviews, comments, stars, forks, meeting invitations and attendance, training and exams, Hacker News) and is not captioned as contributors",
-        "The rest-of-LF speakers cell is computed as LF-wide minus the foundation and labelled a floor, with the reason that a person who spoke in both circles is subtracted away",
+        "The rest-of-LF speakers cell is computed as LF-wide minus the foundation and labelled a floor, with the reasons that the layer offers no organisation reading at any depth for speakers and that a person who spoke in both circles is subtracted away",
         "Every beyond-LF cell stays as the template has it except maintainers of projects outside the LF, which is read on the layer with the LF-project flag false and labelled a floor; the reply names the cells that stayed",
         "The provenance appendix has one row per filled cell with the label from the closed list, the conventions header with the window as dates, the applied scope sentence, the run date and the accounts the seat read covered",
         "No revenue, dues, score, rank or weight is transcribed anywhere in the fill, including the sponsorship revenue column the sponsorships family returns",
@@ -64,7 +64,7 @@
         "Rest-of-LF people figures are read directly on the semantic layer with an exclusion of the foundation's subtree, rows with no project attribution included",
         "For each people figure read on the layer whose measure a governed family covers, the circle-1 layer reading is compared with the governed circle-1 figure and said to agree within the day cut",
         "The reply says which rows are additive (activities, sponsorships, enrollments, certifications, seats) and that those are subtracted, so the shortcut is right for them and wrong for people",
-        "The speakers row is named as the one people measure that is subtracted, labelled a floor, because speakers carry no organisation on the layer"
+        "The speakers row is named as the one people measure that is subtracted, labelled a floor, because the layer offers no organisation reading at any depth for speakers (its account slice reads one account by stored name, not the group)"
       ]
     },
     {
@@ -85,11 +85,11 @@
       "id": 5,
       "name": "seats-for-the-group",
       "prompt": "IBM's packet for CNCF says the rows include subsidiaries. How do you get the seat counts to cover the whole group, and what goes in the footnote?",
-      "expected_output": "Two routes, said which ran: the group route discovers the subsidiary accounts at any depth (a by-organisation breakdown with the separate reading of a family that carries the group, each name confirmed with search_b2b_orgs, accepted when it sits under one of the applicant's accounts), reads seats per account with the foundation identifier and without it, adds seat counts and never adds people; or the parent-only route reads the applicant's record and the footnote says a seat filed under a subsidiary is not counted while the other rows fold subsidiaries in; either way the footnote says the tool's foundation scope is the root project plus its direct children and names how many accounts were read.",
+      "expected_output": "Two routes, said which ran: the group route discovers the subsidiary accounts at any depth (the contributors family's by-organisation breakdown with the separate reading, which carries each account's parent, each name confirmed with search_b2b_orgs, accepted when it sits under one of the applicant's accounts), reads seats per account with the foundation identifier and without it, adds seat counts and never adds people; or the parent-only route reads the applicant's record and the footnote says a seat filed under a subsidiary is not counted while the other rows fold subsidiaries in; either way the footnote says the tool's foundation scope is the root project plus its direct children and names how many accounts were read.",
       "files": [],
       "assertions": [
         "The reply gives the two routes and says which one it ran, and the footnote names how many accounts were read",
-        "If the group route runs, subsidiary accounts are discovered from a by-organisation breakdown with the separate reading of a family that carries the group, each confirmed with search_b2b_orgs, and an account is accepted when it sits under one of the applicant's resolved accounts at any depth (a subsidiary of a subsidiary included), never only when its direct parent is the applicant; seats are read per account with get_org_committee_seats, seat counts are added and people are not added across accounts",
+        "If the group route runs, subsidiary accounts are discovered from the contributors family's by-organisation breakdown with the separate reading (which carries each account's direct parent; the maintainers family's does not), each confirmed with search_b2b_orgs, and an account is accepted when it sits under one of the applicant's resolved accounts at any depth (a subsidiary of a subsidiary included), never only when its direct parent is the applicant; seats are read per account with get_org_committee_seats, seat counts are added and people are not added across accounts",
         "If the parent-only route runs, the footnote says seats cover the applicant's own record while the other rows fold subsidiaries in, so a seat filed under a subsidiary's record is not counted",
         "The footnote states that the seats tool's foundation scope is the root project plus its direct child projects while the other rows read the whole project tree",
         "Seats are labelled visible to you, and a refusal of the seats tool is reported as the gate, never as no seats"
