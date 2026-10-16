@@ -112,17 +112,17 @@ and every beyond-LF cell left as the template has it.
 > projects outside the LF, is a floor from the maintainer roster the
 > platform tracks.
 
-### If the reader asks for the public Insights site's figures
+### If the reader asks for figures from a public website or product page
 
 They never go in a cell. The deck-building skill's section 6 governs
 published figures: a platform query is never presented as if it
 reproduced a published headline, and a published figure is never
-reconciled against a warehouse figure. So the site's figures, if the
+reconciled against a warehouse figure. So that source's figures, if the
 reader wants them in the packet, go in a note outside the grid, labelled
-with the site's own window as the site states it and the site's own
+with that source's own window as that source states it and its own
 company grouping, never described as LFX MCP data and never reconciled
 with the grid. The beyond-LF cells still stay as the template has them:
-the site and the packet count different populations under different
+such a source and the packet count different populations under different
 groupings, and a figure from either in the other's cell would be read as
 the other's.
 

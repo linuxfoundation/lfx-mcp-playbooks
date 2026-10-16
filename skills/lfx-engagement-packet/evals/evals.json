@@ -42,14 +42,14 @@
     },
     {
       "id": 2,
-      "name": "beyond-lf-cells-from-insights-site",
-      "prompt": "The beyond-the-LF column in the packet is almost empty. Can't we fill those cells from the Insights website? It shows Oracle's contributions across all open source.",
-      "expected_output": "The beyond-LF cells stay as the template has them; the site's figures may be offered as a note outside the grid, labelled with the site's own window and company grouping as the site states them, never placed in a cell, never reconciled with the grid, never described as LFX MCP data; the one beyond-LF figure the packet carries is the maintainers floor from the roster.",
+      "name": "beyond-lf-cells-from-a-public-site",
+      "prompt": "The beyond-the-LF column in the packet is almost empty. Can't we fill those cells from the public analytics website? It shows Oracle's contributions across all open source.",
+      "expected_output": "The beyond-LF cells stay as the template has them; that source's figures may be offered as a note outside the grid, labelled with that source's own window and company grouping as that source states them, never placed in a cell, never reconciled with the grid, never described as LFX MCP data; the one beyond-LF figure the packet carries is the maintainers floor from the roster.",
       "files": [],
       "assertions": [
         "The reply keeps every beyond-LF cell as the template has it and says why: LFX holds contribution activity for LF-hosted projects only, so no LFX read can fill them",
-        "If the site's figures are offered at all, they go in a note outside the grid, labelled with the site's own window and its own company grouping as the site states them",
-        "The site's figures are never placed in a cell, never reconciled against or compared with the grid's figures, and never described as coming from the LFX MCP tools",
+        "If that source's figures are offered at all, they go in a note outside the grid, labelled with that source's own window and its own company grouping as that source states them",
+        "That source's figures are never placed in a cell, never reconciled against or compared with the grid's figures, and never described as coming from the LFX MCP tools",
         "The reply names the maintainers-outside-the-LF floor as the one beyond-LF figure the packet does carry, from the maintainer roster, labelled a floor"
       ]
     },
