@@ -33,10 +33,13 @@ it, so the same question re-run gives the same answer.
 | [`lfx-data-querying`](skills/lfx-data-querying/SKILL.md) | Answering one quantitative question: the four lanes, the routing decision, name and value discovery, the reader's-words answer with its provenance block, and the traps that return a plausible wrong number instead of an error. |
 | [`lfx-deck-building`](skills/lfx-deck-building/SKILL.md) | Producing a deck's worth of figures: the conventions fixed before the first query, cross-framing checks, the data-notes appendix, the final consistency pass, and what LFX cannot reproduce and how to cite it instead. |
 | [`lfx-figure-checking`](skills/lfx-figure-checking/SKILL.md) | Checking a stated figure against a fresh read: what a figure claims to be, the procedure, the catalogue of mechanisms behind two numbers for one question, the traps that return a plausible wrong number, the verdict words and the written reconciliation. |
+| [`lfx-engagement-packet`](skills/lfx-engagement-packet/SKILL.md) | Filling Parts B and C of an Applicant Engagement Packet: one recipe per measure (which tool, which scope in each of three circles, which window, what counts as one, which label and footnote), the pre-flight on the applicant's membership, the checks before a cell is filled, and the provenance appendix, so every applicant's packet is built the same way. |
 
 Each skill is a `SKILL.md` entry point plus `references/` files loaded on
 demand. The querying and deck skills hand a check to the checking skill;
-the checking skill takes its fresh reads from the querying skill.
+the checking skill takes its fresh reads from the querying skill; the
+packet skill builds on the querying skill's routing and the deck skill's
+appendix format.
 
 ## Evidence
 
@@ -57,9 +60,12 @@ marketplace (`lfx-mcp`). From Claude Code:
 ```
 
 Restart Claude Code; the skills then load as
-`/lfx-mcp-playbooks:lfx-data-querying` and
-`/lfx-mcp-playbooks:lfx-deck-building`, and trigger on their own when a
-question asks for LFX figures or a deck of them.
+`/lfx-mcp-playbooks:lfx-data-querying`,
+`/lfx-mcp-playbooks:lfx-figure-checking`,
+`/lfx-mcp-playbooks:lfx-deck-building` and
+`/lfx-mcp-playbooks:lfx-engagement-packet`, and trigger on their own when a
+question asks for LFX figures, a check of one, a deck of them or an
+applicant's engagement packet.
 
 In Claude Desktop, open the Cowork tab, then **Customize → Plugins**. Under
 Personal plugins choose **+ → Add marketplace → Add from a repository** and
