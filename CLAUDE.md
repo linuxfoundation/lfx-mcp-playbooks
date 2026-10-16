@@ -9,15 +9,20 @@ the plugin does and how to install it, see [README.md](README.md).
 
 ## What this repo is
 
-Three skills that teach a client agent how to work with the LFX MCP
+Four skills that teach a client agent how to work with the LFX MCP
 server: `lfx-data-querying` (which tool answers which kind of question,
 discovery, an answer with its provenance), `lfx-figure-checking` (a stated
 figure against a fresh read: the mechanisms behind two numbers for one
-question, the traps, the verdict and the written check) and
+question, the traps, the verdict and the written check),
 `lfx-deck-building` (a deck's worth of figures that stay consistent with
 each other: conventions, cross-framing checks, the data-notes appendix,
-what LFX cannot reproduce). The querying and deck skills hand checks to
-the checking skill; it takes its fresh reads from the querying skill.
+what LFX cannot reproduce) and `lfx-engagement-packet` (the figures of an
+Applicant Engagement Packet, one recipe per measure in three circles, the
+membership pre-flight, the checks before a cell is filled, the footnotes
+and the provenance appendix). The querying and deck skills hand checks to
+the checking skill; it takes its fresh reads from the querying skill; the
+packet skill builds on the querying skill's routing and reuses the deck
+skill's data-notes format.
 Distributed as a Claude Code plugin and as the
 `lfx-mcp` marketplace (`.claude-plugin/`), with `skills/` auto-discovered;
 the same directories work as plain Agent Skills in any client that reads

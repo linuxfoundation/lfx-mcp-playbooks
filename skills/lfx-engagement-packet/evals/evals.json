@@ -1,0 +1,113 @@
+{
+  "skill_name": "lfx-engagement-packet",
+  "evals": [
+    {
+      "id": 0,
+      "name": "full-packet-member-of-foundation",
+      "prompt": "Oracle has applied to move up a membership tier at CNCF and the TOC wants the Applicant Engagement Packet. Part A is theirs. Fill Parts B and C for me from LFX: the snapshot, the board view, the full table with the three columns (CNCF, rest of the LF, beyond the LF) and the four detail tables. Give me the values cell by cell with the footnotes and the provenance appendix; I will paste them into the template myself.",
+      "expected_output": "Both guidance documents read; Oracle resolved to its stored legal name with search_b2b_orgs and CNCF to its slug with search_projects; the membership pre-flight run with search_members and the real tier, status and term dates stated at the top; the window taken from the first contributors call's applied dates and the same dates reused on every later call and every layer filter; circle 1 on the foundation's slug with subsidiaries folded for the applicant; circle-2 people figures read directly on the layer with an exclusion, circle-2 additive figures by LF-wide minus circle 1, each said; each layer circle-1 reading compared with the governed figure; seats from the organisation seats tool's all-projects rows split by the foundation's project tree, the foundation-scoped read as a cross-check, labelled visible to you, the accounts read named; participants named with its population; rest-of-LF speakers labelled a floor; beyond-LF cells left as the template has them except the maintainers floor; one appendix row per filled cell; no revenue, score or rank anywhere.",
+      "files": [],
+      "assertions": [
+        "The transcript shows read_lfx_standard_metrics_guidance and read_lfx_semantic_layer_guidance called before the first figure",
+        "Oracle is resolved to its stored legal account name with search_b2b_orgs and CNCF to its slug with search_projects before any figure, and the applicant is read with subsidiaries folded on every standard-metric call, with the applied scope sentence quoted in the snapshot's accounts-included cell",
+        "The membership pre-flight runs search_members for the applicant on the foundation with inactive terms included, and the reply opens with the real tier as stored, the status and the term dates, and the earliest term start as member since",
+        "The window is the start and end dates the applied block reports for the first contributors call, made without a start date, written as concrete dates in the snapshot; the same dates appear on every later windowed standard-metric call and as the day bounds of every layer time filter, while roster reads (maintainers, seats) take no dates; no start date is computed by hand",
+        "Circle 1 figures come from standard metrics with the foundation's slug as the project scope read as its whole tree; the per-project breakdowns use the separate reading with the project grouping",
+        "Rest-of-LF figures for distinct-people measures (contributors, maintainers, participants, registrants, meeting people) are read directly on the semantic layer with an exclusion of the foundation's subtree, and the reply says they were read directly rather than subtracted",
+        "Rest-of-LF figures for additive measures (activities, sponsorships, enrollments, certifications) are the LF-wide figure minus the circle-1 figure, and the reply or footnote says they were computed that way; seats are instead split between the circles by the foundation's project tree, not subtracted",
+        "For each people figure read on the layer whose measure a governed family covers (contributors, maintainers, participants, registrants), the circle-1 reading on the layer is compared with the governed circle-1 figure and said to agree within the day cut, or the cell is held back and the discrepancy named; the people inequalities (circle 1 ≤ LF-wide, circle 2 ≤ LF-wide, circle 1 + circle 2 ≥ LF-wide) are run on layer readings only, with an LF-wide layer reading at the same metric, organisation scope and day bounds, never by mixing a governed figure with a layer figure; meeting attendance, which no family covers, is checked by circle 1 plus rest equalling the LF-wide attendances instead",
+        "Seats come from get_org_committee_seats read across all projects with the seat rows, each row placed in circle 1 or circle 2 by whether its project is in the foundation's tree walked from search_projects (the foundation, its children, their children, until no more), with the foundation-scoped read used as a cross-check whose agreement or shortfall the footnote states; labelled visible to you, the footnote naming which accounts were read and that the tool's own foundation scope is the root project plus its direct children",
+        "Part C's seats-and-attendance table matches the two sources on project and committee name together, says they are two sources, and shows an unmatched or ambiguous row as unmatched rather than pairing it on the committee name alone",
+        "The participants cell names its population beside the figure (code, issues, reviews, comments, stars, forks, meeting invitations and attendance, training and exams, Hacker News) and is not captioned as contributors",
+        "The rest-of-LF speakers cell is computed as LF-wide minus the foundation and labelled a floor, with the reasons that the layer offers no organisation reading at any depth for speakers and that a person who spoke in both circles is subtracted away",
+        "Every beyond-LF cell stays as the template has it except maintainers of projects outside the LF, which is read on the layer with the LF-project flag false and labelled a floor; the reply names the cells that stayed",
+        "The provenance appendix has one row per filled cell with the label from the closed list, the conventions header with the window as dates, the applied scope sentence, the run date and the accounts the seat read covered",
+        "No revenue, dues, score, rank or weight is transcribed anywhere in the fill, including the sponsorship revenue column the sponsorships family returns",
+        "The transcript shows a Skill step loading lfx-figure-checking once the reads are in and before the fill is written"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "template-tier-differs-from-real-tier",
+      "prompt": "Here is the OpenSSF Premier Applicant Engagement Packet template. Fill Parts B and C for Google from LFX.",
+      "expected_output": "The membership pre-flight runs before any figure; if Google's real tier at OpenSSF is not the tier the template is written for, the mismatch is said to the reader first and the template the reader chooses is filled; the snapshot carries the real tier and status with the term dates regardless; the figures are read the same way whatever the tier.",
+      "files": [],
+      "assertions": [
+        "search_members is called for the applicant on the foundation before any figure, with inactive terms included, and the tier, status and term dates are read from the record",
+        "If the stored tier differs from the tier named in the template's title, the reply says so before filling any cell, and asks or states which template is being filled; it does not silently fill the template named",
+        "The snapshot's tier cell carries the tier as stored and the status with the term start and end, and member since is the earliest start of any term, not the template's tier",
+        "The reply says the figures do not depend on the tier, so the fill is the same whichever template the reader chooses",
+        "The applicant is resolved with search_b2b_orgs and the foundation with search_projects before the membership search"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "beyond-lf-cells-from-insights-site",
+      "prompt": "The beyond-the-LF column in the packet is almost empty. Can't we fill those cells from the Insights website? It shows Oracle's contributions across all open source.",
+      "expected_output": "The beyond-LF cells stay as the template has them; the site's figures may be offered as a note outside the grid, labelled with the site's own window and company grouping as the site states them, never placed in a cell, never reconciled with the grid, never described as LFX MCP data; the one beyond-LF figure the packet carries is the maintainers floor from the roster.",
+      "files": [],
+      "assertions": [
+        "The reply keeps every beyond-LF cell as the template has it and says why: LFX holds contribution activity for LF-hosted projects only, so no LFX read can fill them",
+        "If the site's figures are offered at all, they go in a note outside the grid, labelled with the site's own window and its own company grouping as the site states them",
+        "The site's figures are never placed in a cell, never reconciled against or compared with the grid's figures, and never described as coming from the LFX MCP tools",
+        "The reply names the maintainers-outside-the-LF floor as the one beyond-LF figure the packet does carry, from the maintainer roster, labelled a floor"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "subtract-contributors-pushback",
+      "prompt": "For the rest-of-the-LF column, just take Oracle's LF-wide contributors and subtract the CNCF contributors. Same for the other people rows. Quicker.",
+      "expected_output": "The reply declines to subtract distinct people and explains: a person who contributed in both circles is counted once LF-wide and once in the foundation, so the subtraction drops them from the rest; people figures are read directly on the layer with an exclusion of the foundation's subtree, each circle-1 layer reading compared with the governed figure; additive measures are subtracted and said so.",
+      "files": [],
+      "assertions": [
+        "The reply does not compute any rest-of-LF people figure as LF-wide minus the foundation except the accepted-speakers floor, and says the reason: a person active in both circles would vanish from the rest, because distinct counts do not subtract",
+        "Rest-of-LF people figures are read directly on the semantic layer with an exclusion of the foundation's subtree, rows with no project attribution included",
+        "For each people figure read on the layer whose measure a governed family covers, the circle-1 layer reading is compared with the governed circle-1 figure and said to agree within the day cut",
+        "The reply says which rows are additive (activities, sponsorships, enrollments, certifications) and that those are subtracted, so the shortcut is right for them and wrong for people; seats are said to be split by the foundation's project tree rather than subtracted",
+        "The speakers row is named as the one people measure that is subtracted, labelled a floor, because the layer offers no organisation reading at any depth for speakers (its account slice reads one account by stored name, not the group)"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "applicant-is-a-subsidiary",
+      "prompt": "Red Hat is applying for a CNCF tier change. Fill the packet's Parts B and C for Red Hat.",
+      "expected_output": "search_b2b_orgs shows the applicant's record carries a parent; the applicant is read as its own account and everything under it (its stored legal name with subsidiaries folded), the parent is named in the snapshot and not folded in; on the layer the applicant's own account subtree is selected, not the parent's whole group.",
+      "files": [],
+      "assertions": [
+        "The applicant is resolved with search_b2b_orgs and the reply notes that its record carries a parent organisation",
+        "Every standard-metric call reads the applicant's own stored legal name with subsidiaries folded, never the parent's name",
+        "The parent is named in the snapshot and the reply says it is not folded in, because the packet is about the applicant",
+        "On the semantic layer the applicant's own account and everything under it is selected (the exact-identity reading), not the parent's whole group through the top-parent reading",
+        "The applied scope sentence of the first call is quoted in the snapshot's accounts-included cell"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "seats-for-the-group",
+      "prompt": "IBM's packet for CNCF says the rows include subsidiaries. How do you get the seat counts to cover the whole group, and what goes in the footnote?",
+      "expected_output": "Two routes, said which ran: the group route discovers the subsidiary accounts at any depth (the contributors family's by-organisation breakdown with the separate reading, which carries each account's parent, each name confirmed with search_b2b_orgs, accepted when it sits under one of the applicant's accounts), reads seats per account across all projects, splits the rows by the foundation's project tree with the foundation-scoped read as a cross-check, adds seat counts and never adds people; or the parent-only route reads the applicant's record and the footnote says a seat filed under a subsidiary is not counted while the other rows fold subsidiaries in; either way the footnote says the tool's foundation scope is the root project plus its direct children and names how many accounts were read.",
+      "files": [],
+      "assertions": [
+        "The reply gives the two routes and says which one it ran, and the footnote names how many accounts were read",
+        "If the group route runs, subsidiary accounts are discovered from the contributors family's by-organisation breakdown with the separate reading (which carries each account's direct parent; the maintainers family's does not), each confirmed with search_b2b_orgs, and an account is accepted when it sits under one of the applicant's resolved accounts at any depth (a subsidiary of a subsidiary included), never only when its direct parent is the applicant; seats are read per account with get_org_committee_seats, seat counts are added and people are not added across accounts",
+        "If the parent-only route runs, the footnote says seats cover the applicant's own record while the other rows fold subsidiaries in, so a seat filed under a subsidiary's record is not counted",
+        "The footnote states that the foundation's seats are those of its whole project tree walked from the project records, that the seats tool's own foundation scope is the root project plus its direct child projects, and whether that scoped read agreed with the tree count or fell short",
+        "Seats are labelled visible to you, and a refusal of the seats tool is reported as the gate, never as no seats"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "template-row-not-covered-and-fold-rows",
+      "prompt": "Two things on the Oracle CNCF packet. The template has a row for 'open standards bodies the applicant participates in' under beyond the LF, and the meeting-type table has three rows but LFX has more meeting types than that. Also, several CNCF projects each have a committee called the same thing; how does the seats-and-attendance table keep them apart?",
+      "expected_output": "The standards-bodies row is not in LFX and stays as the template has it, said in the reply; the meeting-type table keeps the top rows by attendances and folds the remainder into one row naming the stored values it folds, values copied as stored, the untyped bucket named as no type recorded. Committees with the same name under different projects are kept apart by matching seats and attendance on project and committee name together.",
+      "files": [],
+      "assertions": [
+        "The reply says participation in open standards bodies is not in LFX, leaves the cell as the template has it, and does not substitute any figure or a web-page figure",
+        "For the meeting-type table the top rows by attendances are kept and the remainder is one row that names the stored meeting-type values it folds",
+        "Meeting-type values are copied as stored and never renamed, and untyped attendance is one bucket named as no type recorded",
+        "Attendance figures are labelled ad hoc and a floor, with attendances and people told apart",
+        "Same-named committees under different projects are kept as separate rows, matched on project and committee name together, and a row that matches on neither side or on more than one is shown unmatched rather than paired on the name alone"
+      ]
+    }
+  ]
+}
