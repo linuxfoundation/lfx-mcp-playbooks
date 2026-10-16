@@ -232,11 +232,11 @@ from it that shape every cell:
 - **A population is named where it would be misread.** The participants
   cell carries its population beside the figure so it is not read as
   contributors; the maintainers cell says roster, not activity.
-- **Nothing from outside LFX enters a cell.** If the reader asks for
-  figures from any public website or product page outside the LFX MCP
-  tools, they go in a note outside the grid, labelled with that source's
-  own window and company grouping, never as LFX data and never reconciled
-  with the grid (deck-building skill, section 6).
+- **Nothing from outside LFX enters a cell.** If the reader asks for the
+  public Insights site's figures, they go in a note outside the grid,
+  labelled with the site's own window and company grouping, never as LFX
+  MCP data and never reconciled with the grid (deck-building skill,
+  section 6).
 
 The appendix has one row per filled cell in the data-notes format, "Slide"
 read as part · measure · circle, with the conventions block once at the
