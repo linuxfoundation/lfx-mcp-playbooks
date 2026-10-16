@@ -166,7 +166,7 @@ The table header, with the first column renamed:
 | Cell (part · measure · circle) | Figure | Source (lane; family or metric; scope as applied; window; population) | Coverage and caveats |
 |---|---|---|---|
 
-The Source cell quotes the `applied.scope` and `applied.definition`
+The Source cell quotes the `applied` block's scope and definition
 sentences for a governed figure, and for a layer figure names the metric
 as explore spelled it, the two scope readings in words (the company at any
 depth; the subtree or the exclusion) and the day bounds. The Coverage cell

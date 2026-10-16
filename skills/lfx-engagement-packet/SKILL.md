@@ -65,15 +65,18 @@ so and leave the cell as the template has it.
 
 - **Circle 1, the foundation**: the foundation's own project and every
   project under it, at any depth. On the standard metrics, the
-  foundation's slug as `project` with the default `subprojects` for a
-  total and `subprojects=separate` with `by=project` for a per-project
-  breakdown. On the semantic layer, the whole subtree on the conformed
+  foundation's slug as the project scope, read as its whole tree for a
+  total (the plain reading of a project name) and as the per-project
+  breakdown — the separate reading — where rows are needed (standard-
+  metrics guidance, "The contract" and "The switches, row by row"). On the
+  semantic layer, the whole subtree on the conformed
   project entity (semantic-layer guidance, "Scope", the Reach paragraph).
 - **Circle 2, the rest of the Linux Foundation**: everything in the LF
   not under the foundation. Two kinds of measure, two routes, and the
   packet says which ran. An **additive** measure (activities,
   attendances, registrations, sponsorships, enrollments, certifications,
-  seats) is the LF-wide figure (no `project`) minus the circle-1 figure.
+  seats) is the LF-wide figure (no project scope at all) minus the
+  circle-1 figure.
   A **distinct-people** measure (contributors, participants, maintainers,
   attendees, registrants) is read directly on the layer with an
   exclusion — rows not under the foundation's subtree, rows with no
@@ -88,20 +91,24 @@ so and leave the cell as the template has it.
   outside the LF, but health carries no organisation and never becomes
   an applicant figure.
 
-**Names live.** Wherever a rest-of-LF people figure is read on the layer,
-read the circle-1 figure on the layer too and compare it with the
-governed circle-1 figure from the family: equal, or apart by no more than
-the day cut explains, means the dimension names and the scope are right;
-apart by several times means a wrong literal or a wrong scope dimension,
-and nothing is filled until it is found. The packet depends on this step
-because a wrong literal on the layer returns zero rows, not an error.
+**Names live.** Wherever a rest-of-LF people figure is read on the layer
+and a governed family covers the same measure (contributors, maintainers,
+participants, registrants), read the circle-1 figure on the layer too and
+compare it with the governed circle-1 figure from the family: equal, or
+apart by no more than the day cut explains, means the dimension names and
+the scope are right; apart by several times means a wrong literal or a
+wrong scope dimension, and nothing is filled until it is found. The packet
+depends on this step because a wrong literal on the layer returns zero
+rows, not an error. Meetings have no governed family; their check is the
+additive one on attendances (the recipe's meetings entry).
 
 ## 3. Organisation scope
 
 The applicant is read as **one company including its subsidiaries at any
-depth**: `org=<stored legal name>` with `subsidiaries=combined` on every
+depth**: the stored legal name as the organisation scope, read as one
+group with subsidiaries folded (the combined reading) on every
 standard-metric call. The stored legal name comes from `search_b2b_orgs`
-in this session. The `applied.scope` sentence of the first call says how
+in this session. The `applied` block's scope sentence on the first call says how
 many stored accounts the name resolved to and that each was taken with
 its subsidiaries, folded; that sentence is quoted in the snapshot's
 "accounts included" cell, because it is the one statement of scope every
@@ -109,7 +116,7 @@ other row inherits.
 
 On the semantic layer the same reading is the Reach paragraph's account
 entity in its exact-identity form: take the stored account identifiers
-behind the accounts the `applied.scope` sentence names (`search_b2b_orgs`
+behind the accounts the applied scope sentence names (`search_b2b_orgs`
 returns the identifier) and select each one's subtree. The sentence can
 name more than one account when same-name accounts exist, and all of them
 are in scope on every lane. An applicant whose own record carries a parent
@@ -121,10 +128,11 @@ the packet is about the applicant, not its group.
 
 Twelve months ending on the run date, as the **tool's own default**, never
 computed by hand: the first windowed standard-metric call (contributors,
-circle 1) is made with no `start_date`, and its `applied.start_date` and
-`applied.end_date` are the packet's window — written into the snapshot as
-concrete dates and reused verbatim in every later standard-metric call
-and every layer time filter. A hand-computed start clips a day at one
+circle 1) is made with no start date, and the start and end dates its
+`applied` block reports are the packet's window — written into the snapshot as
+concrete dates and reused verbatim in every later **windowed**
+standard-metric call and every layer time filter; roster reads take no
+dates. A hand-computed start clips a day at one
 edge and the packet's rows stop agreeing with each other.
 
 Standard-metric days are UTC; layer day bounds follow the session clock
@@ -172,7 +180,7 @@ label and the footnote. Read it before the first figure and follow it
 entry by entry. The order that keeps the checks possible:
 
 1. The governed circle-1 reads, contributors first (it pins the window),
-   then the rest of Part B's families, then the `by=project` breakdowns
+   then the rest of Part B's families, then the per-project breakdowns
    that Part C and the projects-contributed-to count share.
 2. The governed LF-wide reads for the additive measures, with the same
    dates, so each subtraction has both terms from one session.
@@ -193,7 +201,9 @@ silent zero.
 
 `get_org_committee_seats` reads one organisation record, while the
 packet's organisation is the group. Two routes, and the *Seats* footnote
-says which ran: **group**, discovering the subsidiary accounts and adding
+says which ran: **group**, discovering the subsidiary accounts (any
+account that sits under one of the applicant's resolved accounts at any
+depth, not only direct children) and adding
 seat counts across them (seats are filed under exactly one record, so
 they add; people are not added), or **parent only**, one read on the
 applicant's record with a footnote saying that a seat filed under a
@@ -239,8 +249,10 @@ the packet, outside the document, for whoever re-runs it.
 - Every slug and name came from this session's search tools; every
   dimension was copied from explore output for the metric it is used
   with.
-- **Names live**: each layer circle-1 people reading agrees with the
-  governed circle-1 figure within the day cut.
+- **Names live**: each layer circle-1 people reading whose measure a
+  governed family covers agrees with the governed circle-1 figure within
+  the day cut; meetings are checked by the additive reconciliation
+  instead.
 - **Additive reconciliation**: LF-wide = circle 1 + circle 2, exactly,
   for activities, attendances, registrations, sponsorships, enrollments,
   certifications and seats.
@@ -258,7 +270,8 @@ the packet, outside the document, for whoever re-runs it.
   by-organisation or layer read is never folded into the applicant and
   never dropped from LF-wide; the applicant's figure is a floor where the
   family says attribution is partial (events, training, meetings).
-- `applied.truncated` is false on every breakdown whose row count is a
+- The `applied` block's truncated flag is false on every breakdown whose
+  row count is a
   figure.
 - Every figure was read this session; nothing is carried from an earlier
   run or another packet, because the data moves and the appendix must
