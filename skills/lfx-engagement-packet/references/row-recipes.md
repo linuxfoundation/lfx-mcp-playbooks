@@ -463,7 +463,7 @@ service for seats, the warehouse's meeting data for attendance.
 
 The attendance model grouped by the stored meeting-type slice (recipe 12),
 circle 1, the applicant group, the window. One row per stored value, the
-untyped bucket (recipe 12: a stored "none" literal and a null, both
+untyped bucket (recipe 12: a stored 'None' literal and a null, both
 untyped) named "no type recorded". Ordered by attendances. When there are
 more stored values than the template has rows, the top rows stay and the
 remainder is one row that names the stored values it folds. The

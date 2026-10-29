@@ -41,12 +41,15 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
 
 ## Members, membership
 
-- **Default family reading:** memberships — "distinct project-account
-  pairs with an active term, status-based" as of today. "How many members
-  does CNCF have" is memberships in CNCF's programme, grain named.
-- **Other readings:** distinct member organisations (a company on three
-  programmes counts once) — the member-organisations family, and its
-  paying-only sibling; a past-date or
+- **Default family reading:** distinct member organisations — "distinct
+  organizations holding at least one active membership", status-based, as
+  of today (a company on three programmes counts once). "How many
+  members does CNCF have" is distinct member organisations in CNCF's
+  programme, grain named.
+- **Other readings:** memberships — project-account pairs with an active
+  term (a company on three programmes counts three times), the
+  memberships family, grain named; the paying-only sibling of the
+  default; a past-date or
   series reading is date-based, not status-based, and says "as of
   <date>" (read on today's date it runs above today's own figure: free
   memberships with an open-ended end date whose status has lapsed); the CRM's membership *records* for one company
@@ -186,7 +189,7 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   organisation is the speaker's account as resolved from the proposal,
   with a large unresolved row.
 - **Other readings:** every proposal status (a semantic-layer or
-  generated-SQL reading; about three times larger).
+  generated-SQL reading; reads higher).
 - **Offer it as:** "N accepted speakers; proposals in review or rejected
   are not counted."
 
@@ -214,10 +217,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   switch, or ad hoc through the layer's top-parent dimension on
   maintainers (two roots can share a name, so the identifier is the
   exact key); maintainer contributions — "code contributions by people
-  on today's maintainer roster of the segment", with a distinct
-  contributing-maintainers count beside the volume (the roster as of the
-  last activities build; the maintainers family's period reading uses
-  today's roster and differs by a few people). A roster matched against
+  on the maintainer roster of the activity's project", maintainership as
+  of the build (the applied definition says which roster the call read),
+  with a distinct contributing-maintainers count beside the volume. A
+  roster matched against
   a published maintainers file is matched on the GitHub identity, never
   on display names (the `lfx-figure-checking` skill's gotchas reference,
   Maintainer rosters).
@@ -244,7 +247,7 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   across days (a snapshot error). An ad hoc reading on the daily health
   fact is bounded to the rows carrying a v2 score — the layer exposes
   that population as a dimension on the daily health metrics — because
-  the unscored rows are a population of their own, roughly as large, and
+  the unscored rows are a population of their own and
   carry no score; the current-state metrics are already anchored on it
   and read each project's own latest day over the whole index unless
   filtered to LF-hosted projects — a different population from the pinned
