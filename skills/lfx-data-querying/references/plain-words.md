@@ -121,8 +121,9 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
   counts again); as a series, the current year is partial and flagged,
   and the years add up to the span.
 - **Other readings:** organisations new to the LF — the
-  new-member-organisations family counts arrivals (no membership anywhere
-  in the LF the day before; a lapsed account that rejoins counts again),
+  new-member-organisations family counts arrivals ("for the first time
+  or returning after a lapse, by install date"; a lapsed account that
+  rejoins counts again),
   at the LF, the foundation or the project as the applied block says;
   first-ever memberships, the layer's first-membership dimension on the
   membership rows (ad hoc; a same-day pair of installs counts twice, so

@@ -57,9 +57,9 @@ second reading bounded at today. Label: governed.
 
 **New member organisations.** Standard metrics, the
 new-member-organisations family LF-wide: organisations arriving in the
-year — no membership anywhere in the LF the day before, so a lapsed
-account that rejoins counts as new again, as the CRM counts New
-Business; the level of arrival named as the applied block gives it. A
+year — "for the first time or returning after a lapse, by install date",
+so a lapsed account that rejoins counts as new again; the level of
+arrival named as the applied block gives it. A
 "first time ever" slide is the layer's first-membership dimension, ad
 hoc, and says it counts memberships. Check: arrivals sit below the year's
 new memberships (an organisation joining two programmes is one here, two
@@ -292,9 +292,10 @@ visible to you; generated SQL only for the staff last-resort ranking.
 top sponsors.** Standard metrics, memberships family (list-price value of
 memberships (not events or training revenue), never divided by the
 count), by tier or by foundation or by region; sponsorships by
-organisation for the events side. Trap D16: non-dues revenue (events,
-training) is not in the memberships family, so a "largest funder" share
-is dues-only and the slide says so. Label: governed.
+organisation for the events side. Trap D16: events and training revenue
+are not in the memberships family, so a "largest funder" share is
+membership list-price value only (not events or training revenue) and
+the slide says so. Label: governed.
 
 **Top members by list-price value; concentration.** Memberships by
 organisation ordered by value, parent grain chosen and said (combined
