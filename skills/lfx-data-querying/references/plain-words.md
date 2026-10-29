@@ -264,9 +264,10 @@ repeat, not this file's paraphrase, when they differ. Mechanisms: the
 - **Default family reading:** for memberships, the member account's
   billing country, conformed, with an unresolved row ("accounts with no
   billing country or a spelling the lens does not resolve"); for
-  contributors and contributions, the person's own country, known for a
-  minority; for organisation region, the employer's headquarters. The LF
-  region grouping is provisional.
+  contributors, the person's own country and region, known for a
+  minority; for contributions, the employer's headquarters region only
+  (no country); for organisation region, the employer's headquarters.
+  The LF region grouping is provisional.
 - **Other readings:** the raw billing field (more rows, unconformed);
   where the work happens; for contributors, the employer-headquarters
   lens (organisation region), which can invert the ranking the person

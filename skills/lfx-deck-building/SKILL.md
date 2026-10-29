@@ -114,8 +114,10 @@ several times, not as noise. Use whichever applies:
   family read as one figure over the same span. The new-memberships
   family counts one row per project, organisation and install day, so
   its yearly rows add up to the same family read over the whole span,
-  and so do arrivals, churned memberships and departures (each is dated
-  once). A headcount series does not sum, and the folded figure is read
+  and so do churned memberships. Arrivals and departures count an
+  organisation once per period it arrived or departed in, so their
+  series can exceed the whole-span figure, which is read separately. A
+  headcount series does not sum, and the folded figure is read
   separately. The latest period is read again bounded at today and
   compared with the series' own to-date row. A series slide with no check
   line in the notes is the commonest miss.
