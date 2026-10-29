@@ -57,9 +57,9 @@ second reading bounded at today. Label: governed.
 
 **New member organisations.** Standard metrics, the
 new-member-organisations family LF-wide: organisations arriving in the
-year — no membership anywhere in the LF the day before, so a lapsed
-account that rejoins counts as new again, as the CRM counts New
-Business; the level of arrival named as the applied block gives it. A
+year — "for the first time or returning after a lapse, by install date",
+so a lapsed account that rejoins counts as new again; the level of
+arrival named as the applied block gives it. A
 "first time ever" slide is the layer's first-membership dimension, ad
 hoc, and says it counts memberships. Check: arrivals sit below the year's
 new memberships (an organisation joining two programmes is one here, two
@@ -140,12 +140,15 @@ the "took part" figure runs well above "wrote code" and the slide says
 why. Label: governed.
 
 **What developers do in a year: commits, pull requests, reviews, issues,
-by platform.** Semantic layer, activity counts by type and by platform,
-LF-wide, one window; each type is its own row and types are never summed
-into a "total" unless the metric is the total (D7: activity identifiers
-repeat across rows, so the obvious query over-counts; the governed
-distinct metric is the check). "Per day" figures are the window total
-divided by its days, said so. Label: ad hoc.
+by platform.** Code contribution volume by type and by platform is the
+contributions family, LF-wide, one window, each type its own row.
+Activity types outside code contribution (issues and the like) are the
+semantic layer's activity counts by type, same window. Types are never
+summed into a "total" unless the metric is the total (D7: activity
+identifiers repeat across rows, so the obvious query over-counts; the
+governed distinct metric is the check). "Per day" figures are the window
+total divided by its days, said so. Label: governed for the code types
+and platforms; ad hoc for the non-code types.
 
 **Contributors by project or foundation.** Standard metrics, contributors
 by project, or one call per foundation; a foundation row includes its
@@ -154,16 +157,17 @@ across rows. Label: governed.
 
 **Top organisations by contributors and by volume.** Standard metrics,
 contributors and contributions by organisation, parent grain chosen and
-said; the unattributed row is not an organisation and is dropped from the
-ranking (re-sort before the top-N); the unattributed share is stated once
-(D1: the employer is resolved for a minority of people, so every
-organisation headcount is a floor and shares are on the attributed base).
-Volume is the honest way to express share of work; headcount says how
-many people. Label: governed.
+said; the unattributed row is not an organisation and is set aside from
+the ranking and reported as the unattributed share (re-sort before the
+top-N), stated once (D1: the employer is resolved for a minority of
+people, so every organisation headcount is a floor and shares are on the
+attributed base). Volume is the honest way to express share of work;
+headcount says how many people. Label: governed.
 
 **Contribution and membership by region and country.** Standard metrics
-by country and region: contributions and contributors follow the person
-(known for a minority, D4), memberships follow the account's billing
+by country and region: contributors by country and region follow the
+person (known for a minority, D4); contributions offers only the
+employer's HQ region; memberships follow the account's billing
 country (near-complete coverage). The LF region grouping is provisional
 pending sign-off and the slide says so; "APAC" in the everyday sense is
 several stored rows together. Label: governed, region provisional.
@@ -172,19 +176,13 @@ several stored rows together. Label: governed, region provisional.
 
 **Maintainers, active maintainers.** Standard metrics, maintainers family:
 LF projects only, as of today, roster-based. An ad hoc count over the
-whole index reads higher. By company: the family by organisation
-(subsidiaries folded with the switch), or ad hoc by the layer's
-top-parent dimension. The family names the split — by role (maintainer,
-reviewer) and by source (the project's own repository, an inherited
-kernel tree, a seeded roster) — and the total, organisation and
-project readings carry the split columns beside the total: a slide
-that uses a split names it and pairs it with the total it was cut
-from, since a split alone reads as a total (the `lfx-figure-checking`
-skill's maintainer-rosters gotcha); a per-project row on a kernel-fork
-project keeps the inherited-tree caveat and, from the
-excluding-inherited column beside that row's total, says how much of
-the row came only with an inherited kernel tree or another seeded
-roster. Label: governed.
+whole index reads higher. By company: the family by organisation,
+subsidiaries folded with the switch; ad hoc only for a slice the switch
+cannot express. A slide that uses a split names it and pairs it with the
+total it was cut from; a kernel-fork row keeps the inherited-tree caveat.
+The split names, the split columns and the roster caveats: the
+standard-metrics guidance's maintainers row and the `lfx-data-querying`
+skill's plain-words reference (Maintainers). Label: governed.
 
 ## Section 5 — Project health and software value
 
@@ -292,11 +290,12 @@ visible to you; generated SQL only for the staff last-resort ranking.
 
 **Total current membership dues; dues by tier, by foundation, by region;
 top sponsors.** Standard metrics, memberships family (list-price value of
-active memberships, dues only, never divided by the count), by tier or by
-foundation or by region; sponsorships by organisation for the events
-side. Trap D16: non-dues revenue (events, training) is not in the
-memberships family, so a "largest funder" share is dues-only and the
-slide says so. Label: governed.
+memberships (not events or training revenue), never divided by the
+count), by tier or by foundation or by region; sponsorships by
+organisation for the events side. Trap D16: events and training revenue
+are not in the memberships family, so a "largest funder" share is
+membership list-price value only (not events or training revenue) and
+the slide says so. Label: governed.
 
 **Top members by list-price value; concentration.** Memberships by
 organisation ordered by value, parent grain chosen and said (combined

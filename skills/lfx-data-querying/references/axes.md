@@ -158,8 +158,9 @@ them; it never embellishes them. No parameters here, no counts.
 
 ## 7. Geography: whose country
 
-- **Selects:** contributor and contribution country and region follow the
-  person and are known for a minority; organisation region follows the
+- **Selects:** contributor country and region follow the person and are
+  known for a minority; contributions carry only the employer's
+  headquarters region, no country; organisation region follows the
   employer's headquarters; membership country is the account's billing
   country, conformed, with an unresolved row for accounts whose country is
   unknown or whose stored spelling did not resolve; the LF region grouping

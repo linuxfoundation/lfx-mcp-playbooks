@@ -73,10 +73,14 @@ company's position is read off the rows, and the rank is "among accounts
 holding at least one active membership". Never hand-sum accounts into a
 parent for a rank. Label: governed.
 
-**Since when; first membership ever.** The account's first LF membership
-date is an ad hoc dimension on the semantic layer today; the membership
-records give each term's dates. A "member since" claim quotes the
-earliest install date and says which. Label: ad hoc / visible to you.
+**Since when; first membership ever.** When the company joined or
+rejoined: the new-member-organisations family with the company as the
+organisation, as a period series — one row per window in which it
+arrived — governed. First membership ever is the layer's
+first-membership dimension, ad hoc, and says so. The membership records
+give each term's dates, visible to you. A "member since" claim quotes the
+earliest install date and says which. Label: governed / ad hoc / visible
+to you.
 
 **Growth of the company's memberships over the years.** Memberships as an
 at-date series by year for the company (date-based readings on past
@@ -95,8 +99,9 @@ governed.
 **Rank among companies, per project and LF-wide.** Contributions by
 organisation for the project (and with no project for LF-wide), parent or
 account grain held to the company's own grain; the unattributed row is not
-an organisation and is dropped before the position is read; the rank is
-"among organisations with a resolved employer". Label: governed.
+an organisation and is set aside before the position is read and
+reported as the unattributed share; the rank is "among organisations
+with a resolved employer". Label: governed.
 
 **Contributors and participants from the company.** Standard metrics,
 contributors (code) and participants (any non-bot activity, meetings and
@@ -113,20 +118,16 @@ governed.
 maintainers by project with the company as the organisation; LF projects
 only, as of today, roster-based. The group view (subsidiaries at any
 depth) is the family's subsidiaries switch, or ad hoc through the layer's
-top-parent dimension on maintainers, said so. Per-project maintainer
-counts include people the roster inherits from vendored Linux kernel
-trees on kernel-fork projects, and MAINTAINERS-file reviewers count as
-maintainers; a person maintaining two projects counts once in each. The
-family names the split — by role (maintainer, reviewer) and by source
-(the project's own repository, an inherited kernel tree, a seeded
-roster) — and the total, organisation and project readings carry the
-split columns beside the total: a slide that uses a split names it and
-pairs it with the total it was cut from, since a split alone reads as
-a total (on the layer a filtered split omits the groups with nothing
-in them); a kernel-fork row keeps the inherited-tree caveat and, from
-the excluding-inherited column beside that row's total, says how much
-of the row came only with an inherited kernel tree or another seeded
-roster. Label: governed / ad hoc.
+top-parent dimension on maintainers, said so. A slide that uses a split
+names it and pairs it with the total it was cut from; a kernel-fork row
+keeps the inherited-tree caveat and, from the excluding-inherited column
+beside its total, says how much of the row came only with an inherited
+kernel tree or another seeded roster; per-project counts carry the
+roster caveats (inherited kernel-tree rosters, MAINTAINERS-file
+reviewers, a person counted once per project), said once. The split
+names, the split columns and the roster caveats: the standard-metrics
+guidance's maintainers row and the `lfx-data-querying` skill's
+plain-words reference (Maintainers). Label: governed / ad hoc.
 
 **Share of a project's work.** Volume over the org-attributed base of the
 same metric, scope and window; the unattributed share stated once on the

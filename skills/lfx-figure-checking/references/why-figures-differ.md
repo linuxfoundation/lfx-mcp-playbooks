@@ -123,9 +123,9 @@ memberships are New Business installs at the install grain (a project,
 an organisation, a day): a second project counts again, a returning
 account counts again, and the yearly rows add up to the span. "New to
 the LF" is the new-member-organisations family, which counts arrivals:
-a term starting while the organisation held no membership anywhere in
-the LF the day before, so an organisation that lapsed and came back
-counts as new again, the way the CRM re-flags New Business; the level of
+distinct organisations that became members "for the first time or
+returning after a lapse, by install date", so an organisation that
+lapsed and came back counts as new again; the level of
 arrival follows the project switch (the LF with no project, the
 foundation for a root, the project with excluded) and is named in the
 applied block. First-ever is a separate reading, the layer's
@@ -137,10 +137,13 @@ paid term that ended with no other term of the organisation covering the
 next day, judged on that day, so a later return does not undo it, and a
 free term's lapse is not a departure. The churn date is the day after
 the term ends, so a year-end churn lands in the next year. As series,
-new memberships, arrivals, churned memberships and departures each add
-up across years. *SM* "Inventory" (new_members,
-membership_churn, lost_member_organizations); *SL* "Value discovery"
-(read the dimension's own description before filtering on it).
+new memberships and churned memberships add up across years; arrivals
+and departures count an organisation once per year it arrived or
+departed in, so a series can exceed one window's figure; a headcount
+series never adds. *SM* "Inventory" (new_members, membership_churn,
+new_member_organizations, lost_member_organizations); *SL* "Value
+discovery" (read the dimension's own description before filtering on
+it).
 
 **Roll-forward residues.** Start plus new minus churned never equals the
 end count, because the four are four populations. Memberships: the start
@@ -230,14 +233,17 @@ never in scope. *SL* "Scope"; *SM* "Projects and subprojects".
 
 ## People and activity
 
-**Contributors vs participants vs contributions.** People with a code
-contribution; people with a code contribution or a collaboration
-(issues, comments, reviews); the volume of code activity. Each sits
-inside the next. "How many developers took part" is participants — any
-non-bot activity, stars, forks, meetings and training included — and
-contributors is the narrower alternative, named as such; say which
-definition ran, from the definition sentence the result carries. *SM*
-"Reading results", "Inventory".
+**Contributors vs participants vs contributions.** Contributors are
+distinct code contributors, bots excluded; participants are distinct
+non-bot people with any activity in the window — code, issues, reviews,
+comments, stars, forks, meeting invitations and attendance, training and
+exams, Hacker News; contributions are code contribution volume,
+additive. Contributors sit inside participants; contributions are a
+volume, not a population. "How many developers took part" is
+participants — any non-bot activity, stars, forks, meetings and training
+included — and contributors is the narrower alternative, named as such;
+say which definition ran, from the definition sentence the result
+carries. *SM* "Reading results", "Inventory".
 
 **Bots.** Governed contributor and activity figures exclude bots; an ad
 hoc or generated-SQL figure includes them unless it says otherwise. *SM*

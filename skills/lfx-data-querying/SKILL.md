@@ -48,12 +48,12 @@ cross-domain joins and hierarchy shapes no standard metric expresses.
 Answers are labelled as generated SQL. Every answer opens with a **scope**
 line (LF-wide when no project scope was set) and carries the SQL it ran.
 Unknown slugs are rejected before any query runs. Never for social
-listening, people rankings or membership counts on any date — those are
-standard metrics. This is the fallback lane, for the shapes and domains
-the families and the layer do not cover yet: it interprets everyday
-words on its own (see the plain-words reference), so it is the last lane
-tried, and an answer that needed it says so in its provenance ("no
-governed reading for this shape today"). Guidance: "Routing".
+listening aggregates, people rankings or membership counts on any date —
+those are standard metrics. This is the fallback lane, for the shapes and
+domains the families and the layer do not cover yet: it interprets
+everyday words on its own (see the plain-words reference), so it is the
+last lane tried, and an answer that needed it says so in its provenance
+("no governed reading for this shape today"). Guidance: "Routing".
 
 **Service tools** — records, caller-visible counts and actions, never
 warehouse totals. Counts: `count_lfx_resources`. Names:
@@ -377,9 +377,10 @@ Answer with the default reading, name it in a clause, and offer the
 alternative in one sentence that says what the difference is — never the
 larger number by preference, never two readings as a contradiction.
 Organisations are legal organisations known to the CRM unless the reader
-asks for the broader inferred-employer view; members are memberships
-unless the reader asks for distinct organisations; developers who "took
-part" are participants, contributors the narrower reading. The family's
+asks for the broader inferred-employer view; members are distinct member
+organisations unless the reader asks for memberships (project-account
+pairs); developers who "took part" are participants, contributors the
+narrower reading. The family's
 `applied.definition` sentence is the default reading in the tool's words;
 repeat its meaning, never a paraphrase that widens it. The list, with the
 family's definition and the offer sentence for each word:
@@ -438,21 +439,21 @@ Symptom, cause, check and guidance section for each: the
 14. Year-to-date counts bound at today; installs can be future-dated. A
     window drops rows with no usable timestamp, so an all-time figure can
     exceed the sum of its windows — not an error, and said. New
-    memberships, arrivals, churn and departures each add up across
-    periods; a headcount series never does.
+    memberships and churned memberships add up across periods; arrivals
+    and departures count an organisation once per period it arrived or
+    departed in, so a series can exceed one window's figure; a headcount
+    series never adds.
 15. A figure is never averaged with, or adjusted toward, a figure from
     another dashboard, page or report: they differ by definition,
     population and refresh. A stated figure the reader brings is checked
     (the `lfx-figure-checking` skill names the mechanism and gives a
     verdict); a figure from another product is not: say what this figure
     covers and stop.
-16. Per-project maintainer counts include people the roster inherits
-    from vendored Linux kernel trees on kernel-fork projects, and
-    MAINTAINERS-file reviewers count as maintainers; a person maintaining
-    two projects counts once in each. Said with every per-project
-    figure. A figure that uses the family's split (by role, by source,
-    or a split column) names it and shows it beside the total it was
-    cut from; a split alone reads as a total:
+16. Per-project maintainer figures carry the family's caveats (inherited
+    kernel-tree rosters, MAINTAINERS-file reviewers, a person counted
+    once per project), said with every per-project figure; a figure
+    that uses the family's split names it and shows it beside the total
+    it was cut from, never alone:
     [references/plain-words.md](references/plain-words.md), Maintainers.
 17. "Who represents a company" is two records side by side — the
     membership's contact of record and the holder of a seat — each
